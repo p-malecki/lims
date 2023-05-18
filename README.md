@@ -1,2 +1,1 @@
-# lims
-Simplified LIMS project
+software engineering project
