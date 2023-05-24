@@ -16,7 +16,7 @@ public class Test {
         this.Max = max;
         this.Unit = unit;
     }
-
+        
     private uint ID;
 
     private string name;

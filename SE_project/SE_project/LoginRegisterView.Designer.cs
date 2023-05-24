@@ -38,6 +38,8 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
+            txtbNewEmail = new TextBox();
+            label11 = new Label();
             txtbNewAddress = new TextBox();
             label10 = new Label();
             numNewBirthdateYear = new NumericUpDown();
@@ -88,7 +90,6 @@
             txtbLogin.Name = "txtbLogin";
             txtbLogin.Size = new Size(304, 35);
             txtbLogin.TabIndex = 2;
-            txtbLogin.Text = "login";
             // 
             // txtbPasssword
             // 
@@ -119,7 +120,7 @@
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(217, 385);
+            btnLogin.Location = new Point(245, 395);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(239, 52);
             btnLogin.TabIndex = 6;
@@ -130,11 +131,11 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Dock = DockStyle.Top;
+            tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(743, 700);
+            tabControl1.Size = new Size(743, 629);
             tabControl1.TabIndex = 7;
             // 
             // tabPage1
@@ -150,13 +151,15 @@
             tabPage1.Location = new Point(4, 39);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(735, 657);
+            tabPage1.Size = new Size(735, 572);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Logowanie";
             // 
             // tabPage2
             // 
             tabPage2.BackColor = Color.WhiteSmoke;
+            tabPage2.Controls.Add(txtbNewEmail);
+            tabPage2.Controls.Add(label11);
             tabPage2.Controls.Add(txtbNewAddress);
             tabPage2.Controls.Add(label10);
             tabPage2.Controls.Add(numNewBirthdateYear);
@@ -177,9 +180,26 @@
             tabPage2.Location = new Point(4, 39);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(735, 657);
+            tabPage2.Size = new Size(735, 586);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Rejestracja";
+            // 
+            // txtbNewEmail
+            // 
+            txtbNewEmail.Location = new Point(332, 103);
+            txtbNewEmail.Name = "txtbNewEmail";
+            txtbNewEmail.Size = new Size(290, 35);
+            txtbNewEmail.TabIndex = 33;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.Location = new Point(114, 106);
+            label11.Name = "label11";
+            label11.Size = new Size(64, 30);
+            label11.TabIndex = 34;
+            label11.Text = "login";
             // 
             // txtbNewAddress
             // 
@@ -282,7 +302,7 @@
             // 
             // txtbNewLogin
             // 
-            txtbNewLogin.Location = new Point(332, 105);
+            txtbNewLogin.Location = new Point(332, 50);
             txtbNewLogin.Name = "txtbNewLogin";
             txtbNewLogin.Size = new Size(290, 35);
             txtbNewLogin.TabIndex = 9;
@@ -310,11 +330,11 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(114, 108);
+            label6.Location = new Point(114, 53);
             label6.Name = "label6";
-            label6.Size = new Size(64, 30);
+            label6.Size = new Size(66, 30);
             label6.TabIndex = 11;
-            label6.Text = "login";
+            label6.Text = "email";
             // 
             // txtbNewPassword
             // 
@@ -327,7 +347,7 @@
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(743, 650);
+            ClientSize = new Size(743, 629);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -373,5 +393,7 @@
         private NumericUpDown numNewBirthdateDay;
         private TextBox txtbNewAddress;
         private Label label10;
+        private TextBox txtbNewEmail;
+        private Label label11;
     }
 }

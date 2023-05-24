@@ -34,22 +34,23 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
             label1 = new Label();
+            groupBox2 = new GroupBox();
             groupBox1 = new GroupBox();
+            btnAddTest = new Button();
+            cbAddUnits = new ComboBox();
+            label7 = new Label();
+            label6 = new Label();
+            cbAddCategory = new ComboBox();
+            txtbAddName = new TextBox();
+            numAddMin = new NumericUpDown();
+            numAddMax = new NumericUpDown();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
             txtbAddID = new TextBox();
             tabPage2 = new TabPage();
             testListPanel = new FlowLayoutPanel();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            numAddMax = new NumericUpDown();
-            numAddMin = new NumericUpDown();
-            txtbAddName = new TextBox();
-            cbAddCategory = new ComboBox();
-            label6 = new Label();
-            label7 = new Label();
-            cbAddUnits = new ComboBox();
-            btnAddTest = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -58,9 +59,9 @@
             splitContainer1.SuspendLayout();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
-            tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numAddMax).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numAddMin).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numAddMax).BeginInit();
+            tabPage2.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -98,6 +99,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(groupBox2);
             splitContainer1.Panel2.Controls.Add(groupBox1);
             splitContainer1.Size = new Size(1590, 1070);
             splitContainer1.SplitterDistance = 776;
@@ -130,6 +132,15 @@
             label1.TabIndex = 0;
             label1.Text = "Lista badań";
             // 
+            // groupBox2
+            // 
+            groupBox2.Location = new Point(91, 701);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(561, 293);
+            groupBox2.TabIndex = 3;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "groupBox2";
+            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(btnAddTest);
@@ -145,12 +156,116 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(txtbAddID);
-            groupBox1.Location = new Point(94, 272);
+            groupBox1.Location = new Point(91, 175);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(561, 477);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "nowe badanie";
+            // 
+            // btnAddTest
+            // 
+            btnAddTest.Location = new Point(200, 405);
+            btnAddTest.Name = "btnAddTest";
+            btnAddTest.Size = new Size(174, 40);
+            btnAddTest.TabIndex = 14;
+            btnAddTest.Text = "dodaj";
+            btnAddTest.UseVisualStyleBackColor = true;
+            // 
+            // cbAddUnits
+            // 
+            cbAddUnits.FormattingEnabled = true;
+            cbAddUnits.Location = new Point(314, 332);
+            cbAddUnits.Name = "cbAddUnits";
+            cbAddUnits.Size = new Size(169, 38);
+            cbAddUnits.TabIndex = 13;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(78, 335);
+            label7.Name = "label7";
+            label7.Size = new Size(96, 30);
+            label7.TabIndex = 12;
+            label7.Text = "jednostki";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(77, 283);
+            label6.Name = "label6";
+            label6.Size = new Size(205, 30);
+            label6.TabIndex = 11;
+            label6.Text = "wartość maksymalna";
+            // 
+            // cbAddCategory
+            // 
+            cbAddCategory.FormattingEnabled = true;
+            cbAddCategory.Location = new Point(200, 173);
+            cbAddCategory.Name = "cbAddCategory";
+            cbAddCategory.Size = new Size(283, 38);
+            cbAddCategory.TabIndex = 10;
+            // 
+            // txtbAddName
+            // 
+            txtbAddName.Location = new Point(200, 122);
+            txtbAddName.Name = "txtbAddName";
+            txtbAddName.Size = new Size(283, 35);
+            txtbAddName.TabIndex = 9;
+            // 
+            // numAddMin
+            // 
+            numAddMin.DecimalPlaces = 3;
+            numAddMin.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
+            numAddMin.Location = new Point(388, 226);
+            numAddMin.Name = "numAddMin";
+            numAddMin.Size = new Size(95, 35);
+            numAddMin.TabIndex = 6;
+            // 
+            // numAddMax
+            // 
+            numAddMax.DecimalPlaces = 3;
+            numAddMax.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
+            numAddMax.Location = new Point(388, 278);
+            numAddMax.Name = "numAddMax";
+            numAddMax.Size = new Size(95, 35);
+            numAddMax.TabIndex = 5;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(77, 231);
+            label5.Name = "label5";
+            label5.Size = new Size(187, 30);
+            label5.TabIndex = 4;
+            label5.Text = "wartość minimalna";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(75, 178);
+            label4.Name = "label4";
+            label4.Size = new Size(99, 30);
+            label4.TabIndex = 3;
+            label4.Text = "kategoria";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(77, 125);
+            label3.Name = "label3";
+            label3.Size = new Size(72, 30);
+            label3.TabIndex = 2;
+            label3.Text = "nazwa";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(77, 71);
+            label2.Name = "label2";
+            label2.Size = new Size(34, 30);
+            label2.TabIndex = 1;
+            label2.Text = "ID";
             // 
             // txtbAddID
             // 
@@ -172,114 +287,10 @@
             // 
             // testListPanel
             // 
-            testListPanel.Location = new Point(34, 61);
+            testListPanel.Location = new Point(122, 68);
             testListPanel.Name = "testListPanel";
             testListPanel.Size = new Size(757, 926);
             testListPanel.TabIndex = 0;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(77, 71);
-            label2.Name = "label2";
-            label2.Size = new Size(34, 30);
-            label2.TabIndex = 1;
-            label2.Text = "ID";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(77, 125);
-            label3.Name = "label3";
-            label3.Size = new Size(72, 30);
-            label3.TabIndex = 2;
-            label3.Text = "nazwa";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(75, 178);
-            label4.Name = "label4";
-            label4.Size = new Size(99, 30);
-            label4.TabIndex = 3;
-            label4.Text = "kategoria";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(77, 231);
-            label5.Name = "label5";
-            label5.Size = new Size(187, 30);
-            label5.TabIndex = 4;
-            label5.Text = "wartość minimalna";
-            // 
-            // numAddMax
-            // 
-            numAddMax.DecimalPlaces = 3;
-            numAddMax.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            numAddMax.Location = new Point(388, 278);
-            numAddMax.Name = "numAddMax";
-            numAddMax.Size = new Size(95, 35);
-            numAddMax.TabIndex = 5;
-            // 
-            // numAddMin
-            // 
-            numAddMin.DecimalPlaces = 3;
-            numAddMin.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            numAddMin.Location = new Point(388, 226);
-            numAddMin.Name = "numAddMin";
-            numAddMin.Size = new Size(95, 35);
-            numAddMin.TabIndex = 6;
-            // 
-            // txtbAddName
-            // 
-            txtbAddName.Location = new Point(200, 122);
-            txtbAddName.Name = "txtbAddName";
-            txtbAddName.Size = new Size(283, 35);
-            txtbAddName.TabIndex = 9;
-            // 
-            // cbAddCategory
-            // 
-            cbAddCategory.FormattingEnabled = true;
-            cbAddCategory.Location = new Point(200, 173);
-            cbAddCategory.Name = "cbAddCategory";
-            cbAddCategory.Size = new Size(283, 38);
-            cbAddCategory.TabIndex = 10;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(77, 283);
-            label6.Name = "label6";
-            label6.Size = new Size(205, 30);
-            label6.TabIndex = 11;
-            label6.Text = "wartość maksymalna";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(78, 335);
-            label7.Name = "label7";
-            label7.Size = new Size(96, 30);
-            label7.TabIndex = 12;
-            label7.Text = "jednostki";
-            // 
-            // cbAddUnits
-            // 
-            cbAddUnits.FormattingEnabled = true;
-            cbAddUnits.Location = new Point(314, 332);
-            cbAddUnits.Name = "cbAddUnits";
-            cbAddUnits.Size = new Size(169, 38);
-            cbAddUnits.TabIndex = 13;
-            // 
-            // btnAddTest
-            // 
-            btnAddTest.Location = new Point(200, 405);
-            btnAddTest.Name = "btnAddTest";
-            btnAddTest.Size = new Size(174, 40);
-            btnAddTest.TabIndex = 14;
-            btnAddTest.Text = "dodaj";
-            btnAddTest.UseVisualStyleBackColor = true;
             // 
             // AdminView
             // 
@@ -299,9 +310,9 @@
             panel1.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)numAddMax).EndInit();
             ((System.ComponentModel.ISupportInitialize)numAddMin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numAddMax).EndInit();
+            tabPage2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -329,5 +340,6 @@
         private TextBox txtbAddName;
         private NumericUpDown numAddMin;
         private NumericUpDown numAddMax;
+        private GroupBox groupBox2;
     }
 }
