@@ -1,6 +1,6 @@
 ﻿namespace SE_project
 {
-    partial class Form1
+    partial class LoginRegisterView
     {
         /// <summary>
         ///  Required designer variable.
@@ -38,6 +38,13 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
+            txtbNewAddress = new TextBox();
+            label10 = new Label();
+            numNewBirthdateYear = new NumericUpDown();
+            numNewBirthdateMonth = new NumericUpDown();
+            numNewBirthdateDay = new NumericUpDown();
+            label9 = new Label();
+            txtbNewSurname = new TextBox();
             label8 = new Label();
             txtbNewPesel = new TextBox();
             label7 = new Label();
@@ -48,19 +55,12 @@
             label4 = new Label();
             label6 = new Label();
             txtbNewPassword = new TextBox();
-            label9 = new Label();
-            txtbNewSurname = new TextBox();
-            numNewBirthdateDay = new NumericUpDown();
-            numNewBirthdateMonth = new NumericUpDown();
-            numNewBirthdateYear = new NumericUpDown();
-            label10 = new Label();
-            txtbNewAddress = new TextBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numNewBirthdateDay).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numNewBirthdateMonth).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numNewBirthdateYear).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numNewBirthdateMonth).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numNewBirthdateDay).BeginInit();
             SuspendLayout();
             // 
             // cbLoginType
@@ -88,6 +88,7 @@
             txtbLogin.Name = "txtbLogin";
             txtbLogin.Size = new Size(304, 35);
             txtbLogin.TabIndex = 2;
+            txtbLogin.Text = "login";
             // 
             // txtbPasssword
             // 
@@ -180,6 +181,61 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Rejestracja";
             // 
+            // txtbNewAddress
+            // 
+            txtbNewAddress.Location = new Point(332, 407);
+            txtbNewAddress.Name = "txtbNewAddress";
+            txtbNewAddress.Size = new Size(290, 35);
+            txtbNewAddress.TabIndex = 32;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.Location = new Point(117, 407);
+            label10.Name = "label10";
+            label10.Size = new Size(200, 30);
+            label10.TabIndex = 31;
+            label10.Text = "adres zamieszkania";
+            // 
+            // numNewBirthdateYear
+            // 
+            numNewBirthdateYear.Location = new Point(523, 304);
+            numNewBirthdateYear.Name = "numNewBirthdateYear";
+            numNewBirthdateYear.Size = new Size(99, 35);
+            numNewBirthdateYear.TabIndex = 30;
+            // 
+            // numNewBirthdateMonth
+            // 
+            numNewBirthdateMonth.Location = new Point(426, 304);
+            numNewBirthdateMonth.Name = "numNewBirthdateMonth";
+            numNewBirthdateMonth.Size = new Size(74, 35);
+            numNewBirthdateMonth.TabIndex = 29;
+            // 
+            // numNewBirthdateDay
+            // 
+            numNewBirthdateDay.Location = new Point(332, 304);
+            numNewBirthdateDay.Name = "numNewBirthdateDay";
+            numNewBirthdateDay.Size = new Size(74, 35);
+            numNewBirthdateDay.TabIndex = 28;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(117, 256);
+            label9.Name = "label9";
+            label9.Size = new Size(104, 30);
+            label9.TabIndex = 27;
+            label9.Text = "nazwisko";
+            // 
+            // txtbNewSurname
+            // 
+            txtbNewSurname.Location = new Point(332, 253);
+            txtbNewSurname.Name = "txtbNewSurname";
+            txtbNewSurname.Size = new Size(290, 35);
+            txtbNewSurname.TabIndex = 26;
+            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -267,77 +323,24 @@
             txtbNewPassword.Size = new Size(290, 35);
             txtbNewPassword.TabIndex = 10;
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(117, 256);
-            label9.Name = "label9";
-            label9.Size = new Size(104, 30);
-            label9.TabIndex = 27;
-            label9.Text = "nazwisko";
-            // 
-            // txtbNewSurname
-            // 
-            txtbNewSurname.Location = new Point(332, 253);
-            txtbNewSurname.Name = "txtbNewSurname";
-            txtbNewSurname.Size = new Size(290, 35);
-            txtbNewSurname.TabIndex = 26;
-            // 
-            // numNewBirthdateDay
-            // 
-            numNewBirthdateDay.Location = new Point(332, 304);
-            numNewBirthdateDay.Name = "numNewBirthdateDay";
-            numNewBirthdateDay.Size = new Size(74, 35);
-            numNewBirthdateDay.TabIndex = 28;
-            // 
-            // numNewBirthdateMonth
-            // 
-            numNewBirthdateMonth.Location = new Point(426, 304);
-            numNewBirthdateMonth.Name = "numNewBirthdateMonth";
-            numNewBirthdateMonth.Size = new Size(74, 35);
-            numNewBirthdateMonth.TabIndex = 29;
-            // 
-            // numNewBirthdateYear
-            // 
-            numNewBirthdateYear.Location = new Point(523, 304);
-            numNewBirthdateYear.Name = "numNewBirthdateYear";
-            numNewBirthdateYear.Size = new Size(99, 35);
-            numNewBirthdateYear.TabIndex = 30;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(117, 407);
-            label10.Name = "label10";
-            label10.Size = new Size(200, 30);
-            label10.TabIndex = 31;
-            label10.Text = "adres zamieszkania";
-            // 
-            // txtbNewAddress
-            // 
-            txtbNewAddress.Location = new Point(332, 407);
-            txtbNewAddress.Name = "txtbNewAddress";
-            txtbNewAddress.Size = new Size(290, 35);
-            txtbNewAddress.TabIndex = 32;
-            // 
-            // Form1
+            // LoginRegisterView
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(743, 650);
             Controls.Add(tabControl1);
-            Name = "Form1";
-            Text = "Form1";
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "LoginRegisterView";
+            Text = "LIS";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numNewBirthdateDay).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numNewBirthdateMonth).EndInit();
             ((System.ComponentModel.ISupportInitialize)numNewBirthdateYear).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numNewBirthdateMonth).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numNewBirthdateDay).EndInit();
             ResumeLayout(false);
         }
 

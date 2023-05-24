@@ -1,5 +1,4 @@
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.AssemblyReference.cache
-C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.Form1.resources
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.GenerateResource.cache
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AssemblyInfoInputs.cache
@@ -15,3 +14,8 @@ C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\S
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.pdb
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.genruntimeconfig.cache
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\ref\SE_project.dll
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AdminView.resources
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.ClientView.resources
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.LoginRegisterView.resources
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.TechnicianView.resources
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.testItem.resources
