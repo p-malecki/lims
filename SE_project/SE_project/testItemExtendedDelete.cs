@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SE_project
 {
-    public partial class testItem : UserControl
+    public partial class testItemExtendedDelete : UserControl
     {
-        public testItem()
+        public testItemExtendedDelete()
         {
             InitializeComponent();
         }

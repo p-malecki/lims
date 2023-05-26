@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
+            this.SuspendLayout();
             // 
             // TechnicianView
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1648, 1199);
-            Name = "TechnicianView";
-            Text = "TechnicianView";
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1648, 1199);
+            this.Name = "TechnicianView";
+            this.Text = "LIS Technik";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\jmgra\\.nuget\\packages\\": {}
+    "C:\\Users\\pawel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jmgra\\Documents\\Projekty\\p-malecki\\lis\\SE_project\\SE_project\\SE_project.csproj",
+      "projectUniqueName": "C:\\Users\\pawel\\Documents\\projects\\lis\\SE_project\\SE_project\\SE_project.csproj",
       "projectName": "SE_project",
-      "projectPath": "C:\\Users\\jmgra\\Documents\\Projekty\\p-malecki\\lis\\SE_project\\SE_project\\SE_project.csproj",
-      "packagesPath": "C:\\Users\\jmgra\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jmgra\\Documents\\Projekty\\p-malecki\\lis\\SE_project\\SE_project\\obj\\",
+      "projectPath": "C:\\Users\\pawel\\Documents\\projects\\lis\\SE_project\\SE_project\\SE_project.csproj",
+      "packagesPath": "C:\\Users\\pawel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pawel\\Documents\\projects\\lis\\SE_project\\SE_project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jmgra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pawel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

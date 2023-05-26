@@ -28,292 +28,329 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            splitContainer1 = new SplitContainer();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            panel1 = new Panel();
-            label1 = new Label();
-            groupBox2 = new GroupBox();
-            groupBox1 = new GroupBox();
-            btnAddTest = new Button();
-            cbAddUnits = new ComboBox();
-            label7 = new Label();
-            label6 = new Label();
-            cbAddCategory = new ComboBox();
-            txtbAddName = new TextBox();
-            numAddMin = new NumericUpDown();
-            numAddMax = new NumericUpDown();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
-            txtbAddID = new TextBox();
-            tabPage2 = new TabPage();
-            testListPanel = new FlowLayoutPanel();
-            tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
-            splitContainer1.Panel1.SuspendLayout();
-            splitContainer1.Panel2.SuspendLayout();
-            splitContainer1.SuspendLayout();
-            panel1.SuspendLayout();
-            groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numAddMin).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numAddMax).BeginInit();
-            tabPage2.SuspendLayout();
-            SuspendLayout();
-            // 
-            // tabControl1
-            // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Dock = DockStyle.Top;
-            tabControl1.Location = new Point(0, 0);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1604, 1119);
-            tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            tabPage1.Controls.Add(splitContainer1);
-            tabPage1.Location = new Point(4, 39);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1596, 1076);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "dodawanie badań";
-            tabPage1.UseVisualStyleBackColor = true;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminView));
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnAddCategory = new System.Windows.Forms.Button();
+            this.txtbAddCategoryName = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddTest = new System.Windows.Forms.Button();
+            this.cbAddTestUnits = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbAddTestCategory = new System.Windows.Forms.ComboBox();
+            this.txtbAddTestName = new System.Windows.Forms.TextBox();
+            this.numAddTestMin = new System.Windows.Forms.NumericUpDown();
+            this.numAddTestMax = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtbAddTestID = new System.Windows.Forms.TextBox();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnDelCategory = new System.Windows.Forms.Button();
+            this.cbDelSelectCategory = new System.Windows.Forms.ComboBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.testItem3 = new SE_project.testItem();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAddTestMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAddTestMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.SuspendLayout();
             // 
             // splitContainer1
             // 
-            splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(3, 3);
-            splitContainer1.Name = "splitContainer1";
+            resources.ApplyResources(this.splitContainer1, "splitContainer1");
+            this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.Controls.Add(flowLayoutPanel1);
-            splitContainer1.Panel1.Controls.Add(panel1);
+            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
+            this.splitContainer1.Panel1.Controls.Add(this.flowLayoutPanel1);
+            this.splitContainer1.Panel1.Controls.Add(this.panel1);
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(groupBox2);
-            splitContainer1.Panel2.Controls.Add(groupBox1);
-            splitContainer1.Size = new Size(1590, 1070);
-            splitContainer1.SplitterDistance = 776;
-            splitContainer1.TabIndex = 4;
+            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(0, 175);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(776, 895);
-            flowLayoutPanel1.TabIndex = 1;
+            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
+            this.flowLayoutPanel1.Controls.Add(this.testItem3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
             // panel1
             // 
-            panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(776, 175);
-            panel1.TabIndex = 0;
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Name = "panel1";
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(306, 70);
-            label1.Name = "label1";
-            label1.Size = new Size(125, 30);
-            label1.TabIndex = 0;
-            label1.Text = "Lista badań";
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // groupBox2
             // 
-            groupBox2.Location = new Point(91, 701);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(561, 293);
-            groupBox2.TabIndex = 3;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "groupBox2";
+            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.btnAddCategory);
+            this.groupBox2.Controls.Add(this.txtbAddCategoryName);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.TabStop = false;
+            // 
+            // btnAddCategory
+            // 
+            resources.ApplyResources(this.btnAddCategory, "btnAddCategory");
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.UseVisualStyleBackColor = true;
+            // 
+            // txtbAddCategoryName
+            // 
+            resources.ApplyResources(this.txtbAddCategoryName, "txtbAddCategoryName");
+            this.txtbAddCategoryName.Name = "txtbAddCategoryName";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(btnAddTest);
-            groupBox1.Controls.Add(cbAddUnits);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(cbAddCategory);
-            groupBox1.Controls.Add(txtbAddName);
-            groupBox1.Controls.Add(numAddMin);
-            groupBox1.Controls.Add(numAddMax);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(txtbAddID);
-            groupBox1.Location = new Point(91, 175);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(561, 477);
-            groupBox1.TabIndex = 2;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "nowe badanie";
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.btnAddTest);
+            this.groupBox1.Controls.Add(this.cbAddTestUnits);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.cbAddTestCategory);
+            this.groupBox1.Controls.Add(this.txtbAddTestName);
+            this.groupBox1.Controls.Add(this.numAddTestMin);
+            this.groupBox1.Controls.Add(this.numAddTestMax);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtbAddTestID);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
             // 
             // btnAddTest
             // 
-            btnAddTest.Location = new Point(200, 405);
-            btnAddTest.Name = "btnAddTest";
-            btnAddTest.Size = new Size(174, 40);
-            btnAddTest.TabIndex = 14;
-            btnAddTest.Text = "dodaj";
-            btnAddTest.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btnAddTest, "btnAddTest");
+            this.btnAddTest.Name = "btnAddTest";
+            this.btnAddTest.UseVisualStyleBackColor = true;
             // 
-            // cbAddUnits
+            // cbAddTestUnits
             // 
-            cbAddUnits.FormattingEnabled = true;
-            cbAddUnits.Location = new Point(314, 332);
-            cbAddUnits.Name = "cbAddUnits";
-            cbAddUnits.Size = new Size(169, 38);
-            cbAddUnits.TabIndex = 13;
+            resources.ApplyResources(this.cbAddTestUnits, "cbAddTestUnits");
+            this.cbAddTestUnits.FormattingEnabled = true;
+            this.cbAddTestUnits.Name = "cbAddTestUnits";
             // 
             // label7
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(78, 335);
-            label7.Name = "label7";
-            label7.Size = new Size(96, 30);
-            label7.TabIndex = 12;
-            label7.Text = "jednostki";
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(77, 283);
-            label6.Name = "label6";
-            label6.Size = new Size(205, 30);
-            label6.TabIndex = 11;
-            label6.Text = "wartość maksymalna";
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
             // 
-            // cbAddCategory
+            // cbAddTestCategory
             // 
-            cbAddCategory.FormattingEnabled = true;
-            cbAddCategory.Location = new Point(200, 173);
-            cbAddCategory.Name = "cbAddCategory";
-            cbAddCategory.Size = new Size(283, 38);
-            cbAddCategory.TabIndex = 10;
+            resources.ApplyResources(this.cbAddTestCategory, "cbAddTestCategory");
+            this.cbAddTestCategory.FormattingEnabled = true;
+            this.cbAddTestCategory.Name = "cbAddTestCategory";
             // 
-            // txtbAddName
+            // txtbAddTestName
             // 
-            txtbAddName.Location = new Point(200, 122);
-            txtbAddName.Name = "txtbAddName";
-            txtbAddName.Size = new Size(283, 35);
-            txtbAddName.TabIndex = 9;
+            resources.ApplyResources(this.txtbAddTestName, "txtbAddTestName");
+            this.txtbAddTestName.Name = "txtbAddTestName";
             // 
-            // numAddMin
+            // numAddTestMin
             // 
-            numAddMin.DecimalPlaces = 3;
-            numAddMin.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            numAddMin.Location = new Point(388, 226);
-            numAddMin.Name = "numAddMin";
-            numAddMin.Size = new Size(95, 35);
-            numAddMin.TabIndex = 6;
+            resources.ApplyResources(this.numAddTestMin, "numAddTestMin");
+            this.numAddTestMin.DecimalPlaces = 3;
+            this.numAddTestMin.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numAddTestMin.Name = "numAddTestMin";
             // 
-            // numAddMax
+            // numAddTestMax
             // 
-            numAddMax.DecimalPlaces = 3;
-            numAddMax.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            numAddMax.Location = new Point(388, 278);
-            numAddMax.Name = "numAddMax";
-            numAddMax.Size = new Size(95, 35);
-            numAddMax.TabIndex = 5;
+            resources.ApplyResources(this.numAddTestMax, "numAddTestMax");
+            this.numAddTestMax.DecimalPlaces = 3;
+            this.numAddTestMax.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numAddTestMax.Name = "numAddTestMax";
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(77, 231);
-            label5.Name = "label5";
-            label5.Size = new Size(187, 30);
-            label5.TabIndex = 4;
-            label5.Text = "wartość minimalna";
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(75, 178);
-            label4.Name = "label4";
-            label4.Size = new Size(99, 30);
-            label4.TabIndex = 3;
-            label4.Text = "kategoria";
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(77, 125);
-            label3.Name = "label3";
-            label3.Size = new Size(72, 30);
-            label3.TabIndex = 2;
-            label3.Text = "nazwa";
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(77, 71);
-            label2.Name = "label2";
-            label2.Size = new Size(34, 30);
-            label2.TabIndex = 1;
-            label2.Text = "ID";
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
             // 
-            // txtbAddID
+            // txtbAddTestID
             // 
-            txtbAddID.Location = new Point(200, 66);
-            txtbAddID.Name = "txtbAddID";
-            txtbAddID.Size = new Size(283, 35);
-            txtbAddID.TabIndex = 0;
+            resources.ApplyResources(this.txtbAddTestID, "txtbAddTestID");
+            this.txtbAddTestID.Name = "txtbAddTestID";
+            // 
+            // splitContainer2
+            // 
+            resources.ApplyResources(this.splitContainer2, "splitContainer2");
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            resources.ApplyResources(this.splitContainer2.Panel1, "splitContainer2.Panel1");
+            this.splitContainer2.Panel1.Controls.Add(this.flowLayoutPanel2);
+            this.splitContainer2.Panel1.Controls.Add(this.panel2);
+            // 
+            // splitContainer2.Panel2
+            // 
+            resources.ApplyResources(this.splitContainer2.Panel2, "splitContainer2.Panel2");
+            this.splitContainer2.Panel2.Controls.Add(this.groupBox3);
+            // 
+            // flowLayoutPanel2
+            // 
+            resources.ApplyResources(this.flowLayoutPanel2, "flowLayoutPanel2");
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            // 
+            // panel2
+            // 
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Name = "panel2";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            // 
+            // groupBox3
+            // 
+            resources.ApplyResources(this.groupBox3, "groupBox3");
+            this.groupBox3.Controls.Add(this.btnDelCategory);
+            this.groupBox3.Controls.Add(this.cbDelSelectCategory);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.TabStop = false;
+            // 
+            // btnDelCategory
+            // 
+            resources.ApplyResources(this.btnDelCategory, "btnDelCategory");
+            this.btnDelCategory.Name = "btnDelCategory";
+            this.btnDelCategory.UseVisualStyleBackColor = true;
+            // 
+            // cbDelSelectCategory
+            // 
+            resources.ApplyResources(this.cbDelSelectCategory, "cbDelSelectCategory");
+            this.cbDelSelectCategory.FormattingEnabled = true;
+            this.cbDelSelectCategory.Name = "cbDelSelectCategory";
+            // 
+            // tabControl1
+            // 
+            resources.ApplyResources(this.tabControl1, "tabControl1");
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            // 
+            // tabPage1
+            // 
+            resources.ApplyResources(this.tabPage1, "tabPage1");
+            this.tabPage1.Controls.Add(this.splitContainer1);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(testListPanel);
-            tabPage2.Location = new Point(4, 39);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1596, 1076);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "usuwanie badań";
-            tabPage2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.tabPage2, "tabPage2");
+            this.tabPage2.Controls.Add(this.splitContainer2);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // testListPanel
+            // testItem3
             // 
-            testListPanel.Location = new Point(122, 68);
-            testListPanel.Name = "testListPanel";
-            testListPanel.Size = new Size(757, 926);
-            testListPanel.TabIndex = 0;
+            resources.ApplyResources(this.testItem3, "testItem3");
+            this.testItem3.Name = "testItem3";
             // 
             // AdminView
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1604, 1117);
-            Controls.Add(tabControl1);
-            Name = "AdminView";
-            Text = "AdminView";
-            tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            splitContainer1.Panel1.ResumeLayout(false);
-            splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
-            splitContainer1.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numAddMin).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numAddMax).EndInit();
-            tabPage2.ResumeLayout(false);
-            ResumeLayout(false);
+            resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tabControl1);
+            this.Name = "AdminView";
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAddTestMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAddTestMax)).EndInit();
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -321,25 +358,37 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private FlowLayoutPanel testListPanel;
         private SplitContainer splitContainer1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel1;
         private Label label1;
         private GroupBox groupBox1;
-        private TextBox txtbAddID;
+        private TextBox txtbAddTestID;
         private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
         private Button btnAddTest;
-        private ComboBox cbAddUnits;
+        private ComboBox cbAddTestUnits;
         private Label label7;
         private Label label6;
-        private ComboBox cbAddCategory;
-        private TextBox txtbAddName;
-        private NumericUpDown numAddMin;
-        private NumericUpDown numAddMax;
+        private ComboBox cbAddTestCategory;
+        private TextBox txtbAddTestName;
+        private NumericUpDown numAddTestMin;
+        private NumericUpDown numAddTestMax;
         private GroupBox groupBox2;
+        private Button btnAddCategory;
+        private TextBox txtbAddCategoryName;
+        private Label label8;
+        private SplitContainer splitContainer2;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private Panel panel2;
+        private Label label9;
+        private GroupBox groupBox3;
+        private Button btnDelCategory;
+        private ComboBox cbDelSelectCategory;
+        private testItemExtended testItem1;
+        private testItemExtended testItem2;
+        private testItem testItem3;
     }
 }

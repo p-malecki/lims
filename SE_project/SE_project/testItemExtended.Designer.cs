@@ -1,6 +1,6 @@
 ﻿namespace SE_project
 {
-    partial class testItem
+    partial class testItemExtended
     {
         /// <summary> 
         /// Required designer variable.
