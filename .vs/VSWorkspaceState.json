@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SE_project",
+    "\\SE_project\\SE_project"
   ],
+  "SelectedNode": "\\SE_project\\SE_project\\AdminView.cs",
   "PreviewInSolutionExplorer": false
 }
