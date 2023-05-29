@@ -176,11 +176,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(157, 45);
+            label2.Location = new Point(168, 43);
             label2.Name = "label2";
-            label2.Size = new Size(175, 20);
+            label2.Size = new Size(131, 20);
             label2.TabIndex = 0;
-            label2.Text = "lista badań do akceptacji";
+            label2.Text = "lista historii badań";
             // 
             // flowLayoutPanel2
             // 
@@ -317,9 +317,9 @@
             label7.AutoSize = true;
             label7.Location = new Point(157, 45);
             label7.Name = "label7";
-            label7.Size = new Size(175, 20);
+            label7.Size = new Size(203, 20);
             label7.TabIndex = 0;
-            label7.Text = "lista badań do akceptacji";
+            label7.Text = "lista badań zaakceptowanych";
             // 
             // flowLayoutPanel3
             // 
