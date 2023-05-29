@@ -18,7 +18,6 @@ C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\S
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.ClientView.resources
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.LoginRegisterView.resources
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.TechnicianView.resources
-C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.testItem.resources
 C:\Users\jmgra\Documents\Projekty\p-malecki\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.exe
 C:\Users\jmgra\Documents\Projekty\p-malecki\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.deps.json
 C:\Users\jmgra\Documents\Projekty\p-malecki\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.runtimeconfig.json
@@ -61,3 +60,8 @@ C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-win
 C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.pdb
 C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.genruntimeconfig.cache
 C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-windows\ref\SE_project.dll
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.testItemExtended.resources
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.testItemExtendedDelete.resources
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AdminView.aa-DJ.resources
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\bin\Debug\net6.0-windows\aa-DJ\SE_project.resources.dll
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\aa-DJ\SE_project.resources.dll

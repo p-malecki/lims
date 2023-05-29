@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginRegisterView));
             cbLoginType = new ComboBox();
             label1 = new Label();
             txtbLogin = new TextBox();
@@ -72,7 +73,7 @@
             cbLoginType.Location = new Point(268, 296);
             cbLoginType.Name = "cbLoginType";
             cbLoginType.Size = new Size(281, 38);
-            cbLoginType.TabIndex = 0;
+            cbLoginType.TabIndex = 2;
             // 
             // label1
             // 
@@ -89,14 +90,14 @@
             txtbLogin.Location = new Point(245, 172);
             txtbLogin.Name = "txtbLogin";
             txtbLogin.Size = new Size(304, 35);
-            txtbLogin.TabIndex = 2;
+            txtbLogin.TabIndex = 0;
             // 
             // txtbPasssword
             // 
             txtbPasssword.Location = new Point(245, 235);
             txtbPasssword.Name = "txtbPasssword";
             txtbPasssword.Size = new Size(304, 35);
-            txtbPasssword.TabIndex = 3;
+            txtbPasssword.TabIndex = 1;
             // 
             // label2
             // 
@@ -123,7 +124,7 @@
             btnLogin.Location = new Point(245, 395);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(239, 52);
-            btnLogin.TabIndex = 6;
+            btnLogin.TabIndex = 3;
             btnLogin.Text = "Zaloguj";
             btnLogin.UseVisualStyleBackColor = true;
             // 
@@ -136,7 +137,7 @@
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(743, 629);
-            tabControl1.TabIndex = 7;
+            tabControl1.TabIndex = 11;
             // 
             // tabPage1
             // 
@@ -151,7 +152,7 @@
             tabPage1.Location = new Point(4, 39);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(735, 572);
+            tabPage1.Size = new Size(735, 586);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Logowanie";
             // 
@@ -189,7 +190,7 @@
             txtbNewEmail.Location = new Point(332, 103);
             txtbNewEmail.Name = "txtbNewEmail";
             txtbNewEmail.Size = new Size(290, 35);
-            txtbNewEmail.TabIndex = 33;
+            txtbNewEmail.TabIndex = 1;
             // 
             // label11
             // 
@@ -206,7 +207,7 @@
             txtbNewAddress.Location = new Point(332, 407);
             txtbNewAddress.Name = "txtbNewAddress";
             txtbNewAddress.Size = new Size(290, 35);
-            txtbNewAddress.TabIndex = 32;
+            txtbNewAddress.TabIndex = 9;
             // 
             // label10
             // 
@@ -221,23 +222,32 @@
             // numNewBirthdateYear
             // 
             numNewBirthdateYear.Location = new Point(523, 304);
+            numNewBirthdateYear.Maximum = new decimal(new int[] { 2050, 0, 0, 0 });
+            numNewBirthdateYear.Minimum = new decimal(new int[] { 1900, 0, 0, 0 });
             numNewBirthdateYear.Name = "numNewBirthdateYear";
             numNewBirthdateYear.Size = new Size(99, 35);
-            numNewBirthdateYear.TabIndex = 30;
+            numNewBirthdateYear.TabIndex = 7;
+            numNewBirthdateYear.Value = new decimal(new int[] { 2000, 0, 0, 0 });
             // 
             // numNewBirthdateMonth
             // 
             numNewBirthdateMonth.Location = new Point(426, 304);
+            numNewBirthdateMonth.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
+            numNewBirthdateMonth.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numNewBirthdateMonth.Name = "numNewBirthdateMonth";
             numNewBirthdateMonth.Size = new Size(74, 35);
-            numNewBirthdateMonth.TabIndex = 29;
+            numNewBirthdateMonth.TabIndex = 6;
+            numNewBirthdateMonth.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numNewBirthdateDay
             // 
             numNewBirthdateDay.Location = new Point(332, 304);
+            numNewBirthdateDay.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            numNewBirthdateDay.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numNewBirthdateDay.Name = "numNewBirthdateDay";
             numNewBirthdateDay.Size = new Size(74, 35);
-            numNewBirthdateDay.TabIndex = 28;
+            numNewBirthdateDay.TabIndex = 5;
+            numNewBirthdateDay.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label9
             // 
@@ -254,7 +264,7 @@
             txtbNewSurname.Location = new Point(332, 253);
             txtbNewSurname.Name = "txtbNewSurname";
             txtbNewSurname.Size = new Size(290, 35);
-            txtbNewSurname.TabIndex = 26;
+            txtbNewSurname.TabIndex = 4;
             // 
             // label8
             // 
@@ -271,7 +281,7 @@
             txtbNewPesel.Location = new Point(332, 357);
             txtbNewPesel.Name = "txtbNewPesel";
             txtbNewPesel.Size = new Size(290, 35);
-            txtbNewPesel.TabIndex = 24;
+            txtbNewPesel.TabIndex = 8;
             // 
             // label7
             // 
@@ -298,21 +308,21 @@
             txtbNewName.Location = new Point(332, 204);
             txtbNewName.Name = "txtbNewName";
             txtbNewName.Size = new Size(290, 35);
-            txtbNewName.TabIndex = 20;
+            txtbNewName.TabIndex = 3;
             // 
             // txtbNewLogin
             // 
             txtbNewLogin.Location = new Point(332, 50);
             txtbNewLogin.Name = "txtbNewLogin";
             txtbNewLogin.Size = new Size(290, 35);
-            txtbNewLogin.TabIndex = 9;
+            txtbNewLogin.TabIndex = 0;
             // 
             // btnSignUp
             // 
             btnSignUp.Location = new Point(192, 480);
             btnSignUp.Name = "btnSignUp";
             btnSignUp.Size = new Size(366, 52);
-            btnSignUp.TabIndex = 13;
+            btnSignUp.TabIndex = 10;
             btnSignUp.Text = "Zarejestruj";
             btnSignUp.UseVisualStyleBackColor = true;
             // 
@@ -341,7 +351,7 @@
             txtbNewPassword.Location = new Point(332, 155);
             txtbNewPassword.Name = "txtbNewPassword";
             txtbNewPassword.Size = new Size(290, 35);
-            txtbNewPassword.TabIndex = 10;
+            txtbNewPassword.TabIndex = 2;
             // 
             // LoginRegisterView
             // 
@@ -350,6 +360,7 @@
             ClientSize = new Size(743, 629);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "LoginRegisterView";
             Text = "LIS";

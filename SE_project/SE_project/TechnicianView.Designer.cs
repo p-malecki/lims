@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TechnicianView));
+            SuspendLayout();
             // 
             // TechnicianView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1648, 1199);
-            this.Name = "TechnicianView";
-            this.Text = "LIS Technik";
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1648, 1199);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "TechnicianView";
+            Text = "LIS Technik";
+            ResumeLayout(false);
         }
 
         #endregion

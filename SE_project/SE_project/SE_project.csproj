@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="LIS_icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="testItemExtendedDeletex.cs">
       <SubType>UserControl</SubType>
     </Compile>

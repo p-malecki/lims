@@ -9,6 +9,11 @@
       "SE_project/1.0.0": {
         "runtime": {
           "SE_project.dll": {}
+        },
+        "resources": {
+          "aa-DJ/SE_project.resources.dll": {
+            "locale": "aa-DJ"
+          }
         }
       }
     }
