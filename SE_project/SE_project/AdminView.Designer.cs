@@ -33,17 +33,18 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
             label1 = new Label();
+            statusStrip2 = new StatusStrip();
             btnLogout = new Button();
             groupBox2 = new GroupBox();
-            btnAddCategory = new Button();
-            txtbAddCategoryName = new TextBox();
+            btnAddType = new Button();
+            txtbAddTypeName = new TextBox();
             label8 = new Label();
             groupBox1 = new GroupBox();
             btnAddTest = new Button();
             cbAddTestUnits = new ComboBox();
             label7 = new Label();
             label6 = new Label();
-            cbAddTestCategory = new ComboBox();
+            cbAddTestType = new ComboBox();
             txtbAddTestName = new TextBox();
             numAddTestMin = new NumericUpDown();
             numAddTestMax = new NumericUpDown();
@@ -57,8 +58,8 @@
             panel2 = new Panel();
             label9 = new Label();
             groupBox3 = new GroupBox();
-            btnDelCategory = new Button();
-            cbDelSelectCategory = new ComboBox();
+            btnDelType = new Button();
+            cbDelSelectType = new ComboBox();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
@@ -85,6 +86,7 @@
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
+            splitContainer1.IsSplitterFixed = true;
             splitContainer1.Location = new Point(3, 3);
             splitContainer1.Name = "splitContainer1";
             // 
@@ -95,10 +97,11 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(statusStrip2);
             splitContainer1.Panel2.Controls.Add(btnLogout);
             splitContainer1.Panel2.Controls.Add(groupBox2);
             splitContainer1.Panel2.Controls.Add(groupBox1);
-            splitContainer1.Size = new Size(1590, 1070);
+            splitContainer1.Size = new Size(1590, 1068);
             splitContainer1.SplitterDistance = 900;
             splitContainer1.TabIndex = 4;
             // 
@@ -108,7 +111,7 @@
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 175);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(900, 895);
+            flowLayoutPanel1.Size = new Size(900, 893);
             flowLayoutPanel1.TabIndex = 1;
             // 
             // panel1
@@ -130,9 +133,18 @@
             label1.TabIndex = 0;
             label1.Text = "Lista badań";
             // 
+            // statusStrip2
+            // 
+            statusStrip2.ImageScalingSize = new Size(28, 28);
+            statusStrip2.Location = new Point(0, 1046);
+            statusStrip2.Name = "statusStrip2";
+            statusStrip2.Size = new Size(686, 22);
+            statusStrip2.TabIndex = 12;
+            statusStrip2.Text = "statusStrip2";
+            // 
             // btnLogout
             // 
-            btnLogout.Location = new Point(534, 25);
+            btnLogout.Location = new Point(516, 39);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(131, 40);
             btnLogout.TabIndex = 11;
@@ -142,32 +154,33 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(btnAddCategory);
-            groupBox2.Controls.Add(txtbAddCategoryName);
+            groupBox2.Controls.Add(btnAddType);
+            groupBox2.Controls.Add(txtbAddTypeName);
             groupBox2.Controls.Add(label8);
             groupBox2.Location = new Point(65, 207);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(561, 223);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
-            groupBox2.Text = "nowa kategoria";
+            groupBox2.Text = "nowy typ badań";
             // 
-            // btnAddCategory
+            // btnAddType
             // 
-            btnAddCategory.Location = new Point(200, 153);
-            btnAddCategory.Name = "btnAddCategory";
-            btnAddCategory.Size = new Size(174, 40);
-            btnAddCategory.TabIndex = 2;
-            btnAddCategory.Text = "dodaj";
-            btnAddCategory.UseVisualStyleBackColor = true;
+            btnAddType.Location = new Point(200, 153);
+            btnAddType.Name = "btnAddType";
+            btnAddType.Size = new Size(174, 40);
+            btnAddType.TabIndex = 2;
+            btnAddType.Text = "dodaj";
+            btnAddType.UseVisualStyleBackColor = true;
+            btnAddType.Click += btnAddType_Click;
             // 
-            // txtbAddCategoryName
+            // txtbAddTypeName
             // 
-            txtbAddCategoryName.Location = new Point(200, 67);
-            txtbAddCategoryName.Name = "txtbAddCategoryName";
-            txtbAddCategoryName.Size = new Size(283, 35);
-            txtbAddCategoryName.TabIndex = 1;
-            txtbAddCategoryName.WordWrap = false;
+            txtbAddTypeName.Location = new Point(200, 67);
+            txtbAddTypeName.Name = "txtbAddTypeName";
+            txtbAddTypeName.Size = new Size(283, 35);
+            txtbAddTypeName.TabIndex = 1;
+            txtbAddTypeName.WordWrap = false;
             // 
             // label8
             // 
@@ -184,7 +197,7 @@
             groupBox1.Controls.Add(cbAddTestUnits);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(cbAddTestCategory);
+            groupBox1.Controls.Add(cbAddTestType);
             groupBox1.Controls.Add(txtbAddTestName);
             groupBox1.Controls.Add(numAddTestMin);
             groupBox1.Controls.Add(numAddTestMax);
@@ -208,13 +221,14 @@
             btnAddTest.TabIndex = 9;
             btnAddTest.Text = "dodaj";
             btnAddTest.UseVisualStyleBackColor = true;
+            btnAddTest.Click += btnAddTest_Click;
             // 
             // cbAddTestUnits
             // 
             cbAddTestUnits.FormattingEnabled = true;
-            cbAddTestUnits.Location = new Point(314, 332);
+            cbAddTestUnits.Location = new Point(200, 332);
             cbAddTestUnits.Name = "cbAddTestUnits";
-            cbAddTestUnits.Size = new Size(169, 38);
+            cbAddTestUnits.Size = new Size(283, 38);
             cbAddTestUnits.TabIndex = 8;
             // 
             // label7
@@ -235,13 +249,13 @@
             label6.TabIndex = 11;
             label6.Text = "wartość maksymalna";
             // 
-            // cbAddTestCategory
+            // cbAddTestType
             // 
-            cbAddTestCategory.FormattingEnabled = true;
-            cbAddTestCategory.Location = new Point(200, 173);
-            cbAddTestCategory.Name = "cbAddTestCategory";
-            cbAddTestCategory.Size = new Size(283, 38);
-            cbAddTestCategory.TabIndex = 5;
+            cbAddTestType.FormattingEnabled = true;
+            cbAddTestType.Location = new Point(200, 173);
+            cbAddTestType.Name = "cbAddTestType";
+            cbAddTestType.Size = new Size(283, 38);
+            cbAddTestType.TabIndex = 5;
             // 
             // txtbAddTestName
             // 
@@ -282,9 +296,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(75, 178);
             label4.Name = "label4";
-            label4.Size = new Size(99, 30);
+            label4.Size = new Size(42, 30);
             label4.TabIndex = 3;
-            label4.Text = "kategoria";
+            label4.Text = "typ";
             // 
             // label3
             // 
@@ -310,6 +324,7 @@
             txtbAddTestID.Name = "txtbAddTestID";
             txtbAddTestID.Size = new Size(283, 35);
             txtbAddTestID.TabIndex = 3;
+            txtbAddTestID.KeyPress += txtbAddTestID_KeyPress;
             // 
             // splitContainer2
             // 
@@ -325,7 +340,7 @@
             // splitContainer2.Panel2
             // 
             splitContainer2.Panel2.Controls.Add(groupBox3);
-            splitContainer2.Size = new Size(1590, 1070);
+            splitContainer2.Size = new Size(1590, 1068);
             splitContainer2.SplitterDistance = 900;
             splitContainer2.TabIndex = 0;
             // 
@@ -335,7 +350,7 @@
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.Location = new Point(0, 175);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(900, 895);
+            flowLayoutPanel2.Size = new Size(900, 893);
             flowLayoutPanel2.TabIndex = 1;
             // 
             // panel2
@@ -359,41 +374,41 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(btnDelCategory);
-            groupBox3.Controls.Add(cbDelSelectCategory);
+            groupBox3.Controls.Add(btnDelType);
+            groupBox3.Controls.Add(cbDelSelectType);
             groupBox3.Location = new Point(72, 345);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(561, 222);
             groupBox3.TabIndex = 0;
             groupBox3.TabStop = false;
-            groupBox3.Text = "usuwanie kategorii";
+            groupBox3.Text = "usuwanie typów badań";
             // 
-            // btnDelCategory
+            // btnDelType
             // 
-            btnDelCategory.Location = new Point(207, 133);
-            btnDelCategory.Name = "btnDelCategory";
-            btnDelCategory.Size = new Size(131, 40);
-            btnDelCategory.TabIndex = 1;
-            btnDelCategory.Text = "usuń";
-            btnDelCategory.UseVisualStyleBackColor = true;
+            btnDelType.Location = new Point(207, 133);
+            btnDelType.Name = "btnDelType";
+            btnDelType.Size = new Size(131, 40);
+            btnDelType.TabIndex = 1;
+            btnDelType.Text = "usuń";
+            btnDelType.UseVisualStyleBackColor = true;
             // 
-            // cbDelSelectCategory
+            // cbDelSelectType
             // 
-            cbDelSelectCategory.FormattingEnabled = true;
-            cbDelSelectCategory.Location = new Point(41, 62);
-            cbDelSelectCategory.Name = "cbDelSelectCategory";
-            cbDelSelectCategory.Size = new Size(483, 38);
-            cbDelSelectCategory.TabIndex = 0;
+            cbDelSelectType.FormattingEnabled = true;
+            cbDelSelectType.Location = new Point(41, 62);
+            cbDelSelectType.Name = "cbDelSelectType";
+            cbDelSelectType.Size = new Size(483, 38);
+            cbDelSelectType.TabIndex = 0;
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Dock = DockStyle.Top;
+            tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1604, 1119);
+            tabControl1.Size = new Size(1604, 1117);
             tabControl1.TabIndex = 10;
             // 
             // tabPage1
@@ -402,7 +417,7 @@
             tabPage1.Location = new Point(4, 39);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1596, 1076);
+            tabPage1.Size = new Size(1596, 1074);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "dodawanie badań";
             tabPage1.UseVisualStyleBackColor = true;
@@ -413,7 +428,7 @@
             tabPage2.Location = new Point(4, 39);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1596, 1076);
+            tabPage2.Size = new Size(1596, 1074);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "usuwanie badań";
             tabPage2.UseVisualStyleBackColor = true;
@@ -429,6 +444,7 @@
             Text = "LIS Admin";
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             panel1.ResumeLayout(false);
@@ -471,24 +487,25 @@
         private ComboBox cbAddTestUnits;
         private Label label7;
         private Label label6;
-        private ComboBox cbAddTestCategory;
+        private ComboBox cbAddTestType;
         private TextBox txtbAddTestName;
         private NumericUpDown numAddTestMin;
         private NumericUpDown numAddTestMax;
         private GroupBox groupBox2;
-        private Button btnAddCategory;
-        private TextBox txtbAddCategoryName;
+        private Button btnAddType;
+        private TextBox txtbAddTypeName;
         private Label label8;
         private SplitContainer splitContainer2;
         private FlowLayoutPanel flowLayoutPanel2;
         private Panel panel2;
         private Label label9;
         private GroupBox groupBox3;
-        private Button btnDelCategory;
-        private ComboBox cbDelSelectCategory;
+        private Button btnDelType;
+        private ComboBox cbDelSelectType;
         private testItemExtended testItem1;
         private testItemExtended testItem2;
         private testItemExtendedDelete testItem3;
         private Button btnLogout;
+        private StatusStrip statusStrip2;
     }
 }
