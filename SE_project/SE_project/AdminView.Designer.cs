@@ -33,6 +33,7 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
             label1 = new Label();
+            btnLogout = new Button();
             groupBox2 = new GroupBox();
             btnAddCategory = new Button();
             txtbAddCategoryName = new TextBox();
@@ -94,6 +95,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(btnLogout);
             splitContainer1.Panel2.Controls.Add(groupBox2);
             splitContainer1.Panel2.Controls.Add(groupBox1);
             splitContainer1.Size = new Size(1590, 1070);
@@ -127,6 +129,16 @@
             label1.Size = new Size(125, 30);
             label1.TabIndex = 0;
             label1.Text = "Lista badań";
+            // 
+            // btnLogout
+            // 
+            btnLogout.Location = new Point(534, 25);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(131, 40);
+            btnLogout.TabIndex = 11;
+            btnLogout.Text = "Wyloguj";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // groupBox2
             // 
@@ -382,7 +394,7 @@
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1604, 1119);
-            tabControl1.TabIndex = 2;
+            tabControl1.TabIndex = 10;
             // 
             // tabPage1
             // 
@@ -477,5 +489,6 @@
         private testItemExtended testItem1;
         private testItemExtended testItem2;
         private testItemExtendedDelete testItem3;
+        private Button btnLogout;
     }
 }

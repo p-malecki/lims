@@ -78,6 +78,7 @@
             listBox2 = new ListBox();
             groupBox6 = new GroupBox();
             listBox1 = new ListBox();
+            btnLogout = new Button();
             tabPage3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox5.SuspendLayout();
@@ -607,6 +608,7 @@
             // 
             // groupBox7
             // 
+            groupBox7.Controls.Add(btnLogout);
             groupBox7.Controls.Add(listBox2);
             groupBox7.Location = new Point(768, 9);
             groupBox7.Margin = new Padding(4);
@@ -650,6 +652,16 @@
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(730, 872);
             listBox1.TabIndex = 0;
+            // 
+            // btnLogout
+            // 
+            btnLogout.Location = new Point(601, 20);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(131, 40);
+            btnLogout.TabIndex = 12;
+            btnLogout.Text = "Wyloguj";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // ClientView
             // 
@@ -730,5 +742,6 @@
         private Button button6;
         private MonthCalendar monthCalendar1;
         private CheckedListBox checkedListBox1;
+        private Button btnLogout;
     }
 }
