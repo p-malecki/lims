@@ -142,7 +142,7 @@
             // 
             // btnAddCategory
             // 
-            btnAddCategory.Location = new Point(200, 147);
+            btnAddCategory.Location = new Point(200, 153);
             btnAddCategory.Name = "btnAddCategory";
             btnAddCategory.Size = new Size(174, 40);
             btnAddCategory.TabIndex = 2;
@@ -155,6 +155,7 @@
             txtbAddCategoryName.Name = "txtbAddCategoryName";
             txtbAddCategoryName.Size = new Size(283, 35);
             txtbAddCategoryName.TabIndex = 1;
+            txtbAddCategoryName.WordWrap = false;
             // 
             // label8
             // 

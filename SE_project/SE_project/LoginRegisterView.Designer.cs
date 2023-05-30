@@ -96,6 +96,7 @@
             // 
             txtbPasssword.Location = new Point(245, 235);
             txtbPasssword.Name = "txtbPasssword";
+            txtbPasssword.PasswordChar = '*';
             txtbPasssword.Size = new Size(304, 35);
             txtbPasssword.TabIndex = 1;
             // 
@@ -127,6 +128,7 @@
             btnLogin.TabIndex = 3;
             btnLogin.Text = "Zaloguj";
             btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
             // 
             // tabControl1
             // 
