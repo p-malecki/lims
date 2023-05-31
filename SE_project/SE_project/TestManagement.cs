@@ -14,7 +14,7 @@ namespace SE_project
 
         public static void CreateTest(
             string id, string name, string type, 
-            decimal minVal, decimal maxVal, string units, decimal price
+            decimal minVal, decimal maxVal, string units, string price
             )
         {
             //  Test newTest = new Test(id, name, type, minVal, maxVal, units);
@@ -33,8 +33,8 @@ namespace SE_project
 
             foreach (Test t in _testList)
             {
-                if (t.State == false)
-                    panel.Controls.Add(new TaskItem(t));
+                //if (t.State == false)
+                 //   panel.Controls.Add(new TaskItem(t));
             }
         }
 

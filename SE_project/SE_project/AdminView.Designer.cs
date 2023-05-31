@@ -40,6 +40,9 @@
             txtbAddTypeName = new TextBox();
             label8 = new Label();
             groupBox1 = new GroupBox();
+            label11 = new Label();
+            numAddTestPrice = new NumericUpDown();
+            label10 = new Label();
             btnAddTest = new Button();
             cbAddTestUnits = new ComboBox();
             label7 = new Label();
@@ -63,16 +66,18 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
-            label10 = new Label();
-            numAddTestPrice = new NumericUpDown();
-            label11 = new Label();
+            testItemExtended1 = new testItemExtended();
+            testItemExtended2 = new testItemExtended();
+            testItemExtended3 = new testItemExtended();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numAddTestPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numAddTestMin).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numAddTestMax).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
@@ -84,7 +89,6 @@
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numAddTestPrice).BeginInit();
             SuspendLayout();
             // 
             // splitContainer1
@@ -112,6 +116,9 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Controls.Add(testItemExtended1);
+            flowLayoutPanel1.Controls.Add(testItemExtended2);
+            flowLayoutPanel1.Controls.Add(testItemExtended3);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 175);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -219,6 +226,34 @@
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "nowe badanie";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(451, 388);
+            label11.Name = "label11";
+            label11.Size = new Size(35, 30);
+            label11.TabIndex = 14;
+            label11.Text = "ZŁ";
+            // 
+            // numAddTestPrice
+            // 
+            numAddTestPrice.DecimalPlaces = 2;
+            numAddTestPrice.Increment = new decimal(new int[] { 5, 0, 0, 0 });
+            numAddTestPrice.Location = new Point(282, 389);
+            numAddTestPrice.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numAddTestPrice.Name = "numAddTestPrice";
+            numAddTestPrice.Size = new Size(163, 35);
+            numAddTestPrice.TabIndex = 9;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(78, 391);
+            label10.Name = "label10";
+            label10.Size = new Size(57, 30);
+            label10.TabIndex = 13;
+            label10.Text = "cena";
             // 
             // btnAddTest
             // 
@@ -440,33 +475,26 @@
             tabPage2.Text = "usuwanie badań";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // testItemExtended1
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(78, 391);
-            label10.Name = "label10";
-            label10.Size = new Size(57, 30);
-            label10.TabIndex = 13;
-            label10.Text = "cena";
+            testItemExtended1.Location = new Point(3, 3);
+            testItemExtended1.Name = "testItemExtended1";
+            testItemExtended1.Size = new Size(877, 131);
+            testItemExtended1.TabIndex = 0;
             // 
-            // numAddTestPrice
+            // testItemExtended2
             // 
-            numAddTestPrice.DecimalPlaces = 2;
-            numAddTestPrice.Increment = new decimal(new int[] { 5, 0, 0, 0 });
-            numAddTestPrice.Location = new Point(282, 389);
-            numAddTestPrice.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            numAddTestPrice.Name = "numAddTestPrice";
-            numAddTestPrice.Size = new Size(163, 35);
-            numAddTestPrice.TabIndex = 9;
+            testItemExtended2.Location = new Point(3, 140);
+            testItemExtended2.Name = "testItemExtended2";
+            testItemExtended2.Size = new Size(793, 106);
+            testItemExtended2.TabIndex = 1;
             // 
-            // label11
+            // testItemExtended3
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(451, 388);
-            label11.Name = "label11";
-            label11.Size = new Size(35, 30);
-            label11.TabIndex = 14;
-            label11.Text = "ZŁ";
+            testItemExtended3.Location = new Point(3, 252);
+            testItemExtended3.Name = "testItemExtended3";
+            testItemExtended3.Size = new Size(854, 98);
+            testItemExtended3.TabIndex = 2;
             // 
             // AdminView
             // 
@@ -482,12 +510,14 @@
             splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numAddTestPrice).EndInit();
             ((System.ComponentModel.ISupportInitialize)numAddTestMin).EndInit();
             ((System.ComponentModel.ISupportInitialize)numAddTestMax).EndInit();
             splitContainer2.Panel1.ResumeLayout(false);
@@ -500,7 +530,6 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)numAddTestPrice).EndInit();
             ResumeLayout(false);
         }
 
@@ -546,5 +575,8 @@
         private Label label11;
         private NumericUpDown numAddTestPrice;
         private Label label10;
+        private testItemExtended testItemExtended1;
+        private testItemExtended testItemExtended2;
+        private testItemExtended testItemExtended3;
     }
 }
