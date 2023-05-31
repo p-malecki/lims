@@ -63,6 +63,9 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
+            label10 = new Label();
+            numAddTestPrice = new NumericUpDown();
+            label11 = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -81,6 +84,7 @@
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numAddTestPrice).BeginInit();
             SuspendLayout();
             // 
             // splitContainer1
@@ -147,7 +151,7 @@
             btnLogout.Location = new Point(516, 39);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(131, 40);
-            btnLogout.TabIndex = 11;
+            btnLogout.TabIndex = 12;
             btnLogout.Text = "Wyloguj";
             btnLogout.UseVisualStyleBackColor = true;
             btnLogout.Click += btnLogout_Click;
@@ -193,6 +197,9 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(numAddTestPrice);
+            groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(btnAddTest);
             groupBox1.Controls.Add(cbAddTestUnits);
             groupBox1.Controls.Add(label7);
@@ -208,17 +215,17 @@
             groupBox1.Controls.Add(txtbAddTestID);
             groupBox1.Location = new Point(65, 490);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(561, 477);
+            groupBox1.Size = new Size(561, 530);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "nowe badanie";
             // 
             // btnAddTest
             // 
-            btnAddTest.Location = new Point(200, 405);
+            btnAddTest.Location = new Point(200, 457);
             btnAddTest.Name = "btnAddTest";
             btnAddTest.Size = new Size(174, 40);
-            btnAddTest.TabIndex = 9;
+            btnAddTest.TabIndex = 10;
             btnAddTest.Text = "dodaj";
             btnAddTest.UseVisualStyleBackColor = true;
             btnAddTest.Click += btnAddTest_Click;
@@ -268,18 +275,18 @@
             // 
             numAddTestMin.DecimalPlaces = 3;
             numAddTestMin.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            numAddTestMin.Location = new Point(388, 226);
+            numAddTestMin.Location = new Point(306, 226);
             numAddTestMin.Name = "numAddTestMin";
-            numAddTestMin.Size = new Size(95, 35);
+            numAddTestMin.Size = new Size(177, 35);
             numAddTestMin.TabIndex = 6;
             // 
             // numAddTestMax
             // 
             numAddTestMax.DecimalPlaces = 3;
             numAddTestMax.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            numAddTestMax.Location = new Point(388, 278);
+            numAddTestMax.Location = new Point(306, 278);
             numAddTestMax.Name = "numAddTestMax";
-            numAddTestMax.Size = new Size(95, 35);
+            numAddTestMax.Size = new Size(177, 35);
             numAddTestMax.TabIndex = 7;
             // 
             // label5
@@ -409,7 +416,7 @@
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1604, 1117);
-            tabControl1.TabIndex = 10;
+            tabControl1.TabIndex = 11;
             // 
             // tabPage1
             // 
@@ -432,6 +439,34 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "usuwanie badań";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(78, 391);
+            label10.Name = "label10";
+            label10.Size = new Size(57, 30);
+            label10.TabIndex = 13;
+            label10.Text = "cena";
+            // 
+            // numAddTestPrice
+            // 
+            numAddTestPrice.DecimalPlaces = 2;
+            numAddTestPrice.Increment = new decimal(new int[] { 5, 0, 0, 0 });
+            numAddTestPrice.Location = new Point(282, 389);
+            numAddTestPrice.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numAddTestPrice.Name = "numAddTestPrice";
+            numAddTestPrice.Size = new Size(163, 35);
+            numAddTestPrice.TabIndex = 9;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(451, 388);
+            label11.Name = "label11";
+            label11.Size = new Size(35, 30);
+            label11.TabIndex = 14;
+            label11.Text = "ZŁ";
             // 
             // AdminView
             // 
@@ -465,6 +500,7 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numAddTestPrice).EndInit();
             ResumeLayout(false);
         }
 
@@ -507,5 +543,8 @@
         private testItemExtendedDelete testItem3;
         private Button btnLogout;
         private StatusStrip statusStrip2;
+        private Label label11;
+        private NumericUpDown numAddTestPrice;
+        private Label label10;
     }
 }

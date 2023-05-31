@@ -6,7 +6,7 @@ using System.Text;
 
 public class Client : User {
 
-    public Client(uint iD, int type, string login, string password, string name, string surname, DateTime birthdate, string pesel = "0", string residence = "0") : base(iD, type, login, password, name, surname, birthdate, pesel, residence)
+    public Client(int id, int type, int status, string login, string password, string name, string surname, DateTime birthdate, string pesel = "0", string residence = "0") : base(id, type, status, login, password, name, surname, birthdate, pesel, residence)
     {
     }
 

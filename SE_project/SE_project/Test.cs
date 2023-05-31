@@ -7,32 +7,30 @@ using System.Text;
 public class Test {
 
 
-    public Test(uint iD, string name, int type, double min, double max, int unit)
+    public Test(int id, string name, int type, double min, double max, int unit, int status)
     {
-        ID1 = iD;
-        this.Name = name;
-        this.Type = type;
-        this.Min = min;
-        this.Max = max;
-        this.Unit = unit;
+        ID = id;
+        Name = name;
+        Type = type;
+        Min = min;
+        Max = max;
+        Unit = unit;
+        Status = status;
     }
         
-    private uint ID;
+    private int _ID;
+    private string _name;
+    private int _type;
+    private double _min;
+    private double _max;
+    private int _unit;
+    private int _status;
 
-    private string name;
-
-    private int type;
-
-    private double min;
-
-    private double max;
-
-    private int unit;
-
-    public uint ID1 { get => ID; set => ID = value; }
-    public string Name { get => name; set => name = value; }
-    public int Type { get => type; set => type = value; }
-    public double Min { get => min; set => min = value; }
-    public double Max { get => max; set => max = value; }
-    public int Unit { get => unit; set => unit = value; }
+    public int ID { get => _ID; set => _ID = value; }
+    public string Name { get => _name; set => _name = value; }
+    public int Type { get => _type; set => _type = value; }
+    public double Min { get => _min; set => _min = value; }
+    public double Max { get => _max; set => _max = value; }
+    public int Unit { get => _unit; set => _unit = value; }
+    public int Status { get => _status; set => _status = value; }
 }

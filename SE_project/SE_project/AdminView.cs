@@ -59,7 +59,7 @@ namespace SE_project
                 new { Text = "Picomoles per liter", Value = "pmol/L"},
                 new { Text = "Units per liter", Value = "U/L"},
                 new { Text = "Units per milliliter", Value = "U/mL"}
-            };
+            }; // TODO import from DB
             cbAddTestUnits.DataSource = items;
         }
 
@@ -99,7 +99,8 @@ namespace SE_project
                 cbAddTestType.Text,
                 numAddTestMin.Value,
                 numAddTestMax.Value,
-                cbAddTestUnits.Text
+                cbAddTestUnits.Text,
+                numAddTestPrice.Text
                 );
         }
     }
