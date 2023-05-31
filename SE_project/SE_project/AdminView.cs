@@ -70,6 +70,13 @@ namespace SE_project
             cbAddTestType.Items.Clear();
             cbAddTestType.DataSource = list;
         }
+        private void RefreshRmTypeList(List<string> list)
+        {
+            list.Sort();
+            cbDelSelectType.DataSource = null;
+            cbDelSelectType.Items.Clear();
+            cbDelSelectType.DataSource = list;
+        }
 
         private void txtbAddTestID_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -88,20 +95,31 @@ namespace SE_project
         private void btnAddType_Click(object sender, EventArgs e)
         {
             TestTypeManagement.CreateType(txtbAddTypeName.Text);
-            RefreshTypeList(TestTypeManagement.List);
+            List<string> typeNameList = TestTypeManagement.GetNameList();
+            RefreshTypeList(typeNameList);
+            RefreshRmTypeList(typeNameList);
         }
 
         private void btnAddTest_Click(object sender, EventArgs e)
         {
             TestManagement.CreateTest(
-                txtbAddTestID.Text,
+                Int32.Parse(txtbAddTestID.Text),
                 txtbAddTestName.Text,
                 cbAddTestType.Text,
                 numAddTestMin.Value,
                 numAddTestMax.Value,
-                cbAddTestUnits.Text,
-                numAddTestPrice.Text
+                cbAddTestUnits.GetItemText(cbAddTestUnits.SelectedValue),
+                numAddTestPrice.Value
                 );
+            TestManagement.LoadTestList(flowLayoutPanel1);
+        }
+
+        private void btnDelType_Click(object sender, EventArgs e)
+        {
+            TestTypeManagement.RemoveType(cbDelSelectType.Text);
+            List<string> typeNameList = TestTypeManagement.GetNameList();
+            RefreshTypeList(typeNameList);
+            RefreshRmTypeList(typeNameList);
         }
     }
 }

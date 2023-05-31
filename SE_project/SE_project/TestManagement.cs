@@ -13,12 +13,12 @@ namespace SE_project
         public static List<Test> testList { get => _testList; }
 
         public static void CreateTest(
-            string id, string name, string type, 
-            decimal minVal, decimal maxVal, string units, string price
+            int id, string name, string type, 
+            decimal minVal, decimal maxVal, string unit, decimal price
             )
         {
-            //  Test newTest = new Test(id, name, type, minVal, maxVal, units);
-            // _testList.Add();
+            Test newTest = new Test(id, name, type, minVal, maxVal, unit, price);
+            _testList.Add(newTest);
         }
 
         public static void RemoveType(string name)
@@ -29,12 +29,10 @@ namespace SE_project
         public static void LoadTestList(FlowLayoutPanel panel)
         {
             panel.Controls.Clear();
-            
-
             foreach (Test t in _testList)
             {
-                //if (t.State == false)
-                 //   panel.Controls.Add(new TaskItem(t));
+                if (t.Status == 1)
+                    panel.Controls.Add(new testItemExtended(t));
             }
         }
 

@@ -35,6 +35,8 @@
             maxVal = new Label();
             label1 = new Label();
             units = new Label();
+            price = new Label();
+            label3 = new Label();
             SuspendLayout();
             // 
             // testID
@@ -60,7 +62,7 @@
             // testType
             // 
             testType.AutoSize = true;
-            testType.Location = new Point(504, 34);
+            testType.Location = new Point(501, 16);
             testType.Name = "testType";
             testType.Size = new Size(140, 30);
             testType.TabIndex = 2;
@@ -103,10 +105,30 @@
             units.TabIndex = 6;
             units.Text = "units";
             // 
-            // testItem
+            // price
+            // 
+            price.AutoSize = true;
+            price.Location = new Point(538, 46);
+            price.Name = "price";
+            price.Size = new Size(68, 30);
+            price.TabIndex = 7;
+            price.Text = "label2";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(612, 46);
+            label3.Name = "label3";
+            label3.Size = new Size(29, 30);
+            label3.TabIndex = 8;
+            label3.Text = "zł";
+            // 
+            // testItemExtended
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label3);
+            Controls.Add(price);
             Controls.Add(units);
             Controls.Add(label1);
             Controls.Add(maxVal);
@@ -114,7 +136,7 @@
             Controls.Add(testType);
             Controls.Add(testName);
             Controls.Add(testID);
-            Name = "testItem";
+            Name = "testItemExtended";
             Size = new Size(666, 98);
             ResumeLayout(false);
             PerformLayout();
@@ -129,5 +151,7 @@
         private Label maxVal;
         private Label label1;
         private Label units;
+        private Label price;
+        private Label label3;
     }
 }

@@ -33,7 +33,6 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
             label1 = new Label();
-            statusStrip2 = new StatusStrip();
             btnLogout = new Button();
             groupBox2 = new GroupBox();
             btnAddType = new Button();
@@ -58,6 +57,7 @@
             txtbAddTestID = new TextBox();
             splitContainer2 = new SplitContainer();
             flowLayoutPanel2 = new FlowLayoutPanel();
+            testItemExtendedDelete8 = new testItemExtendedDelete();
             panel2 = new Panel();
             label9 = new Label();
             groupBox3 = new GroupBox();
@@ -66,14 +66,10 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
-            testItemExtended1 = new testItemExtended();
-            testItemExtended2 = new testItemExtended();
-            testItemExtended3 = new testItemExtended();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -84,6 +80,7 @@
             splitContainer2.Panel1.SuspendLayout();
             splitContainer2.Panel2.SuspendLayout();
             splitContainer2.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
             panel2.SuspendLayout();
             groupBox3.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -105,7 +102,6 @@
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(statusStrip2);
             splitContainer1.Panel2.Controls.Add(btnLogout);
             splitContainer1.Panel2.Controls.Add(groupBox2);
             splitContainer1.Panel2.Controls.Add(groupBox1);
@@ -116,9 +112,6 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Controls.Add(testItemExtended1);
-            flowLayoutPanel1.Controls.Add(testItemExtended2);
-            flowLayoutPanel1.Controls.Add(testItemExtended3);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 175);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -143,15 +136,6 @@
             label1.Size = new Size(125, 30);
             label1.TabIndex = 0;
             label1.Text = "Lista badań";
-            // 
-            // statusStrip2
-            // 
-            statusStrip2.ImageScalingSize = new Size(28, 28);
-            statusStrip2.Location = new Point(0, 1046);
-            statusStrip2.Name = "statusStrip2";
-            statusStrip2.Size = new Size(686, 22);
-            statusStrip2.TabIndex = 12;
-            statusStrip2.Text = "statusStrip2";
             // 
             // btnLogout
             // 
@@ -389,11 +373,19 @@
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.AutoScroll = true;
+            flowLayoutPanel2.Controls.Add(testItemExtendedDelete8);
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.Location = new Point(0, 175);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(900, 893);
             flowLayoutPanel2.TabIndex = 1;
+            // 
+            // testItemExtendedDelete8
+            // 
+            testItemExtendedDelete8.Location = new Point(3, 3);
+            testItemExtendedDelete8.Name = "testItemExtendedDelete8";
+            testItemExtendedDelete8.Size = new Size(847, 119);
+            testItemExtendedDelete8.TabIndex = 7;
             // 
             // panel2
             // 
@@ -433,6 +425,7 @@
             btnDelType.TabIndex = 1;
             btnDelType.Text = "usuń";
             btnDelType.UseVisualStyleBackColor = true;
+            btnDelType.Click += btnDelType_Click;
             // 
             // cbDelSelectType
             // 
@@ -475,27 +468,6 @@
             tabPage2.Text = "usuwanie badań";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // testItemExtended1
-            // 
-            testItemExtended1.Location = new Point(3, 3);
-            testItemExtended1.Name = "testItemExtended1";
-            testItemExtended1.Size = new Size(877, 131);
-            testItemExtended1.TabIndex = 0;
-            // 
-            // testItemExtended2
-            // 
-            testItemExtended2.Location = new Point(3, 140);
-            testItemExtended2.Name = "testItemExtended2";
-            testItemExtended2.Size = new Size(793, 106);
-            testItemExtended2.TabIndex = 1;
-            // 
-            // testItemExtended3
-            // 
-            testItemExtended3.Location = new Point(3, 252);
-            testItemExtended3.Name = "testItemExtended3";
-            testItemExtended3.Size = new Size(854, 98);
-            testItemExtended3.TabIndex = 2;
-            // 
             // AdminView
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
@@ -507,10 +479,8 @@
             Text = "LIS Admin";
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
-            splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -524,6 +494,7 @@
             splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
             splitContainer2.ResumeLayout(false);
+            flowLayoutPanel2.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             groupBox3.ResumeLayout(false);
@@ -571,12 +542,9 @@
         private testItemExtended testItem2;
         private testItemExtendedDelete testItem3;
         private Button btnLogout;
-        private StatusStrip statusStrip2;
         private Label label11;
         private NumericUpDown numAddTestPrice;
         private Label label10;
-        private testItemExtended testItemExtended1;
-        private testItemExtended testItemExtended2;
-        private testItemExtended testItemExtended3;
+        private testItemExtendedDelete testItemExtendedDelete8;
     }
 }
