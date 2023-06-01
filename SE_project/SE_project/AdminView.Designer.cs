@@ -110,6 +110,8 @@
             this.txtbNewSurname = new System.Windows.Forms.TextBox();
             this.txtbNewPesel = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.rtxtbAddTestDescription = new System.Windows.Forms.RichTextBox();
+            this.label38 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -196,7 +198,7 @@
             this.btnLogout.Location = new System.Drawing.Point(516, 39);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(131, 40);
-            this.btnLogout.TabIndex = 12;
+            this.btnLogout.TabIndex = 13;
             this.btnLogout.Text = "Wyloguj";
             this.btnLogout.UseVisualStyleBackColor = true;
             // 
@@ -205,16 +207,16 @@
             this.groupBox2.Controls.Add(this.btnAddType);
             this.groupBox2.Controls.Add(this.txtbAddTypeName);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Location = new System.Drawing.Point(65, 207);
+            this.groupBox2.Location = new System.Drawing.Point(65, 111);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(561, 223);
+            this.groupBox2.Size = new System.Drawing.Size(561, 187);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "nowy typ badań";
             // 
             // btnAddType
             // 
-            this.btnAddType.Location = new System.Drawing.Point(200, 153);
+            this.btnAddType.Location = new System.Drawing.Point(200, 121);
             this.btnAddType.Name = "btnAddType";
             this.btnAddType.Size = new System.Drawing.Size(174, 40);
             this.btnAddType.TabIndex = 2;
@@ -224,7 +226,7 @@
             // 
             // txtbAddTypeName
             // 
-            this.txtbAddTypeName.Location = new System.Drawing.Point(200, 67);
+            this.txtbAddTypeName.Location = new System.Drawing.Point(200, 51);
             this.txtbAddTypeName.Name = "txtbAddTypeName";
             this.txtbAddTypeName.Size = new System.Drawing.Size(283, 35);
             this.txtbAddTypeName.TabIndex = 1;
@@ -233,7 +235,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(75, 70);
+            this.label8.Location = new System.Drawing.Point(75, 54);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 30);
             this.label8.TabIndex = 0;
@@ -241,6 +243,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label38);
+            this.groupBox1.Controls.Add(this.rtxtbAddTestDescription);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.numAddTestPrice);
             this.groupBox1.Controls.Add(this.label10);
@@ -257,9 +261,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtbAddTestID);
-            this.groupBox1.Location = new System.Drawing.Point(65, 490);
+            this.groupBox1.Location = new System.Drawing.Point(65, 328);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(561, 530);
+            this.groupBox1.Size = new System.Drawing.Size(561, 714);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "nowe badanie";
@@ -294,7 +298,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(78, 391);
+            this.label10.Location = new System.Drawing.Point(77, 391);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 30);
             this.label10.TabIndex = 13;
@@ -302,10 +306,10 @@
             // 
             // btnAddTest
             // 
-            this.btnAddTest.Location = new System.Drawing.Point(200, 457);
+            this.btnAddTest.Location = new System.Drawing.Point(200, 647);
             this.btnAddTest.Name = "btnAddTest";
             this.btnAddTest.Size = new System.Drawing.Size(174, 40);
-            this.btnAddTest.TabIndex = 10;
+            this.btnAddTest.TabIndex = 11;
             this.btnAddTest.Text = "dodaj";
             this.btnAddTest.UseVisualStyleBackColor = true;
             this.btnAddTest.Click += new System.EventHandler(this.btnAddTest_Click);
@@ -321,7 +325,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(78, 335);
+            this.label7.Location = new System.Drawing.Point(75, 340);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(96, 30);
             this.label7.TabIndex = 12;
@@ -504,7 +508,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1604, 1117);
-            this.tabControl1.TabIndex = 11;
+            this.tabControl1.TabIndex = 12;
             // 
             // tabPage1
             // 
@@ -1036,6 +1040,23 @@
             this.label15.TabIndex = 50;
             this.label15.Text = "PESEL";
             // 
+            // rtxtbAddTestDescription
+            // 
+            this.rtxtbAddTestDescription.Location = new System.Drawing.Point(75, 475);
+            this.rtxtbAddTestDescription.Name = "rtxtbAddTestDescription";
+            this.rtxtbAddTestDescription.Size = new System.Drawing.Size(405, 150);
+            this.rtxtbAddTestDescription.TabIndex = 10;
+            this.rtxtbAddTestDescription.Text = "";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(77, 442);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(51, 30);
+            this.label38.TabIndex = 16;
+            this.label38.Text = "opis";
+            // 
             // AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
@@ -1173,5 +1194,7 @@
         private Label label15;
         private Label label36;
         private Label label37;
+        private Label label38;
+        private RichTextBox rtxtbAddTestDescription;
     }
 }

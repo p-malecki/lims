@@ -718,7 +718,6 @@
             label23.Size = new Size(44, 15);
             label23.TabIndex = 0;
             label23.Text = "label23";
-            label23.Click += label23_Click;
             // 
             // ClientView
             // 

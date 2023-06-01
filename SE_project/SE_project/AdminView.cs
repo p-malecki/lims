@@ -108,6 +108,7 @@ namespace SE_project
                 Int32.Parse(txtbAddTestID.Text),
                 txtbAddTestName.Text,
                 cbAddTestType.Text,
+                rtxtbAddTestDescription.Text,
                 numAddTestMin.Value,
                 numAddTestMax.Value,
                 cbAddTestUnits.GetItemText(cbAddTestUnits.SelectedValue),
