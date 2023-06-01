@@ -24,11 +24,11 @@ namespace SE_project
         }
 
             public static void CreateTest(
-            int id, string name, string type, 
+            int id, string name, string type, string description, 
             decimal minVal, decimal maxVal, string unit, decimal price
             )
         {
-            Test newTest = new Test(id, name, type, minVal, maxVal, unit, price);
+            Test newTest = new Test(id, name, type, description, minVal, maxVal, unit, price);
             _testList.Add(newTest);
         }
 

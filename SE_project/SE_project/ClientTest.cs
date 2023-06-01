@@ -8,7 +8,7 @@ public class ClientTest : Test {
 
 
 
-    public ClientTest(int id, string name, string type, decimal min, decimal max, string unit, int status) : base(id, name, type, min, max, unit, status)
+    public ClientTest(int id, string name, string type, string description, decimal min, decimal max, string unit, int status) : base(id, name, type, description, min, max, unit, status)
     {
     }
 
