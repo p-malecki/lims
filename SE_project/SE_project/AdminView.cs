@@ -123,5 +123,7 @@ namespace SE_project
             RefreshTypeList(typeNameList);
             RefreshRmTypeList(typeNameList);
         }
+
+
     }
 }

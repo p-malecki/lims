@@ -65,6 +65,51 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label37 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtbNewEmail = new System.Windows.Forms.TextBox();
+            this.btnAddTechnician = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtbNewPassword = new System.Windows.Forms.TextBox();
+            this.txtbNewAddress = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.numNewBirthdateYear = new System.Windows.Forms.NumericUpDown();
+            this.txtbNewLogin = new System.Windows.Forms.TextBox();
+            this.numNewBirthdateMonth = new System.Windows.Forms.NumericUpDown();
+            this.txtbNewName = new System.Windows.Forms.TextBox();
+            this.numNewBirthdateDay = new System.Windows.Forms.NumericUpDown();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtbNewSurname = new System.Windows.Forms.TextBox();
+            this.txtbNewPesel = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -84,6 +129,17 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numNewBirthdateYear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numNewBirthdateMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numNewBirthdateDay)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -414,7 +470,7 @@
             // 
             this.groupBox3.Controls.Add(this.btnDelType);
             this.groupBox3.Controls.Add(this.cbDelSelectType);
-            this.groupBox3.Location = new System.Drawing.Point(57, 190);
+            this.groupBox3.Location = new System.Drawing.Point(47, 439);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(561, 222);
             this.groupBox3.TabIndex = 0;
@@ -442,6 +498,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -471,12 +528,521 @@
             this.tabPage2.Text = "usuwanie badań";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.splitContainer3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 39);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1596, 1074);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "zarządzanie kontami techników";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.groupBox5);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.groupBox4);
+            this.splitContainer3.Size = new System.Drawing.Size(1590, 1068);
+            this.splitContainer3.SplitterDistance = 555;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label36);
+            this.groupBox5.Controls.Add(this.button1);
+            this.groupBox5.Controls.Add(this.label37);
+            this.groupBox5.Controls.Add(this.groupBox7);
+            this.groupBox5.Controls.Add(this.groupBox6);
+            this.groupBox5.Controls.Add(this.listBox1);
+            this.groupBox5.Location = new System.Drawing.Point(38, 44);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(1479, 469);
+            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Konta techników";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label36.Location = new System.Drawing.Point(1001, 368);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(89, 30);
+            this.label36.TabIndex = 87;
+            this.label36.Text = "aktywne";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1150, 344);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(253, 79);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "dezaktywuj konto";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label37.Location = new System.Drawing.Point(929, 368);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(71, 30);
+            this.label37.TabIndex = 86;
+            this.label37.Text = "status";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Location = new System.Drawing.Point(493, 353);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(406, 79);
+            this.groupBox7.TabIndex = 2;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "statystyki";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label32);
+            this.groupBox6.Controls.Add(this.label33);
+            this.groupBox6.Controls.Add(this.label34);
+            this.groupBox6.Controls.Add(this.label35);
+            this.groupBox6.Controls.Add(this.label28);
+            this.groupBox6.Controls.Add(this.label29);
+            this.groupBox6.Controls.Add(this.label30);
+            this.groupBox6.Controls.Add(this.label31);
+            this.groupBox6.Controls.Add(this.label24);
+            this.groupBox6.Controls.Add(this.label25);
+            this.groupBox6.Controls.Add(this.label26);
+            this.groupBox6.Controls.Add(this.label27);
+            this.groupBox6.Controls.Add(this.label20);
+            this.groupBox6.Controls.Add(this.label21);
+            this.groupBox6.Controls.Add(this.label22);
+            this.groupBox6.Controls.Add(this.label23);
+            this.groupBox6.Location = new System.Drawing.Point(493, 53);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(853, 262);
+            this.groupBox6.TabIndex = 1;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "dane";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label32.Location = new System.Drawing.Point(608, 197);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(192, 30);
+            this.label32.TabIndex = 85;
+            this.label32.Text = "adres zamieszkania";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label33.Location = new System.Drawing.Point(608, 46);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(97, 30);
+            this.label33.TabIndex = 84;
+            this.label33.Text = "nazwisko";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label34.Location = new System.Drawing.Point(605, 94);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(152, 30);
+            this.label34.TabIndex = 82;
+            this.label34.Text = "data urodzenia";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label35.Location = new System.Drawing.Point(608, 147);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(68, 30);
+            this.label35.TabIndex = 83;
+            this.label35.Text = "PESEL";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label28.Location = new System.Drawing.Point(112, 46);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(63, 30);
+            this.label28.TabIndex = 78;
+            this.label28.Text = "email";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label29.Location = new System.Drawing.Point(112, 99);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(59, 30);
+            this.label29.TabIndex = 81;
+            this.label29.Text = "login";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label30.Location = new System.Drawing.Point(115, 151);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(63, 30);
+            this.label30.TabIndex = 79;
+            this.label30.Text = "hasło";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label31.Location = new System.Drawing.Point(115, 202);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(52, 30);
+            this.label31.TabIndex = 80;
+            this.label31.Text = "imię";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label24.Location = new System.Drawing.Point(397, 197);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(200, 30);
+            this.label24.TabIndex = 77;
+            this.label24.Text = "adres zamieszkania";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label25.Location = new System.Drawing.Point(397, 46);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(104, 30);
+            this.label25.TabIndex = 76;
+            this.label25.Text = "nazwisko";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label26.Location = new System.Drawing.Point(394, 94);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(160, 30);
+            this.label26.TabIndex = 74;
+            this.label26.Text = "data urodzenia";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label27.Location = new System.Drawing.Point(397, 147);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(71, 30);
+            this.label27.TabIndex = 75;
+            this.label27.Text = "PESEL";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label20.Location = new System.Drawing.Point(40, 46);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(66, 30);
+            this.label20.TabIndex = 70;
+            this.label20.Text = "email";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label21.Location = new System.Drawing.Point(40, 99);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(64, 30);
+            this.label21.TabIndex = 73;
+            this.label21.Text = "login";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label22.Location = new System.Drawing.Point(43, 151);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(66, 30);
+            this.label22.TabIndex = 71;
+            this.label22.Text = "hasło";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label23.Location = new System.Drawing.Point(43, 202);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(55, 30);
+            this.label23.TabIndex = 72;
+            this.label23.Text = "imię";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 30;
+            this.listBox1.Location = new System.Drawing.Point(28, 53);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(386, 394);
+            this.listBox1.TabIndex = 0;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.txtbNewEmail);
+            this.groupBox4.Controls.Add(this.btnAddTechnician);
+            this.groupBox4.Controls.Add(this.label19);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.txtbNewPassword);
+            this.groupBox4.Controls.Add(this.txtbNewAddress);
+            this.groupBox4.Controls.Add(this.label18);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.numNewBirthdateYear);
+            this.groupBox4.Controls.Add(this.txtbNewLogin);
+            this.groupBox4.Controls.Add(this.numNewBirthdateMonth);
+            this.groupBox4.Controls.Add(this.txtbNewName);
+            this.groupBox4.Controls.Add(this.numNewBirthdateDay);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.txtbNewSurname);
+            this.groupBox4.Controls.Add(this.txtbNewPesel);
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Location = new System.Drawing.Point(66, 132);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1467, 328);
+            this.groupBox4.TabIndex = 54;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Dodawanie nowych kont techników";
+            // 
+            // txtbNewEmail
+            // 
+            this.txtbNewEmail.Location = new System.Drawing.Point(185, 131);
+            this.txtbNewEmail.Name = "txtbNewEmail";
+            this.txtbNewEmail.Size = new System.Drawing.Size(290, 35);
+            this.txtbNewEmail.TabIndex = 36;
+            // 
+            // btnAddTechnician
+            // 
+            this.btnAddTechnician.Location = new System.Drawing.Point(1177, 126);
+            this.btnAddTechnician.Name = "btnAddTechnician";
+            this.btnAddTechnician.Size = new System.Drawing.Size(226, 91);
+            this.btnAddTechnician.TabIndex = 45;
+            this.btnAddTechnician.Text = "Dodaj konto technika";
+            this.btnAddTechnician.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label19.Location = new System.Drawing.Point(59, 80);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(66, 30);
+            this.label19.TabIndex = 46;
+            this.label19.Text = "email";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(59, 133);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(64, 30);
+            this.label12.TabIndex = 53;
+            this.label12.Text = "login";
+            // 
+            // txtbNewPassword
+            // 
+            this.txtbNewPassword.Location = new System.Drawing.Point(185, 183);
+            this.txtbNewPassword.Name = "txtbNewPassword";
+            this.txtbNewPassword.Size = new System.Drawing.Size(290, 35);
+            this.txtbNewPassword.TabIndex = 37;
+            // 
+            // txtbNewAddress
+            // 
+            this.txtbNewAddress.Location = new System.Drawing.Point(821, 229);
+            this.txtbNewAddress.Name = "txtbNewAddress";
+            this.txtbNewAddress.Size = new System.Drawing.Size(290, 35);
+            this.txtbNewAddress.TabIndex = 44;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label18.Location = new System.Drawing.Point(62, 185);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(66, 30);
+            this.label18.TabIndex = 47;
+            this.label18.Text = "hasło";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label13.Location = new System.Drawing.Point(606, 229);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(200, 30);
+            this.label13.TabIndex = 52;
+            this.label13.Text = "adres zamieszkania";
+            // 
+            // numNewBirthdateYear
+            // 
+            this.numNewBirthdateYear.Location = new System.Drawing.Point(1012, 126);
+            this.numNewBirthdateYear.Maximum = new decimal(new int[] {
+            2050,
+            0,
+            0,
+            0});
+            this.numNewBirthdateYear.Minimum = new decimal(new int[] {
+            1900,
+            0,
+            0,
+            0});
+            this.numNewBirthdateYear.Name = "numNewBirthdateYear";
+            this.numNewBirthdateYear.Size = new System.Drawing.Size(99, 35);
+            this.numNewBirthdateYear.TabIndex = 42;
+            this.numNewBirthdateYear.Value = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            // 
+            // txtbNewLogin
+            // 
+            this.txtbNewLogin.Location = new System.Drawing.Point(185, 78);
+            this.txtbNewLogin.Name = "txtbNewLogin";
+            this.txtbNewLogin.Size = new System.Drawing.Size(290, 35);
+            this.txtbNewLogin.TabIndex = 35;
+            // 
+            // numNewBirthdateMonth
+            // 
+            this.numNewBirthdateMonth.Location = new System.Drawing.Point(915, 126);
+            this.numNewBirthdateMonth.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.numNewBirthdateMonth.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numNewBirthdateMonth.Name = "numNewBirthdateMonth";
+            this.numNewBirthdateMonth.Size = new System.Drawing.Size(74, 35);
+            this.numNewBirthdateMonth.TabIndex = 41;
+            this.numNewBirthdateMonth.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // txtbNewName
+            // 
+            this.txtbNewName.Location = new System.Drawing.Point(185, 232);
+            this.txtbNewName.Name = "txtbNewName";
+            this.txtbNewName.Size = new System.Drawing.Size(290, 35);
+            this.txtbNewName.TabIndex = 38;
+            // 
+            // numNewBirthdateDay
+            // 
+            this.numNewBirthdateDay.Location = new System.Drawing.Point(821, 126);
+            this.numNewBirthdateDay.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.numNewBirthdateDay.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numNewBirthdateDay.Name = "numNewBirthdateDay";
+            this.numNewBirthdateDay.Size = new System.Drawing.Size(74, 35);
+            this.numNewBirthdateDay.TabIndex = 40;
+            this.numNewBirthdateDay.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label17.Location = new System.Drawing.Point(62, 236);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(55, 30);
+            this.label17.TabIndex = 48;
+            this.label17.Text = "imię";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label14.Location = new System.Drawing.Point(606, 78);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(104, 30);
+            this.label14.TabIndex = 51;
+            this.label14.Text = "nazwisko";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label16.Location = new System.Drawing.Point(603, 126);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(160, 30);
+            this.label16.TabIndex = 49;
+            this.label16.Text = "data urodzenia";
+            // 
+            // txtbNewSurname
+            // 
+            this.txtbNewSurname.Location = new System.Drawing.Point(821, 75);
+            this.txtbNewSurname.Name = "txtbNewSurname";
+            this.txtbNewSurname.Size = new System.Drawing.Size(290, 35);
+            this.txtbNewSurname.TabIndex = 39;
+            // 
+            // txtbNewPesel
+            // 
+            this.txtbNewPesel.Location = new System.Drawing.Point(821, 179);
+            this.txtbNewPesel.Name = "txtbNewPesel";
+            this.txtbNewPesel.Size = new System.Drawing.Size(290, 35);
+            this.txtbNewPesel.TabIndex = 43;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label15.Location = new System.Drawing.Point(606, 179);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(71, 30);
+            this.label15.TabIndex = 50;
+            this.label15.Text = "PESEL";
+            // 
             // AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1604, 1117);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminView";
             this.Text = "LIS Admin";
@@ -503,6 +1069,20 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numNewBirthdateYear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numNewBirthdateMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numNewBirthdateDay)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -548,5 +1128,50 @@
         private Label label11;
         private NumericUpDown numAddTestPrice;
         private Label label10;
+        private TabPage tabPage3;
+        private SplitContainer splitContainer3;
+        private GroupBox groupBox5;
+        private Button button1;
+        private GroupBox groupBox7;
+        private GroupBox groupBox6;
+        private Label label32;
+        private Label label33;
+        private Label label34;
+        private Label label35;
+        private Label label28;
+        private Label label29;
+        private Label label30;
+        private Label label31;
+        private Label label24;
+        private Label label25;
+        private Label label26;
+        private Label label27;
+        private Label label20;
+        private Label label21;
+        private Label label22;
+        private Label label23;
+        private ListBox listBox1;
+        private GroupBox groupBox4;
+        private TextBox txtbNewEmail;
+        private Button btnAddTechnician;
+        private Label label19;
+        private Label label12;
+        private TextBox txtbNewPassword;
+        private TextBox txtbNewAddress;
+        private Label label18;
+        private Label label13;
+        private NumericUpDown numNewBirthdateYear;
+        private TextBox txtbNewLogin;
+        private NumericUpDown numNewBirthdateMonth;
+        private TextBox txtbNewName;
+        private NumericUpDown numNewBirthdateDay;
+        private Label label17;
+        private Label label14;
+        private Label label16;
+        private TextBox txtbNewSurname;
+        private TextBox txtbNewPesel;
+        private Label label15;
+        private Label label36;
+        private Label label37;
     }
 }
