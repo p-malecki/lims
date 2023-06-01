@@ -16,6 +16,8 @@ namespace SE_project
         public AdminView()
         {
             InitializeComponent();
+            List<FlowLayoutPanel> flpList = new List<FlowLayoutPanel>() { flowLayoutPanel1, flowLayoutPanel2 };
+            TestManagement.InitTestManagement(flpList);
 
             //cbAddTestUnits.SelectedIndex = 0;
             cbAddTestUnits.DisplayMember = "Text";
@@ -111,7 +113,7 @@ namespace SE_project
                 cbAddTestUnits.GetItemText(cbAddTestUnits.SelectedValue),
                 numAddTestPrice.Value
                 );
-            TestManagement.LoadTestList(flowLayoutPanel1);
+            TestManagement.LoadTestLists();
         }
 
         private void btnDelType_Click(object sender, EventArgs e)
