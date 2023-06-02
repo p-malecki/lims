@@ -119,9 +119,7 @@ namespace SE_project
             {
                 if (!txtbNewEmail.Text.Equals(currentUser.email))
                 {
-                    string emailPattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
-
-                    if (Regex.IsMatch(txtbNewEmail.Text, emailPattern))
+                    if (UserManagement.IsValidEmail(txtbNewEmail.Text))
                     {
                         //sprawdzenie czy inny użytkownik nie posiada już tego emaila
                     }
@@ -157,9 +155,7 @@ namespace SE_project
             {
                 if (!txtbNewPassword.Text.Equals(currentUser.Password))
                 {
-                    string passwordPattern = @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{8,16}$";
-
-                    if (Regex.IsMatch(txtbNewPassword.Text, passwordPattern))
+                    if (UserManagement.IsValidPassword(txtbNewPassword))
                     {
 
                     }

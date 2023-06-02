@@ -47,10 +47,19 @@ public class User {
     public string Pesel { get => _pesel; set => _pesel = value; }
     public string Residence { get => _residence; set => _residence = value; }
 
-}
+} 
 
 public class UserManagement
 {
+    private List<User> users;
+    private List<Client> clients;
+
+    public UserManagement()
+    {
+        users = new List<User>();
+        clients = new List<Client>;
+    }
+
     public static bool IsValidPassword(string password)
     {
         string pattern = @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{8,16}$";
@@ -63,5 +72,18 @@ public class UserManagement
         string pattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
 
         return Regex.IsMatch(email, pattern);
+    }
+
+    public bool IsEmailAlreadyUsed(List<User> users, string email)
+    {
+        foreach (Client client in clients)
+        {
+            if (client.email.Equals(email))
+            {
+                return true; // Znaleziono u¿ytkownika o podanym adresie e-mail
+            }
+        }
+
+        return false; // Nie znaleziono u¿ytkownika o podanym adresie e-mail
     }
 }
