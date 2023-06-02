@@ -17,5 +17,7 @@ namespace SE_project
         public static List<Order> toFillOrderList { get => _toFillOrderList; }
         public static List<Order> completedOrderList { get => _completedOrderList; }
         public static List<Order> deniedOrderList { get => _deniedOrderList; }
+
+        public static 
     }
 }
