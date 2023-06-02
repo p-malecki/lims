@@ -10,7 +10,7 @@ public class Client : User {
     {
     }
 
-    private string email;
+    public string email;
 
     private Order[] orders;
 
