@@ -51,13 +51,13 @@ public class User {
 
 public class UserManagement
 {
-    private List<User> users;
-    private List<Client> clients;
+    private static List<User> users;
+    private static List<Client> clients;
 
     public UserManagement()
     {
         users = new List<User>();
-        clients = new List<Client>;
+        clients = new List<Client>();
     }
 
     public static bool IsValidPassword(string password)
@@ -74,16 +74,29 @@ public class UserManagement
         return Regex.IsMatch(email, pattern);
     }
 
-    public bool IsEmailAlreadyUsed(List<User> users, string email)
+    public static bool IsEmailAlreadyUsed(string email)
     {
         foreach (Client client in clients)
         {
             if (client.email.Equals(email))
             {
-                return true; // Znaleziono u¿ytkownika o podanym adresie e-mail
+                return true;
             }
         }
 
-        return false; // Nie znaleziono u¿ytkownika o podanym adresie e-mail
+        return false;
+    }
+
+    public static bool IsLoginAlreadyUsed(string login)
+    {
+        foreach (User user in users)
+        {
+            if (user.Login.Equals(login))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

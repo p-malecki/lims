@@ -121,7 +121,14 @@ namespace SE_project
                 {
                     if (UserManagement.IsValidEmail(txtbNewEmail.Text))
                     {
-                        //sprawdzenie czy inny użytkownik nie posiada już tego emaila
+                        if (!UserManagement.IsEmailAlreadyUsed(txtbNewEmail.Text))
+                        {
+
+                        }
+                        else
+                        {
+
+                        }
                     }
                     else
                     {
@@ -155,7 +162,7 @@ namespace SE_project
             {
                 if (!txtbNewPassword.Text.Equals(currentUser.Password))
                 {
-                    if (UserManagement.IsValidPassword(txtbNewPassword))
+                    if (UserManagement.IsValidPassword(txtbNewPassword.Text))
                     {
 
                     }
