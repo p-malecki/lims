@@ -72,23 +72,22 @@
             btnOrder = new Button();
             monthCalendar1 = new MonthCalendar();
             groupBox9 = new GroupBox();
-            label29 = new Label();
-            label28 = new Label();
-            label27 = new Label();
+            lbPrice = new Label();
+            lbUnits = new Label();
+            lbCategory = new Label();
             lbConstPrice = new Label();
             lbConstUnits = new Label();
             lbConstCategory = new Label();
-            label23 = new Label();
+            lbDescription = new Label();
             groupBox8 = new GroupBox();
             lbConstSearch = new Label();
-            comboBox1 = new ComboBox();
+            cbCategorySort = new ComboBox();
             lbConstCategories = new Label();
             txtbSearch = new TextBox();
             chlbTestsList = new CheckedListBox();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             groupBox7 = new GroupBox();
-            btnLogout = new Button();
             listBox2 = new ListBox();
             groupBox6 = new GroupBox();
             listBox1 = new ListBox();
@@ -159,6 +158,7 @@
             btnNewPassword.TabIndex = 2;
             btnNewPassword.Text = "Zatwierdź";
             btnNewPassword.UseVisualStyleBackColor = true;
+            btnNewPassword.Click += btnNewPassword_Click;
             // 
             // label19
             // 
@@ -223,6 +223,7 @@
             btnNewLogin.TabIndex = 2;
             btnNewLogin.Text = "Zatwierdź";
             btnNewLogin.UseVisualStyleBackColor = true;
+            btnNewLogin.Click += btnNewLogin_Click;
             // 
             // label17
             // 
@@ -287,6 +288,7 @@
             btnNewEmail.TabIndex = 2;
             btnNewEmail.Text = "Zatwierdź";
             btnNewEmail.UseVisualStyleBackColor = true;
+            btnNewEmail.Click += btnNewEmail_Click;
             // 
             // label16
             // 
@@ -576,6 +578,7 @@
             btnOrder.TabIndex = 3;
             btnOrder.Text = "Zamów badanie";
             btnOrder.UseVisualStyleBackColor = true;
+            btnOrder.Click += btnOrder_Click;
             // 
             // monthCalendar1
             // 
@@ -586,13 +589,13 @@
             // 
             // groupBox9
             // 
-            groupBox9.Controls.Add(label29);
-            groupBox9.Controls.Add(label28);
-            groupBox9.Controls.Add(label27);
+            groupBox9.Controls.Add(lbPrice);
+            groupBox9.Controls.Add(lbUnits);
+            groupBox9.Controls.Add(lbCategory);
             groupBox9.Controls.Add(lbConstPrice);
             groupBox9.Controls.Add(lbConstUnits);
             groupBox9.Controls.Add(lbConstCategory);
-            groupBox9.Controls.Add(label23);
+            groupBox9.Controls.Add(lbDescription);
             groupBox9.Location = new Point(455, 4);
             groupBox9.Margin = new Padding(2);
             groupBox9.Name = "groupBox9";
@@ -602,35 +605,35 @@
             groupBox9.TabStop = false;
             groupBox9.Text = "Opis badania";
             // 
-            // label29
+            // lbPrice
             // 
-            label29.AutoSize = true;
-            label29.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label29.Location = new Point(375, 182);
-            label29.MaximumSize = new Size(55, 0);
-            label29.Name = "label29";
-            label29.Size = new Size(0, 19);
-            label29.TabIndex = 6;
+            lbPrice.AutoSize = true;
+            lbPrice.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            lbPrice.Location = new Point(375, 182);
+            lbPrice.MaximumSize = new Size(55, 0);
+            lbPrice.Name = "lbPrice";
+            lbPrice.Size = new Size(0, 19);
+            lbPrice.TabIndex = 6;
             // 
-            // label28
+            // lbUnits
             // 
-            label28.AutoSize = true;
-            label28.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label28.Location = new Point(258, 182);
-            label28.MaximumSize = new Size(80, 0);
-            label28.Name = "label28";
-            label28.Size = new Size(0, 19);
-            label28.TabIndex = 5;
+            lbUnits.AutoSize = true;
+            lbUnits.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            lbUnits.Location = new Point(258, 182);
+            lbUnits.MaximumSize = new Size(80, 0);
+            lbUnits.Name = "lbUnits";
+            lbUnits.Size = new Size(0, 19);
+            lbUnits.TabIndex = 5;
             // 
-            // label27
+            // lbCategory
             // 
-            label27.AutoSize = true;
-            label27.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label27.Location = new Point(81, 182);
-            label27.MaximumSize = new Size(110, 0);
-            label27.Name = "label27";
-            label27.Size = new Size(0, 19);
-            label27.TabIndex = 4;
+            lbCategory.AutoSize = true;
+            lbCategory.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            lbCategory.Location = new Point(81, 182);
+            lbCategory.MaximumSize = new Size(110, 0);
+            lbCategory.Name = "lbCategory";
+            lbCategory.Size = new Size(0, 19);
+            lbCategory.TabIndex = 4;
             // 
             // lbConstPrice
             // 
@@ -662,20 +665,20 @@
             lbConstCategory.TabIndex = 1;
             lbConstCategory.Text = "Kategoria:";
             // 
-            // label23
+            // lbDescription
             // 
-            label23.AutoSize = true;
-            label23.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label23.Location = new Point(5, 20);
-            label23.MaximumSize = new Size(425, 170);
-            label23.Name = "label23";
-            label23.Size = new Size(0, 19);
-            label23.TabIndex = 0;
+            lbDescription.AutoSize = true;
+            lbDescription.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            lbDescription.Location = new Point(5, 20);
+            lbDescription.MaximumSize = new Size(425, 170);
+            lbDescription.Name = "lbDescription";
+            lbDescription.Size = new Size(0, 19);
+            lbDescription.TabIndex = 0;
             // 
             // groupBox8
             // 
             groupBox8.Controls.Add(lbConstSearch);
-            groupBox8.Controls.Add(comboBox1);
+            groupBox8.Controls.Add(cbCategorySort);
             groupBox8.Controls.Add(lbConstCategories);
             groupBox8.Controls.Add(txtbSearch);
             groupBox8.Controls.Add(chlbTestsList);
@@ -697,14 +700,14 @@
             lbConstSearch.TabIndex = 4;
             lbConstSearch.Text = "Szukaj";
             // 
-            // comboBox1
+            // cbCategorySort
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(37, 437);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(134, 23);
-            comboBox1.TabIndex = 3;
-            comboBox1.SelectionChangeCommitted += comboBox1_SelectionChangeCommitted;
+            cbCategorySort.FormattingEnabled = true;
+            cbCategorySort.Location = new Point(37, 437);
+            cbCategorySort.Name = "cbCategorySort";
+            cbCategorySort.Size = new Size(134, 23);
+            cbCategorySort.TabIndex = 3;
+            cbCategorySort.SelectionChangeCommitted += cbCategorySort_SelectionChangeCommitted;
             // 
             // lbConstCategories
             // 
@@ -721,7 +724,7 @@
             txtbSearch.Name = "txtbSearch";
             txtbSearch.Size = new Size(127, 23);
             txtbSearch.TabIndex = 1;
-            txtbSearch.TextChanged += textBox7_TextChanged;
+            txtbSearch.TextChanged += txtbSearch_TextChanged;
             // 
             // chlbTestsList
             // 
@@ -732,8 +735,7 @@
             chlbTestsList.Name = "chlbTestsList";
             chlbTestsList.Size = new Size(434, 384);
             chlbTestsList.TabIndex = 0;
-            chlbTestsList.ItemCheck += checkedListBox1_ItemCheck;
-            chlbTestsList.Click += checkedListBox1_Click;
+            chlbTestsList.Click += chlbTestsList_Click;
             // 
             // tabControl1
             // 
@@ -762,7 +764,6 @@
             // 
             // groupBox7
             // 
-            groupBox7.Controls.Add(btnLogout);
             groupBox7.Controls.Add(listBox2);
             groupBox7.Location = new Point(448, 4);
             groupBox7.Margin = new Padding(2);
@@ -772,16 +773,6 @@
             groupBox7.TabIndex = 1;
             groupBox7.TabStop = false;
             groupBox7.Text = "Zrealizowane";
-            // 
-            // btnLogout
-            // 
-            btnLogout.Location = new Point(351, 10);
-            btnLogout.Margin = new Padding(2);
-            btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(76, 20);
-            btnLogout.TabIndex = 12;
-            btnLogout.Text = "Wyloguj";
-            btnLogout.UseVisualStyleBackColor = true;
             // 
             // listBox2
             // 
@@ -901,16 +892,15 @@
         private Button btnOrder;
         private MonthCalendar monthCalendar1;
         private CheckedListBox chlbTestsList;
-        private Button btnLogout;
         private Label lbConstSearch;
-        private ComboBox comboBox1;
+        private ComboBox cbCategorySort;
         private Label lbConstCategories;
         private TextBox txtbSearch;
-        private Label label23;
+        private Label lbDescription;
         private Label lbConstCategory;
-        private Label label29;
-        private Label label28;
-        private Label label27;
+        private Label lbPrice;
+        private Label lbUnits;
+        private Label lbCategory;
         private Label lbConstPrice;
         private Label lbConstUnits;
         private Label lbConstSum;

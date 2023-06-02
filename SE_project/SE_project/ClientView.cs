@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,12 +32,12 @@ namespace SE_project
 
         private void LoadAvailableTests()
         {
-            foreach (Test t in TestManagement.testList) { names.Add(t.Name); }
+            foreach (Test t in TestManagement.testList) names.Add(t.Name);
             chlbTestsList.DataSource = names;
 
             categories.Add("<wszystkie kategorie>");
-            foreach (TestType tt in TestTypeManagement.List) { categories.Add(tt.Name); }
-            comboBox1.DataSource = categories;
+            foreach (TestType tt in TestTypeManagement.List) categories.Add(tt.Name);
+            cbCategorySort.DataSource = categories;
         }
 
         private void LoadClientData()
@@ -54,15 +55,15 @@ namespace SE_project
             lbAddress.Text = currentUser.Residence;
         }
 
-        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        private void cbCategorySort_SelectionChangeCommitted(object sender, EventArgs e)
         {
             List<String> selectedNames = new List<String>();
 
-            if (!comboBox1.Text.Equals("<wszystkie kategorie>"))
+            if (!cbCategorySort.Text.Equals("<wszystkie kategorie>"))
             {
                 foreach (Test t in TestManagement.testList)
                 {
-                    if (t.Type.Equals(comboBox1.Text)) selectedNames.Add(t.Name);
+                    if (t.Type.Equals(cbCategorySort.Text)) selectedNames.Add(t.Name);
                 }
 
                 chlbTestsList.DataSource = null;
@@ -77,7 +78,7 @@ namespace SE_project
             }
         }
 
-        private void textBox7_TextChanged(object sender, EventArgs e)
+        private void txtbSearch_TextChanged(object sender, EventArgs e)
         {
             List<string> searched = new List<string>();
 
@@ -91,7 +92,7 @@ namespace SE_project
             chlbTestsList.DataSource = searched;
         }
 
-        private void checkedListBox1_Click(object sender, EventArgs e)
+        private void chlbTestsList_Click(object sender, EventArgs e)
         {
             var selectedName = chlbTestsList.SelectedItem;
 
@@ -99,16 +100,86 @@ namespace SE_project
             {
                 if (t.Name.Equals(selectedName))
                 {
-                    label23.Text = t.Description;
-                    label27.Text = t.Type;
-                    label28.Text = t.Unit;
-                    label29.Text = t.Price.ToString();
+                    lbDescription.Text = t.Description;
+                    lbCategory.Text = t.Type;
+                    lbUnits.Text = t.Unit;
+                    lbPrice.Text = t.Price.ToString();
                     break;
                 }
             }
         }
 
-        private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
+        private void btnNewEmail_Click(object sender, EventArgs e)
+        {
+            Client currentUser = new Client(1, 2, 3, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "1234567890", "New York");
+
+            currentUser.email = "example@gmail.com";
+
+            if (txtbNewEmail.Text.Equals(txtbNewEmailConfirm.Text))
+            {
+                if (!txtbNewEmail.Text.Equals(currentUser.email))
+                {
+                    string emailPattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
+
+                    if (Regex.IsMatch(txtbNewEmail.Text, emailPattern))
+                    {
+                        //sprawdzenie czy inny użytkownik nie posiada już tego emaila
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+
+            }
+        }
+
+        private void btnNewLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNewPassword_Click(object sender, EventArgs e)
+        {
+
+            Client currentUser = new Client(1, 2, 3, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "1234567890", "New York");
+
+            currentUser.email = "example@gmail.com";
+
+            if (txtbNewPassword.Text.Equals(txtbNewPasswordConfirm.Text))
+            {
+                if (!txtbNewPassword.Text.Equals(currentUser.Password))
+                {
+                    string passwordPattern = @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{8,16}$";
+
+                    if (Regex.IsMatch(txtbNewPassword.Text, passwordPattern))
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+
+                }  
+            }
+            else
+            {
+
+            }
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
         {
 
         }
