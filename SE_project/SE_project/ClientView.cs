@@ -55,6 +55,11 @@ namespace SE_project
             lbAddress.Text = currentUser.Residence;
         }
 
+        private void LoadClientOrders()
+        {
+
+        }
+
         private void cbCategorySort_SelectionChangeCommitted(object sender, EventArgs e)
         {
             List<String> selectedNames = new List<String>();
@@ -174,7 +179,7 @@ namespace SE_project
                 else
                 {
 
-                }  
+                }
             }
             else
             {

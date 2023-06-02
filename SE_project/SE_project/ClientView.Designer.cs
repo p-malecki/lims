@@ -88,9 +88,9 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             groupBox7 = new GroupBox();
-            listBox2 = new ListBox();
             groupBox6 = new GroupBox();
-            listBox1 = new ListBox();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
             tabPage3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox5.SuspendLayout();
@@ -764,7 +764,7 @@
             // 
             // groupBox7
             // 
-            groupBox7.Controls.Add(listBox2);
+            groupBox7.Controls.Add(flowLayoutPanel2);
             groupBox7.Location = new Point(448, 4);
             groupBox7.Margin = new Padding(2);
             groupBox7.Name = "groupBox7";
@@ -774,20 +774,9 @@
             groupBox7.TabStop = false;
             groupBox7.Text = "Zrealizowane";
             // 
-            // listBox2
-            // 
-            listBox2.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            listBox2.FormattingEnabled = true;
-            listBox2.ItemHeight = 37;
-            listBox2.Location = new Point(5, 20);
-            listBox2.Margin = new Padding(2);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(429, 411);
-            listBox2.TabIndex = 1;
-            // 
             // groupBox6
             // 
-            groupBox6.Controls.Add(listBox1);
+            groupBox6.Controls.Add(flowLayoutPanel1);
             groupBox6.Location = new Point(5, 4);
             groupBox6.Margin = new Padding(2);
             groupBox6.Name = "groupBox6";
@@ -797,16 +786,19 @@
             groupBox6.TabStop = false;
             groupBox6.Text = "Oczekujące";
             // 
-            // listBox1
+            // flowLayoutPanel1
             // 
-            listBox1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 37;
-            listBox1.Location = new Point(5, 20);
-            listBox1.Margin = new Padding(2);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(428, 411);
-            listBox1.TabIndex = 0;
+            flowLayoutPanel1.Location = new Point(5, 21);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(428, 450);
+            flowLayoutPanel1.TabIndex = 0;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Location = new Point(5, 21);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(429, 450);
+            flowLayoutPanel2.TabIndex = 0;
             // 
             // ClientView
             // 
@@ -887,8 +879,6 @@
         private Button btnUserLogOut;
         private GroupBox groupBox9;
         private GroupBox groupBox8;
-        private ListBox listBox2;
-        private ListBox listBox1;
         private Button btnOrder;
         private MonthCalendar monthCalendar1;
         private CheckedListBox chlbTestsList;
@@ -905,5 +895,7 @@
         private Label lbConstUnits;
         private Label lbConstSum;
         private Label label31;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
