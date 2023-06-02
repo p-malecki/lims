@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 public class User {
@@ -46,4 +47,21 @@ public class User {
     public string Pesel { get => _pesel; set => _pesel = value; }
     public string Residence { get => _residence; set => _residence = value; }
 
+}
+
+public class UserManagement
+{
+    public static bool IsValidPassword(string password)
+    {
+        string pattern = @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{8,16}$";
+
+        return Regex.IsMatch(password, pattern);
+    }
+
+    public static bool IsValidEmail(string email)
+    {
+        string pattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
+
+        return Regex.IsMatch(email, pattern);
+    }
 }
