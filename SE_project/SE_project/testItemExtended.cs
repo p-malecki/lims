@@ -12,9 +12,16 @@ namespace SE_project
 {
     public partial class testItemExtended : UserControl
     {
-        public testItemExtended()
+        public testItemExtended(Test test)
         {
             InitializeComponent();
+            testID.Text = test.ID.ToString();
+            testName.Text = test.Name;
+            minVal.Text = test.Min.ToString();
+            maxVal.Text = test.Max.ToString();
+            units.Text = test.Unit;
+            testType.Text = test.Type;
+            price.Text = test.Price.ToString();
         }
     }
 }

@@ -8,14 +8,14 @@ public class ClientTest : Test {
 
 
 
-    public ClientTest(uint iD, string name, int type, double min, double max, int unit) : base(iD, name, type, min, max, unit)
+    public ClientTest(int id, string name, string type, string description, decimal min, decimal max, string unit, int status) : base(id, name, type, description, min, max, unit, status)
     {
     }
 
-    private uint orderID;
+    private int _orderID;
 
-    private double result;
+    private double _result;
 
-    protected uint OrderID { get => orderID; set => orderID = value; }
-    protected double Result { get => result; set => result = value; }
+    protected int OrderID { get => _orderID; set => _orderID = value; }
+    protected double Result { get => _result; set => _result = value; }
 }
