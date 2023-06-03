@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -80,6 +81,50 @@ namespace SE_project
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            string connectionString = "Data Source=DESKTOP-OBGFI3F;Initial Catalog=Laboratorium;Integrated Security=true";
+            SqlConnection connection = new SqlConnection(connectionString);
+
+
+            // Otwórz połączenie
+            connection.Open();
+
+
+                // Zapytanie SQL pobierające dane
+                string query = "SELECT nazwa_badania FROM badania";
+
+                // Utworzenie polecenia SQL
+                SqlCommand command = new SqlCommand(query, connection);
+
+                // Wykonanie zapytania i odczyt danych
+                SqlDataReader reader = command.ExecuteReader();
+
+                // Czytanie danych i dodawanie ich do ListBox
+                while (reader.Read())
+                {
+                    string value = reader.GetString(0);
+                    listBox1.Items.Add(value);
+                }
+
+                // Zamknięcie czytnika i połączenia
+                reader.Close();
+                connection.Close();
+            
+
+
         }
     }
 }

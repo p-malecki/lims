@@ -35,6 +35,7 @@
             label1 = new Label();
             splitContainer3 = new SplitContainer();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            btnLogout = new Button();
             button4 = new Button();
             button3 = new Button();
             groupBox3 = new GroupBox();
@@ -75,7 +76,6 @@
             label4 = new Label();
             label3 = new Label();
             label5 = new Label();
-            this.btnLogout = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             panel1.SuspendLayout();
@@ -104,22 +104,20 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
-            tabControl1.Location = new Point(-2, -2);
-            tabControl1.Margin = new Padding(4, 4, 4, 4);
+            tabControl1.Location = new Point(-1, -1);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1653, 1058);
+            tabControl1.Size = new Size(1102, 705);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             tabPage1.Controls.Add(panel1);
             tabPage1.Controls.Add(splitContainer3);
-            tabPage1.Location = new Point(4, 39);
-            tabPage1.Margin = new Padding(4, 4, 4, 4);
+            tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(4, 4, 4, 4);
-            tabPage1.Size = new Size(1645, 1015);
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1094, 672);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "badania do akceptacji";
             tabPage1.UseVisualStyleBackColor = true;
@@ -128,27 +126,26 @@
             // panel1
             // 
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(0, 4);
-            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Location = new Point(0, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(732, 170);
+            panel1.Size = new Size(488, 113);
             panel1.TabIndex = 2;
+            panel1.Paint += panel1_Paint;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(236, 68);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(157, 45);
             label1.Name = "label1";
-            label1.Size = new Size(278, 30);
+            label1.Size = new Size(201, 20);
             label1.TabIndex = 0;
             label1.Text = "lista zamówień do akceptacji";
+            label1.Click += label1_Click_1;
             // 
             // splitContainer3
             // 
             splitContainer3.Dock = DockStyle.Fill;
-            splitContainer3.Location = new Point(4, 4);
-            splitContainer3.Margin = new Padding(4, 4, 4, 4);
+            splitContainer3.Location = new Point(3, 3);
             splitContainer3.Name = "splitContainer3";
             // 
             // splitContainer3.Panel1
@@ -157,40 +154,48 @@
             // 
             // splitContainer3.Panel2
             // 
-            splitContainer3.Panel2.Controls.Add(this.btnLogout);
+            splitContainer3.Panel2.Controls.Add(btnLogout);
             splitContainer3.Panel2.Controls.Add(button4);
             splitContainer3.Panel2.Controls.Add(button3);
             splitContainer3.Panel2.Controls.Add(groupBox3);
             splitContainer3.Panel2.Controls.Add(listBox1);
-            splitContainer3.Size = new Size(1637, 1007);
-            splitContainer3.SplitterDistance = 723;
-            splitContainer3.SplitterWidth = 6;
+            splitContainer3.Size = new Size(1088, 666);
+            splitContainer3.SplitterDistance = 480;
             splitContainer3.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Location = new Point(0, 166);
-            flowLayoutPanel1.Margin = new Padding(4, 4, 4, 4);
+            flowLayoutPanel1.Location = new Point(0, 111);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(728, 843);
+            flowLayoutPanel1.Size = new Size(485, 562);
             flowLayoutPanel1.TabIndex = 5;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
+            // 
+            // btnLogout
+            // 
+            btnLogout.Location = new Point(490, 14);
+            btnLogout.Margin = new Padding(2);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(87, 27);
+            btnLogout.TabIndex = 12;
+            btnLogout.Text = "Wyloguj";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // button4
             // 
-            button4.Location = new Point(640, 322);
-            button4.Margin = new Padding(4, 4, 4, 4);
+            button4.Location = new Point(427, 215);
             button4.Name = "button4";
-            button4.Size = new Size(198, 100);
+            button4.Size = new Size(132, 67);
             button4.TabIndex = 4;
             button4.Text = "odrzuć";
             button4.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            button3.Location = new Point(402, 322);
-            button3.Margin = new Padding(4, 4, 4, 4);
+            button3.Location = new Point(268, 215);
             button3.Name = "button3";
-            button3.Size = new Size(182, 100);
+            button3.Size = new Size(121, 67);
             button3.TabIndex = 3;
             button3.Text = "akceptuj";
             button3.UseVisualStyleBackColor = true;
@@ -201,11 +206,9 @@
             groupBox3.Controls.Add(textBox14);
             groupBox3.Controls.Add(label15);
             groupBox3.Controls.Add(label16);
-            groupBox3.Location = new Point(380, 68);
-            groupBox3.Margin = new Padding(4, 4, 4, 4);
+            groupBox3.Location = new Point(253, 45);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(4, 4, 4, 4);
-            groupBox3.Size = new Size(514, 194);
+            groupBox3.Size = new Size(343, 129);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "akceptacja badań";
@@ -213,48 +216,47 @@
             // 
             // textBox13
             // 
-            textBox13.Location = new Point(279, 134);
-            textBox13.Margin = new Padding(4, 4, 4, 4);
+            textBox13.Location = new Point(186, 89);
             textBox13.Name = "textBox13";
-            textBox13.Size = new Size(224, 35);
+            textBox13.Size = new Size(151, 27);
             textBox13.TabIndex = 10;
             textBox13.TextChanged += textBox13_TextChanged;
             // 
             // textBox14
             // 
-            textBox14.Location = new Point(279, 70);
-            textBox14.Margin = new Padding(4, 4, 4, 4);
+            textBox14.Location = new Point(186, 47);
             textBox14.Name = "textBox14";
-            textBox14.Size = new Size(224, 35);
+            textBox14.Size = new Size(151, 27);
             textBox14.TabIndex = 9;
             textBox14.TextChanged += textBox14_TextChanged;
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(50, 138);
+            label15.Location = new Point(33, 92);
+            label15.Margin = new Padding(2, 0, 2, 0);
             label15.Name = "label15";
-            label15.Size = new Size(72, 30);
+            label15.Size = new Size(51, 20);
             label15.TabIndex = 7;
             label15.Text = "nazwa";
             // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(50, 75);
+            label16.Location = new Point(33, 50);
+            label16.Margin = new Padding(2, 0, 2, 0);
             label16.Name = "label16";
-            label16.Size = new Size(34, 30);
+            label16.Size = new Size(24, 20);
             label16.TabIndex = 6;
             label16.Text = "ID";
             // 
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 30;
-            listBox1.Location = new Point(4, 4);
-            listBox1.Margin = new Padding(4, 4, 4, 4);
+            listBox1.ItemHeight = 20;
+            listBox1.Location = new Point(3, 3);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(368, 994);
+            listBox1.Size = new Size(247, 664);
             listBox1.TabIndex = 0;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
@@ -263,47 +265,42 @@
             tabPage2.Controls.Add(flowLayoutPanel3);
             tabPage2.Controls.Add(panel3);
             tabPage2.Controls.Add(splitContainer2);
-            tabPage2.Location = new Point(4, 39);
-            tabPage2.Margin = new Padding(4, 4, 4, 4);
+            tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(4, 4, 4, 4);
-            tabPage2.Size = new Size(1645, 1015);
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1094, 672);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "badania zaakceptowane";
             tabPage2.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel3
             // 
-            flowLayoutPanel3.Location = new Point(0, 171);
-            flowLayoutPanel3.Margin = new Padding(4, 4, 4, 4);
+            flowLayoutPanel3.Location = new Point(0, 114);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(728, 843);
+            flowLayoutPanel3.Size = new Size(485, 562);
             flowLayoutPanel3.TabIndex = 4;
             // 
             // panel3
             // 
             panel3.Controls.Add(label7);
-            panel3.Location = new Point(0, 4);
-            panel3.Margin = new Padding(4, 4, 4, 4);
+            panel3.Location = new Point(0, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(728, 165);
+            panel3.Size = new Size(485, 110);
             panel3.TabIndex = 3;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(236, 68);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(157, 45);
             label7.Name = "label7";
-            label7.Size = new Size(284, 30);
+            label7.Size = new Size(203, 20);
             label7.TabIndex = 0;
             label7.Text = "lista badań zaakceptowanych";
             // 
             // splitContainer2
             // 
             splitContainer2.Dock = DockStyle.Fill;
-            splitContainer2.Location = new Point(4, 4);
-            splitContainer2.Margin = new Padding(4, 4, 4, 4);
+            splitContainer2.Location = new Point(3, 3);
             splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
@@ -315,17 +312,15 @@
             splitContainer2.Panel2.Controls.Add(button2);
             splitContainer2.Panel2.Controls.Add(groupBox2);
             splitContainer2.Panel2.Paint += splitContainer2_Panel2_Paint;
-            splitContainer2.Size = new Size(1637, 1007);
-            splitContainer2.SplitterDistance = 726;
-            splitContainer2.SplitterWidth = 6;
+            splitContainer2.Size = new Size(1088, 666);
+            splitContainer2.SplitterDistance = 482;
             splitContainer2.TabIndex = 0;
             // 
             // button2
             // 
-            button2.Location = new Point(456, 676);
-            button2.Margin = new Padding(4, 4, 4, 4);
+            button2.Location = new Point(304, 451);
             button2.Name = "button2";
-            button2.Size = new Size(214, 84);
+            button2.Size = new Size(143, 56);
             button2.TabIndex = 2;
             button2.Text = "zatwierdz";
             button2.UseVisualStyleBackColor = true;
@@ -342,108 +337,105 @@
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(label10);
             groupBox2.Controls.Add(label11);
-            groupBox2.Location = new Point(122, 92);
-            groupBox2.Margin = new Padding(4, 4, 4, 4);
+            groupBox2.Location = new Point(81, 61);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(4, 4, 4, 4);
-            groupBox2.Size = new Size(549, 474);
+            groupBox2.Size = new Size(366, 316);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "wprowadzanie danych";
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(332, 352);
-            textBox9.Margin = new Padding(4, 4, 4, 4);
+            textBox9.Location = new Point(221, 235);
             textBox9.Name = "textBox9";
-            textBox9.Size = new Size(186, 35);
+            textBox9.Size = new Size(125, 27);
             textBox9.TabIndex = 14;
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(50, 282);
+            label12.Location = new Point(33, 188);
+            label12.Margin = new Padding(2, 0, 2, 0);
             label12.Name = "label12";
-            label12.Size = new Size(147, 30);
+            label12.Size = new Size(105, 20);
             label12.TabIndex = 13;
             label12.Text = "górna granica ";
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(332, 278);
-            textBox5.Margin = new Padding(4, 4, 4, 4);
+            textBox5.Location = new Point(221, 185);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(186, 35);
+            textBox5.Size = new Size(125, 27);
             textBox5.TabIndex = 12;
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(332, 200);
-            textBox6.Margin = new Padding(4, 4, 4, 4);
+            textBox6.Location = new Point(221, 133);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(186, 35);
+            textBox6.Size = new Size(125, 27);
             textBox6.TabIndex = 11;
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(332, 134);
-            textBox7.Margin = new Padding(4, 4, 4, 4);
+            textBox7.Location = new Point(221, 89);
             textBox7.Name = "textBox7";
-            textBox7.Size = new Size(186, 35);
+            textBox7.Size = new Size(125, 27);
             textBox7.TabIndex = 10;
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(332, 70);
-            textBox8.Margin = new Padding(4, 4, 4, 4);
+            textBox8.Location = new Point(221, 47);
             textBox8.Name = "textBox8";
-            textBox8.Size = new Size(186, 35);
+            textBox8.Size = new Size(125, 27);
             textBox8.TabIndex = 9;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(50, 357);
+            label8.Location = new Point(33, 238);
+            label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
-            label8.Size = new Size(84, 30);
+            label8.Size = new Size(60, 20);
             label8.TabIndex = 8;
             label8.Text = "wartość";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(50, 138);
+            label9.Location = new Point(33, 92);
+            label9.Margin = new Padding(2, 0, 2, 0);
             label9.Name = "label9";
-            label9.Size = new Size(72, 30);
+            label9.Size = new Size(51, 20);
             label9.TabIndex = 7;
             label9.Text = "nazwa";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(50, 75);
+            label10.Location = new Point(33, 50);
+            label10.Margin = new Padding(2, 0, 2, 0);
             label10.Name = "label10";
-            label10.Size = new Size(34, 30);
+            label10.Size = new Size(24, 20);
             label10.TabIndex = 6;
             label10.Text = "ID";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(50, 210);
+            label11.Location = new Point(33, 140);
+            label11.Margin = new Padding(2, 0, 2, 0);
             label11.Name = "label11";
-            label11.Size = new Size(139, 30);
+            label11.Size = new Size(100, 20);
             label11.TabIndex = 5;
             label11.Text = "dolna granica";
             // 
             // tabPage3
             // 
             tabPage3.Controls.Add(splitContainer1);
-            tabPage3.Location = new Point(4, 39);
-            tabPage3.Margin = new Padding(4, 4, 4, 4);
+            tabPage3.Location = new Point(4, 29);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(4, 4, 4, 4);
-            tabPage3.Size = new Size(1645, 1015);
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(1094, 672);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "historia badań";
             tabPage3.UseVisualStyleBackColor = true;
@@ -451,8 +443,7 @@
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(4, 4);
-            splitContainer1.Margin = new Padding(4, 4, 4, 4);
+            splitContainer1.Location = new Point(3, 3);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -464,44 +455,39 @@
             // 
             splitContainer1.Panel2.Controls.Add(button1);
             splitContainer1.Panel2.Controls.Add(groupBox1);
-            splitContainer1.Size = new Size(1637, 1007);
-            splitContainer1.SplitterDistance = 713;
-            splitContainer1.SplitterWidth = 6;
+            splitContainer1.Size = new Size(1088, 666);
+            splitContainer1.SplitterDistance = 473;
             splitContainer1.TabIndex = 0;
             // 
             // flowLayoutPanel2
             // 
-            flowLayoutPanel2.Location = new Point(-10, 160);
-            flowLayoutPanel2.Margin = new Padding(4, 4, 4, 4);
+            flowLayoutPanel2.Location = new Point(-7, 107);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(728, 843);
+            flowLayoutPanel2.Size = new Size(485, 562);
             flowLayoutPanel2.TabIndex = 3;
             // 
             // panel2
             // 
             panel2.Controls.Add(label2);
-            panel2.Location = new Point(-10, 0);
-            panel2.Margin = new Padding(4, 4, 4, 4);
+            panel2.Location = new Point(-7, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(728, 165);
+            panel2.Size = new Size(485, 110);
             panel2.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(252, 64);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(168, 43);
             label2.Name = "label2";
-            label2.Size = new Size(182, 30);
+            label2.Size = new Size(131, 20);
             label2.TabIndex = 0;
             label2.Text = "lista historii badań";
             // 
             // button1
             // 
-            button1.Location = new Point(542, 555);
-            button1.Margin = new Padding(4, 4, 4, 4);
+            button1.Location = new Point(361, 370);
             button1.Name = "button1";
-            button1.Size = new Size(214, 84);
+            button1.Size = new Size(143, 56);
             button1.TabIndex = 1;
             button1.Text = "zatwierdz";
             button1.UseVisualStyleBackColor = true;
@@ -516,71 +502,68 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label5);
-            groupBox1.Location = new Point(207, 126);
-            groupBox1.Margin = new Padding(4, 4, 4, 4);
+            groupBox1.Location = new Point(138, 84);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(4, 4, 4, 4);
-            groupBox1.Size = new Size(549, 390);
+            groupBox1.Size = new Size(366, 260);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "edycja badania";
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(332, 262);
-            textBox4.Margin = new Padding(4, 4, 4, 4);
+            textBox4.Location = new Point(221, 175);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(186, 35);
+            textBox4.Size = new Size(125, 27);
             textBox4.TabIndex = 12;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(332, 194);
-            textBox3.Margin = new Padding(4, 4, 4, 4);
+            textBox3.Location = new Point(221, 129);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(186, 35);
+            textBox3.Size = new Size(125, 27);
             textBox3.TabIndex = 11;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(332, 129);
-            textBox2.Margin = new Padding(4, 4, 4, 4);
+            textBox2.Location = new Point(221, 86);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(186, 35);
+            textBox2.Size = new Size(125, 27);
             textBox2.TabIndex = 10;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(332, 70);
-            textBox1.Margin = new Padding(4, 4, 4, 4);
+            textBox1.Location = new Point(221, 47);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(186, 35);
+            textBox1.Size = new Size(125, 27);
             textBox1.TabIndex = 9;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(50, 267);
+            label6.Location = new Point(33, 178);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(243, 30);
+            label6.Size = new Size(174, 20);
             label6.TabIndex = 8;
             label6.Text = "zaaktualizowana wartość";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(50, 129);
+            label4.Location = new Point(33, 86);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(72, 30);
+            label4.Size = new Size(51, 20);
             label4.TabIndex = 7;
             label4.Text = "nazwa";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(50, 70);
+            label3.Location = new Point(33, 47);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(34, 30);
+            label3.Size = new Size(24, 20);
             label3.TabIndex = 6;
             label3.Text = "ID";
             label3.Click += label3_Click;
@@ -588,30 +571,22 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(50, 194);
+            label5.Location = new Point(33, 129);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(158, 30);
+            label5.Size = new Size(113, 20);
             label5.TabIndex = 5;
             label5.Text = "obecna wartość";
             label5.Click += label5_Click;
             // 
-            // btnLogout
-            // 
-            this.btnLogout.Location = new Point(735, 21);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new Size(131, 40);
-            this.btnLogout.TabIndex = 12;
-            this.btnLogout.Text = "Wyloguj";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += this.btnLogout_Click;
-            // 
             // TechnicianView
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1648, 1054);
+            ClientSize = new Size(1099, 703);
             Controls.Add(tabControl1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(2);
             Name = "TechnicianView";
             Text = "LIS Technik";
             tabControl1.ResumeLayout(false);
