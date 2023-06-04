@@ -67,10 +67,12 @@
             lbConstName = new Label();
             lbConstEmail = new Label();
             tabPage2 = new TabPage();
+            listbxMinutes = new ListBox();
+            listbxHours = new ListBox();
             lbSum = new Label();
             lbConstSum = new Label();
             btnOrder = new Button();
-            monthCalendar1 = new MonthCalendar();
+            monthCalendar = new MonthCalendar();
             groupBox9 = new GroupBox();
             lbPrice = new Label();
             lbUnits = new Label();
@@ -533,10 +535,12 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(listbxMinutes);
+            tabPage2.Controls.Add(listbxHours);
             tabPage2.Controls.Add(lbSum);
             tabPage2.Controls.Add(lbConstSum);
             tabPage2.Controls.Add(btnOrder);
-            tabPage2.Controls.Add(monthCalendar1);
+            tabPage2.Controls.Add(monthCalendar);
             tabPage2.Controls.Add(groupBox9);
             tabPage2.Controls.Add(groupBox8);
             tabPage2.Location = new Point(4, 24);
@@ -547,6 +551,24 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Zamawianie";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // listbxMinutes
+            // 
+            listbxMinutes.FormattingEnabled = true;
+            listbxMinutes.ItemHeight = 15;
+            listbxMinutes.Location = new Point(820, 244);
+            listbxMinutes.Name = "listbxMinutes";
+            listbxMinutes.Size = new Size(46, 139);
+            listbxMinutes.TabIndex = 10;
+            // 
+            // listbxHours
+            // 
+            listbxHours.FormattingEnabled = true;
+            listbxHours.ItemHeight = 15;
+            listbxHours.Location = new Point(768, 244);
+            listbxHours.Name = "listbxHours";
+            listbxHours.Size = new Size(46, 139);
+            listbxHours.TabIndex = 9;
             // 
             // lbSum
             // 
@@ -580,12 +602,12 @@
             btnOrder.UseVisualStyleBackColor = true;
             btnOrder.Click += btnOrder_Click;
             // 
-            // monthCalendar1
+            // monthCalendar
             // 
-            monthCalendar1.Location = new Point(536, 230);
-            monthCalendar1.Margin = new Padding(8, 7, 8, 7);
-            monthCalendar1.Name = "monthCalendar1";
-            monthCalendar1.TabIndex = 2;
+            monthCalendar.Location = new Point(488, 230);
+            monthCalendar.Margin = new Padding(8, 7, 8, 7);
+            monthCalendar.Name = "monthCalendar";
+            monthCalendar.TabIndex = 2;
             // 
             // groupBox9
             // 
@@ -881,7 +903,7 @@
         private GroupBox groupBox9;
         private GroupBox groupBox8;
         private Button btnOrder;
-        private MonthCalendar monthCalendar1;
+        private MonthCalendar monthCalendar;
         private CheckedListBox chlbTestsList;
         private Label lbConstSearch;
         private ComboBox cbCategorySort;
@@ -898,5 +920,7 @@
         private Label lbSum;
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flowLayoutPanel1;
+        private ListBox listbxMinutes;
+        private ListBox listbxHours;
     }
 }

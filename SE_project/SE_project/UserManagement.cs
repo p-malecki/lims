@@ -17,7 +17,7 @@ namespace SE_project
 
         public UserManagement()
         {
-            _adminAccount = new User(0, 0, 1, "admin", "", "admin", "");
+            //_adminAccount = new User(0, 0, 1, "admin", "", "admin", "");
             // load _techniciansAccounts
             // load _clientsAccounts
         }

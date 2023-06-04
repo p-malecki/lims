@@ -28,39 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbOrderDate = new Label();
-            lbId = new Label();
+            lbCompletedDate = new Label();
+            lbCompletedId = new Label();
             label2 = new Label();
             label1 = new Label();
-            listBox1 = new ListBox();
-            button1 = new Button();
+            listbxCompletedTests = new ListBox();
+            btnOrderDetails = new Button();
             SuspendLayout();
             // 
-            // lbOrderDate
+            // lbCompletedDate
             // 
-            lbOrderDate.AutoSize = true;
-            lbOrderDate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbOrderDate.Location = new Point(152, 62);
-            lbOrderDate.Name = "lbOrderDate";
-            lbOrderDate.Size = new Size(52, 21);
-            lbOrderDate.TabIndex = 8;
-            lbOrderDate.Text = "label5";
+            lbCompletedDate.AutoSize = true;
+            lbCompletedDate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbCompletedDate.Location = new Point(158, 51);
+            lbCompletedDate.Name = "lbCompletedDate";
+            lbCompletedDate.Size = new Size(52, 21);
+            lbCompletedDate.TabIndex = 8;
+            lbCompletedDate.Text = "label5";
             // 
-            // lbId
+            // lbCompletedId
             // 
-            lbId.AutoSize = true;
-            lbId.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbId.Location = new Point(55, 28);
-            lbId.Name = "lbId";
-            lbId.Size = new Size(52, 21);
-            lbId.TabIndex = 7;
-            lbId.Text = "label4";
+            lbCompletedId.AutoSize = true;
+            lbCompletedId.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbCompletedId.Location = new Point(61, 17);
+            lbCompletedId.Name = "lbCompletedId";
+            lbCompletedId.Size = new Size(52, 21);
+            lbCompletedId.TabIndex = 7;
+            lbCompletedId.Text = "label4";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(17, 59);
+            label2.Location = new Point(23, 48);
             label2.Name = "label2";
             label2.Size = new Size(129, 25);
             label2.TabIndex = 6;
@@ -70,53 +70,53 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(17, 25);
+            label1.Location = new Point(23, 14);
             label1.Name = "label1";
             label1.Size = new Size(32, 25);
             label1.TabIndex = 5;
             label1.Text = "ID";
             // 
-            // listBox1
+            // listbxCompletedTests
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(389, 25);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(120, 94);
-            listBox1.TabIndex = 9;
+            listbxCompletedTests.FormattingEnabled = true;
+            listbxCompletedTests.ItemHeight = 15;
+            listbxCompletedTests.Location = new Point(296, 14);
+            listbxCompletedTests.Name = "listbxCompletedTests";
+            listbxCompletedTests.Size = new Size(120, 94);
+            listbxCompletedTests.TabIndex = 9;
             // 
-            // button1
+            // btnOrderDetails
             // 
-            button1.Location = new Point(32, 96);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 10;
-            button1.Text = "Szczegóły";
-            button1.UseVisualStyleBackColor = true;
+            btnOrderDetails.Location = new Point(37, 82);
+            btnOrderDetails.Name = "btnOrderDetails";
+            btnOrderDetails.Size = new Size(148, 30);
+            btnOrderDetails.TabIndex = 10;
+            btnOrderDetails.Text = "Szczegóły";
+            btnOrderDetails.UseVisualStyleBackColor = true;
             // 
-            // UserControl1
+            // CompletedOrder
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button1);
-            Controls.Add(listBox1);
-            Controls.Add(lbOrderDate);
-            Controls.Add(lbId);
+            Controls.Add(btnOrderDetails);
+            Controls.Add(listbxCompletedTests);
+            Controls.Add(lbCompletedDate);
+            Controls.Add(lbCompletedId);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "UserControl1";
-            Size = new Size(529, 150);
+            Name = "CompletedOrder";
+            Size = new Size(428, 125);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label lbOrderDate;
-        private Label lbId;
+        private Label lbCompletedDate;
+        private Label lbCompletedId;
         private Label label2;
         private Label label1;
-        private ListBox listBox1;
-        private Button button1;
+        private ListBox listbxCompletedTests;
+        private Button btnOrderDetails;
     }
 }

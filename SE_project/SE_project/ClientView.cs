@@ -16,13 +16,29 @@ namespace SE_project
         public List<String> names = new List<String>();
         public List<String> categories = new List<String>();
 
-        public decimal sum = 0;
+        public List<String> hours = new List<string> { "8", "9", "10", "11", "12", "13", "15", "16" };
+        public List<String> minutes = new List<string> {
+                                                    "0", "1", "2", "3", "4", "5", "6", "7",
+                                                    "8", "9", "10", "11", "12", "13", "15", "16",
+                                                    "17", "18", "19", "20", "21", "22", "23", "24",
+                                                    "25", "26", "27", "28", "29", "30", "31", "32",
+                                                    "33", "34", "35", "36", "37", "38", "39", "40",
+                                                    "41", "42", "43", "44", "45", "46", "47", "48",
+                                                    "49", "50", "51", "52", "53", "54", "55", "56",
+                                                    "57", "58", "59"
+                                                };
+
+        public decimal sum;
 
         public ClientView()
         {
             InitializeComponent();
 
-            lbSum.Text = "0";
+            sum = 0;
+            lbSum.Text = sum.ToString();
+
+            listbxHours.DataSource = hours;
+            listbxMinutes.DataSource = minutes;
 
             LoadAvailableTests();
             LoadClientData();
@@ -63,7 +79,22 @@ namespace SE_project
 
         private void LoadClientOrders()
         {
+            Client tempClient = new Client(1, 2, 3, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "1234567890", "New York");
+            tempClient.email = "example@gmail.com";
 
+            foreach (Order o in tempClient.orders)
+            {
+                if (o.Status == 0 || o.Status == 1)
+                {
+                    PendingOrder newPendingOrder = new PendingOrder(o.ID, o.Date, o.Status, o.Tests);
+                    flowLayoutPanel1.Controls.Add(newPendingOrder);
+                }
+                else if (o.Status == 2)
+                {
+                    CompletedOrder newCompletedOrder = new CompletedOrder(o.ID, o.Date, o.Tests);
+                    flowLayoutPanel2.Controls.Add(newCompletedOrder);
+                }
+            }
         }
 
         private void cbCategorySort_SelectionChangeCommitted(object sender, EventArgs e)
@@ -191,16 +222,26 @@ namespace SE_project
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
+            DateTime selectedDate = monthCalendar.SelectionRange.Start;
+
+            if (selectedDate.DayOfWeek != DayOfWeek.Saturday && selectedDate.DayOfWeek != DayOfWeek.Sunday) 
+            {
+
+            }
+            else
+            {
+
+            }
 
         }
 
 
         private void chlbTestsList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            String testName = names[e.Index].ToString();
+
             if (e.NewValue == CheckState.Checked)
             {
-                String testName = names[e.Index].ToString();
-
                 foreach (Test t in TestManagement.testList)
                 {
                     if ((t.Name.Equals(testName)))
@@ -213,8 +254,6 @@ namespace SE_project
 
             else if (e.NewValue == CheckState.Unchecked)
             {
-                String testName = names[e.Index].ToString();
-
                 foreach (Test t in TestManagement.testList)
                 {
                     if ((t.Name.Equals(testName)))

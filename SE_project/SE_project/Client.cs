@@ -11,7 +11,7 @@ public class Client : User {
     }
 
     public string email;
-    private Order[] orders;
+    public Order[] orders;
 
     protected string Email { get => email; set => email = value; }
     protected Order[] Orders { get => orders; set => orders = value; }

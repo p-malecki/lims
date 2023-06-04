@@ -12,9 +12,14 @@ namespace SE_project
 {
     public partial class PendingOrder : UserControl
     {
-        public PendingOrder()
+        public PendingOrder(int id, DateTime date, int status, ClientTest[] tests)
         {
             InitializeComponent();
+            lbPendingId.Text = id.ToString();
+            lbPendingDate.Text = date.ToString();
+            lbPendingStatus.Text = status.ToString();
+
+            listbxPedningTests.DataSource = tests;
         }
     }
 }
