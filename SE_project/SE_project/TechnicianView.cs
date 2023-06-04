@@ -287,7 +287,7 @@ namespace SE_project
                     textBox10.Text = reader["testID"].ToString();
                     textBox11.Text = reader["name"].ToString();
                     textBox12.Text = reader["type"].ToString();
-                 //   textBox14.Text = reader["nazwa"].ToString();
+                    //   textBox14.Text = reader["nazwa"].ToString();
 
                 }
                 reader.Close();
@@ -300,6 +300,11 @@ namespace SE_project
             {
                 MessageBox.Show("Error retrieving data: " + ex.Message);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
