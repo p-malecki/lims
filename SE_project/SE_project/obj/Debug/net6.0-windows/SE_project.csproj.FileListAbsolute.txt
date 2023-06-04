@@ -49,7 +49,6 @@ C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-win
 C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.ClientView.resources
 C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.LoginRegisterView.resources
 C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.TechnicianView.resources
-C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.testItem.resources
 C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.GenerateResource.cache
 C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AssemblyInfoInputs.cache
@@ -65,35 +64,60 @@ C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\S
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AdminView.aa-DJ.resources
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\bin\Debug\net6.0-windows\aa-DJ\SE_project.resources.dll
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\aa-DJ\SE_project.resources.dll
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.exe
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.deps.json
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.runtimeconfig.json
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.dll
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.pdb
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\bin\Debug\net6.0-windows\aa-DJ\SE_project.resources.dll
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.AssemblyReference.cache
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AdminView.resources
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.ClientView.resources
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.LoginRegisterView.resources
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.TechnicianView.resources
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.testItemExtended.resources
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.testItemExtendedDelete.resources
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AdminView.aa-DJ.resources
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.GenerateResource.cache
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AssemblyInfoInputs.cache
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AssemblyInfo.cs
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.CoreCompileInputs.cache
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\aa-DJ\SE_project.resources.dll
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.dll
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\refint\SE_project.dll
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.pdb
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.genruntimeconfig.cache
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\ref\SE_project.dll
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.CopyComplete
+C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.testItemExtended.resources
+C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.testItemExtendedDelete.resources
+C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AdminView.aa-DJ.resources
+C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\bin\Debug\net6.0-windows\aa-DJ\SE_project.resources.dll
+C:\Users\pawel\Documents\projects\lis\SE_project\SE_project\obj\Debug\net6.0-windows\aa-DJ\SE_project.resources.dll
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.exe
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.deps.json
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.runtimeconfig.json
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.dll
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.pdb
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-windows\aa-DJ\SE_project.resources.dll
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.AssemblyReference.cache
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AdminView.resources
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.ClientView.resources
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.LoginRegisterView.resources
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.TechnicianView.resources
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.testItemExtended.resources
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.testItemExtendedDelete.resources
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AdminView.aa-DJ.resources
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.GenerateResource.cache
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AssemblyInfoInputs.cache
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AssemblyInfo.cs
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.CoreCompileInputs.cache
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\aa-DJ\SE_project.resources.dll
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.dll
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\refint\SE_project.dll
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.pdb
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.genruntimeconfig.cache
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\ref\SE_project.dll
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.AssemblyReference.cache
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AdminView.resources
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.ClientView.resources
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.CompletedOrder.resources
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.LoginRegisterView.resources
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.PendingOrder.resources
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.TechnicianView.resources
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.testItemExtended.resources
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.testItemExtendedDelete.resources
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AdminView.aa-DJ.resources
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.GenerateResource.cache
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AssemblyInfoInputs.cache
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AssemblyInfo.cs
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.CoreCompileInputs.cache
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.dll
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\refint\SE_project.dll
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.pdb
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.exe
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.deps.json
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.runtimeconfig.json
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.dll
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.pdb
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\bin\Debug\net6.0-windows\aa-DJ\SE_project.resources.dll
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\aa-DJ\SE_project.resources.dll
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.genruntimeconfig.cache
+C:\Users\jmgra\Documents\Projekty\lis\lis\SE_project\SE_project\obj\Debug\net6.0-windows\ref\SE_project.dll
