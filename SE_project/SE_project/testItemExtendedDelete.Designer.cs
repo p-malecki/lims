@@ -36,8 +36,6 @@
             this.testName = new System.Windows.Forms.Label();
             this.testID = new System.Windows.Forms.Label();
             this.btnTestDelete = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.price = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // units
@@ -79,7 +77,7 @@
             // testType
             // 
             this.testType.AutoSize = true;
-            this.testType.Location = new System.Drawing.Point(508, 19);
+            this.testType.Location = new System.Drawing.Point(508, 37);
             this.testType.Name = "testType";
             this.testType.Size = new System.Drawing.Size(140, 30);
             this.testType.TabIndex = 8;
@@ -114,32 +112,11 @@
             this.btnTestDelete.TabIndex = 14;
             this.btnTestDelete.Text = "Usuń";
             this.btnTestDelete.UseVisualStyleBackColor = true;
-            this.btnTestDelete.Click += new System.EventHandler(this.btnTestDelete_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(619, 49);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 30);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "zł";
-            // 
-            // price
-            // 
-            this.price.AutoSize = true;
-            this.price.Location = new System.Drawing.Point(545, 49);
-            this.price.Name = "price";
-            this.price.Size = new System.Drawing.Size(68, 30);
-            this.price.TabIndex = 15;
-            this.price.Text = "label2";
             // 
             // testItemExtendedDelete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.price);
             this.Controls.Add(this.btnTestDelete);
             this.Controls.Add(this.testID);
             this.Controls.Add(this.units);
@@ -164,7 +141,5 @@
         private Label testName;
         private Label testID;
         private Button btnTestDelete;
-        private Label label3;
-        private Label price;
     }
 }

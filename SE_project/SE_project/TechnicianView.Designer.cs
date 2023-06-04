@@ -34,16 +34,27 @@
             panel1 = new Panel();
             label1 = new Label();
             splitContainer3 = new SplitContainer();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            listBox2 = new ListBox();
+            groupBox4 = new GroupBox();
+            label20 = new Label();
+            label18 = new Label();
+            textBox15 = new TextBox();
+            textBox14 = new TextBox();
+            textBox12 = new TextBox();
+            textBox11 = new TextBox();
+            textBox10 = new TextBox();
+            label17 = new Label();
+            label14 = new Label();
             btnLogout = new Button();
             button4 = new Button();
             button3 = new Button();
             groupBox3 = new GroupBox();
+            comboBoxResearch = new ComboBox();
+            label13 = new Label();
             textBox13 = new TextBox();
-            textBox14 = new TextBox();
+            text_id = new TextBox();
             label15 = new Label();
             label16 = new Label();
-            listBox1 = new ListBox();
             tabPage2 = new TabPage();
             flowLayoutPanel3 = new FlowLayoutPanel();
             panel3 = new Panel();
@@ -83,6 +94,7 @@
             splitContainer3.Panel1.SuspendLayout();
             splitContainer3.Panel2.SuspendLayout();
             splitContainer3.SuspendLayout();
+            groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             tabPage2.SuspendLayout();
             panel3.SuspendLayout();
@@ -128,14 +140,14 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(488, 113);
+            panel1.Size = new Size(203, 113);
             panel1.TabIndex = 2;
             panel1.Paint += panel1_Paint;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(157, 45);
+            label1.Location = new Point(0, 45);
             label1.Name = "label1";
             label1.Size = new Size(201, 20);
             label1.TabIndex = 0;
@@ -150,30 +162,126 @@
             // 
             // splitContainer3.Panel1
             // 
-            splitContainer3.Panel1.Controls.Add(flowLayoutPanel1);
+            splitContainer3.Panel1.Controls.Add(listBox2);
+            splitContainer3.Panel1.Paint += splitContainer3_Panel1_Paint;
             // 
             // splitContainer3.Panel2
             // 
+            splitContainer3.Panel2.Controls.Add(groupBox4);
             splitContainer3.Panel2.Controls.Add(btnLogout);
             splitContainer3.Panel2.Controls.Add(button4);
             splitContainer3.Panel2.Controls.Add(button3);
             splitContainer3.Panel2.Controls.Add(groupBox3);
-            splitContainer3.Panel2.Controls.Add(listBox1);
             splitContainer3.Size = new Size(1088, 666);
-            splitContainer3.SplitterDistance = 480;
+            splitContainer3.SplitterDistance = 197;
             splitContainer3.TabIndex = 0;
             // 
-            // flowLayoutPanel1
+            // listBox2
             // 
-            flowLayoutPanel1.Location = new Point(0, 111);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(485, 562);
-            flowLayoutPanel1.TabIndex = 5;
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
+            listBox2.FormattingEnabled = true;
+            listBox2.ItemHeight = 20;
+            listBox2.Location = new Point(-3, 113);
+            listBox2.Name = "listBox2";
+            listBox2.Size = new Size(203, 544);
+            listBox2.TabIndex = 0;
+            listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged;
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(label20);
+            groupBox4.Controls.Add(label18);
+            groupBox4.Controls.Add(textBox15);
+            groupBox4.Controls.Add(textBox14);
+            groupBox4.Controls.Add(textBox12);
+            groupBox4.Controls.Add(textBox11);
+            groupBox4.Controls.Add(textBox10);
+            groupBox4.Controls.Add(label17);
+            groupBox4.Controls.Add(label14);
+            groupBox4.Location = new Point(18, 226);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(423, 349);
+            groupBox4.TabIndex = 13;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "dane badania";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(33, 229);
+            label20.Margin = new Padding(2, 0, 2, 0);
+            label20.Name = "label20";
+            label20.Size = new Size(47, 20);
+            label20.TabIndex = 19;
+            label20.Text = "status";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(33, 175);
+            label18.Margin = new Padding(2, 0, 2, 0);
+            label18.Name = "label18";
+            label18.Size = new Size(30, 20);
+            label18.TabIndex = 17;
+            label18.Text = "typ";
+            // 
+            // textBox15
+            // 
+            textBox15.Location = new Point(186, 285);
+            textBox15.Name = "textBox15";
+            textBox15.Size = new Size(151, 27);
+            textBox15.TabIndex = 16;
+            // 
+            // textBox14
+            // 
+            textBox14.Location = new Point(168, 222);
+            textBox14.Name = "textBox14";
+            textBox14.Size = new Size(151, 27);
+            textBox14.TabIndex = 15;
+            // 
+            // textBox12
+            // 
+            textBox12.Location = new Point(168, 168);
+            textBox12.Name = "textBox12";
+            textBox12.Size = new Size(151, 27);
+            textBox12.TabIndex = 14;
+            // 
+            // textBox11
+            // 
+            textBox11.Location = new Point(186, 107);
+            textBox11.Name = "textBox11";
+            textBox11.Size = new Size(151, 27);
+            textBox11.TabIndex = 13;
+            // 
+            // textBox10
+            // 
+            textBox10.Location = new Point(192, 50);
+            textBox10.Name = "textBox10";
+            textBox10.Size = new Size(151, 27);
+            textBox10.TabIndex = 13;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(33, 110);
+            label17.Margin = new Padding(2, 0, 2, 0);
+            label17.Name = "label17";
+            label17.Size = new Size(51, 20);
+            label17.TabIndex = 13;
+            label17.Text = "nazwa";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(33, 50);
+            label14.Margin = new Padding(2, 0, 2, 0);
+            label14.Name = "label14";
+            label14.Size = new Size(24, 20);
+            label14.TabIndex = 7;
+            label14.Text = "ID";
             // 
             // btnLogout
             // 
-            btnLogout.Location = new Point(490, 14);
+            btnLogout.Location = new Point(697, 106);
             btnLogout.Margin = new Padding(2);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(87, 27);
@@ -184,7 +292,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(427, 215);
+            button4.Location = new Point(652, 253);
             button4.Name = "button4";
             button4.Size = new Size(132, 67);
             button4.TabIndex = 4;
@@ -193,26 +301,49 @@
             // 
             // button3
             // 
-            button3.Location = new Point(268, 215);
+            button3.Location = new Point(509, 408);
             button3.Name = "button3";
             button3.Size = new Size(121, 67);
             button3.TabIndex = 3;
             button3.Text = "akceptuj";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(comboBoxResearch);
+            groupBox3.Controls.Add(label13);
             groupBox3.Controls.Add(textBox13);
-            groupBox3.Controls.Add(textBox14);
+            groupBox3.Controls.Add(text_id);
             groupBox3.Controls.Add(label15);
             groupBox3.Controls.Add(label16);
-            groupBox3.Location = new Point(253, 45);
+            groupBox3.Location = new Point(18, 14);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(343, 129);
+            groupBox3.Size = new Size(343, 195);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
-            groupBox3.Text = "akceptacja badań";
+            groupBox3.Text = "dane zamówienia";
             groupBox3.Enter += groupBox3_Enter;
+            // 
+            // comboBoxResearch
+            // 
+            comboBoxResearch.FormattingEnabled = true;
+            comboBoxResearch.Location = new Point(186, 134);
+            comboBoxResearch.Name = "comboBoxResearch";
+            comboBoxResearch.Size = new Size(151, 28);
+            comboBoxResearch.TabIndex = 12;
+            comboBoxResearch.SelectedIndexChanged += comboBoxResearch_SelectedIndexChanged;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(33, 134);
+            label13.Margin = new Padding(2, 0, 2, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(82, 20);
+            label13.TabIndex = 11;
+            label13.Text = "lista badań";
+            label13.Click += label13_Click;
             // 
             // textBox13
             // 
@@ -222,13 +353,13 @@
             textBox13.TabIndex = 10;
             textBox13.TextChanged += textBox13_TextChanged;
             // 
-            // textBox14
+            // text_id
             // 
-            textBox14.Location = new Point(186, 47);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(151, 27);
-            textBox14.TabIndex = 9;
-            textBox14.TextChanged += textBox14_TextChanged;
+            text_id.Location = new Point(186, 47);
+            text_id.Name = "text_id";
+            text_id.Size = new Size(151, 27);
+            text_id.TabIndex = 9;
+            text_id.TextChanged += textBox14_TextChanged;
             // 
             // label15
             // 
@@ -236,9 +367,9 @@
             label15.Location = new Point(33, 92);
             label15.Margin = new Padding(2, 0, 2, 0);
             label15.Name = "label15";
-            label15.Size = new Size(51, 20);
+            label15.Size = new Size(39, 20);
             label15.TabIndex = 7;
-            label15.Text = "nazwa";
+            label15.Text = "data";
             // 
             // label16
             // 
@@ -249,16 +380,6 @@
             label16.Size = new Size(24, 20);
             label16.TabIndex = 6;
             label16.Text = "ID";
-            // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 20;
-            listBox1.Location = new Point(3, 3);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(247, 664);
-            listBox1.TabIndex = 0;
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // tabPage2
             // 
@@ -597,6 +718,8 @@
             splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
             splitContainer3.ResumeLayout(false);
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             tabPage2.ResumeLayout(false);
@@ -657,16 +780,27 @@
         private Panel panel1;
         private Label label1;
         private SplitContainer splitContainer3;
-        private FlowLayoutPanel flowLayoutPanel1;
         private Button button2;
-        private ListBox listBox1;
         private GroupBox groupBox3;
         private TextBox textBox13;
-        private TextBox textBox14;
+        private TextBox text_id;
         private Label label15;
         private Label label16;
         private Button button4;
         private Button button3;
         private Button btnLogout;
+        private ListBox listBox2;
+        private Label label13;
+        private ComboBox comboBoxResearch;
+        private GroupBox groupBox4;
+        private Label label18;
+        private TextBox textBox15;
+        private TextBox textBox14;
+        private TextBox textBox12;
+        private TextBox textBox11;
+        private TextBox textBox10;
+        private Label label17;
+        private Label label14;
+        private Label label20;
     }
 }
