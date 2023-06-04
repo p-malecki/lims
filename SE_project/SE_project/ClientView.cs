@@ -16,16 +16,16 @@ namespace SE_project
         public List<String> names = new List<String>();
         public List<String> categories = new List<String>();
 
-        public List<String> hours = new List<string> { "8", "9", "10", "11", "12", "13", "15", "16" };
-        public List<String> minutes = new List<string> {
-                                                    "0", "1", "2", "3", "4", "5", "6", "7",
-                                                    "8", "9", "10", "11", "12", "13", "15", "16",
-                                                    "17", "18", "19", "20", "21", "22", "23", "24",
-                                                    "25", "26", "27", "28", "29", "30", "31", "32",
-                                                    "33", "34", "35", "36", "37", "38", "39", "40",
-                                                    "41", "42", "43", "44", "45", "46", "47", "48",
-                                                    "49", "50", "51", "52", "53", "54", "55", "56",
-                                                    "57", "58", "59"
+        public List<int> hours = new List<int> { 8, 9, 10, 11, 12, 13, 14, 15, 16};
+        public List<int> minutes = new List<int> {
+                                                    0, 1, 2, 3, 4, 5, 6, 7,
+                                                    8, 9, 10, 11, 12, 13, 15, 16,
+                                                    17, 18, 19, 20, 21, 22, 23, 24,
+                                                    25, 26, 27, 28, 29, 30, 31, 32,
+                                                    33, 34, 35, 36, 37, 38, 39, 40,
+                                                    41, 42, 43, 44, 45, 46, 47, 48,
+                                                    49, 50, 51, 52, 53, 54, 55, 56,
+                                                    57, 58, 59
                                                 };
 
         public decimal sum;
@@ -222,11 +222,11 @@ namespace SE_project
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            DateTime selectedDate = monthCalendar.SelectionRange.Start;
+            DateTime selectedDate = new DateTime(monthCalendar.SelectionRange.Start.Day, monthCalendar.SelectionRange.Start.Month, monthCalendar.SelectionRange.Start.Year, listbxHours.SelectedItem, listbxMinutes.SelectedItem, 0);
 
             if (selectedDate.DayOfWeek != DayOfWeek.Saturday && selectedDate.DayOfWeek != DayOfWeek.Sunday) 
             {
-
+                selectedDate.
             }
             else
             {
