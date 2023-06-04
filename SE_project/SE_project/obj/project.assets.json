@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jmgra\\Documents\\Projekty\\lis\\SE_project\\SE_project\\SE_project.csproj",
+      "projectUniqueName": "C:\\Users\\jmgra\\Documents\\Projekty\\lis\\lis\\SE_project\\SE_project\\SE_project.csproj",
       "projectName": "SE_project",
-      "projectPath": "C:\\Users\\jmgra\\Documents\\Projekty\\lis\\SE_project\\SE_project\\SE_project.csproj",
+      "projectPath": "C:\\Users\\jmgra\\Documents\\Projekty\\lis\\lis\\SE_project\\SE_project\\SE_project.csproj",
       "packagesPath": "C:\\Users\\jmgra\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jmgra\\Documents\\Projekty\\lis\\SE_project\\SE_project\\obj\\",
+      "outputPath": "C:\\Users\\jmgra\\Documents\\Projekty\\lis\\lis\\SE_project\\SE_project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jmgra\\AppData\\Roaming\\NuGet\\NuGet.Config",
