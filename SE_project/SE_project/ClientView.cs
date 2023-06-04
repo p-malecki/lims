@@ -32,15 +32,11 @@ namespace SE_project
 
         private void LoadAvailableTests()
         {
-            foreach (Test t in TestManagement.testList)
-                names.Add(t.Name);
-            chlbTestsList.Items.Clear();
+            foreach (Test t in TestManagement.testList) names.Add(t.Name);
             chlbTestsList.DataSource = names;
 
             categories.Add("<wszystkie kategorie>");
-            foreach (TestType tt in TestTypeManagement.List) 
-                categories.Add(tt.Name);
-
+            foreach (TestType tt in TestTypeManagement.List) categories.Add(tt.Name);
             cbCategorySort.DataSource = categories;
         }
 

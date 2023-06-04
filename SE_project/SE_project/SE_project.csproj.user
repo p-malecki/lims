@@ -19,5 +19,11 @@
     <Compile Update="testItemExtendedDelete.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="PendingOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CompletedOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
