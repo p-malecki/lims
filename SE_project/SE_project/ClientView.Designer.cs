@@ -67,7 +67,7 @@
             lbConstName = new Label();
             lbConstEmail = new Label();
             tabPage2 = new TabPage();
-            label31 = new Label();
+            lbSum = new Label();
             lbConstSum = new Label();
             btnOrder = new Button();
             monthCalendar1 = new MonthCalendar();
@@ -88,9 +88,9 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             groupBox7 = new GroupBox();
+            flowLayoutPanel2 = new FlowLayoutPanel();
             groupBox6 = new GroupBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            flowLayoutPanel2 = new FlowLayoutPanel();
             tabPage3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox5.SuspendLayout();
@@ -533,7 +533,7 @@
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(label31);
+            tabPage2.Controls.Add(lbSum);
             tabPage2.Controls.Add(lbConstSum);
             tabPage2.Controls.Add(btnOrder);
             tabPage2.Controls.Add(monthCalendar1);
@@ -548,15 +548,15 @@
             tabPage2.Text = "Zamawianie";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label31
+            // lbSum
             // 
-            label31.AutoSize = true;
-            label31.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label31.Location = new Point(686, 399);
-            label31.Name = "label31";
-            label31.Size = new Size(48, 28);
-            label31.TabIndex = 8;
-            label31.Text = "sum";
+            lbSum.AutoSize = true;
+            lbSum.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            lbSum.Location = new Point(686, 399);
+            lbSum.Name = "lbSum";
+            lbSum.Size = new Size(48, 28);
+            lbSum.TabIndex = 8;
+            lbSum.Text = "sum";
             // 
             // lbConstSum
             // 
@@ -735,6 +735,7 @@
             chlbTestsList.Name = "chlbTestsList";
             chlbTestsList.Size = new Size(434, 384);
             chlbTestsList.TabIndex = 0;
+            chlbTestsList.ItemCheck += chlbTestsList_ItemCheck;
             chlbTestsList.Click += chlbTestsList_Click;
             // 
             // tabControl1
@@ -774,6 +775,13 @@
             groupBox7.TabStop = false;
             groupBox7.Text = "Zrealizowane";
             // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Location = new Point(5, 21);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(429, 450);
+            flowLayoutPanel2.TabIndex = 0;
+            // 
             // groupBox6
             // 
             groupBox6.Controls.Add(flowLayoutPanel1);
@@ -792,13 +800,6 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(428, 450);
             flowLayoutPanel1.TabIndex = 0;
-            // 
-            // flowLayoutPanel2
-            // 
-            flowLayoutPanel2.Location = new Point(5, 21);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(429, 450);
-            flowLayoutPanel2.TabIndex = 0;
             // 
             // ClientView
             // 
@@ -894,7 +895,7 @@
         private Label lbConstPrice;
         private Label lbConstUnits;
         private Label lbConstSum;
-        private Label label31;
+        private Label lbSum;
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flowLayoutPanel1;
     }

@@ -16,15 +16,13 @@ namespace SE_project
         public List<String> names = new List<String>();
         public List<String> categories = new List<String>();
 
-        public decimal sum;
+        public decimal sum = 0;
 
         public ClientView()
         {
-            this.sum = 0;
-
             InitializeComponent();
 
-            label31.Text = sum.ToString();
+            lbSum.Text = "0";
 
             LoadAvailableTests();
             LoadClientData();
@@ -32,11 +30,19 @@ namespace SE_project
 
         private void LoadAvailableTests()
         {
-            foreach (Test t in TestManagement.testList) names.Add(t.Name);
+            foreach (Test t in TestManagement.testList)
+                names.Add(t.Name);
+
+            chlbTestsList.DataSource = null;
+            chlbTestsList.Items.Clear();
             chlbTestsList.DataSource = names;
 
             categories.Add("<wszystkie kategorie>");
-            foreach (TestType tt in TestTypeManagement.List) categories.Add(tt.Name);
+            foreach (TestType tt in TestTypeManagement.List)
+                categories.Add(tt.Name);
+
+            cbCategorySort.DataSource = null;
+            cbCategorySort.Items.Clear();
             cbCategorySort.DataSource = categories;
         }
 
@@ -67,9 +73,8 @@ namespace SE_project
             if (!cbCategorySort.Text.Equals("<wszystkie kategorie>"))
             {
                 foreach (Test t in TestManagement.testList)
-                {
-                    if (t.Type.Equals(cbCategorySort.Text)) selectedNames.Add(t.Name);
-                }
+                    if (t.Type.Equals(cbCategorySort.Text))
+                        selectedNames.Add(t.Name);
 
                 chlbTestsList.DataSource = null;
                 chlbTestsList.Items.Clear();
@@ -88,9 +93,8 @@ namespace SE_project
             List<string> searched = new List<string>();
 
             foreach (Test t in TestManagement.testList)
-            {
-                if (t.Name.StartsWith(txtbSearch.Text)) searched.Add(t.Name);
-            }
+                if (t.Name.StartsWith(txtbSearch.Text))
+                    searched.Add(t.Name);
 
             chlbTestsList.DataSource = null;
             chlbTestsList.Items.Clear();
@@ -102,7 +106,6 @@ namespace SE_project
             var selectedName = chlbTestsList.SelectedItem;
 
             foreach (Test t in TestManagement.testList)
-            {
                 if (t.Name.Equals(selectedName))
                 {
                     lbDescription.Text = t.Description;
@@ -111,7 +114,6 @@ namespace SE_project
                     lbPrice.Text = t.Price.ToString();
                     break;
                 }
-            }
         }
 
         private void btnNewEmail_Click(object sender, EventArgs e)
@@ -190,6 +192,40 @@ namespace SE_project
         private void btnOrder_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void chlbTestsList_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.NewValue == CheckState.Checked)
+            {
+                String testName = names[e.Index].ToString();
+
+                foreach (Test t in TestManagement.testList)
+                {
+                    if ((t.Name.Equals(testName)))
+                    {
+                        sum += t.Price;
+                        break;
+                    }
+                }
+            }
+
+            else if (e.NewValue == CheckState.Unchecked)
+            {
+                String testName = names[e.Index].ToString();
+
+                foreach (Test t in TestManagement.testList)
+                {
+                    if ((t.Name.Equals(testName)))
+                    {
+                        sum -= t.Price;
+                        break;
+                    }
+                }
+            }
+
+            lbSum.Text = sum.ToString();
         }
     }
 }
