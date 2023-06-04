@@ -9,7 +9,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 public class User {
 
-    public User(int id, int type, int status, string login, string password, string name, string surname, DateTime birthdate, string pesel="0", string residence="0")
+    public User(int id, int type, int status, string login, string password, string name, string surname, DateTime? birthdate=null, string pesel="0", string residence="0")
     {
         ID = id;
         Type = type;
@@ -30,7 +30,7 @@ public class User {
     private string _password;
     private string _name;
     private string _surname;
-    private DateTime _birthdate;
+    private DateTime? _birthdate;
     private string _pesel;
     private string _residence;
 
@@ -43,60 +43,8 @@ public class User {
     public string Password { get => _password; set => _password = value; }
     public string Name { get => _name; set => _name = value; }
     public string Surname { get => _surname; set => _surname = value; }
-    public DateTime Birthdate { get => _birthdate; set => _birthdate = value; }
+    public DateTime? Birthdate { get => _birthdate; set => _birthdate = value; }
     public string Pesel { get => _pesel; set => _pesel = value; }
     public string Residence { get => _residence; set => _residence = value; }
 
-} 
-
-public class UserManagement
-{
-    private static List<User> users;
-    private static List<Client> clients;
-
-    public UserManagement()
-    {
-        users = new List<User>();
-        clients = new List<Client>();
-    }
-
-    public static bool IsValidPassword(string password)
-    {
-        string pattern = @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{8,16}$";
-
-        return Regex.IsMatch(password, pattern);
-    }
-
-    public static bool IsValidEmail(string email)
-    {
-        string pattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
-
-        return Regex.IsMatch(email, pattern);
-    }
-
-    public static bool IsEmailAlreadyUsed(string email)
-    {
-        foreach (Client client in clients)
-        {
-            if (client.email.Equals(email))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public static bool IsLoginAlreadyUsed(string login)
-    {
-        foreach (User user in users)
-        {
-            if (user.Login.Equals(login))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
 }
