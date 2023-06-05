@@ -23,15 +23,18 @@ namespace SE_project
             _rmTestFlp = flp[1];
         }
 
-            public static void CreateTest(
-            int id, string name, string type, string description, 
-            decimal minVal, decimal maxVal, string unit, decimal price
-            )
+        public static void CreateTest(
+       int id, string name, string type, string description,
+       decimal minVal, decimal maxVal, string unit, decimal price
+       )
         {
-            Test newTest = new Test(id, name, type, description, minVal, maxVal, unit, price);
-            _testList.Add(newTest);
+            var elem = _testList.Find(t => t.ID == id);
+            if (elem == null)
+            {
+                Test newTest = new Test(id, name, type, description, minVal, maxVal, unit, price);
+                _testList.Add(newTest);
+            }
         }
-
 
 
         public static void RemoveTest(int id)

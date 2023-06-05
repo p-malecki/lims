@@ -13,7 +13,6 @@ namespace SE_project
             ApplicationConfiguration.Initialize();
             //Application.Run(new LoginRegisterView());
             Application.Run(new AdminView());
-            Application.Run(new ClientView());
         }
     }
 }

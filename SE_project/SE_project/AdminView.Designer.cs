@@ -70,39 +70,33 @@
             tabPage3 = new TabPage();
             splitContainer3 = new SplitContainer();
             groupBox5 = new GroupBox();
-            label36 = new Label();
-            button1 = new Button();
-            label37 = new Label();
+            btnChangeAccountStatus = new Button();
             groupBox7 = new GroupBox();
             groupBox6 = new GroupBox();
-            label32 = new Label();
-            label33 = new Label();
-            label34 = new Label();
-            label35 = new Label();
-            label28 = new Label();
-            label29 = new Label();
-            label30 = new Label();
-            label31 = new Label();
+            lbStatusAccountData = new Label();
+            lbResidenceAccountData = new Label();
+            lbSurnameAccountData = new Label();
+            label37 = new Label();
+            lbBirthdateAccountData = new Label();
+            lbPeselAccountData = new Label();
+            lbLoginAccountData = new Label();
+            lbNameAccountData = new Label();
             label24 = new Label();
             label25 = new Label();
             label26 = new Label();
             label27 = new Label();
-            label20 = new Label();
             label21 = new Label();
-            label22 = new Label();
             label23 = new Label();
-            listBox1 = new ListBox();
+            lboxTechnicianAccountsList = new ListBox();
             groupBox4 = new GroupBox();
-            txtbNewEmail = new TextBox();
+            txtbNewLogin = new TextBox();
             btnAddTechnician = new Button();
-            label19 = new Label();
             label12 = new Label();
             txtbNewPassword = new TextBox();
-            txtbNewAddress = new TextBox();
+            txtbNewResidence = new TextBox();
             label18 = new Label();
             label13 = new Label();
             numNewBirthdateYear = new NumericUpDown();
-            txtbNewLogin = new TextBox();
             numNewBirthdateMonth = new NumericUpDown();
             txtbNewName = new TextBox();
             numNewBirthdateDay = new NumericUpDown();
@@ -460,7 +454,7 @@
             // splitContainer2.Panel2
             // 
             splitContainer2.Panel2.Controls.Add(groupBox3);
-            splitContainer2.Size = new Size(1591, 1009);
+            splitContainer2.Size = new Size(1591, 1067);
             splitContainer2.SplitterDistance = 900;
             splitContainer2.SplitterWidth = 3;
             splitContainer2.TabIndex = 0;
@@ -472,7 +466,7 @@
             flowLayoutPanel2.Location = new Point(0, 176);
             flowLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(900, 833);
+            flowLayoutPanel2.Size = new Size(900, 891);
             flowLayoutPanel2.TabIndex = 1;
             // 
             // panel2
@@ -539,6 +533,7 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1605, 1118);
             tabControl1.TabIndex = 12;
+            tabControl1.Selected += RefreshTechnicianAccountList;
             // 
             // tabPage1
             // 
@@ -559,7 +554,7 @@
             tabPage2.Margin = new Padding(3, 4, 3, 4);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3, 4, 3, 4);
-            tabPage2.Size = new Size(1597, 1017);
+            tabPage2.Size = new Size(1597, 1075);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "usuwanie badań";
             tabPage2.UseVisualStyleBackColor = true;
@@ -571,7 +566,7 @@
             tabPage3.Margin = new Padding(3, 4, 3, 4);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3, 4, 3, 4);
-            tabPage3.Size = new Size(1597, 1017);
+            tabPage3.Size = new Size(1597, 1075);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "zarządzanie kontami techników";
             tabPage3.UseVisualStyleBackColor = true;
@@ -591,18 +586,16 @@
             // splitContainer3.Panel2
             // 
             splitContainer3.Panel2.Controls.Add(groupBox4);
-            splitContainer3.Size = new Size(1591, 1009);
-            splitContainer3.SplitterDistance = 522;
+            splitContainer3.Size = new Size(1591, 1067);
+            splitContainer3.SplitterDistance = 552;
             splitContainer3.TabIndex = 0;
             // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(label36);
-            groupBox5.Controls.Add(button1);
-            groupBox5.Controls.Add(label37);
+            groupBox5.Controls.Add(btnChangeAccountStatus);
             groupBox5.Controls.Add(groupBox7);
             groupBox5.Controls.Add(groupBox6);
-            groupBox5.Controls.Add(listBox1);
+            groupBox5.Controls.Add(lboxTechnicianAccountsList);
             groupBox5.Location = new Point(38, 44);
             groupBox5.Margin = new Padding(3, 4, 3, 4);
             groupBox5.Name = "groupBox5";
@@ -612,159 +605,138 @@
             groupBox5.TabStop = false;
             groupBox5.Text = "Konta techników";
             // 
-            // label36
+            // btnChangeAccountStatus
             // 
-            label36.AutoSize = true;
-            label36.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label36.Location = new Point(1001, 368);
-            label36.Name = "label36";
-            label36.Size = new Size(89, 30);
-            label36.TabIndex = 87;
-            label36.Text = "aktywne";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(1150, 344);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(254, 80);
-            button1.TabIndex = 3;
-            button1.Text = "dezaktywuj konto";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // label37
-            // 
-            label37.AutoSize = true;
-            label37.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label37.Location = new Point(929, 368);
-            label37.Name = "label37";
-            label37.Size = new Size(71, 30);
-            label37.TabIndex = 86;
-            label37.Text = "status";
+            btnChangeAccountStatus.Location = new Point(1141, 342);
+            btnChangeAccountStatus.Margin = new Padding(3, 4, 3, 4);
+            btnChangeAccountStatus.Name = "btnChangeAccountStatus";
+            btnChangeAccountStatus.Size = new Size(254, 80);
+            btnChangeAccountStatus.TabIndex = 3;
+            btnChangeAccountStatus.Text = "dezaktywuj konto";
+            btnChangeAccountStatus.UseVisualStyleBackColor = true;
+            btnChangeAccountStatus.Click += btnChangeAccountsStatus_Click;
             // 
             // groupBox7
             // 
-            groupBox7.Location = new Point(494, 352);
+            groupBox7.Location = new Point(494, 322);
             groupBox7.Margin = new Padding(3, 4, 3, 4);
             groupBox7.Name = "groupBox7";
             groupBox7.Padding = new Padding(3, 4, 3, 4);
-            groupBox7.Size = new Size(406, 80);
+            groupBox7.Size = new Size(609, 110);
             groupBox7.TabIndex = 2;
             groupBox7.TabStop = false;
             groupBox7.Text = "statystyki";
             // 
             // groupBox6
             // 
-            groupBox6.Controls.Add(label32);
-            groupBox6.Controls.Add(label33);
-            groupBox6.Controls.Add(label34);
-            groupBox6.Controls.Add(label35);
-            groupBox6.Controls.Add(label28);
-            groupBox6.Controls.Add(label29);
-            groupBox6.Controls.Add(label30);
-            groupBox6.Controls.Add(label31);
+            groupBox6.Controls.Add(lbStatusAccountData);
+            groupBox6.Controls.Add(lbResidenceAccountData);
+            groupBox6.Controls.Add(lbSurnameAccountData);
+            groupBox6.Controls.Add(label37);
+            groupBox6.Controls.Add(lbBirthdateAccountData);
+            groupBox6.Controls.Add(lbPeselAccountData);
+            groupBox6.Controls.Add(lbLoginAccountData);
+            groupBox6.Controls.Add(lbNameAccountData);
             groupBox6.Controls.Add(label24);
             groupBox6.Controls.Add(label25);
             groupBox6.Controls.Add(label26);
             groupBox6.Controls.Add(label27);
-            groupBox6.Controls.Add(label20);
             groupBox6.Controls.Add(label21);
-            groupBox6.Controls.Add(label22);
             groupBox6.Controls.Add(label23);
             groupBox6.Location = new Point(494, 52);
             groupBox6.Margin = new Padding(3, 4, 3, 4);
             groupBox6.Name = "groupBox6";
             groupBox6.Padding = new Padding(3, 4, 3, 4);
-            groupBox6.Size = new Size(854, 262);
+            groupBox6.Size = new Size(901, 262);
             groupBox6.TabIndex = 1;
             groupBox6.TabStop = false;
             groupBox6.Text = "dane";
             // 
-            // label32
+            // lbStatusAccountData
             // 
-            label32.AutoSize = true;
-            label32.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label32.Location = new Point(609, 196);
-            label32.Name = "label32";
-            label32.Size = new Size(192, 30);
-            label32.TabIndex = 85;
-            label32.Text = "adres zamieszkania";
+            lbStatusAccountData.AutoSize = true;
+            lbStatusAccountData.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lbStatusAccountData.Location = new Point(609, 196);
+            lbStatusAccountData.Name = "lbStatusAccountData";
+            lbStatusAccountData.Size = new Size(89, 30);
+            lbStatusAccountData.TabIndex = 87;
+            lbStatusAccountData.Text = "aktywne";
             // 
-            // label33
+            // lbResidenceAccountData
             // 
-            label33.AutoSize = true;
-            label33.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label33.Location = new Point(609, 46);
-            label33.Name = "label33";
-            label33.Size = new Size(97, 30);
-            label33.TabIndex = 84;
-            label33.Text = "nazwisko";
+            lbResidenceAccountData.AutoSize = true;
+            lbResidenceAccountData.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lbResidenceAccountData.Location = new Point(609, 148);
+            lbResidenceAccountData.Name = "lbResidenceAccountData";
+            lbResidenceAccountData.Size = new Size(192, 30);
+            lbResidenceAccountData.TabIndex = 85;
+            lbResidenceAccountData.Text = "adres zamieszkania";
             // 
-            // label34
+            // lbSurnameAccountData
             // 
-            label34.AutoSize = true;
-            label34.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label34.Location = new Point(605, 94);
-            label34.Name = "label34";
-            label34.Size = new Size(152, 30);
-            label34.TabIndex = 82;
-            label34.Text = "data urodzenia";
+            lbSurnameAccountData.AutoSize = true;
+            lbSurnameAccountData.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lbSurnameAccountData.Location = new Point(185, 142);
+            lbSurnameAccountData.Name = "lbSurnameAccountData";
+            lbSurnameAccountData.Size = new Size(97, 30);
+            lbSurnameAccountData.TabIndex = 84;
+            lbSurnameAccountData.Text = "nazwisko";
             // 
-            // label35
+            // label37
             // 
-            label35.AutoSize = true;
-            label35.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label35.Location = new Point(609, 148);
-            label35.Name = "label35";
-            label35.Size = new Size(68, 30);
-            label35.TabIndex = 83;
-            label35.Text = "PESEL";
+            label37.AutoSize = true;
+            label37.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label37.Location = new Point(398, 196);
+            label37.Name = "label37";
+            label37.Size = new Size(71, 30);
+            label37.TabIndex = 86;
+            label37.Text = "status";
             // 
-            // label28
+            // lbBirthdateAccountData
             // 
-            label28.AutoSize = true;
-            label28.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label28.Location = new Point(111, 46);
-            label28.Name = "label28";
-            label28.Size = new Size(63, 30);
-            label28.TabIndex = 78;
-            label28.Text = "email";
+            lbBirthdateAccountData.AutoSize = true;
+            lbBirthdateAccountData.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lbBirthdateAccountData.Location = new Point(609, 46);
+            lbBirthdateAccountData.Name = "lbBirthdateAccountData";
+            lbBirthdateAccountData.Size = new Size(152, 30);
+            lbBirthdateAccountData.TabIndex = 82;
+            lbBirthdateAccountData.Text = "data urodzenia";
             // 
-            // label29
+            // lbPeselAccountData
             // 
-            label29.AutoSize = true;
-            label29.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label29.Location = new Point(111, 100);
-            label29.Name = "label29";
-            label29.Size = new Size(59, 30);
-            label29.TabIndex = 81;
-            label29.Text = "login";
+            lbPeselAccountData.AutoSize = true;
+            lbPeselAccountData.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lbPeselAccountData.Location = new Point(609, 100);
+            lbPeselAccountData.Name = "lbPeselAccountData";
+            lbPeselAccountData.Size = new Size(68, 30);
+            lbPeselAccountData.TabIndex = 83;
+            lbPeselAccountData.Text = "PESEL";
             // 
-            // label30
+            // lbLoginAccountData
             // 
-            label30.AutoSize = true;
-            label30.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label30.Location = new Point(115, 152);
-            label30.Name = "label30";
-            label30.Size = new Size(63, 30);
-            label30.TabIndex = 79;
-            label30.Text = "hasło";
+            lbLoginAccountData.AutoSize = true;
+            lbLoginAccountData.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lbLoginAccountData.Location = new Point(185, 46);
+            lbLoginAccountData.Name = "lbLoginAccountData";
+            lbLoginAccountData.Size = new Size(59, 30);
+            lbLoginAccountData.TabIndex = 81;
+            lbLoginAccountData.Text = "login";
             // 
-            // label31
+            // lbNameAccountData
             // 
-            label31.AutoSize = true;
-            label31.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label31.Location = new Point(115, 202);
-            label31.Name = "label31";
-            label31.Size = new Size(52, 30);
-            label31.TabIndex = 80;
-            label31.Text = "imię";
+            lbNameAccountData.AutoSize = true;
+            lbNameAccountData.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lbNameAccountData.Location = new Point(185, 94);
+            lbNameAccountData.Name = "lbNameAccountData";
+            lbNameAccountData.Size = new Size(52, 30);
+            lbNameAccountData.TabIndex = 80;
+            lbNameAccountData.Text = "imię";
             // 
             // label24
             // 
             label24.AutoSize = true;
             label24.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label24.Location = new Point(398, 196);
+            label24.Location = new Point(398, 148);
             label24.Name = "label24";
             label24.Size = new Size(200, 30);
             label24.TabIndex = 77;
@@ -774,7 +746,7 @@
             // 
             label25.AutoSize = true;
             label25.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label25.Location = new Point(398, 46);
+            label25.Location = new Point(39, 142);
             label25.Name = "label25";
             label25.Size = new Size(104, 30);
             label25.TabIndex = 76;
@@ -784,7 +756,7 @@
             // 
             label26.AutoSize = true;
             label26.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label26.Location = new Point(394, 94);
+            label26.Location = new Point(398, 46);
             label26.Name = "label26";
             label26.Size = new Size(160, 30);
             label26.TabIndex = 74;
@@ -794,74 +766,53 @@
             // 
             label27.AutoSize = true;
             label27.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label27.Location = new Point(398, 148);
+            label27.Location = new Point(398, 100);
             label27.Name = "label27";
             label27.Size = new Size(71, 30);
             label27.TabIndex = 75;
             label27.Text = "PESEL";
             // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label20.Location = new Point(39, 46);
-            label20.Name = "label20";
-            label20.Size = new Size(66, 30);
-            label20.TabIndex = 70;
-            label20.Text = "email";
-            // 
             // label21
             // 
             label21.AutoSize = true;
             label21.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label21.Location = new Point(39, 100);
+            label21.Location = new Point(39, 46);
             label21.Name = "label21";
             label21.Size = new Size(64, 30);
             label21.TabIndex = 73;
             label21.Text = "login";
             // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label22.Location = new Point(43, 152);
-            label22.Name = "label22";
-            label22.Size = new Size(66, 30);
-            label22.TabIndex = 71;
-            label22.Text = "hasło";
-            // 
             // label23
             // 
             label23.AutoSize = true;
             label23.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label23.Location = new Point(43, 202);
+            label23.Location = new Point(39, 94);
             label23.Name = "label23";
             label23.Size = new Size(55, 30);
             label23.TabIndex = 72;
             label23.Text = "imię";
             // 
-            // listBox1
+            // lboxTechnicianAccountsList
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 30;
-            listBox1.Location = new Point(27, 52);
-            listBox1.Margin = new Padding(3, 4, 3, 4);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(386, 394);
-            listBox1.TabIndex = 0;
+            lboxTechnicianAccountsList.FormattingEnabled = true;
+            lboxTechnicianAccountsList.ItemHeight = 30;
+            lboxTechnicianAccountsList.Location = new Point(27, 52);
+            lboxTechnicianAccountsList.Margin = new Padding(3, 4, 3, 4);
+            lboxTechnicianAccountsList.Name = "lboxTechnicianAccountsList";
+            lboxTechnicianAccountsList.Size = new Size(386, 394);
+            lboxTechnicianAccountsList.TabIndex = 0;
+            lboxTechnicianAccountsList.SelectedIndexChanged += LoadTechnicianData;
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(txtbNewEmail);
+            groupBox4.Controls.Add(txtbNewLogin);
             groupBox4.Controls.Add(btnAddTechnician);
-            groupBox4.Controls.Add(label19);
             groupBox4.Controls.Add(label12);
             groupBox4.Controls.Add(txtbNewPassword);
-            groupBox4.Controls.Add(txtbNewAddress);
+            groupBox4.Controls.Add(txtbNewResidence);
             groupBox4.Controls.Add(label18);
             groupBox4.Controls.Add(label13);
             groupBox4.Controls.Add(numNewBirthdateYear);
-            groupBox4.Controls.Add(txtbNewLogin);
             groupBox4.Controls.Add(numNewBirthdateMonth);
             groupBox4.Controls.Add(txtbNewName);
             groupBox4.Controls.Add(numNewBirthdateDay);
@@ -880,13 +831,13 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Dodawanie nowych kont techników";
             // 
-            // txtbNewEmail
+            // txtbNewLogin
             // 
-            txtbNewEmail.Location = new Point(185, 132);
-            txtbNewEmail.Margin = new Padding(3, 4, 3, 4);
-            txtbNewEmail.Name = "txtbNewEmail";
-            txtbNewEmail.Size = new Size(290, 35);
-            txtbNewEmail.TabIndex = 36;
+            txtbNewLogin.Location = new Point(229, 77);
+            txtbNewLogin.Margin = new Padding(3, 4, 3, 4);
+            txtbNewLogin.Name = "txtbNewLogin";
+            txtbNewLogin.Size = new Size(290, 35);
+            txtbNewLogin.TabIndex = 36;
             // 
             // btnAddTechnician
             // 
@@ -897,22 +848,13 @@
             btnAddTechnician.TabIndex = 45;
             btnAddTechnician.Text = "Dodaj konto technika";
             btnAddTechnician.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label19.Location = new Point(58, 80);
-            label19.Name = "label19";
-            label19.Size = new Size(66, 30);
-            label19.TabIndex = 46;
-            label19.Text = "email";
+            btnAddTechnician.Click += btnAddTechnician_Click;
             // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.Location = new Point(58, 132);
+            label12.Location = new Point(94, 77);
             label12.Name = "label12";
             label12.Size = new Size(64, 30);
             label12.TabIndex = 53;
@@ -920,25 +862,25 @@
             // 
             // txtbNewPassword
             // 
-            txtbNewPassword.Location = new Point(185, 184);
+            txtbNewPassword.Location = new Point(229, 129);
             txtbNewPassword.Margin = new Padding(3, 4, 3, 4);
             txtbNewPassword.Name = "txtbNewPassword";
             txtbNewPassword.Size = new Size(290, 35);
             txtbNewPassword.TabIndex = 37;
             // 
-            // txtbNewAddress
+            // txtbNewResidence
             // 
-            txtbNewAddress.Location = new Point(821, 228);
-            txtbNewAddress.Margin = new Padding(3, 4, 3, 4);
-            txtbNewAddress.Name = "txtbNewAddress";
-            txtbNewAddress.Size = new Size(290, 35);
-            txtbNewAddress.TabIndex = 44;
+            txtbNewResidence.Location = new Point(821, 228);
+            txtbNewResidence.Margin = new Padding(3, 4, 3, 4);
+            txtbNewResidence.Name = "txtbNewResidence";
+            txtbNewResidence.Size = new Size(290, 35);
+            txtbNewResidence.TabIndex = 44;
             // 
             // label18
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label18.Location = new Point(62, 184);
+            label18.Location = new Point(98, 129);
             label18.Name = "label18";
             label18.Size = new Size(66, 30);
             label18.TabIndex = 47;
@@ -965,14 +907,6 @@
             numNewBirthdateYear.TabIndex = 42;
             numNewBirthdateYear.Value = new decimal(new int[] { 2000, 0, 0, 0 });
             // 
-            // txtbNewLogin
-            // 
-            txtbNewLogin.Location = new Point(185, 78);
-            txtbNewLogin.Margin = new Padding(3, 4, 3, 4);
-            txtbNewLogin.Name = "txtbNewLogin";
-            txtbNewLogin.Size = new Size(290, 35);
-            txtbNewLogin.TabIndex = 35;
-            // 
             // numNewBirthdateMonth
             // 
             numNewBirthdateMonth.Location = new Point(915, 126);
@@ -986,7 +920,7 @@
             // 
             // txtbNewName
             // 
-            txtbNewName.Location = new Point(185, 232);
+            txtbNewName.Location = new Point(229, 177);
             txtbNewName.Margin = new Padding(3, 4, 3, 4);
             txtbNewName.Name = "txtbNewName";
             txtbNewName.Size = new Size(290, 35);
@@ -1007,7 +941,7 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label17.Location = new Point(62, 236);
+            label17.Location = new Point(98, 181);
             label17.Name = "label17";
             label17.Size = new Size(55, 30);
             label17.TabIndex = 48;
@@ -1017,7 +951,7 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label14.Location = new Point(607, 78);
+            label14.Location = new Point(94, 232);
             label14.Name = "label14";
             label14.Size = new Size(104, 30);
             label14.TabIndex = 51;
@@ -1035,7 +969,7 @@
             // 
             // txtbNewSurname
             // 
-            txtbNewSurname.Location = new Point(821, 76);
+            txtbNewSurname.Location = new Point(229, 229);
             txtbNewSurname.Margin = new Padding(3, 4, 3, 4);
             txtbNewSurname.Name = "txtbNewSurname";
             txtbNewSurname.Size = new Size(290, 35);
@@ -1099,7 +1033,6 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
             splitContainer3.ResumeLayout(false);
             groupBox5.ResumeLayout(false);
-            groupBox5.PerformLayout();
             groupBox6.ResumeLayout(false);
             groupBox6.PerformLayout();
             groupBox4.ResumeLayout(false);
@@ -1154,37 +1087,31 @@
         private TabPage tabPage3;
         private SplitContainer splitContainer3;
         private GroupBox groupBox5;
-        private Button button1;
+        private Button btnChangeAccountStatus;
         private GroupBox groupBox7;
         private GroupBox groupBox6;
-        private Label label32;
-        private Label label33;
-        private Label label34;
-        private Label label35;
-        private Label label28;
-        private Label label29;
-        private Label label30;
-        private Label label31;
+        private Label lbResidenceAccountData;
+        private Label lbSurnameAccountData;
+        private Label lbBirthdateAccountData;
+        private Label lbPeselAccountData;
+        private Label lbLoginAccountData;
+        private Label lbNameAccountData;
         private Label label24;
         private Label label25;
         private Label label26;
         private Label label27;
-        private Label label20;
         private Label label21;
-        private Label label22;
         private Label label23;
-        private ListBox listBox1;
+        private ListBox lboxTechnicianAccountsList;
         private GroupBox groupBox4;
-        private TextBox txtbNewEmail;
+        private TextBox txtbNewLogin;
         private Button btnAddTechnician;
-        private Label label19;
         private Label label12;
         private TextBox txtbNewPassword;
-        private TextBox txtbNewAddress;
+        private TextBox txtbNewResidence;
         private Label label18;
         private Label label13;
         private NumericUpDown numNewBirthdateYear;
-        private TextBox txtbNewLogin;
         private NumericUpDown numNewBirthdateMonth;
         private TextBox txtbNewName;
         private NumericUpDown numNewBirthdateDay;
@@ -1194,7 +1121,7 @@
         private TextBox txtbNewSurname;
         private TextBox txtbNewPesel;
         private Label label15;
-        private Label label36;
+        private Label lbStatusAccountData;
         private Label label37;
         private Label label38;
         private RichTextBox rtxtbAddTestDescription;

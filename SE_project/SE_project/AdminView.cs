@@ -8,6 +8,7 @@ using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace SE_project
 {
@@ -80,6 +81,29 @@ namespace SE_project
             cbDelSelectType.DataSource = list;
         }
 
+        private void RefreshTechnicianAccountList()
+        {
+            List<string> names = UserManagement.GetTechnicianNameList();
+            names.Sort();
+            lboxTechnicianAccountsList.Items.Clear();
+            lboxTechnicianAccountsList.Items.AddRange(names.ToArray());
+            ResetTechnicianData();
+        }
+
+        private void RefreshTechnicianAccountList(object sender, TabControlEventArgs e)
+        {
+            RefreshTechnicianAccountList();
+        }
+
+
+        private User? GetSelectedTechnician()
+        {
+            if (lboxTechnicianAccountsList.SelectedItem == null) return null;
+            string[] name = lboxTechnicianAccountsList.SelectedItem.ToString().Split(" ");
+            User? currentTechnician = UserManagement.GetTechnicianByName(name[0], name[1]);
+            return currentTechnician;
+        }
+
         private void txtbAddTestID_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
@@ -104,15 +128,28 @@ namespace SE_project
 
         private void btnAddTest_Click(object sender, EventArgs e)
         {
+            int id = 0;
+            try
+            {
+                id = Int32.Parse(txtbAddTestID.Text);
+            }
+            catch (Exception ex)
+            {
+                string strID = txtbAddTestID.Text;
+                while (strID[0] == '0')
+                    strID = strID.Substring(1);
+                if (strID != "")
+                    id = Int32.Parse(txtbAddTestID.Text);
+            }
             TestManagement.CreateTest(
-                Int32.Parse(txtbAddTestID.Text),
-                txtbAddTestName.Text,
-                cbAddTestType.Text,
-                rtxtbAddTestDescription.Text.ToString(),
-                numAddTestMin.Value,
-                numAddTestMax.Value,
-                cbAddTestUnits.GetItemText(cbAddTestUnits.SelectedValue),
-                numAddTestPrice.Value
+                    id,
+                    txtbAddTestName.Text,
+                    cbAddTestType.Text,
+                    rtxtbAddTestDescription.Text.ToString(),
+                    numAddTestMin.Value,
+                    numAddTestMax.Value,
+                    cbAddTestUnits.GetItemText(cbAddTestUnits.SelectedValue),
+                    numAddTestPrice.Value
                 );
             TestManagement.LoadTestLists();
         }
@@ -124,7 +161,63 @@ namespace SE_project
             RefreshTypeList(typeNameList);
             RefreshRmTypeList(typeNameList);
         }
+        private void btnChangeAccountsStatus_Click(object sender, EventArgs e)
+        {
+            User? currentTechnician = GetSelectedTechnician();
+            if (currentTechnician == null) return;
+
+            currentTechnician.Status = (currentTechnician.Status == 0) ? 1:0;
+            RefreshTechnicianAccountList();
+        }
+
+        private void ResetTechnicianData()
+        {
+            lbLoginAccountData.Text = "";
+            lbNameAccountData.Text = "";
+            lbSurnameAccountData.Text = "";
+            lbBirthdateAccountData.Text = "";
+            lbPeselAccountData.Text = "";
+            lbResidenceAccountData.Text = "";
+            lbStatusAccountData.Text = "";
+
+            btnChangeAccountStatus.Text = "zmien status";
+        }
 
 
+        private void LoadTechnicianData(object sender, EventArgs e)
+        {
+            User? currentTechnician = GetSelectedTechnician();
+            if (currentTechnician == null) return;
+
+            lbLoginAccountData.Text = currentTechnician.Login.ToString();
+            lbNameAccountData.Text = currentTechnician.Name.ToString();
+            lbSurnameAccountData.Text = currentTechnician.Surname.ToString();
+            lbBirthdateAccountData.Text = currentTechnician.GetBirthdateAsString();
+            lbPeselAccountData.Text = currentTechnician.Pesel.ToString();
+            lbResidenceAccountData.Text = currentTechnician.Residence.ToString();
+            lbStatusAccountData.Text = currentTechnician.Status.ToString();
+
+            btnChangeAccountStatus.Text = (currentTechnician.Status == 0) ? "aktywuj konto" : "dezaktywuj konto";
+        }
+
+        private void btnAddTechnician_Click(object sender, EventArgs e)
+        {
+            int year = (int)numNewBirthdateYear.Value;
+            int month = (int)numNewBirthdateMonth.Value;
+            int day = (int)numNewBirthdateDay.Value;
+            DateTime? date = new DateTime(year, month, day);
+            
+            UserManagement.CreateTechnician(
+                    txtbNewLogin.Text,
+                    txtbNewPassword.Text,
+                    txtbNewName.Text,
+                    txtbNewSurname.Text,
+                    date,
+                    txtbNewPesel.Text,
+                    txtbNewResidence.Text
+                );
+
+            RefreshTechnicianAccountList();
+        }
     }
 }

@@ -19,10 +19,9 @@ namespace SE_project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Client currentUser = new Client(1, 2, 3, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "1234567890", "New York");
-            currentUser.email = "example@gmail.com";
+            Client currentUser = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "example@gmail.com", "1234567890", "New York");
 
-            if (textBox1.Text.Equals(currentUser.email))
+            if (textBox1.Text.Equals(currentUser.Email))
             {
                 if (textBox2.Text.Equals(currentUser.Login))
                 {

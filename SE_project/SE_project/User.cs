@@ -9,10 +9,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 public class User {
 
-    public User(int id, int type, int status, string login, string password, string name, string surname, DateTime? birthdate=null, string pesel="0", string residence="0")
+    public User(int id, int type, string login, string password, string name, string surname, int status=1, DateTime? birthdate=null, string pesel="0", string residence="0")
     {
         ID = id;
-        Type = type;
+        Type = type;  // client=0, technician=1, admin=2
         Status = status;
         Login = login;
         Password = password;
@@ -21,6 +21,7 @@ public class User {
         Birthdate = birthdate;
         Pesel = pesel;
         Residence = residence;
+
     }
 
     private int _ID;
@@ -46,5 +47,16 @@ public class User {
     public DateTime? Birthdate { get => _birthdate; set => _birthdate = value; }
     public string Pesel { get => _pesel; set => _pesel = value; }
     public string Residence { get => _residence; set => _residence = value; }
+
+    public string GetBirthdateAsString()
+    {
+        if (_birthdate.HasValue)
+        {
+            DateTime dateTime = _birthdate.Value;
+            return dateTime.ToString("yyyy-MM-dd");
+        }
+
+        return string.Empty;
+    }
 
 }

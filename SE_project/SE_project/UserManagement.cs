@@ -37,9 +37,11 @@ namespace SE_project
             throw new NotImplementedException();
         }
 
-        public static void CreateTechnician()
+        public static void CreateTechnician(string login, string password, string name, string surname, DateTime? birthdate = null, string pesel = "0", string residence = "0")
         {
-            throw new NotImplementedException();
+            int id = _techniciansAccounts.Count();
+            User newTechnician = new User(id, 1, login, password, name, surname, 1, birthdate, pesel, residence);
+            _techniciansAccounts.Add(newTechnician);
         }
 
         public static void DeactivateTechnician()
@@ -50,6 +52,25 @@ namespace SE_project
         public static void ActivateTechnician()
         {
             throw new NotImplementedException();
+        }
+
+        public static List<string> GetTechnicianNameList()
+        {
+            List<string> strings = new List<string>();
+            foreach (User t in _techniciansAccounts)
+                strings.Add(t.Name + " " + t.Surname);
+            return strings;
+        }
+
+        
+        public static User? GetTechnicianByName(string name, string surname)
+        {
+            foreach (User t in _techniciansAccounts)
+            {
+                if (t.Name.Equals(name) && t.Surname.Equals(surname))
+                    return t;
+            }
+            return null;
         }
 
         public static bool IsValidPassword(string password)
@@ -70,7 +91,7 @@ namespace SE_project
         {
             foreach (Client client in _clientsAccounts)
             {
-                if (client.email.Equals(email))
+                if (client.Email.Equals(email))
                 {
                     return true;
                 }

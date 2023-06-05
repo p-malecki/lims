@@ -68,12 +68,10 @@ namespace SE_project
 
         private void LoadClientData()
         {
-            Client currentUser = new Client(1, 2, 3, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "1234567890", "New York");
-
-            currentUser.email = "example@gmail.com";
+            Client currentUser = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "example@gmail.com", "1234567890", "New York");
 
             lbLogin.Text = currentUser.Name;
-            lbEmail.Text = currentUser.email;
+            lbEmail.Text = currentUser.Email;
             lbName.Text = currentUser.Name;
             lbSurname.Text = currentUser.Surname;
             lbPesel.Text = currentUser.Pesel;
@@ -83,10 +81,9 @@ namespace SE_project
 
         private void LoadClientOrders()
         {
-            Client tempClient = new Client(1, 2, 3, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "1234567890", "New York");
-            tempClient.email = "example@gmail.com";
+            Client tempClient = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "example@gmail.com", "1234567890", "New York");
 
-            foreach (Order o in tempClient.orders)
+            foreach (Order o in tempClient.Orders)
             {
                 if (o.Status == 0 || o.Status == 1)
                 {
@@ -153,13 +150,12 @@ namespace SE_project
 
         private void btnNewEmail_Click(object sender, EventArgs e)
         {
-            Client currentUser = new Client(1, 2, 3, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "1234567890", "New York");
+            Client currentUser = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "example@gmail.com", "1234567890", "New York");
 
-            currentUser.email = "example@gmail.com";
 
             if (txtbNewEmail.Text.Equals(txtbNewEmailConfirm.Text))
             {
-                if (!txtbNewEmail.Text.Equals(currentUser.email))
+                if (!txtbNewEmail.Text.Equals(currentUser.Email))
                 {
                     if (UserManagement.IsValidEmail(txtbNewEmail.Text))
                     {
@@ -190,9 +186,8 @@ namespace SE_project
 
         private void btnNewLogin_Click(object sender, EventArgs e)
         {
-            Client currentUser = new Client(1, 2, 3, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "1234567890", "New York");
+            Client currentUser = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "example@gmail.com", "1234567890", "New York");
 
-            currentUser.email = "example@gmail.com";
 
             if (txtbNewLogin.Text.Equals(txtbNewLoginConfirm.Text))
             {
@@ -228,9 +223,8 @@ namespace SE_project
         private void btnNewPassword_Click(object sender, EventArgs e)
         {
 
-            Client currentUser = new Client(1, 2, 3, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "1234567890", "New York");
+            Client currentUser = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "example@gmail.com", "1234567890", "New York");
 
-            currentUser.email = "example@gmail.com";
 
             if (txtbNewPassword.Text.Equals(txtbNewPasswordConfirm.Text))
             {
@@ -337,8 +331,7 @@ namespace SE_project
 
         private void btnUserAccountDelete_Click(object sender, EventArgs e)
         {
-            Client currentUser = new Client(1, 2, 3, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "1234567890", "New York");
-            currentUser.email = "example@gmail.com";
+            Client currentUser = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "example@gmail.com", "1234567890", "New York");
 
             //TODO
             using (var popupForm = new AccountDeleteConfimation())
