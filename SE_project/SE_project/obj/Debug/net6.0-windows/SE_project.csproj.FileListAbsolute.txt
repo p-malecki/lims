@@ -102,3 +102,4 @@ C:\Users\jmgra\Documents\Projekty\p-malecki\lis\SE_project\SE_project\obj\Debug\
 C:\Users\jmgra\Documents\Projekty\p-malecki\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.testItemExtendedDelete.resources
 C:\Users\jmgra\Documents\Projekty\p-malecki\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AdminView.aa-DJ.resources
 C:\Users\jmgra\Documents\Projekty\p-malecki\lis\SE_project\SE_project\obj\Debug\net6.0-windows\aa-DJ\SE_project.resources.dll
+C:\Users\jmgra\Documents\Projekty\p-malecki\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AccountDeleteConfirm.resources

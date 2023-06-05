@@ -8,6 +8,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SE_project
 {
@@ -27,6 +29,7 @@ namespace SE_project
                                                     "49", "50", "51", "52", "53", "54", "55", "56",
                                                     "57", "58", "59"
                                                 };
+        public List<String> checkedTests = new List<String>();
 
         public decimal sum;
 
@@ -42,6 +45,7 @@ namespace SE_project
 
             LoadAvailableTests();
             LoadClientData();
+            //LoadClientOrders();
         }
 
         private void LoadAvailableTests()
@@ -101,7 +105,7 @@ namespace SE_project
         {
             List<String> selectedNames = new List<String>();
 
-            if (!cbCategorySort.Text.Equals("<wszystkie kategorie>"))
+            if (!cbCategorySort.SelectedText.Equals("<wszystkie kategorie>"))
             {
                 foreach (Test t in TestManagement.testList)
                     if (t.Type.Equals(cbCategorySort.Text))
@@ -161,32 +165,64 @@ namespace SE_project
                     {
                         if (!UserManagement.IsEmailAlreadyUsed(txtbNewEmail.Text))
                         {
-
+                            //TODO
                         }
                         else
                         {
-
+                            MessageBox.Show("Podany adres e-mail jest już w użyciu!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     else
                     {
-
+                        MessageBox.Show("Niepoprawny adres e-mail!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
-
+                    MessageBox.Show("Podany adres e-mail jest taki sam jak obecnie używany!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-
+                MessageBox.Show("Podane adresy e-mail nie są takie same!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void btnNewLogin_Click(object sender, EventArgs e)
         {
+            Client currentUser = new Client(1, 2, 3, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "1234567890", "New York");
 
+            currentUser.email = "example@gmail.com";
+
+            if (txtbNewLogin.Text.Equals(txtbNewLoginConfirm.Text))
+            {
+                if (!txtbNewLogin.Text.Equals(currentUser.Login))
+                {
+                    if (UserManagement.IsValidLogin(txtbNewLogin.Text))
+                    {
+                        if (!UserManagement.IsLoginAlreadyUsed(txtbNewLoginConfirm.Text))
+                        {
+                            //TODO
+                        }
+                        else
+                        {
+                            MessageBox.Show("Podane login jest już w użyciu!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Podany login nie spełnia wymagań!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Podany login jest taki sam jak obecnie używany!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Podane loginy nie są takie same!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnNewPassword_Click(object sender, EventArgs e)
@@ -202,38 +238,61 @@ namespace SE_project
                 {
                     if (UserManagement.IsValidPassword(txtbNewPassword.Text))
                     {
-
+                        //TODO
                     }
                     else
                     {
-
+                        MessageBox.Show("Podane hasło nie spełnia wymagań!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
-
+                    MessageBox.Show("Podane hasło jest takie same jak obecnie używane!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-
+                MessageBox.Show("Podane hasła nie są takie same!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            DateTime selectedDate = new DateTime(monthCalendar.SelectionRange.Start.Day, monthCalendar.SelectionRange.Start.Month, monthCalendar.SelectionRange.Start.Year, int.Parse(listbxHours.SelectedItem.ToString()), int.Parse(listbxMinutes.SelectedItem.ToString()), 0);
+            //TODO
+            DateTime selectedDate = new DateTime(monthCalendar.SelectionStart.Day, monthCalendar.SelectionStart.Month, monthCalendar.SelectionStart.Year, int.Parse(listbxHours.SelectedItem.ToString()), int.Parse(listbxMinutes.SelectedItem.ToString()), 0);
 
-            if (selectedDate.DayOfWeek != DayOfWeek.Saturday && selectedDate.DayOfWeek != DayOfWeek.Sunday) 
+            //lbSum.Text = selectedDate.ToString();
+
+            if (monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Saturday && monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Sunday)
             {
-                Order newOrder = new Order();
+                List<Test> orderedTests = new List<Test>();
+
+                foreach (String s in checkedTests)
+                {
+                    foreach (Test t in TestManagement.testList)
+                    {
+                        if (t.Name.Equals(s))
+                        {
+                            orderedTests.Add(t);
+                            break;
+                        }
+                    }
+                }
+
+
+
+
+
+                int id = 1; int status = 1; int clientId = 1; int technicianId = 1; ClientTest[] tests = new ClientTest[1];
+
+                Order newOrder = new Order(id, status, selectedDate, clientId, technicianId, tests);
 
             }
             else
             {
-
+                MessageBox.Show("Placówka nie funkcjonuje w wybranym terminie!\nGodziny otwarcia: Pn - Pt: 8:00 - 16:00", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
+            
         }
 
 
@@ -247,6 +306,7 @@ namespace SE_project
                 {
                     if ((t.Name.Equals(testName)))
                     {
+                        checkedTests.Add(testName);
                         sum += t.Price;
                         break;
                     }
@@ -259,6 +319,7 @@ namespace SE_project
                 {
                     if ((t.Name.Equals(testName)))
                     {
+                        checkedTests.Remove(testName);
                         sum -= t.Price;
                         break;
                     }
@@ -266,6 +327,16 @@ namespace SE_project
             }
 
             lbSum.Text = sum.ToString();
+        }
+
+        private void btnUserAccountDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUserLogOut_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

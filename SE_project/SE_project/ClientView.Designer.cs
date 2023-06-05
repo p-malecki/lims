@@ -367,6 +367,7 @@
             btnUserAccountDelete.TabIndex = 3;
             btnUserAccountDelete.Text = "Usuń konto";
             btnUserAccountDelete.UseVisualStyleBackColor = true;
+            btnUserAccountDelete.Click += btnUserAccountDelete_Click;
             // 
             // btnUserLogOut
             // 
@@ -378,6 +379,7 @@
             btnUserLogOut.TabIndex = 2;
             btnUserLogOut.Text = "Wyloguj się";
             btnUserLogOut.UseVisualStyleBackColor = true;
+            btnUserLogOut.Click += btnUserLogOut_Click;
             // 
             // lbAddress
             // 

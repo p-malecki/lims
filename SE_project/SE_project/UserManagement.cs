@@ -97,5 +97,10 @@ namespace SE_project
             return false;
         }
 
+        public static bool IsValidLogin(string login)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
