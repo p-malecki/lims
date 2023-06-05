@@ -93,6 +93,7 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             groupBox6 = new GroupBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            label1 = new Label();
             tabPage3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox5.SuspendLayout();
@@ -537,6 +538,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(label1);
             tabPage2.Controls.Add(listbxMinutes);
             tabPage2.Controls.Add(listbxHours);
             tabPage2.Controls.Add(lbSum);
@@ -576,7 +578,8 @@
             // 
             lbSum.AutoSize = true;
             lbSum.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            lbSum.Location = new Point(686, 399);
+            lbSum.Location = new Point(675, 399);
+            lbSum.MaximumSize = new Size(100, 30);
             lbSum.Name = "lbSum";
             lbSum.Size = new Size(48, 28);
             lbSum.TabIndex = 8;
@@ -825,6 +828,16 @@
             flowLayoutPanel1.Size = new Size(428, 450);
             flowLayoutPanel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(768, 399);
+            label1.Name = "label1";
+            label1.Size = new Size(32, 28);
+            label1.TabIndex = 11;
+            label1.Text = "ZŁ";
+            // 
             // ClientView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -924,5 +937,6 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private ListBox listbxMinutes;
         private ListBox listbxHours;
+        private Label label1;
     }
 }

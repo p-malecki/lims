@@ -4,18 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class ClientTest : Test {
+public class ClientTest {
 
 
 
-    public ClientTest(int id, string name, string type, string description, decimal min, decimal max, string unit, int status) : base(id, name, type, description, min, max, unit, status)
+    public ClientTest(int id, int orderId, string result, int testId)
     {
     }
 
+    private int _id;
     private int _orderID;
-
-    private double _result;
+    private int _testID;
+    private string _result;
 
     protected int OrderID { get => _orderID; set => _orderID = value; }
-    protected double Result { get => _result; set => _result = value; }
+    protected string Result { get => _result; set => _result = value; }
 }

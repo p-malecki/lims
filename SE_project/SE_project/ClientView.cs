@@ -268,31 +268,37 @@ namespace SE_project
                 List<Test> orderedTests = new List<Test>();
 
                 foreach (String s in checkedTests)
-                {
                     foreach (Test t in TestManagement.testList)
-                    {
                         if (t.Name.Equals(s))
                         {
                             orderedTests.Add(t);
                             break;
                         }
-                    }
+
+                List<ClientTest> clientOrderedTests = new List<ClientTest>();
+
+                //TODO
+                int clientTestId = 1; //pobranie z bazy pierwszego wolnego id dla ClientTest
+                int orderId = 1;    //pobranie z bazy pierwszego wolnego id dla Orders
+
+                foreach (Test t in orderedTests)
+                {
+                    ClientTest newClientTest = new ClientTest(clientTestId, orderId, "", t.ID);
+                    clientOrderedTests.Add(newClientTest);
+                    clientTestId++;
                 }
 
 
+                int clientId = 1;    //id klienta 
 
-
-
-                int id = 1; int status = 1; int clientId = 1; int technicianId = 1; ClientTest[] tests = new ClientTest[1];
-
-                Order newOrder = new Order(id, status, selectedDate, clientId, technicianId, tests);
-
+                Order newOrder = new Order(orderId, 0, selectedDate, clientId, -1, clientOrderedTests);
+                OrderManagement.toAcceptOrderList.Add(newOrder);
             }
             else
             {
                 MessageBox.Show("Placówka nie funkcjonuje w wybranym terminie!\nGodziny otwarcia: Pn - Pt: 8:00 - 16:00", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
         }
 
 
@@ -331,12 +337,24 @@ namespace SE_project
 
         private void btnUserAccountDelete_Click(object sender, EventArgs e)
         {
+            Client currentUser = new Client(1, 2, 3, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "1234567890", "New York");
+            currentUser.email = "example@gmail.com";
 
+            //TODO
+            using (var popupForm = new AccountDeleteConfimation())
+            {
+                var result = popupForm.ShowDialog(); // Wywołanie formularza modalnego
+
+                if (result == DialogResult.OK)
+                {
+                    //TODO
+                }
+            }
         }
 
         private void btnUserLogOut_Click(object sender, EventArgs e)
         {
-
+            //TODO
         }
     }
 }

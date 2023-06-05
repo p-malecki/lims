@@ -13,7 +13,7 @@ namespace SE_project
 {
     public partial class CompletedOrder : UserControl
     {
-        public CompletedOrder(int id, DateTime date, ClientTest[] tests)
+        public CompletedOrder(int id, DateTime date, List<ClientTest> tests)
         {
             InitializeComponent();
 
