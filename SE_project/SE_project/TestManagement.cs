@@ -9,7 +9,7 @@ using static System.Net.WebRequestMethods;
 
 namespace SE_project
 {
-    internal class TestManagement
+    internal static class TestManagement
     {
         private static List<Test> _testList = new List<Test>();
         private static FlowLayoutPanel _addTestFlp;

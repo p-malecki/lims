@@ -200,6 +200,7 @@
             btnLogout.TabIndex = 13;
             btnLogout.Text = "Wyloguj";
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // groupBox2
             // 
@@ -333,6 +334,7 @@
             // 
             // cbAddTestUnits
             // 
+            cbAddTestUnits.DropDownStyle = ComboBoxStyle.DropDownList;
             cbAddTestUnits.FormattingEnabled = true;
             cbAddTestUnits.Location = new Point(201, 332);
             cbAddTestUnits.Margin = new Padding(3, 4, 3, 4);
@@ -360,6 +362,7 @@
             // 
             // cbAddTestType
             // 
+            cbAddTestType.DropDownStyle = ComboBoxStyle.DropDownList;
             cbAddTestType.FormattingEnabled = true;
             cbAddTestType.Location = new Point(201, 172);
             cbAddTestType.Margin = new Padding(3, 4, 3, 4);
@@ -1002,6 +1005,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
             Name = "AdminView";
             Text = "LIS Admin";
             splitContainer1.Panel1.ResumeLayout(false);

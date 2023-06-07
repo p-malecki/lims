@@ -116,6 +116,7 @@ namespace SE_project
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
+            UserManagement.LogOutUser();
         }
 
         private void btnAddType_Click(object sender, EventArgs e)
@@ -166,7 +167,7 @@ namespace SE_project
             User? currentTechnician = GetSelectedTechnician();
             if (currentTechnician == null) return;
 
-            currentTechnician.Status = (currentTechnician.Status == 0) ? 1:0;
+            currentTechnician.Status = (currentTechnician.Status == 0) ? 1 : 0;
             RefreshTechnicianAccountList();
         }
 
@@ -206,7 +207,7 @@ namespace SE_project
             int month = (int)numNewBirthdateMonth.Value;
             int day = (int)numNewBirthdateDay.Value;
             DateTime? date = new DateTime(year, month, day);
-            
+
             UserManagement.CreateTechnician(
                     txtbNewLogin.Text,
                     txtbNewPassword.Text,
@@ -219,5 +220,6 @@ namespace SE_project
 
             RefreshTechnicianAccountList();
         }
+
     }
 }

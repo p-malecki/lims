@@ -1,4 +1,7 @@
 .vs/
+SE_project/.vs/
+SE_project/SE_project/obj
+SE_project/SE_project/bin
 SE_project/.vs/SE_project/v17/.suo
 SE_project/SE_project/obj/Debug/net6.0-windows/apphost.exe
 SE_project/SE_project/obj/Debug/net6.0-windows/ref/SE_project.dll

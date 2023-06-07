@@ -13,11 +13,8 @@ namespace SE_project
 {
     public partial class TechnicianView : Form
     {
-        public List<int> listOrder = new List<int>();
         public List<Test> listTests = new List<Test>();
-        public List<string> listTestsNames = new List<string>();
         Order SelectedOrder = new Order();
-        Test SelectedTest = new Test();
         public TechnicianView()
         {
             InitializeComponent();
@@ -25,9 +22,10 @@ namespace SE_project
         }
         private void LoadUnacteptedTests()
         {
+            listBox1.Items.Clear();
+            List<int> listOrder = new List<int>();
             foreach (Order o in OrderManagement.toAcceptOrderList)
-                listOrder.Add(o.ID);
-            listBox1.DataSource = listOrder;
+                listBox1.Items.Add(o.ID);
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -72,6 +70,8 @@ namespace SE_project
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            listBox2.Items.Clear();
+            listTests.Clear();
             var selectedCategory = listBox1.SelectedItem;
             foreach (Order o in OrderManagement.toAcceptOrderList)
             {
@@ -80,20 +80,20 @@ namespace SE_project
                     SelectedOrder = o;
                     for (int i = 0; i < o.Tests.Count; i++)
                     {
-                        foreach (Test t in TestManagement.testList)
-                        {
-                            if (t.ID.Equals(o.Tests[i].TestID))
-                            {
-                                listTests.Add(t);
-                                listTestsNames.Add(t.Name);
-                            }
+                       foreach (Test t in TestManagement.testList)
+                       {
+                           if (t.ID.Equals(o.Tests[i].TestID))
+                           {
+                               listTests.Add(t);
+                               listBox2.Items.Add(t.Name);
+                           }
 
-                        }
+                       }
                     }
+                    break;
                 }
+              
             }
-            listBox2.DataSource = listTestsNames;
-
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -124,7 +124,7 @@ namespace SE_project
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedCategoryTestsIndex = listBox2.SelectedIndex;
-            SelectedTest = listTests[selectedCategoryTestsIndex];
+            var SelectedTest = listTests[selectedCategoryTestsIndex];
             label19.Text = SelectedOrder.ID.ToString();
             label20.Text = SelectedOrder.Date.ToString();
             label21.Text = SelectedOrder.Status.ToString();
@@ -139,6 +139,7 @@ namespace SE_project
             label21.Text = SelectedOrder.Status.ToString();
             OrderManagement.deleteOrderFromToAcceptOrderList(SelectedOrder);
             OrderManagement.addOrderToFillOrderList(SelectedOrder);
+            listBox1.Items.Remove(SelectedOrder.ID);
 
         }
 
@@ -147,7 +148,8 @@ namespace SE_project
             SelectedOrder.Status = 3;
             label21.Text = SelectedOrder.Status.ToString();
             OrderManagement.deleteOrderFromToAcceptOrderList(SelectedOrder);
-            OrderManagement.addOrderToDeniedOrderList(SelectedOrder);   
+            OrderManagement.addOrderToDeniedOrderList(SelectedOrder);
+            listBox1.Items.Remove(SelectedOrder.ID);
         }
     }
 }

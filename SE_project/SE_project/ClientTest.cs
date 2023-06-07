@@ -9,6 +9,10 @@ public class ClientTest {
 
     public ClientTest(int id, int orderId, string result, int testId)
     {
+        _id = id;
+        _orderID = orderId; 
+        _result = result;   
+        _testID = testId;
     }
     public ClientTest() { }
     private int _id;
