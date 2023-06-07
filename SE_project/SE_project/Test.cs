@@ -18,7 +18,7 @@ public class Test {
         Price = price;
         Status = status;
     }
-        
+    public Test() { }
     private int _ID;
     private string _name;
     private string _type;

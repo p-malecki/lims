@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Paweł\\Documents\\projects\\software-engineering-project\\lis\\SE_project\\SE_project\\SE_project.csproj": {}
+    "C:\\Users\\user\\Desktop\\projekt io\\lis\\SE_project\\SE_project\\SE_project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Paweł\\Documents\\projects\\software-engineering-project\\lis\\SE_project\\SE_project\\SE_project.csproj": {
+    "C:\\Users\\user\\Desktop\\projekt io\\lis\\SE_project\\SE_project\\SE_project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Paweł\\Documents\\projects\\software-engineering-project\\lis\\SE_project\\SE_project\\SE_project.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\projekt io\\lis\\SE_project\\SE_project\\SE_project.csproj",
         "projectName": "SE_project",
-        "projectPath": "C:\\Users\\Paweł\\Documents\\projects\\software-engineering-project\\lis\\SE_project\\SE_project\\SE_project.csproj",
-        "packagesPath": "C:\\Users\\Paweł\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Paweł\\Documents\\projects\\software-engineering-project\\lis\\SE_project\\SE_project\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\projekt io\\lis\\SE_project\\SE_project\\SE_project.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\projekt io\\lis\\SE_project\\SE_project\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Paweł\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +62,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

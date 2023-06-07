@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,9 +13,21 @@ namespace SE_project
 {
     public partial class TechnicianView : Form
     {
+        public List<int> listOrder = new List<int>();
+        public List<Test> listTests = new List<Test>();
+        public List<string> listTestsNames = new List<string>();
+        Order SelectedOrder = new Order();
+        Test SelectedTest = new Test();
         public TechnicianView()
         {
             InitializeComponent();
+            LoadUnacteptedTests();
+        }
+        private void LoadUnacteptedTests()
+        {
+            foreach (Order o in OrderManagement.toAcceptOrderList)
+                listOrder.Add(o.ID);
+            listBox1.DataSource = listOrder;
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -59,6 +72,27 @@ namespace SE_project
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var selectedCategory = listBox1.SelectedItem;
+            foreach (Order o in OrderManagement.toAcceptOrderList)
+            {
+                if (o.ID.Equals(selectedCategory))
+                {
+                    SelectedOrder = o;
+                    for (int i = 0; i < o.Tests.Count; i++)
+                    {
+                        foreach (Test t in TestManagement.testList)
+                        {
+                            if (t.ID.Equals(o.Tests[i].TestID))
+                            {
+                                listTests.Add(t);
+                                listTestsNames.Add(t.Name);
+                            }
+
+                        }
+                    }
+                }
+            }
+            listBox2.DataSource = listTestsNames;
 
         }
 
@@ -81,5 +115,40 @@ namespace SE_project
         {
             this.Close();
         }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedCategoryTestsIndex = listBox2.SelectedIndex;
+            SelectedTest = listTests[selectedCategoryTestsIndex];
+            label19.Text = SelectedOrder.ID.ToString();
+            label20.Text = SelectedOrder.Date.ToString();
+            label21.Text = SelectedOrder.Status.ToString();
+            label22.Text = SelectedTest.ID.ToString();
+            label23.Text = SelectedTest.Name;
+            label24.Text = SelectedTest.Type;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SelectedOrder.Status = 2;
+            label21.Text = SelectedOrder.Status.ToString();
+            OrderManagement.deleteOrderFromToAcceptOrderList(SelectedOrder);
+            OrderManagement.addOrderToFillOrderList(SelectedOrder);
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SelectedOrder.Status = 3;
+            label21.Text = SelectedOrder.Status.ToString();
+            OrderManagement.deleteOrderFromToAcceptOrderList(SelectedOrder);
+            OrderManagement.addOrderToDeniedOrderList(SelectedOrder);   
+        }
     }
+}
 }
