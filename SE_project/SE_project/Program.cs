@@ -12,7 +12,8 @@ namespace SE_project
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new LoginRegisterView());
-            Application.Run(new AdminView());
+            //Application.Run(new AdminView());
+            Application.Run(new TechnicianView());  
         }
     }
 }
