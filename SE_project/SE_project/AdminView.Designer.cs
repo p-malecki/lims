@@ -334,13 +334,13 @@
             // 
             // cbAddTestUnits
             // 
+            cbAddTestUnits.DropDownStyle = ComboBoxStyle.DropDownList;
             cbAddTestUnits.FormattingEnabled = true;
             cbAddTestUnits.Location = new Point(201, 332);
             cbAddTestUnits.Margin = new Padding(3, 4, 3, 4);
             cbAddTestUnits.Name = "cbAddTestUnits";
             cbAddTestUnits.Size = new Size(283, 38);
             cbAddTestUnits.TabIndex = 8;
-            cbAddTestUnits.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // label7
             // 
@@ -362,13 +362,13 @@
             // 
             // cbAddTestType
             // 
+            cbAddTestType.DropDownStyle = ComboBoxStyle.DropDownList;
             cbAddTestType.FormattingEnabled = true;
             cbAddTestType.Location = new Point(201, 172);
             cbAddTestType.Margin = new Padding(3, 4, 3, 4);
             cbAddTestType.Name = "cbAddTestType";
             cbAddTestType.Size = new Size(283, 38);
             cbAddTestType.TabIndex = 5;
-            cbAddTestType.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // txtbAddTestName
             // 
@@ -1005,6 +1005,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
             Name = "AdminView";
             Text = "LIS Admin";
             splitContainer1.Panel1.ResumeLayout(false);

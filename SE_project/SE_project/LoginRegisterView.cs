@@ -36,19 +36,19 @@ namespace SE_project
 
             if (UserManagement.LogInUser(userType, txtbLogin.Text, txtbPassword.Text))
             {
-                switch (cbLoginType.Text)
+                switch (userType)
                 {
-                    case "Klient":
+                    case 0:
                         ClientView clientForm = new ClientView();
                         clientForm.Show();
                         clientForm.Closed += (s, args) => this.Show();
                         break;
-                    case "Technik laboratoryjny":
+                    case 1:
                         TechnicianView technicianForm = new TechnicianView();
                         technicianForm.Show();
                         technicianForm.Closed += (s, args) => this.Show();
                         break;
-                    case "Administrator":
+                    case 2:
                         AdminView adminForm = new AdminView();
                         adminForm.Show();
                         adminForm.Closed += (s, args) => this.Show();

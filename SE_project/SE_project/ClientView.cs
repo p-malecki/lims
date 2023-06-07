@@ -347,7 +347,8 @@ namespace SE_project
 
         private void btnUserLogOut_Click(object sender, EventArgs e)
         {
-            //TODO
+            this.Close();
+            UserManagement.LogOutUser();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SE_project
 {
-    internal class OrderManagement
+    internal static class OrderManagement
     {
         private static List<Order> _toAcceptOrderList = new List<Order>();
         private static List<Order> _toFillOrderList = new List<Order>();

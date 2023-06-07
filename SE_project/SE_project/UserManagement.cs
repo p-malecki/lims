@@ -10,17 +10,19 @@ using System.Threading.Tasks;
 
 namespace SE_project
 {
-    internal class UserManagement
+    internal static class UserManagement
     {
 
         private static User? _activeUser = null;
-        private static User _adminAccount = new User(0,0,"admin","1234","admin","");
+        private static User? _adminAccount = new User(0, 0, "a", "", "admin", "");
         private static List<User> _techniciansAccounts = new List<User>();
         private static List<Client> _clientsAccounts = new List<Client>();
 
-        public UserManagement()
+        public static void Initialize()
         {
             // load data from DB
+            _clientsAccounts.Add(new Client(0, "k", "", "client", "", new DateTime(1990, 5, 10), "@"));
+            _techniciansAccounts.Add(new User(1, 1, "t", "", "technician", ""));
         }
 
         public static void CreateClient()
@@ -152,6 +154,11 @@ namespace SE_project
             }
          
             return false;
+        }
+
+        public static void LogOutUser()
+        {
+            _activeUser = null;
         }
 
     }
