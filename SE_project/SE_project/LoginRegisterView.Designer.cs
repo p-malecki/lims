@@ -32,7 +32,7 @@
             cbLoginType = new ComboBox();
             label1 = new Label();
             txtbLogin = new TextBox();
-            txtbPasssword = new TextBox();
+            txtbPassword = new TextBox();
             label2 = new Label();
             label3 = new Label();
             btnLogin = new Button();
@@ -74,6 +74,8 @@
             cbLoginType.Name = "cbLoginType";
             cbLoginType.Size = new Size(281, 38);
             cbLoginType.TabIndex = 2;
+            cbLoginType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbLoginType.SelectedIndex = 0;
             // 
             // label1
             // 
@@ -92,13 +94,13 @@
             txtbLogin.Size = new Size(304, 35);
             txtbLogin.TabIndex = 0;
             // 
-            // txtbPasssword
+            // txtbPassword
             // 
-            txtbPasssword.Location = new Point(245, 235);
-            txtbPasssword.Name = "txtbPasssword";
-            txtbPasssword.PasswordChar = '*';
-            txtbPasssword.Size = new Size(304, 35);
-            txtbPasssword.TabIndex = 1;
+            txtbPassword.Location = new Point(245, 235);
+            txtbPassword.Name = "txtbPassword";
+            txtbPassword.PasswordChar = '*';
+            txtbPassword.Size = new Size(304, 35);
+            txtbPassword.TabIndex = 1;
             // 
             // label2
             // 
@@ -150,7 +152,7 @@
             tabPage1.Controls.Add(label3);
             tabPage1.Controls.Add(label1);
             tabPage1.Controls.Add(label2);
-            tabPage1.Controls.Add(txtbPasssword);
+            tabPage1.Controls.Add(txtbPassword);
             tabPage1.Location = new Point(4, 39);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -382,7 +384,7 @@
         private ComboBox cbLoginType;
         private Label label1;
         private TextBox txtbLogin;
-        private TextBox txtbPasssword;
+        private TextBox txtbPassword;
         private Label label2;
         private Label label3;
         private Button btnLogin;
@@ -408,5 +410,6 @@
         private Label label10;
         private TextBox txtbNewEmail;
         private Label label11;
+
     }
 }

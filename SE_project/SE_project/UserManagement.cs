@@ -1,7 +1,9 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -11,15 +13,14 @@ namespace SE_project
     internal class UserManagement
     {
 
-        private static User _adminAccount;  // = new User();
+        private static User? _activeUser = null;
+        private static User _adminAccount = new User(0,0,"admin","1234","admin","");
         private static List<User> _techniciansAccounts = new List<User>();
         private static List<Client> _clientsAccounts = new List<Client>();
 
         public UserManagement()
         {
-            //_adminAccount = new User(0, 0, 1, "admin", "", "admin", "");
-            // load _techniciansAccounts
-            // load _clientsAccounts
+            // load data from DB
         }
 
         public static void CreateClient()
@@ -121,6 +122,36 @@ namespace SE_project
         public static bool IsValidLogin(string login)
         {
             throw new NotImplementedException();
+        }
+
+        public static bool LogInUser(int userType, string login, string password)
+        {
+            User? tmpUser = null;
+            if (userType == 0)
+            {
+                var account = _clientsAccounts.Find(a => a.Login == login);
+                if (account != null)
+                    tmpUser = account;
+            }
+            else if (userType == 1)
+            {
+                var account = _techniciansAccounts.Find(a => a.Login == login);
+                if (account != null)
+                    tmpUser = account;
+            }
+            else if (userType == 2)
+            {
+                if (_adminAccount.Login == login)
+                    tmpUser = _adminAccount;
+            }
+
+            if (tmpUser != null && tmpUser.Password == password)
+            {
+                _activeUser = tmpUser;
+                return true;
+            }
+         
+            return false;
         }
 
     }

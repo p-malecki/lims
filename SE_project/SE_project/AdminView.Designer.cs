@@ -200,6 +200,7 @@
             btnLogout.TabIndex = 13;
             btnLogout.Text = "Wyloguj";
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // groupBox2
             // 
@@ -339,6 +340,7 @@
             cbAddTestUnits.Name = "cbAddTestUnits";
             cbAddTestUnits.Size = new Size(283, 38);
             cbAddTestUnits.TabIndex = 8;
+            cbAddTestUnits.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // label7
             // 
@@ -366,6 +368,7 @@
             cbAddTestType.Name = "cbAddTestType";
             cbAddTestType.Size = new Size(283, 38);
             cbAddTestType.TabIndex = 5;
+            cbAddTestType.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // txtbAddTestName
             // 
