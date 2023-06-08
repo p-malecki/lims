@@ -29,5 +29,17 @@ namespace SE_project
         {
             _deniedOrderList.Add(o);
         }
+
+        public static int getFreeOrderID()
+        {
+            return 1;
+            //throw new NotImplementedException();
+        }
+
+        public static int getFreeClientTestsID()
+        {
+            return 22;
+            //throw new NotImplementedException();
+        }
     }
 }

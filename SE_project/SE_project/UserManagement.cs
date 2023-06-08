@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -17,6 +18,7 @@ namespace SE_project
         private static User? _adminAccount = new User(0, 0, "a", "", "admin", "");
         private static List<User> _techniciansAccounts = new List<User>();
         private static List<Client> _clientsAccounts = new List<Client>();
+        public static User ActiveUser { get => _activeUser; set => _activeUser = value; }
 
         public static void Initialize()
         {

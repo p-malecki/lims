@@ -15,6 +15,9 @@ namespace SE_project
 {
     public partial class ClientView : Form
     {
+        //Client activeClient = UserManagement.ActiveUser as Client;
+        Client activeClient = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(2023, 6, 8, 10, 30, 0), "john@example.com");
+
         public List<String> names = new List<String>();
         public List<String> categories = new List<String>();
 
@@ -31,21 +34,20 @@ namespace SE_project
                                                 };
         public List<String> checkedTests = new List<String>();
 
-        public decimal sum;
+        public decimal sum = 0;
 
         public ClientView()
         {
             InitializeComponent();
 
-            sum = 0;
-            lbSum.Text = sum.ToString();
+            lbSum.Text = "0";
 
             listbxHours.DataSource = hours;
             listbxMinutes.DataSource = minutes;
 
             LoadAvailableTests();
             LoadClientData();
-            //LoadClientOrders();
+            LoadClientOrders();
         }
 
         private void LoadAvailableTests()
@@ -68,22 +70,18 @@ namespace SE_project
 
         private void LoadClientData()
         {
-            Client currentUser = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "example@gmail.com", "1234567890", "New York");
-
-            lbLogin.Text = currentUser.Name;
-            lbEmail.Text = currentUser.Email;
-            lbName.Text = currentUser.Name;
-            lbSurname.Text = currentUser.Surname;
-            lbPesel.Text = currentUser.Pesel;
-            lbBirthdate.Text = currentUser.Birthdate.ToString();
-            lbAddress.Text = currentUser.Residence;
+            lbLogin.Text = activeClient.Name;
+            lbEmail.Text = activeClient.Email;
+            lbName.Text = activeClient.Name;
+            lbSurname.Text = activeClient.Surname;
+            lbPesel.Text = activeClient.Pesel;
+            lbBirthdate.Text = activeClient.Birthdate.ToString();
+            lbAddress.Text = activeClient.Residence;
         }
 
         private void LoadClientOrders()
         {
-            Client tempClient = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "example@gmail.com", "1234567890", "New York");
-
-            foreach (Order o in tempClient.Orders)
+            foreach (Order o in activeClient.Orders)
             {
                 if (o.Status == 0 || o.Status == 1)
                 {
@@ -150,18 +148,17 @@ namespace SE_project
 
         private void btnNewEmail_Click(object sender, EventArgs e)
         {
-            Client currentUser = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "example@gmail.com", "1234567890", "New York");
-
-
             if (txtbNewEmail.Text.Equals(txtbNewEmailConfirm.Text))
             {
-                if (!txtbNewEmail.Text.Equals(currentUser.Email))
+                if (!txtbNewEmail.Text.Equals(activeClient.Email))
                 {
                     if (UserManagement.IsValidEmail(txtbNewEmail.Text))
                     {
                         if (!UserManagement.IsEmailAlreadyUsed(txtbNewEmail.Text))
                         {
                             //TODO
+                            activeClient.Email = txtbNewEmail.Text;
+                            MessageBox.Show("Twój aders e-mail został zmieniony!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -186,18 +183,17 @@ namespace SE_project
 
         private void btnNewLogin_Click(object sender, EventArgs e)
         {
-            Client currentUser = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "example@gmail.com", "1234567890", "New York");
-
-
             if (txtbNewLogin.Text.Equals(txtbNewLoginConfirm.Text))
             {
-                if (!txtbNewLogin.Text.Equals(currentUser.Login))
+                if (!txtbNewLogin.Text.Equals(activeClient.Login))
                 {
                     if (UserManagement.IsValidLogin(txtbNewLogin.Text))
                     {
-                        if (!UserManagement.IsLoginAlreadyUsed(txtbNewLoginConfirm.Text))
+                        if (!UserManagement.IsLoginAlreadyUsed(txtbNewLogin.Text))
                         {
                             //TODO
+                            activeClient.Login = txtbNewLogin.Text;
+                            MessageBox.Show("Twój login został zmieniony!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -222,17 +218,15 @@ namespace SE_project
 
         private void btnNewPassword_Click(object sender, EventArgs e)
         {
-
-            Client currentUser = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "example@gmail.com", "1234567890", "New York");
-
-
             if (txtbNewPassword.Text.Equals(txtbNewPasswordConfirm.Text))
             {
-                if (!txtbNewPassword.Text.Equals(currentUser.Password))
+                if (!txtbNewPassword.Text.Equals(activeClient.Password))
                 {
                     if (UserManagement.IsValidPassword(txtbNewPassword.Text))
                     {
                         //TODO
+                        activeClient.Password = txtbNewPassword.Text;
+                        MessageBox.Show("Twoje hasło zostało zmienione!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -252,11 +246,14 @@ namespace SE_project
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            //TODO
-            DateTime selectedDate = new DateTime(monthCalendar.SelectionStart.Day, monthCalendar.SelectionStart.Month, monthCalendar.SelectionStart.Year, int.Parse(listbxHours.SelectedItem.ToString()), int.Parse(listbxMinutes.SelectedItem.ToString()), 0);
+            if (checkedTests.Count == 0)
+            {
+                MessageBox.Show("Nie wybrałeś żadnego testu!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
-            //lbSum.Text = selectedDate.ToString();
-
+            DateTime selectedDate = new DateTime(monthCalendar.SelectionStart.Year, monthCalendar.SelectionStart.Month, monthCalendar.SelectionStart.Day, int.Parse(listbxHours.SelectedItem.ToString()), int.Parse(listbxMinutes.SelectedItem.ToString()), 0);
+            
             if (monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Saturday && monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Sunday)
             {
                 List<Test> orderedTests = new List<Test>();
@@ -271,28 +268,31 @@ namespace SE_project
 
                 List<ClientTest> clientOrderedTests = new List<ClientTest>();
 
-                //TODO
-                int clientTestId = 1; //pobranie z bazy pierwszego wolnego id dla ClientTest
-                int orderId = 1;    //pobranie z bazy pierwszego wolnego id dla Orders
+                int clientTestId = OrderManagement.getFreeClientTestsID(); //pobranie z bazy pierwszego wolnego id dla ClientTest
+                int orderId = OrderManagement.getFreeOrderID();    //pobranie z bazy pierwszego wolnego id dla Orders
 
                 foreach (Test t in orderedTests)
                 {
                     ClientTest newClientTest = new ClientTest(clientTestId, orderId, "", t.ID);
                     clientOrderedTests.Add(newClientTest);
-                    clientTestId++;
+                    clientTestId = OrderManagement.getFreeClientTestsID();
                 }
 
-
-                int clientId = 1;    //id klienta 
+                int clientId = activeClient.ID; 
 
                 Order newOrder = new Order(orderId, 0, selectedDate, clientId, -1, clientOrderedTests);
                 OrderManagement.toAcceptOrderList.Add(newOrder);
+                activeClient.Orders.Add(newOrder);
+
+                PendingOrder newPendingOrder = new PendingOrder(orderId, selectedDate, 0, checkedTests);
+                flowLayoutPanel1.Controls.Add(newPendingOrder);
+
+                MessageBox.Show("Udało ci się złożyć zamówienie!\nSzczegóły w zakłace \"Zamówienia\"", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 MessageBox.Show("Placówka nie funkcjonuje w wybranym terminie!\nGodziny otwarcia: Pn - Pt: 8:00 - 16:00", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
 
 

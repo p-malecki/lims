@@ -12,14 +12,41 @@ namespace SE_project
 {
     public partial class PendingOrder : UserControl
     {
-        public PendingOrder(int id, DateTime date, int status, List<ClientTest> tests)
+        public PendingOrder(int id, DateTime date, int status, List<ClientTest> clientTest)
         {
             InitializeComponent();
             lbPendingId.Text = id.ToString();
             lbPendingDate.Text = date.ToString();
             lbPendingStatus.Text = status.ToString();
 
-            listbxPedningTests.DataSource = tests;
+            List<String> testNames = new List<string>();
+            foreach(ClientTest ct in clientTest) 
+            { 
+                foreach(Test t in TestManagement.testList)
+                {
+                    if (t.ID == ct.TestID)
+                    {
+                        testNames.Add(t.Name);
+                        break;
+                    }
+                }
+            }
+
+            listbxPedningTests.DataSource = testNames;
+        }
+
+        public PendingOrder(int id, DateTime date, int status, List<String> testNames)
+        {
+            InitializeComponent();
+            lbPendingId.Text = id.ToString();
+            lbPendingDate.Text = date.ToString();
+
+            if (status == 0)
+                lbPendingStatus.Text = "Oczekiwanie na zatwierdzenie";
+            else if (status == 1)
+                lbPendingStatus.Text = "Zgłoś się na badania!";
+
+            listbxPedningTests.DataSource = testNames;
         }
     }
 }
