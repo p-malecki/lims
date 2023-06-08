@@ -80,19 +80,19 @@ namespace SE_project
                     SelectedOrder = o;
                     for (int i = 0; i < o.Tests.Count; i++)
                     {
-                       foreach (Test t in TestManagement.testList)
-                       {
-                           if (t.ID.Equals(o.Tests[i].TestID))
-                           {
-                               listTests.Add(t);
-                               listBox2.Items.Add(t.Name);
-                           }
+                        foreach (Test t in TestManagement.testList)
+                        {
+                            if (t.ID.Equals(o.Tests[i].TestID))
+                            {
+                                listTests.Add(t);
+                                listBox2.Items.Add(t.Name);
+                            }
 
-                       }
+                        }
                     }
                     break;
                 }
-              
+
             }
         }
 
@@ -124,6 +124,8 @@ namespace SE_project
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedCategoryTestsIndex = listBox2.SelectedIndex;
+            if (selectedCategoryTestsIndex.Equals(-1))
+                selectedCategoryTestsIndex = SelectedOrder.Tests.Count - 1;
             var SelectedTest = listTests[selectedCategoryTestsIndex];
             label19.Text = SelectedOrder.ID.ToString();
             label20.Text = SelectedOrder.Date.ToString();
@@ -135,21 +137,27 @@ namespace SE_project
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SelectedOrder.Status = 2;
-            label21.Text = SelectedOrder.Status.ToString();
-            OrderManagement.deleteOrderFromToAcceptOrderList(SelectedOrder);
-            OrderManagement.addOrderToFillOrderList(SelectedOrder);
-            listBox1.Items.Remove(SelectedOrder.ID);
+            if (OrderManagement.toAcceptOrderList.Count > 0)
+            {
+                SelectedOrder.Status = 2;
+                label21.Text = SelectedOrder.Status.ToString();
+                OrderManagement.deleteOrderFromToAcceptOrderList(SelectedOrder);
+                OrderManagement.addOrderToFillOrderList(SelectedOrder);
+                listBox1.Items.Remove(SelectedOrder.ID);
+            }
 
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SelectedOrder.Status = 3;
-            label21.Text = SelectedOrder.Status.ToString();
-            OrderManagement.deleteOrderFromToAcceptOrderList(SelectedOrder);
-            OrderManagement.addOrderToDeniedOrderList(SelectedOrder);
-            listBox1.Items.Remove(SelectedOrder.ID);
+            if (OrderManagement.toAcceptOrderList.Count > 0)
+            {
+                SelectedOrder.Status = 3;
+                label21.Text = SelectedOrder.Status.ToString();
+                OrderManagement.deleteOrderFromToAcceptOrderList(SelectedOrder);
+                OrderManagement.addOrderToDeniedOrderList(SelectedOrder);
+                listBox1.Items.Remove(SelectedOrder.ID);
+            }
         }
     }
 }
