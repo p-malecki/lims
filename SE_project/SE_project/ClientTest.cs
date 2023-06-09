@@ -21,7 +21,7 @@ public class ClientTest {
     private string _result;
 
     protected int OrderID { get => _orderID; set => _orderID = value; }
-    protected string Result { get => _result; set => _result = value; }
+    public string Result { get => _result; set => _result = value; }
     public int ID { get => _id; set => _id = value; }
     public int TestID { get => _testID; set => _testID = value; }
 }
