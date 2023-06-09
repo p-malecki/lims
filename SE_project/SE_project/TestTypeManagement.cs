@@ -14,7 +14,7 @@ namespace SE_project
         
         public static void CreateType(string name)
         {
-            if (name.Equals("")) { System.Console.Error.WriteLine("type name cannot be empty"); return; }
+            if (name.Equals("")) return; 
 
 
             if (_list.Any(t => t.Name == name) == false)

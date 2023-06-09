@@ -20,10 +20,6 @@ namespace SE_project
             List<FlowLayoutPanel> flpList = new List<FlowLayoutPanel>() { flowLayoutPanel1, flowLayoutPanel2 };
             TestManagement.InitTestManagement(flpList);
 
-            //cbAddTestUnits.SelectedIndex = 0;
-            cbAddTestUnits.DisplayMember = "Text";
-            cbAddTestUnits.ValueMember = "Value";
-
             var items = new[] {
                 new { Text = "Femtoliter ", Value = "fL"},
                 new { Text = "Grams", Value = "g"},
@@ -63,6 +59,9 @@ namespace SE_project
                 new { Text = "Units per liter", Value = "U/L"},
                 new { Text = "Units per milliliter", Value = "U/mL"}
             }; // TODO import from DB
+
+            cbAddTestUnits.DisplayMember = "Text";
+            cbAddTestUnits.ValueMember = "Value";
             cbAddTestUnits.DataSource = items;
         }
 
@@ -83,25 +82,96 @@ namespace SE_project
 
         private void RefreshTechnicianAccountList()
         {
-            List<string> names = UserManagement.GetTechnicianNameList();
-            names.Sort();
-            lboxTechnicianAccountsList.Items.Clear();
-            lboxTechnicianAccountsList.Items.AddRange(names.ToArray());
-            ResetTechnicianData();
+            var items = UserManagement.GetTechnicianList();
+            lboxTechnicianAccountsList.DisplayMember = "TechnicianTag";
+            lboxTechnicianAccountsList.ValueMember = "TechnicianID";
+            lboxTechnicianAccountsList.DataSource = items;
         }
-
         private void RefreshTechnicianAccountList(object sender, TabControlEventArgs e)
         {
+            ResetTechnicianData();
             RefreshTechnicianAccountList();
+            lboxTechnicianAccountsList.ClearSelected();
         }
 
+        private void btnChangeAccountsStatus_Click(object sender, EventArgs e)
+        {
+            User? selectedTechnician = GetSelectedTechnician();
+            if (selectedTechnician == null) return;
+            int selectedIdx = lboxTechnicianAccountsList.SelectedIndex;
+
+            UserManagement.ChangeAccountStatus(selectedTechnician.ID, 1, (selectedTechnician.Status == 0) ? 1 : 0);
+            RefreshTechnicianAccountList();
+            lboxTechnicianAccountsList.SelectedIndex = selectedIdx;
+            LoadTechnicianData();
+        }
+
+        private void ResetTechnicianData()
+        {
+            lbLoginAccountData.Text = "";
+            lbNameAccountData.Text = "";
+            lbSurnameAccountData.Text = "";
+            lbBirthdateAccountData.Text = "";
+            lbPeselAccountData.Text = "";
+            lbResidenceAccountData.Text = "";
+            lbStatusAccountData.Text = "";
+
+            btnChangeAccountStatus.Text = "zmien status";
+        }
+
+        private void LoadTechnicianData()
+        {
+            User? selectedTechnician = GetSelectedTechnician();
+            if (selectedTechnician == null) return;
+
+            lbLoginAccountData.Text = selectedTechnician.Login.ToString();
+            lbNameAccountData.Text = selectedTechnician.Name.ToString();
+            lbSurnameAccountData.Text = selectedTechnician.Surname.ToString();
+            lbBirthdateAccountData.Text = selectedTechnician.GetBirthdateAsString();
+            lbPeselAccountData.Text = selectedTechnician.Pesel.ToString();
+            lbResidenceAccountData.Text = selectedTechnician.Residence.ToString();
+            lbStatusAccountData.Text = selectedTechnician.Status.ToString();
+
+            btnChangeAccountStatus.Text = (selectedTechnician.Status == 0) ? "aktywuj konto" : "dezaktywuj konto";
+        }
+        private void LoadTechnicianData(object sender, EventArgs e)
+        {
+            LoadTechnicianData();
+        }
+
+        private void btnAddTechnician_Click(object sender, EventArgs e)
+        {
+            int year = (int)numNewBirthdateYear.Value;
+            int month = (int)numNewBirthdateMonth.Value;
+            int day = (int)numNewBirthdateDay.Value;
+            DateTime date = new DateTime(year, month, day);
+
+            if (UserManagement.RegisterTechnician(txtbNewLogin.Text, txtbNewPassword.Text,
+                    txtbNewName.Text, txtbNewSurname.Text, date, txtbNewPesel.Text, txtbNewResidence.Text))
+            {
+
+            }
+            else
+            {
+
+            }
+
+            RefreshTechnicianAccountList();
+        }
 
         private User? GetSelectedTechnician()
         {
             if (lboxTechnicianAccountsList.SelectedItem == null) return null;
-            string[] name = lboxTechnicianAccountsList.SelectedItem.ToString().Split(" ");
-            User? currentTechnician = UserManagement.GetTechnicianByName(name[0], name[1]);
+            int id = Int32.Parse(lboxTechnicianAccountsList.GetItemText(lboxTechnicianAccountsList.SelectedValue));
+            User? currentTechnician = UserManagement.GetTechnicianByID(id);
             return currentTechnician;
+        }
+
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            UserManagement.LogOutUser();
         }
 
         private void txtbAddTestID_KeyPress(object sender, KeyPressEventArgs e)
@@ -111,12 +181,6 @@ namespace SE_project
             {
                 e.Handled = true;
             }
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            UserManagement.LogOutUser();
         }
 
         private void btnAddType_Click(object sender, EventArgs e)
@@ -162,64 +226,6 @@ namespace SE_project
             RefreshTypeList(typeNameList);
             RefreshRmTypeList(typeNameList);
         }
-        private void btnChangeAccountsStatus_Click(object sender, EventArgs e)
-        {
-            User? currentTechnician = GetSelectedTechnician();
-            if (currentTechnician == null) return;
-
-            currentTechnician.Status = (currentTechnician.Status == 0) ? 1 : 0;
-            RefreshTechnicianAccountList();
-        }
-
-        private void ResetTechnicianData()
-        {
-            lbLoginAccountData.Text = "";
-            lbNameAccountData.Text = "";
-            lbSurnameAccountData.Text = "";
-            lbBirthdateAccountData.Text = "";
-            lbPeselAccountData.Text = "";
-            lbResidenceAccountData.Text = "";
-            lbStatusAccountData.Text = "";
-
-            btnChangeAccountStatus.Text = "zmien status";
-        }
-
-
-        private void LoadTechnicianData(object sender, EventArgs e)
-        {
-            User? currentTechnician = GetSelectedTechnician();
-            if (currentTechnician == null) return;
-
-            lbLoginAccountData.Text = currentTechnician.Login.ToString();
-            lbNameAccountData.Text = currentTechnician.Name.ToString();
-            lbSurnameAccountData.Text = currentTechnician.Surname.ToString();
-            lbBirthdateAccountData.Text = currentTechnician.GetBirthdateAsString();
-            lbPeselAccountData.Text = currentTechnician.Pesel.ToString();
-            lbResidenceAccountData.Text = currentTechnician.Residence.ToString();
-            lbStatusAccountData.Text = currentTechnician.Status.ToString();
-
-            btnChangeAccountStatus.Text = (currentTechnician.Status == 0) ? "aktywuj konto" : "dezaktywuj konto";
-        }
-
-        private void btnAddTechnician_Click(object sender, EventArgs e)
-        {
-            int year = (int)numNewBirthdateYear.Value;
-            int month = (int)numNewBirthdateMonth.Value;
-            int day = (int)numNewBirthdateDay.Value;
-            DateTime? date = new DateTime(year, month, day);
-
-            UserManagement.CreateTechnician(
-                    txtbNewLogin.Text,
-                    txtbNewPassword.Text,
-                    txtbNewName.Text,
-                    txtbNewSurname.Text,
-                    date,
-                    txtbNewPesel.Text,
-                    txtbNewResidence.Text
-                );
-
-            RefreshTechnicianAccountList();
-        }
-
+        
     }
 }

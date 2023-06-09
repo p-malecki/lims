@@ -189,7 +189,7 @@ namespace SE_project
                 {
                     if (UserManagement.IsValidLogin(txtbNewLogin.Text))
                     {
-                        if (!UserManagement.IsLoginAlreadyUsed(txtbNewLogin.Text))
+                        if (!UserManagement.IsLoginAlreadyUsed(txtbNewLogin.Text, 0))
                         {
                             //TODO
                             activeClient.Login = txtbNewLogin.Text;

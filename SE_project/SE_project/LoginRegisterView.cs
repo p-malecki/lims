@@ -55,12 +55,7 @@ namespace SE_project
                         break;
                 }
                 this.Hide();
-
-                txtbLogin.Text = "";
-                txtbPassword.Text = "";
-                txtbLogin.BackColor = Color.White;
-                txtbPassword.BackColor = Color.White;
-                cbLoginType.SelectedIndex = 0;
+                ResetForm();
             }
             else
             {
@@ -72,7 +67,65 @@ namespace SE_project
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            UserManagement.CreateClient();  // TODO read and pass data on to func 
+            int year = (int)numNewBirthdateYear.Value;
+            int month = (int)numNewBirthdateMonth.Value;
+            int day = (int)numNewBirthdateDay.Value;
+            DateTime date = new DateTime(year, month, day);
+
+            if (UserManagement.RegisterClient(txtbNewLogin.Text, txtbNewPassword.Text, txtbNewName.Text,
+                    txtbNewSurname.Text, date, txtbNewEmail.Text, txtbNewPesel.Text, txtbNewAddress.Text))
+            {
+                btnSignUp.BackColor = Color.Green;
+                txtbNewLogin.Enabled = false;
+                txtbNewEmail.Enabled = false;
+                txtbNewPassword.Enabled = false;
+                txtbNewName.Enabled = false;
+                txtbNewSurname.Enabled = false;
+                txtbNewPesel.Enabled = false;
+                txtbNewAddress.Enabled = false;
+                numNewBirthdateDay.Enabled = false;
+                numNewBirthdateMonth.Enabled = false;
+                numNewBirthdateYear.Enabled = false;
+                btnSignUp.Enabled = false;
+            }
+            else
+            {
+                btnSignUp.BackColor = Color.Red;
+            }
+        }
+
+        private void ResetForm()
+        {
+            txtbLogin.Text = "";
+            txtbPassword.Text = "";
+            txtbLogin.BackColor = default(Color);
+            txtbPassword.BackColor = default(Color);
+            cbLoginType.SelectedIndex = 0;
+
+            txtbNewLogin.Enabled = true;
+            txtbNewEmail.Enabled = true;
+            txtbNewPassword.Enabled = true;
+            txtbNewName.Enabled = true;
+            txtbNewSurname.Enabled = true;
+            txtbNewPesel.Enabled = true;
+            txtbNewAddress.Enabled = true;
+            btnSignUp.Enabled = true;
+            numNewBirthdateDay.Enabled = true;
+            numNewBirthdateMonth.Enabled = true;
+            numNewBirthdateYear.Enabled = true;
+            txtbNewLogin.Text = "";
+            txtbNewEmail.Text = "";
+            txtbNewPassword.Text = "";
+            txtbNewName.Text = "";
+            txtbNewSurname.Text = "";
+            txtbNewPesel.Text = "";
+            txtbNewAddress.Text = "";
+            btnSignUp.BackColor = SystemColors.ButtonFace;
+        }
+
+        private void TabChange(object sender, EventArgs e)
+        {
+            ResetForm();
         }
     }
 }

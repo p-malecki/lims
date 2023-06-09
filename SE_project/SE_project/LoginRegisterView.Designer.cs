@@ -68,13 +68,13 @@
             // 
             // cbLoginType
             // 
+            cbLoginType.DropDownStyle = ComboBoxStyle.DropDownList;
             cbLoginType.FormattingEnabled = true;
             cbLoginType.Items.AddRange(new object[] { "Klient", "Technik laboratoryjny", "Administrator" });
             cbLoginType.Location = new Point(268, 296);
             cbLoginType.Name = "cbLoginType";
             cbLoginType.Size = new Size(281, 38);
             cbLoginType.TabIndex = 2;
-            cbLoginType.DropDownStyle = ComboBoxStyle.DropDownList;
             cbLoginType.SelectedIndex = 0;
             // 
             // label1
@@ -142,6 +142,7 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(743, 629);
             tabControl1.TabIndex = 11;
+            tabControl1.SelectedIndexChanged += TabChange;
             // 
             // tabPage1
             // 
@@ -200,7 +201,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(114, 106);
+            label11.Location = new Point(117, 53);
             label11.Name = "label11";
             label11.Size = new Size(64, 30);
             label11.TabIndex = 34;
@@ -329,6 +330,7 @@
             btnSignUp.TabIndex = 10;
             btnSignUp.Text = "Zarejestruj";
             btnSignUp.UseVisualStyleBackColor = true;
+            btnSignUp.Click += btnSignUp_Click;
             // 
             // label4
             // 
@@ -344,7 +346,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(114, 53);
+            label6.Location = new Point(114, 106);
             label6.Name = "label6";
             label6.Size = new Size(66, 30);
             label6.TabIndex = 11;
