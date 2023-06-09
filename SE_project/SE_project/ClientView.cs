@@ -77,6 +77,7 @@ namespace SE_project
             lbPesel.Text = activeClient.Pesel;
             lbBirthdate.Text = activeClient.Birthdate.ToString();
             lbAddress.Text = activeClient.Residence;
+            lbPhoneNum.Text = activeClient.PhoneNumber;
         }
 
         private void LoadClientOrders()
@@ -253,7 +254,7 @@ namespace SE_project
             }
 
             DateTime selectedDate = new DateTime(monthCalendar.SelectionStart.Year, monthCalendar.SelectionStart.Month, monthCalendar.SelectionStart.Day, int.Parse(listbxHours.SelectedItem.ToString()), int.Parse(listbxMinutes.SelectedItem.ToString()), 0);
-            
+
             if (monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Saturday && monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Sunday)
             {
                 List<Test> orderedTests = new List<Test>();
@@ -278,7 +279,7 @@ namespace SE_project
                     clientTestId = OrderManagement.getFreeClientTestsID();
                 }
 
-                int clientId = activeClient.ID; 
+                int clientId = activeClient.ID;
 
                 Order newOrder = new Order(orderId, 0, selectedDate, clientId, -1, clientOrderedTests);
                 OrderManagement.toAcceptOrderList.Add(newOrder);

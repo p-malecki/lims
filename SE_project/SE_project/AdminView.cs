@@ -111,6 +111,7 @@ namespace SE_project
             lbLoginAccountData.Text = "";
             lbNameAccountData.Text = "";
             lbSurnameAccountData.Text = "";
+            lbPhoneNumAccountData.Text = "";
             lbBirthdateAccountData.Text = "";
             lbPeselAccountData.Text = "";
             lbResidenceAccountData.Text = "";
@@ -124,12 +125,13 @@ namespace SE_project
             User? selectedTechnician = GetSelectedTechnician();
             if (selectedTechnician == null) return;
 
-            lbLoginAccountData.Text = selectedTechnician.Login.ToString();
-            lbNameAccountData.Text = selectedTechnician.Name.ToString();
-            lbSurnameAccountData.Text = selectedTechnician.Surname.ToString();
+            lbLoginAccountData.Text = selectedTechnician.Login;
+            lbNameAccountData.Text = selectedTechnician.Name;
+            lbSurnameAccountData.Text = selectedTechnician.Surname;
+            lbPhoneNumAccountData.Text = selectedTechnician.PhoneNumber;
             lbBirthdateAccountData.Text = selectedTechnician.GetBirthdateAsString();
-            lbPeselAccountData.Text = selectedTechnician.Pesel.ToString();
-            lbResidenceAccountData.Text = selectedTechnician.Residence.ToString();
+            lbPeselAccountData.Text = selectedTechnician.Pesel;
+            lbResidenceAccountData.Text = selectedTechnician.Residence;
             lbStatusAccountData.Text = selectedTechnician.Status.ToString();
 
             btnChangeAccountStatus.Text = (selectedTechnician.Status == 0) ? "aktywuj konto" : "dezaktywuj konto";
@@ -146,8 +148,8 @@ namespace SE_project
             int day = (int)numNewBirthdateDay.Value;
             DateTime date = new DateTime(year, month, day);
 
-            if (UserManagement.RegisterTechnician(txtbNewLogin.Text, txtbNewPassword.Text,
-                    txtbNewName.Text, txtbNewSurname.Text, date, txtbNewPesel.Text, txtbNewResidence.Text))
+            if (UserManagement.RegisterTechnician(txtbNewLogin.Text, txtbNewPassword.Text, txtbNewName.Text,
+                txtbNewSurname.Text, date, txtbNewPesel.Text, txtbNewResidence.Text, txtbNewPhoneNum.Text))
             {
 
             }
@@ -174,15 +176,6 @@ namespace SE_project
             UserManagement.LogOutUser();
         }
 
-        private void txtbAddTestID_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void btnAddType_Click(object sender, EventArgs e)
         {
             TestTypeManagement.CreateType(txtbAddTypeName.Text);
@@ -193,21 +186,7 @@ namespace SE_project
 
         private void btnAddTest_Click(object sender, EventArgs e)
         {
-            int id = 0;
-            try
-            {
-                id = Int32.Parse(txtbAddTestID.Text);
-            }
-            catch (Exception ex)
-            {
-                string strID = txtbAddTestID.Text;
-                while (strID[0] == '0')
-                    strID = strID.Substring(1);
-                if (strID != "")
-                    id = Int32.Parse(txtbAddTestID.Text);
-            }
             TestManagement.CreateTest(
-                    id,
                     txtbAddTestName.Text,
                     cbAddTestType.Text,
                     rtxtbAddTestDescription.Text.ToString(),
@@ -226,6 +205,11 @@ namespace SE_project
             RefreshTypeList(typeNameList);
             RefreshRmTypeList(typeNameList);
         }
-        
+
+        private void txtbNewPhoneNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                e.Handled = true;
+        }
     }
 }

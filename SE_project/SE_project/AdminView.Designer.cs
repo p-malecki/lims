@@ -55,8 +55,6 @@
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
-            label2 = new Label();
-            txtbAddTestID = new TextBox();
             splitContainer2 = new SplitContainer();
             flowLayoutPanel2 = new FlowLayoutPanel();
             panel2 = new Panel();
@@ -89,6 +87,8 @@
             label23 = new Label();
             lboxTechnicianAccountsList = new ListBox();
             groupBox4 = new GroupBox();
+            txtbNewPhoneNum = new TextBox();
+            label2 = new Label();
             txtbNewLogin = new TextBox();
             btnAddTechnician = new Button();
             label12 = new Label();
@@ -106,6 +106,8 @@
             txtbNewSurname = new TextBox();
             txtbNewPesel = new TextBox();
             label15 = new Label();
+            label19 = new Label();
+            lbPhoneNumAccountData = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -263,13 +265,11 @@
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(txtbAddTestID);
             groupBox1.Location = new Point(65, 328);
             groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(561, 714);
+            groupBox1.Size = new Size(561, 703);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "nowe badanie";
@@ -277,7 +277,7 @@
             // label38
             // 
             label38.AutoSize = true;
-            label38.Location = new Point(77, 442);
+            label38.Location = new Point(77, 381);
             label38.Name = "label38";
             label38.Size = new Size(51, 30);
             label38.TabIndex = 16;
@@ -285,17 +285,17 @@
             // 
             // rtxtbAddTestDescription
             // 
-            rtxtbAddTestDescription.Location = new Point(75, 476);
+            rtxtbAddTestDescription.Location = new Point(75, 431);
             rtxtbAddTestDescription.Margin = new Padding(3, 4, 3, 4);
             rtxtbAddTestDescription.Name = "rtxtbAddTestDescription";
-            rtxtbAddTestDescription.Size = new Size(405, 150);
+            rtxtbAddTestDescription.Size = new Size(405, 175);
             rtxtbAddTestDescription.TabIndex = 10;
             rtxtbAddTestDescription.Text = "";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(451, 388);
+            label11.Location = new Point(451, 327);
             label11.Name = "label11";
             label11.Size = new Size(35, 30);
             label11.TabIndex = 14;
@@ -305,7 +305,7 @@
             // 
             numAddTestPrice.DecimalPlaces = 2;
             numAddTestPrice.Increment = new decimal(new int[] { 5, 0, 0, 0 });
-            numAddTestPrice.Location = new Point(281, 388);
+            numAddTestPrice.Location = new Point(281, 327);
             numAddTestPrice.Margin = new Padding(3, 4, 3, 4);
             numAddTestPrice.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numAddTestPrice.Name = "numAddTestPrice";
@@ -315,7 +315,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(77, 392);
+            label10.Location = new Point(77, 331);
             label10.Name = "label10";
             label10.Size = new Size(57, 30);
             label10.TabIndex = 13;
@@ -323,7 +323,7 @@
             // 
             // btnAddTest
             // 
-            btnAddTest.Location = new Point(201, 648);
+            btnAddTest.Location = new Point(201, 630);
             btnAddTest.Margin = new Padding(3, 4, 3, 4);
             btnAddTest.Name = "btnAddTest";
             btnAddTest.Size = new Size(175, 40);
@@ -336,7 +336,7 @@
             // 
             cbAddTestUnits.DropDownStyle = ComboBoxStyle.DropDownList;
             cbAddTestUnits.FormattingEnabled = true;
-            cbAddTestUnits.Location = new Point(201, 332);
+            cbAddTestUnits.Location = new Point(201, 271);
             cbAddTestUnits.Margin = new Padding(3, 4, 3, 4);
             cbAddTestUnits.Name = "cbAddTestUnits";
             cbAddTestUnits.Size = new Size(283, 38);
@@ -345,7 +345,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(75, 340);
+            label7.Location = new Point(75, 279);
             label7.Name = "label7";
             label7.Size = new Size(96, 30);
             label7.TabIndex = 12;
@@ -354,7 +354,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(77, 284);
+            label6.Location = new Point(77, 223);
             label6.Name = "label6";
             label6.Size = new Size(205, 30);
             label6.TabIndex = 11;
@@ -364,7 +364,7 @@
             // 
             cbAddTestType.DropDownStyle = ComboBoxStyle.DropDownList;
             cbAddTestType.FormattingEnabled = true;
-            cbAddTestType.Location = new Point(201, 172);
+            cbAddTestType.Location = new Point(201, 111);
             cbAddTestType.Margin = new Padding(3, 4, 3, 4);
             cbAddTestType.Name = "cbAddTestType";
             cbAddTestType.Size = new Size(283, 38);
@@ -372,7 +372,7 @@
             // 
             // txtbAddTestName
             // 
-            txtbAddTestName.Location = new Point(201, 122);
+            txtbAddTestName.Location = new Point(201, 61);
             txtbAddTestName.Margin = new Padding(3, 4, 3, 4);
             txtbAddTestName.Name = "txtbAddTestName";
             txtbAddTestName.Size = new Size(283, 35);
@@ -382,7 +382,7 @@
             // 
             numAddTestMin.DecimalPlaces = 3;
             numAddTestMin.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            numAddTestMin.Location = new Point(305, 226);
+            numAddTestMin.Location = new Point(305, 165);
             numAddTestMin.Margin = new Padding(3, 4, 3, 4);
             numAddTestMin.Name = "numAddTestMin";
             numAddTestMin.Size = new Size(177, 35);
@@ -392,7 +392,7 @@
             // 
             numAddTestMax.DecimalPlaces = 3;
             numAddTestMax.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            numAddTestMax.Location = new Point(305, 278);
+            numAddTestMax.Location = new Point(305, 217);
             numAddTestMax.Margin = new Padding(3, 4, 3, 4);
             numAddTestMax.Name = "numAddTestMax";
             numAddTestMax.Size = new Size(177, 35);
@@ -401,7 +401,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(77, 232);
+            label5.Location = new Point(77, 171);
             label5.Name = "label5";
             label5.Size = new Size(187, 30);
             label5.TabIndex = 4;
@@ -410,7 +410,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(75, 178);
+            label4.Location = new Point(75, 117);
             label4.Name = "label4";
             label4.Size = new Size(42, 30);
             label4.TabIndex = 3;
@@ -419,28 +419,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(77, 124);
+            label3.Location = new Point(77, 63);
             label3.Name = "label3";
             label3.Size = new Size(72, 30);
             label3.TabIndex = 2;
             label3.Text = "nazwa";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(77, 72);
-            label2.Name = "label2";
-            label2.Size = new Size(34, 30);
-            label2.TabIndex = 1;
-            label2.Text = "ID";
-            // 
-            // txtbAddTestID
-            // 
-            txtbAddTestID.Location = new Point(201, 66);
-            txtbAddTestID.Margin = new Padding(3, 4, 3, 4);
-            txtbAddTestID.Name = "txtbAddTestID";
-            txtbAddTestID.Size = new Size(283, 35);
-            txtbAddTestID.TabIndex = 3;
             // 
             // splitContainer2
             // 
@@ -632,6 +615,8 @@
             // 
             // groupBox6
             // 
+            groupBox6.Controls.Add(lbPhoneNumAccountData);
+            groupBox6.Controls.Add(label19);
             groupBox6.Controls.Add(lbStatusAccountData);
             groupBox6.Controls.Add(lbResidenceAccountData);
             groupBox6.Controls.Add(lbSurnameAccountData);
@@ -808,6 +793,8 @@
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(txtbNewPhoneNum);
+            groupBox4.Controls.Add(label2);
             groupBox4.Controls.Add(txtbNewLogin);
             groupBox4.Controls.Add(btnAddTechnician);
             groupBox4.Controls.Add(label12);
@@ -833,6 +820,24 @@
             groupBox4.TabIndex = 54;
             groupBox4.TabStop = false;
             groupBox4.Text = "Dodawanie nowych kont techników";
+            // 
+            // txtbNewPhoneNum
+            // 
+            txtbNewPhoneNum.Location = new Point(800, 229);
+            txtbNewPhoneNum.Name = "txtbNewPhoneNum";
+            txtbNewPhoneNum.Size = new Size(290, 35);
+            txtbNewPhoneNum.TabIndex = 55;
+            txtbNewPhoneNum.KeyPress += txtbNewPhoneNum_KeyPress;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(586, 232);
+            label2.Name = "label2";
+            label2.Size = new Size(166, 30);
+            label2.TabIndex = 54;
+            label2.Text = "numer telefonu";
             // 
             // txtbNewLogin
             // 
@@ -873,7 +878,7 @@
             // 
             // txtbNewResidence
             // 
-            txtbNewResidence.Location = new Point(821, 228);
+            txtbNewResidence.Location = new Point(800, 177);
             txtbNewResidence.Margin = new Padding(3, 4, 3, 4);
             txtbNewResidence.Name = "txtbNewResidence";
             txtbNewResidence.Size = new Size(290, 35);
@@ -893,7 +898,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.Location = new Point(607, 228);
+            label13.Location = new Point(586, 177);
             label13.Name = "label13";
             label13.Size = new Size(200, 30);
             label13.TabIndex = 52;
@@ -901,7 +906,7 @@
             // 
             // numNewBirthdateYear
             // 
-            numNewBirthdateYear.Location = new Point(1011, 126);
+            numNewBirthdateYear.Location = new Point(990, 75);
             numNewBirthdateYear.Margin = new Padding(3, 4, 3, 4);
             numNewBirthdateYear.Maximum = new decimal(new int[] { 2050, 0, 0, 0 });
             numNewBirthdateYear.Minimum = new decimal(new int[] { 1900, 0, 0, 0 });
@@ -912,7 +917,7 @@
             // 
             // numNewBirthdateMonth
             // 
-            numNewBirthdateMonth.Location = new Point(915, 126);
+            numNewBirthdateMonth.Location = new Point(894, 75);
             numNewBirthdateMonth.Margin = new Padding(3, 4, 3, 4);
             numNewBirthdateMonth.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
             numNewBirthdateMonth.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -931,7 +936,7 @@
             // 
             // numNewBirthdateDay
             // 
-            numNewBirthdateDay.Location = new Point(821, 126);
+            numNewBirthdateDay.Location = new Point(800, 75);
             numNewBirthdateDay.Margin = new Padding(3, 4, 3, 4);
             numNewBirthdateDay.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             numNewBirthdateDay.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -964,7 +969,7 @@
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label16.Location = new Point(603, 126);
+            label16.Location = new Point(582, 75);
             label16.Name = "label16";
             label16.Size = new Size(160, 30);
             label16.TabIndex = 49;
@@ -980,7 +985,7 @@
             // 
             // txtbNewPesel
             // 
-            txtbNewPesel.Location = new Point(821, 180);
+            txtbNewPesel.Location = new Point(800, 129);
             txtbNewPesel.Margin = new Padding(3, 4, 3, 4);
             txtbNewPesel.Name = "txtbNewPesel";
             txtbNewPesel.Size = new Size(290, 35);
@@ -990,11 +995,31 @@
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label15.Location = new Point(607, 180);
+            label15.Location = new Point(586, 129);
             label15.Name = "label15";
             label15.Size = new Size(71, 30);
             label15.TabIndex = 50;
             label15.Text = "PESEL";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label19.Location = new Point(39, 196);
+            label19.Name = "label19";
+            label19.Size = new Size(101, 30);
+            label19.TabIndex = 88;
+            label19.Text = "num. tel.";
+            // 
+            // lbPhoneNumAccountData
+            // 
+            lbPhoneNumAccountData.AutoSize = true;
+            lbPhoneNumAccountData.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lbPhoneNumAccountData.Location = new Point(185, 196);
+            lbPhoneNumAccountData.Name = "lbPhoneNumAccountData";
+            lbPhoneNumAccountData.Size = new Size(78, 30);
+            lbPhoneNumAccountData.TabIndex = 89;
+            lbPhoneNumAccountData.Text = "telefon";
             // 
             // AdminView
             // 
@@ -1057,11 +1082,9 @@
         private Panel panel1;
         private Label label1;
         private GroupBox groupBox1;
-        private TextBox txtbAddTestID;
         private Label label5;
         private Label label4;
         private Label label3;
-        private Label label2;
         private Button btnAddTest;
         private ComboBox cbAddTestUnits;
         private Label label7;
@@ -1129,5 +1152,9 @@
         private Label label37;
         private Label label38;
         private RichTextBox rtxtbAddTestDescription;
+        private TextBox txtbNewPhoneNum;
+        private Label label2;
+        private Label lbPhoneNumAccountData;
+        private Label label19;
     }
 }

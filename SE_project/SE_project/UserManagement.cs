@@ -32,7 +32,7 @@ namespace SE_project
         }
 
         public static bool RegisterClient(string login, string password, string name, string surname,
-            DateTime birthdate, string email, string pesel, string residence)
+            DateTime birthdate, string email, string pesel, string residence, string phoneNum)
         {
             int id = _clientsAccounts.Count();
             login = login.ToLower();
@@ -42,11 +42,12 @@ namespace SE_project
                     if (pesel.Length==0 || pesel=="0" || IsValidPesel(pesel) && !IsPeselAlreadyUsed(pesel,0))
                     {
                         if (pesel.Length <= 1) pesel = "0";
-                        if (pesel.Length == 0) pesel = "-";
+                        if (residence.Length == 0) residence = "-";
+                        if (phoneNum.Length == 0) phoneNum = "-";
                         name = myTI.ToTitleCase(name);
                         surname = myTI.ToTitleCase(surname);
                          
-                        Client newClient = new Client(id, login, password, name, surname, birthdate, email, pesel, residence);
+                        Client newClient = new Client(id, login, password, name, surname, birthdate, email, pesel, residence, phoneNum);
                         _clientsAccounts.Add(newClient);
                         return true;
                     }
@@ -55,7 +56,7 @@ namespace SE_project
 
 
         public static bool RegisterTechnician(string login, string password, string name, string surname,
-            DateTime birthdate, string pesel = "0", string residence = "-")
+            DateTime birthdate, string pesel, string residence, string phoneNum)
         {
             int id = _techniciansAccounts.Count();
             login = login.ToLower();
@@ -64,11 +65,12 @@ namespace SE_project
                     if (pesel.Length == 0 || pesel == "0" || IsValidPesel(pesel) && !IsPeselAlreadyUsed(pesel, 1))
                     {
                         if (pesel.Length <= 1) pesel = "0";
-                        if (pesel.Length == 0) pesel = "-";
+                        if (residence.Length == 0) residence = "-";
+                        if (phoneNum.Length == 0) phoneNum = "-";
                         name = myTI.ToTitleCase(name);
                         surname = myTI.ToTitleCase(surname);
 
-                        User newTechnician = new User(id, 1, login, password, name, surname, 1, birthdate, pesel, residence);
+                        User newTechnician = new User(id, 1, login, password, name, surname, 1, birthdate, pesel, residence, phoneNum);
                         _techniciansAccounts.Add(newTechnician);
                         return true;
                     }

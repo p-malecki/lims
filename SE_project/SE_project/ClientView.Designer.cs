@@ -94,6 +94,8 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             groupBox6 = new GroupBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            lbPhoneNum = new Label();
+            label3 = new Label();
             tabPage3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox5.SuspendLayout();
@@ -327,6 +329,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(lbPhoneNum);
+            groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(btnUserAccountDelete);
             groupBox1.Controls.Add(btnUserLogOut);
             groupBox1.Controls.Add(lbAddress);
@@ -380,7 +384,7 @@
             // 
             lbAddress.AutoSize = true;
             lbAddress.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbAddress.Location = new Point(393, 660);
+            lbAddress.Location = new Point(393, 531);
             lbAddress.Name = "lbAddress";
             lbAddress.Size = new Size(103, 36);
             lbAddress.TabIndex = 1;
@@ -390,7 +394,7 @@
             // 
             lbBirthdate.AutoSize = true;
             lbBirthdate.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbBirthdate.Location = new Point(322, 568);
+            lbBirthdate.Location = new Point(324, 461);
             lbBirthdate.Name = "lbBirthdate";
             lbBirthdate.Size = new Size(120, 36);
             lbBirthdate.TabIndex = 1;
@@ -400,7 +404,7 @@
             // 
             lbPesel.AutoSize = true;
             lbPesel.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbPesel.Location = new Point(171, 476);
+            lbPesel.Location = new Point(173, 385);
             lbPesel.Name = "lbPesel";
             lbPesel.Size = new Size(75, 36);
             lbPesel.TabIndex = 1;
@@ -410,7 +414,7 @@
             // 
             lbSurname.AutoSize = true;
             lbSurname.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbSurname.Location = new Point(231, 386);
+            lbSurname.Location = new Point(233, 313);
             lbSurname.Name = "lbSurname";
             lbSurname.Size = new Size(114, 36);
             lbSurname.TabIndex = 1;
@@ -420,7 +424,7 @@
             // 
             lbName.AutoSize = true;
             lbName.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbName.Location = new Point(147, 294);
+            lbName.Location = new Point(149, 242);
             lbName.Name = "lbName";
             lbName.Size = new Size(79, 36);
             lbName.TabIndex = 1;
@@ -430,7 +434,7 @@
             // 
             lbEmail.AutoSize = true;
             lbEmail.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbEmail.Location = new Point(180, 202);
+            lbEmail.Location = new Point(180, 178);
             lbEmail.Name = "lbEmail";
             lbEmail.Size = new Size(76, 36);
             lbEmail.TabIndex = 1;
@@ -460,7 +464,7 @@
             // 
             lbConstAddress.AutoSize = true;
             lbConstAddress.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lbConstAddress.Location = new Point(48, 652);
+            lbConstAddress.Location = new Point(48, 523);
             lbConstAddress.Name = "lbConstAddress";
             lbConstAddress.Size = new Size(323, 45);
             lbConstAddress.TabIndex = 0;
@@ -470,7 +474,7 @@
             // 
             lbConstBirthdate.AutoSize = true;
             lbConstBirthdate.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lbConstBirthdate.Location = new Point(48, 560);
+            lbConstBirthdate.Location = new Point(50, 453);
             lbConstBirthdate.Name = "lbConstBirthdate";
             lbConstBirthdate.Size = new Size(256, 45);
             lbConstBirthdate.TabIndex = 0;
@@ -480,7 +484,7 @@
             // 
             lbConstPesel.AutoSize = true;
             lbConstPesel.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lbConstPesel.Location = new Point(48, 470);
+            lbConstPesel.Location = new Point(50, 379);
             lbConstPesel.Name = "lbConstPesel";
             lbConstPesel.Size = new Size(112, 45);
             lbConstPesel.TabIndex = 0;
@@ -490,7 +494,7 @@
             // 
             lbConstSurname.AutoSize = true;
             lbConstSurname.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lbConstSurname.Location = new Point(48, 378);
+            lbConstSurname.Location = new Point(50, 305);
             lbConstSurname.Name = "lbConstSurname";
             lbConstSurname.Size = new Size(168, 45);
             lbConstSurname.TabIndex = 0;
@@ -500,7 +504,7 @@
             // 
             lbConstName.AutoSize = true;
             lbConstName.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lbConstName.Location = new Point(48, 286);
+            lbConstName.Location = new Point(50, 234);
             lbConstName.Name = "lbConstName";
             lbConstName.Size = new Size(87, 45);
             lbConstName.TabIndex = 0;
@@ -510,7 +514,7 @@
             // 
             lbConstEmail.AutoSize = true;
             lbConstEmail.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lbConstEmail.Location = new Point(48, 196);
+            lbConstEmail.Location = new Point(48, 172);
             lbConstEmail.Name = "lbConstEmail";
             lbConstEmail.Size = new Size(117, 45);
             lbConstEmail.TabIndex = 0;
@@ -605,7 +609,7 @@
             // monthCalendar
             // 
             monthCalendar.Location = new Point(837, 460);
-            monthCalendar.Margin = new Padding(14, 14, 14, 14);
+            monthCalendar.Margin = new Padding(14);
             monthCalendar.Name = "monthCalendar";
             monthCalendar.TabIndex = 2;
             // 
@@ -836,6 +840,26 @@
             flowLayoutPanel1.Size = new Size(734, 900);
             flowLayoutPanel1.TabIndex = 0;
             // 
+            // lbPhoneNum
+            // 
+            lbPhoneNum.AutoSize = true;
+            lbPhoneNum.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            lbPhoneNum.Location = new Point(395, 599);
+            lbPhoneNum.Name = "lbPhoneNum";
+            lbPhoneNum.Size = new Size(103, 36);
+            lbPhoneNum.TabIndex = 5;
+            lbPhoneNum.Text = "address";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(50, 591);
+            label3.Name = "label3";
+            label3.Size = new Size(245, 45);
+            label3.TabIndex = 4;
+            label3.Text = "Num. telefonu";
+            // 
             // ClientView
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
@@ -938,5 +962,7 @@
         private ListBox listbxMinutes;
         private ListBox listbxHours;
         private Label label1;
+        private Label lbPhoneNum;
+        private Label label3;
     }
 }

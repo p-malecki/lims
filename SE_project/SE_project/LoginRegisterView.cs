@@ -72,8 +72,8 @@ namespace SE_project
             int day = (int)numNewBirthdateDay.Value;
             DateTime date = new DateTime(year, month, day);
 
-            if (UserManagement.RegisterClient(txtbNewLogin.Text, txtbNewPassword.Text, txtbNewName.Text,
-                    txtbNewSurname.Text, date, txtbNewEmail.Text, txtbNewPesel.Text, txtbNewAddress.Text))
+            if (UserManagement.RegisterClient(txtbNewLogin.Text, txtbNewPassword.Text, txtbNewName.Text, txtbNewSurname.Text,
+                date, txtbNewEmail.Text, txtbNewPesel.Text, txtbNewAddress.Text, txtbNewPhoneNum.Text))
             {
                 btnSignUp.BackColor = Color.Green;
                 txtbNewLogin.Enabled = false;
@@ -83,6 +83,7 @@ namespace SE_project
                 txtbNewSurname.Enabled = false;
                 txtbNewPesel.Enabled = false;
                 txtbNewAddress.Enabled = false;
+                txtbNewPhoneNum.Enabled = false;
                 numNewBirthdateDay.Enabled = false;
                 numNewBirthdateMonth.Enabled = false;
                 numNewBirthdateYear.Enabled = false;
@@ -109,6 +110,7 @@ namespace SE_project
             txtbNewSurname.Enabled = true;
             txtbNewPesel.Enabled = true;
             txtbNewAddress.Enabled = true;
+            txtbNewPhoneNum.Enabled = true;
             btnSignUp.Enabled = true;
             numNewBirthdateDay.Enabled = true;
             numNewBirthdateMonth.Enabled = true;
@@ -120,12 +122,19 @@ namespace SE_project
             txtbNewSurname.Text = "";
             txtbNewPesel.Text = "";
             txtbNewAddress.Text = "";
+            txtbNewPhoneNum.Text = "";
             btnSignUp.BackColor = SystemColors.ButtonFace;
         }
 
         private void TabChange(object sender, EventArgs e)
         {
             ResetForm();
+        }
+
+        private void txtbPhoneNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                e.Handled = true;
         }
     }
 }

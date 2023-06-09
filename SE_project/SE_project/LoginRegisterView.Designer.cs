@@ -39,6 +39,8 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
+            txtbNewPhoneNum = new TextBox();
+            label12 = new Label();
             txtbNewEmail = new TextBox();
             label11 = new Label();
             txtbNewAddress = new TextBox();
@@ -140,7 +142,7 @@
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(743, 629);
+            tabControl1.Size = new Size(743, 696);
             tabControl1.TabIndex = 11;
             tabControl1.SelectedIndexChanged += TabChange;
             // 
@@ -157,13 +159,15 @@
             tabPage1.Location = new Point(4, 39);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(735, 586);
+            tabPage1.Size = new Size(735, 653);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Logowanie";
             // 
             // tabPage2
             // 
             tabPage2.BackColor = Color.WhiteSmoke;
+            tabPage2.Controls.Add(txtbNewPhoneNum);
+            tabPage2.Controls.Add(label12);
             tabPage2.Controls.Add(txtbNewEmail);
             tabPage2.Controls.Add(label11);
             tabPage2.Controls.Add(txtbNewAddress);
@@ -186,9 +190,27 @@
             tabPage2.Location = new Point(4, 39);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(735, 586);
+            tabPage2.Size = new Size(735, 653);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Rejestracja";
+            // 
+            // txtbNewPhoneNum
+            // 
+            txtbNewPhoneNum.Location = new Point(332, 464);
+            txtbNewPhoneNum.Name = "txtbNewPhoneNum";
+            txtbNewPhoneNum.Size = new Size(290, 35);
+            txtbNewPhoneNum.TabIndex = 36;
+            txtbNewPhoneNum.KeyPress += txtbPhoneNum_KeyPress;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.Location = new Point(117, 464);
+            label12.Name = "label12";
+            label12.Size = new Size(166, 30);
+            label12.TabIndex = 35;
+            label12.Text = "numer telefonu";
             // 
             // txtbNewEmail
             // 
@@ -324,7 +346,7 @@
             // 
             // btnSignUp
             // 
-            btnSignUp.Location = new Point(192, 480);
+            btnSignUp.Location = new Point(187, 551);
             btnSignUp.Name = "btnSignUp";
             btnSignUp.Size = new Size(366, 52);
             btnSignUp.TabIndex = 10;
@@ -363,7 +385,7 @@
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(743, 629);
+            ClientSize = new Size(743, 696);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -412,6 +434,7 @@
         private Label label10;
         private TextBox txtbNewEmail;
         private Label label11;
-
+        private TextBox txtbNewPhoneNum;
+        private Label label12;
     }
 }
