@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SE_project
+namespace SE_project.controllers
 {
     internal static class TestTypeManagement
     {
         private static List<TestType> _list = new List<TestType>();
 
         public static List<TestType> List { get => _list; }
-        
+
         public static void CreateType(string name)
         {
-            if (name.Equals("")) return; 
+            if (name.Equals("")) return;
 
 
             if (_list.Any(t => t.Name == name) == false)

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.WebRequestMethods;
 
-namespace SE_project
+namespace SE_project.controllers
 {
     internal static class TestManagement
     {

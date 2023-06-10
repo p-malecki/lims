@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using SE_project.controllers;
 
 namespace SE_project
 {
@@ -20,7 +21,7 @@ namespace SE_project
             List<FlowLayoutPanel> flpList = new List<FlowLayoutPanel>() { flowLayoutPanel1, flowLayoutPanel2 };
             TestManagement.InitTestManagement(flpList);
 
-            var items = new[] {
+            var units = new[] {
                 new { Text = "Femtoliter ", Value = "fL"},
                 new { Text = "Grams", Value = "g"},
                 new { Text = "Grams per deciliter", Value = "g/dL"},
@@ -38,19 +39,16 @@ namespace SE_project
                 new { Text = "Milligrams", Value = "mg"},
                 new { Text = "Milligrams per deciliter", Value = "mg/dL"},
                 new { Text = "Milligrams per liter", Value = "mg/L"},
-                new { Text = "Milli-international units per liter", Value = "mIU/L"},
                 new { Text = "Milliliters", Value = "mL"},
                 new { Text = "Millimeters", Value = "mm"},
                 new { Text = "Millimeters of mercury", Value = "mm Hg"},
                 new { Text = "Millimoles", Value = "mmol"},
                 new { Text = "Millimoles per liter", Value = "mmol/L"},
-                new { Text = "Milliosmoles per kilogram of water", Value = "mOsm/kg water"},
                 new { Text = "Milliunits per gram", Value = "mU/g"},
                 new { Text = "Milliunits per liter", Value = "mU/L"},
                 new { Text = "Nanograms per deciliter", Value = "ng/dL"},
                 new { Text = "Nanograms per liter", Value = "ng/L"},
                 new { Text = "Nanograms per milliliter", Value = "ng/mL"},
-                new { Text = "Nanograms per milliliter per hour", Value = "ng/mL/hr"},
                 new { Text = "Nanomoles", Value = "nmol"},
                 new { Text = "Nanomoles per liter", Value = "nmol/L"},
                 new { Text = "Picograms", Value = "pg"},
@@ -58,11 +56,11 @@ namespace SE_project
                 new { Text = "Picomoles per liter", Value = "pmol/L"},
                 new { Text = "Units per liter", Value = "U/L"},
                 new { Text = "Units per milliliter", Value = "U/mL"}
-            }; // TODO import from DB
+            };
 
             cbAddTestUnits.DisplayMember = "Text";
             cbAddTestUnits.ValueMember = "Value";
-            cbAddTestUnits.DataSource = items;
+            cbAddTestUnits.DataSource = units;
         }
 
         private void RefreshTypeList(List<string> list)
@@ -100,7 +98,7 @@ namespace SE_project
             if (selectedTechnician == null) return;
             int selectedIdx = lboxTechnicianAccountsList.SelectedIndex;
 
-            UserManagement.ChangeAccountStatus(selectedTechnician.ID, 1, (selectedTechnician.Status == 0) ? 1 : 0);
+            UserManagement.ChangeAccountStatus(selectedTechnician.ID, 1, !selectedTechnician.Status);
             RefreshTechnicianAccountList();
             lboxTechnicianAccountsList.SelectedIndex = selectedIdx;
             LoadTechnicianData();
@@ -134,7 +132,7 @@ namespace SE_project
             lbResidenceAccountData.Text = selectedTechnician.Residence;
             lbStatusAccountData.Text = selectedTechnician.Status.ToString();
 
-            btnChangeAccountStatus.Text = (selectedTechnician.Status == 0) ? "aktywuj konto" : "dezaktywuj konto";
+            btnChangeAccountStatus.Text = (!selectedTechnician.Status) ? "aktywuj konto" : "dezaktywuj konto";
         }
         private void LoadTechnicianData(object sender, EventArgs e)
         {

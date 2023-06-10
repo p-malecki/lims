@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "NDjkA0Xw3YzXGz02O685EQ6hVqHUN9hkYS4qTQoiNiR2sByhOyXI0SuynPVIqbOFOEbX0pi/5DWYfo4EHI6dSw==",
+  "dgSpecHash": "IrXYBTNnqPCamj4ZO8+oBi1qzjVFZiKuds2QD6MYtWMWXs3eqQJf2XRIY35asfrFdn6UPzj7TgWVbqttVM/Efw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\projekt io\\lis\\SE_project\\SE_project\\SE_project.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Paweł\\Documents\\projects\\software-engineering-project\\lis\\SE_project\\SE_project\\SE_project.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Paweł\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\Paweł\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.117\\stub.system.data.sqlite.core.netstandard.1.0.117.nupkg.sha512",
+    "C:\\Users\\Paweł\\.nuget\\packages\\system.data.sqlite.core\\1.0.117\\system.data.sqlite.core.1.0.117.nupkg.sha512"
+  ],
   "logs": []
 }

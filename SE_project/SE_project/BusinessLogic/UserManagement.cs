@@ -12,23 +12,26 @@ using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Globalization;
 
-namespace SE_project
+namespace SE_project.controllers
 {
     internal static class UserManagement
     {
         private static User? _activeUser = null;
-        private static User _adminAccount = new User(0, 0, "a", "", "admin", "");
+        private static User _adminAccount;
         private static List<User> _techniciansAccounts = new List<User>();
         private static List<Client> _clientsAccounts = new List<Client>();
         private static TextInfo myTI = new CultureInfo("pl-PL", false).TextInfo;
 
-        public static User ActiveUser { get => _activeUser; set => _activeUser = value; }
+        public static User? ActiveUser { get => _activeUser; set => _activeUser = value; }
 
         public static void Initialize()
         {
-            // load data from DB
-            _clientsAccounts.Add(new Client(0, "k", "", "client", "", new DateTime(1990, 5, 10), "@"));
-            _techniciansAccounts.Add(new User(0, 1, "t", "", "technician", ""));
+            //_clientsAccounts.Add(new Client(0, "k", "", "client", "", new DateTime(1990, 5, 10), "@"));
+            //_techniciansAccounts.Add(new User(0, 1, "t", "", "technician", ""));
+
+            _clientsAccounts = DatabaseManagement.LoadClients();
+            _techniciansAccounts = DatabaseManagement.LoadTechnicians();
+            _adminAccount = DatabaseManagement.LoadAdmin();
         }
 
         public static bool RegisterClient(string login, string password, string name, string surname,
@@ -38,17 +41,27 @@ namespace SE_project
             login = login.ToLower();
             email = email.ToLower();
             if (IsValidLogin(login) && !IsLoginAlreadyUsed(login, 0) && IsValidEmail(email) && !IsEmailAlreadyUsed(email))
-                if (IsValidPassword(password) && IsValidBirthdate(birthdate) && name.Length!=0 && surname.Length != 0)
-                    if (pesel.Length==0 || pesel=="0" || IsValidPesel(pesel) && !IsPeselAlreadyUsed(pesel,0))
+                if (IsValidPassword(password) && IsValidBirthdate(birthdate) && name.Length != 0 && surname.Length != 0)
+                    if (pesel.Length == 0 || pesel == "0" || IsValidPesel(pesel) && !IsPeselAlreadyUsed(pesel, 0))
                     {
                         if (pesel.Length <= 1) pesel = "0";
                         if (residence.Length == 0) residence = "-";
                         if (phoneNum.Length == 0) phoneNum = "-";
                         name = myTI.ToTitleCase(name);
                         surname = myTI.ToTitleCase(surname);
-                         
+
                         Client newClient = new Client(id, login, password, name, surname, birthdate, email, pesel, residence, phoneNum);
                         _clientsAccounts.Add(newClient);
+
+                        if(DatabaseManagement.InsertNewClient(newClient))
+                        {
+
+                        }
+                        else
+                        {
+
+                        }
+
                         return true;
                     }
             return false;
@@ -70,14 +83,14 @@ namespace SE_project
                         name = myTI.ToTitleCase(name);
                         surname = myTI.ToTitleCase(surname);
 
-                        User newTechnician = new User(id, 1, login, password, name, surname, 1, birthdate, pesel, residence, phoneNum);
+                        User newTechnician = new User(id, 1, login, password, name, surname, true, birthdate, pesel, residence, phoneNum);
                         _techniciansAccounts.Add(newTechnician);
                         return true;
                     }
             return false;
         }
 
-        public static void ChangeAccountStatus(int id, int type, int status)
+        public static void ChangeAccountStatus(int id, int type, bool status)
         {
             User? account = null;
             if (type == 0)
@@ -93,12 +106,12 @@ namespace SE_project
         public static List<dynamic> GetTechnicianList()
         {
             var items = new List<dynamic>();
-            foreach(var t in _techniciansAccounts)
+            foreach (var t in _techniciansAccounts)
                 items.Add(new { TechnicianTag = t.Name + " " + t.Surname, TechnicianID = t.ID });
             return items;
         }
 
-        
+
         public static User? GetTechnicianByID(int id)
         {
             var account = _techniciansAccounts.Find(t => t.ID == id);
@@ -207,7 +220,7 @@ namespace SE_project
                 _activeUser = tmpUser;
                 return true;
             }
-         
+
             return false;
         }
 

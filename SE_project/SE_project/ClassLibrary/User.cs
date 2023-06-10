@@ -9,7 +9,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 public class User {
 
-    public User(int id, int type, string login, string password, string name, string surname, int status=1, DateTime? birthdate=null, string pesel="0", string residence="0", string phoneNum="")
+    public User(int id, int type, string login, string password, string name, string surname, bool status=true, DateTime? birthdate=null, string pesel="0", string residence="0", string phoneNum="")
     {
         ID = id;
         Type = type;  // client=0, technician=1, admin=2
@@ -26,7 +26,7 @@ public class User {
 
     private int _ID;
     private int _type;
-    private int _status;
+    private bool _status;
     private string _login;
     private string _password;
     private string _name;
@@ -40,7 +40,7 @@ public class User {
 
     public int ID { get => _ID; set => _ID = value; }
     public int Type { get => _type; set => _type = value; }
-    public int Status { get => _status; set => _status = value; }
+    public bool Status { get => _status; set => _status = value; }
     public string Login { get => _login; set => _login = value; }
     public string Password { get => _password; set => _password = value; }
     public string Name { get => _name; set => _name = value; }

@@ -132,3 +132,11 @@ C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\bin\Debug\net6.0-wind
 C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\aa-DJ\SE_project.resources.dll
 C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.genruntimeconfig.cache
 C:\Users\user\Desktop\projekt io\lis\SE_project\SE_project\obj\Debug\net6.0-windows\ref\SE_project.dll
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\bin\Debug\net6.0-windows\System.Data.SQLite.dll
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\bin\Debug\net6.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\bin\Debug\net6.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\bin\Debug\net6.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\bin\Debug\net6.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.CopyComplete
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.dll.config
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\bin\Debug\net6.0-windows\Dapper.dll

@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="AdminView.cs">
+    <Compile Update="Views\AdminView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AccountDeleteConfimation.cs">
+    <Compile Update="Views\AccountDeleteConfimation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="LoginRegisterView.cs">
+    <Compile Update="Views\LoginRegisterView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ClientView.cs">
+    <Compile Update="Views\ClientView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="TechnicianView.cs">
+    <Compile Update="Views\TechnicianView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="testItemExtended.cs">
+    <Compile Update="Views\User_controls\testItemExtended.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="testItemExtendedDelete.cs">
+    <Compile Update="Views\User_controls\testItemExtendedDelete.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="PendingOrder.cs">
+    <Compile Update="Views\User_controls\PendingOrder.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="CompletedOrder.cs">
+    <Compile Update="Views\User_controls\CompletedOrder.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
