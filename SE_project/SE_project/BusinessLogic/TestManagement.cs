@@ -14,7 +14,6 @@ namespace SE_project.controllers
         private static List<Test> _testList = new List<Test>();
         private static FlowLayoutPanel _addTestFlp;
         private static FlowLayoutPanel _rmTestFlp;
-
         public static List<Test> testList { get => _testList; }
 
         public static void InitTestManagement(List<FlowLayoutPanel> flp)
@@ -45,7 +44,7 @@ namespace SE_project.controllers
                 elem.Status = 0;
             }
         }
-
+        
         public static void LoadTestLists()
         {
             _addTestFlp.Controls.Clear();

@@ -273,13 +273,13 @@ namespace SE_project
                 int clientTestId = OrderManagement.getFreeClientTestsID(); //pobranie z bazy pierwszego wolnego id dla ClientTest
                 int orderId = OrderManagement.getFreeOrderID();    //pobranie z bazy pierwszego wolnego id dla Orders
 
-                foreach (Test t in orderedTests)
+               foreach (Test t in orderedTests)
                 {
                     ClientTest newClientTest = new ClientTest(clientTestId, orderId, "", t.ID);
                     clientOrderedTests.Add(newClientTest);
                     clientTestId = OrderManagement.getFreeClientTestsID();
                 }
-
+                
                 int clientId = activeClient.ID;
 
                 Order newOrder = new Order(orderId, 0, selectedDate, clientId, -1, clientOrderedTests);
