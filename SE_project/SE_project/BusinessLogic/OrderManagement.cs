@@ -17,18 +17,6 @@ namespace SE_project.controllers
         public static List<Order> toFillOrderList { get => _toFillOrderList; }
         public static List<Order> completedOrderList { get => _completedOrderList; }
         public static List<Order> deniedOrderList { get => _deniedOrderList; }
-        public static void deleteOrderFromToAcceptOrderList(Order o)
-        {
-            _toAcceptOrderList.Remove(o);
-        }
-        public static void addOrderToFillOrderList(Order o)
-        {
-            _toFillOrderList.Add(o);
-        }
-        public static void addOrderToDeniedOrderList(Order o)
-        {
-            _deniedOrderList.Add(o);
-        }
 
         public static int getFreeOrderID()
         {
