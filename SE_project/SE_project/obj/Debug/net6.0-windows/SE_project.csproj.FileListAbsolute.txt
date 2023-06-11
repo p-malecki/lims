@@ -140,3 +140,14 @@ C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\S
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.CopyComplete
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.dll.config
 C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\bin\Debug\net6.0-windows\Dapper.dll
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.AccountDeleteConfimation.resources
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.CompletedOrder.resources
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.PendingOrder.resources
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-windows\SE_project.dll.config
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-windows\Dapper.dll
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-windows\System.Data.SQLite.dll
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.CopyComplete

@@ -41,5 +41,10 @@ namespace SE_project.controllers
             return 22;
             //throw new NotImplementedException();
         }
+
+        public static bool isNotOrderedTwice(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
