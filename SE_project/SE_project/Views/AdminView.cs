@@ -19,48 +19,13 @@ namespace SE_project
         {
             InitializeComponent();
             List<FlowLayoutPanel> flpList = new List<FlowLayoutPanel>() { flowLayoutPanel1, flowLayoutPanel2 };
-            TestManagement.InitTestManagement(flpList);
+            TestManagement.Initialize(flpList);
 
-            var units = new[] {
-                new { Text = "Femtoliter ", Value = "fL"},
-                new { Text = "Grams", Value = "g"},
-                new { Text = "Grams per deciliter", Value = "g/dL"},
-                new { Text = "Grams per liter", Value = "g/L"},
-                new { Text = "International units per liter", Value = "IU/L"},
-                new { Text = "International units per milliliter", Value = "IU/mL"},
-                new { Text = "Micrograms", Value = "mcg"},
-                new { Text = "Micrograms per deciliter", Value = "mcg/dL"},
-                new { Text = "Micrograms per liter", Value = "mcg/L"},
-                new { Text = "Microkatals per liter", Value = "mckat/L"},
-                new { Text = "Microliters", Value = "mcL"},
-                new { Text = "Micromoles per liter", Value = "mcmol/L"},
-                new { Text = "Milliequivalents", Value = "mEq"},
-                new { Text = "Milliequivalents per liter", Value = "mEq/L"},
-                new { Text = "Milligrams", Value = "mg"},
-                new { Text = "Milligrams per deciliter", Value = "mg/dL"},
-                new { Text = "Milligrams per liter", Value = "mg/L"},
-                new { Text = "Milliliters", Value = "mL"},
-                new { Text = "Millimeters", Value = "mm"},
-                new { Text = "Millimeters of mercury", Value = "mm Hg"},
-                new { Text = "Millimoles", Value = "mmol"},
-                new { Text = "Millimoles per liter", Value = "mmol/L"},
-                new { Text = "Milliunits per gram", Value = "mU/g"},
-                new { Text = "Milliunits per liter", Value = "mU/L"},
-                new { Text = "Nanograms per deciliter", Value = "ng/dL"},
-                new { Text = "Nanograms per liter", Value = "ng/L"},
-                new { Text = "Nanograms per milliliter", Value = "ng/mL"},
-                new { Text = "Nanomoles", Value = "nmol"},
-                new { Text = "Nanomoles per liter", Value = "nmol/L"},
-                new { Text = "Picograms", Value = "pg"},
-                new { Text = "Picograms per milliliter", Value = "pg/mL"},
-                new { Text = "Picomoles per liter", Value = "pmol/L"},
-                new { Text = "Units per liter", Value = "U/L"},
-                new { Text = "Units per milliliter", Value = "U/mL"}
-            };
-
-            cbAddTestUnits.DisplayMember = "Text";
-            cbAddTestUnits.ValueMember = "Value";
-            cbAddTestUnits.DataSource = units;
+            TestManagement.LoadTestLists();
+            List<string> typeNameList = TestTypeManagement.GetNameList();
+            RefreshRmTypeList(typeNameList);
+            RefreshTypeList(typeNameList);
+            cbAddTestUnits.DataSource = Test.UnitsList;
         }
 
         private void RefreshTypeList(List<string> list)
@@ -98,7 +63,7 @@ namespace SE_project
             if (selectedTechnician == null) return;
             int selectedIdx = lboxTechnicianAccountsList.SelectedIndex;
 
-            UserManagement.ChangeAccountStatus(selectedTechnician.ID, 1, !selectedTechnician.Status);
+            UserManagement.ChangeAccountStatus(selectedTechnician.ID, 1);
             RefreshTechnicianAccountList();
             lboxTechnicianAccountsList.SelectedIndex = selectedIdx;
             LoadTechnicianData();
@@ -190,7 +155,7 @@ namespace SE_project
                     rtxtbAddTestDescription.Text.ToString(),
                     numAddTestMin.Value,
                     numAddTestMax.Value,
-                    cbAddTestUnits.GetItemText(cbAddTestUnits.SelectedValue),
+                    Test.GetUnitID(cbAddTestUnits.GetItemText(cbAddTestUnits.SelectedValue)),
                     numAddTestPrice.Value
                 );
             TestManagement.LoadTestLists();
@@ -198,6 +163,8 @@ namespace SE_project
 
         private void btnDelType_Click(object sender, EventArgs e)
         {
+            // TODO CHECK WHETHER TYPE IS NOT USED IN ANY ACTIVE TESTS
+
             TestTypeManagement.RemoveType(cbDelSelectType.Text);
             List<string> typeNameList = TestTypeManagement.GetNameList();
             RefreshTypeList(typeNameList);

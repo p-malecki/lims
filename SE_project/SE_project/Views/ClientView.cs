@@ -16,8 +16,7 @@ namespace SE_project
 {
     public partial class ClientView : Form
     {
-        //Client activeClient = UserManagement.ActiveUser as Client;
-        Client activeClient = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(2023, 6, 8, 10, 30, 0), "john@example.com");
+        Client activeClient;
 
         public List<String> names = new List<String>();
         public List<String> categories = new List<String>();
@@ -28,6 +27,7 @@ namespace SE_project
         public ClientView()
         {
             InitializeComponent();
+            activeClient = UserManagement.ActiveUser as Client;
 
             lbSum.Text = "0";
 
@@ -122,7 +122,7 @@ namespace SE_project
                 {
                     lbDescription.Text = t.Description;
                     lbCategory.Text = t.Type;
-                    lbUnits.Text = t.Unit;
+                    lbUnits.Text = t.GetUnitStringAbbrev();
                     lbPrice.Text = t.Price.ToString();
                     break;
                 }
@@ -205,7 +205,7 @@ namespace SE_project
             {
                 if (monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Saturday && monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Sunday)
                 {
-                    if (OrderManagement.isNotOrderedTwice(selectedDate))
+                    if (true) // OrderManagement.isNotOrderedTwice(selectedDate)
                     {
                         List<Test> orderedTests = new List<Test>();
 
@@ -258,99 +258,38 @@ namespace SE_project
         private void btnNewEmail_Click(object sender, EventArgs e)
         {
             if (txtbNewEmail.Text.Equals(txtbNewEmailConfirm.Text))
-            {
                 if (!txtbNewEmail.Text.Equals(activeClient.Email))
-                {
                     if (UserManagement.IsValidEmail(txtbNewEmail.Text))
-                    {
                         if (!UserManagement.IsEmailAlreadyUsed(txtbNewEmail.Text))
                         {
-                            //TODO
-                            activeClient.Email = txtbNewEmail.Text;
+                            UserManagement.ChangeAccountEmail(activeClient.ID, txtbNewEmail.Text);
                             MessageBox.Show("Twój aders e-mail został zmieniony!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
-                        {
                             MessageBox.Show("Podany adres e-mail jest już w użyciu!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
                     else
-                    {
                         MessageBox.Show("Niepoprawny adres e-mail!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
                 else
-                {
                     MessageBox.Show("Podany adres e-mail jest taki sam jak obecnie używany!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
             else
-            {
                 MessageBox.Show("Podane adresy e-mail nie są takie same!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void btnNewLogin_Click(object sender, EventArgs e)
-        {
-            if (txtbNewLogin.Text.Equals(txtbNewLoginConfirm.Text))
-            {
-                if (!txtbNewLogin.Text.Equals(activeClient.Login))
-                {
-                    if (UserManagement.IsValidLogin(txtbNewLogin.Text))
-                    {
-                        if (!UserManagement.IsLoginAlreadyUsed(txtbNewLogin.Text, 0))
-                        {
-                            //TODO
-                            activeClient.Login = txtbNewLogin.Text;
-                            MessageBox.Show("Twój login został zmieniony!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Podane login jest już w użyciu!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Podany login nie spełnia wymagań!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Podany login jest taki sam jak obecnie używany!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Podane loginy nie są takie same!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
         private void btnNewPassword_Click(object sender, EventArgs e)
         {
             if (txtbNewPassword.Text.Equals(txtbNewPasswordConfirm.Text))
-            {
                 if (!txtbNewPassword.Text.Equals(activeClient.Password))
-                {
                     if (UserManagement.IsValidPassword(txtbNewPassword.Text))
                     {
-                        //TODO
-                        activeClient.Password = txtbNewPassword.Text;
+                        UserManagement.ChangeAccountPassword(activeClient.ID, txtbNewPassword.Text);
                         MessageBox.Show("Twoje hasło zostało zmienione!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                    {
                         MessageBox.Show("Podane hasło nie spełnia wymagań!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
                 else
-                {
                     MessageBox.Show("Podane hasło jest takie same jak obecnie używane!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
             else
-            {
                 MessageBox.Show("Podane hasła nie są takie same!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
         private void btnUserAccountDelete_Click(object sender, EventArgs e)
@@ -361,9 +300,7 @@ namespace SE_project
                 var result = popupForm.ShowDialog(); // Wywołanie formularza modalnego
 
                 if (result == DialogResult.OK)
-                {
-                    //TODO
-                }
+                    UserManagement.ChangeAccountStatus(activeClient.ID, activeClient.Type);
             }
         }
 

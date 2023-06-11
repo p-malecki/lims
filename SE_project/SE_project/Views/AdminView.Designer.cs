@@ -71,6 +71,8 @@
             btnChangeAccountStatus = new Button();
             groupBox7 = new GroupBox();
             groupBox6 = new GroupBox();
+            lbPhoneNumAccountData = new Label();
+            label19 = new Label();
             lbStatusAccountData = new Label();
             lbResidenceAccountData = new Label();
             lbSurnameAccountData = new Label();
@@ -106,8 +108,6 @@
             txtbNewSurname = new TextBox();
             txtbNewPesel = new TextBox();
             label15 = new Label();
-            label19 = new Label();
-            lbPhoneNumAccountData = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -497,6 +497,7 @@
             btnDelType.TabIndex = 1;
             btnDelType.Text = "usuń";
             btnDelType.UseVisualStyleBackColor = true;
+            btnDelType.Click += btnDelType_Click;
             // 
             // cbDelSelectType
             // 
@@ -639,6 +640,26 @@
             groupBox6.TabIndex = 1;
             groupBox6.TabStop = false;
             groupBox6.Text = "dane";
+            // 
+            // lbPhoneNumAccountData
+            // 
+            lbPhoneNumAccountData.AutoSize = true;
+            lbPhoneNumAccountData.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lbPhoneNumAccountData.Location = new Point(185, 196);
+            lbPhoneNumAccountData.Name = "lbPhoneNumAccountData";
+            lbPhoneNumAccountData.Size = new Size(78, 30);
+            lbPhoneNumAccountData.TabIndex = 89;
+            lbPhoneNumAccountData.Text = "telefon";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label19.Location = new Point(39, 196);
+            label19.Name = "label19";
+            label19.Size = new Size(101, 30);
+            label19.TabIndex = 88;
+            label19.Text = "num. tel.";
             // 
             // lbStatusAccountData
             // 
@@ -1000,26 +1021,6 @@
             label15.Size = new Size(71, 30);
             label15.TabIndex = 50;
             label15.Text = "PESEL";
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label19.Location = new Point(39, 196);
-            label19.Name = "label19";
-            label19.Size = new Size(101, 30);
-            label19.TabIndex = 88;
-            label19.Text = "num. tel.";
-            // 
-            // lbPhoneNumAccountData
-            // 
-            lbPhoneNumAccountData.AutoSize = true;
-            lbPhoneNumAccountData.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lbPhoneNumAccountData.Location = new Point(185, 196);
-            lbPhoneNumAccountData.Name = "lbPhoneNumAccountData";
-            lbPhoneNumAccountData.Size = new Size(78, 30);
-            lbPhoneNumAccountData.TabIndex = 89;
-            lbPhoneNumAccountData.Text = "telefon";
             // 
             // AdminView
             // 

@@ -13,7 +13,8 @@ namespace SE_project
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            DatabaseManagement.DatabaseCreate();
+            //DatabaseManagement.DatabaseCreate();
+            TestTypeManagement.Initialize();
             UserManagement.Initialize();
             Application.Run(new LoginRegisterView());
             //Application.Run(new AdminView());

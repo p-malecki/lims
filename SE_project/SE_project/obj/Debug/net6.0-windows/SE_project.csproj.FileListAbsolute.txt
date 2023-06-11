@@ -151,3 +151,4 @@ C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-win
 C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
 C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\bin\Debug\net6.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
 C:\Users\jmgra\Documents\Projekty\lis\SE_project\SE_project\obj\Debug\net6.0-windows\SE_project.csproj.CopyComplete
+C:\Users\Paweł\Documents\projects\software-engineering-project\lis\SE_project\SE_project\bin\Debug\net6.0-windows\lisDB.db
