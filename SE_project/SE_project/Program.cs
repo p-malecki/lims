@@ -15,7 +15,8 @@ namespace SE_project
             ApplicationConfiguration.Initialize();
             DatabaseManagement.DatabaseCreate();
             UserManagement.Initialize();
-            Application.Run(new LoginRegisterView());
+          // Application.Run(new LoginRegisterView());
+            Application.Run(new TechnicianView());
             //Application.Run(new AdminView());
         }
     }

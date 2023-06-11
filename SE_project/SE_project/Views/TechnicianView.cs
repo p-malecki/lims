@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using SE_project.controllers;
+using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -8,7 +11,6 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SE_project.controllers;
 
 namespace SE_project
 {
@@ -18,6 +20,29 @@ namespace SE_project
         public List<Test> listTestsFromManagemant = new List<Test>();
         Order SelectedOrder = new Order();
         Test SelectedTest = new Test();
+        private void sortlistbox(ListBox listBox, string toAdd)
+        {
+            ListBox sortedList = new ListBox();
+            string date1 = toAdd.Substring(toAdd.IndexOf(" "), toAdd.Length - 1);
+            bool add = true;
+            foreach (string s in listBox.Items)
+            {
+                string date2 = s.Substring(s.IndexOf(" "), s.Length - 1);
+                DateTime dt1 = DateTime.Parse(date1);
+                DateTime dt2 = DateTime.Parse(date2);
+                if (dt1 < dt2 && add == true)
+                {
+                    sortedList.Items.Add(toAdd);
+                    add = false;
+                }
+                sortedList.Items.Add(s);
+            }
+            if (add)
+                sortedList.Items.Add(toAdd);
+            listBox.Items.Clear();
+            foreach (string s in sortedList.Items)
+                listBox.Items.Add(s);
+        }
         public TechnicianView()
         {
             InitializeComponent();
@@ -25,106 +50,50 @@ namespace SE_project
         }
         private void LoadUnacteptedTests()
         {
+            listBox1.Items.Clear();
+            List<int> listOrder = new List<int>();
             listTestsFromManagemant.AddRange(TestManagement.testList);
             foreach (Order o in OrderManagement.toAcceptOrderList)
-                listBox1.Items.Add(o.ID);
+                sortlistbox(listBox1, o.ID.ToString() + " " + o.Date.ToString());
             foreach (Order o in OrderManagement.toFillOrderList)
-                listBox3.Items.Add(o.ID);
+                sortlistbox(listBox3, o.ID.ToString() + " " + o.Date.ToString());
             foreach (Order o in OrderManagement.completedOrderList)
-                listBox5.Items.Add(o.ID);
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer2_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
+                sortlistbox(listBox5, o.ID.ToString() + " " + o.Date.ToString());
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox2.Items.Clear();
             listTests.Clear();
-            var selectedCategory = listBox1.SelectedItem;
-            foreach (Order o in OrderManagement.toAcceptOrderList)
+            if (listBox1.SelectedItem != null)
             {
-                if (o.ID.Equals(selectedCategory))
+                string selectedCategory = listBox1.SelectedItem.ToString();
+                string selectedId = selectedCategory.Substring(0, selectedCategory.IndexOf(" "));
+                foreach (Order o in OrderManagement.toAcceptOrderList)
                 {
-                    SelectedOrder = o;
-                    for (int i = 0; i < o.Tests.Count; i++)
+                    if (o.ID.ToString().Equals(selectedId))
                     {
-                        foreach (Test t in TestManagement.testList)
+                        SelectedOrder = o;
+                        for (int i = 0; i < o.Tests.Count; i++)
                         {
-                            if (t.ID.Equals(o.Tests[i].TestID))
+                            foreach (Test t in TestManagement.testList)
                             {
-                                listTests.Add(t);
-                                listBox2.Items.Add(t.Name);
+                                if (t.ID.Equals(o.Tests[i].TestID))
+                                {
+                                    listTests.Add(t);
+                                    listBox2.Items.Add(t.Name);
+                                }
+
                             }
-
                         }
+                        break;
                     }
-                    break;
+
                 }
-
+                label19.Text = SelectedOrder.ID.ToString();
+                label20.Text = SelectedOrder.Date.ToString();
+                label21.Text = SelectedOrder.Status.ToString();
             }
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox14_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox13_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -132,10 +101,8 @@ namespace SE_project
             var selectedCategoryTestsIndex = listBox2.SelectedIndex;
             if (selectedCategoryTestsIndex.Equals(-1))
                 selectedCategoryTestsIndex = SelectedOrder.Tests.Count - 1;
+            var SelectedTest = listTests[selectedCategoryTestsIndex];
             SelectedTest = listTests[selectedCategoryTestsIndex];
-            label19.Text = SelectedOrder.ID.ToString();
-            label20.Text = SelectedOrder.Date.ToString();
-            label21.Text = SelectedOrder.Status.ToString();
             label22.Text = SelectedTest.ID.ToString();
             label23.Text = SelectedTest.Name;
             label24.Text = SelectedTest.Type;
@@ -147,10 +114,10 @@ namespace SE_project
             {
                 SelectedOrder.Status = 2;
                 label21.Text = SelectedOrder.Status.ToString();
-                OrderManagement.deleteOrderFromToAcceptOrderList(SelectedOrder);
-                OrderManagement.addOrderToFillOrderList(SelectedOrder);
-                listBox1.Items.Remove(SelectedOrder.ID);
-                listBox3.Items.Add(SelectedOrder.ID);
+                OrderManagement.toAcceptOrderList.Remove(SelectedOrder);
+                OrderManagement.toFillOrderList.Add(SelectedOrder);
+                listBox1.Items.Remove(SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
+                sortlistbox(listBox3, SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
             }
 
         }
@@ -161,42 +128,41 @@ namespace SE_project
             {
                 SelectedOrder.Status = 3;
                 label21.Text = SelectedOrder.Status.ToString();
-                OrderManagement.deleteOrderFromToAcceptOrderList(SelectedOrder);
-                OrderManagement.addOrderToDeniedOrderList(SelectedOrder);
-                listBox1.Items.Remove(SelectedOrder.ID);
+                OrderManagement.toAcceptOrderList.Remove(SelectedOrder);
+                OrderManagement.deniedOrderList.Add(SelectedOrder);
+                listBox1.Items.Remove(SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
             }
-        }
-
-        private void label26_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox4.Items.Clear();
             listTests.Clear();
-            var selectedCategory = listBox3.SelectedItem;
-            foreach (Order o in OrderManagement.toFillOrderList)
+            if (listBox3.SelectedItem != null)
             {
-                if (o.ID.Equals(selectedCategory))
+                string selectedCategory = listBox3.SelectedItem.ToString();
+                string selectedId = selectedCategory.Substring(0, selectedCategory.IndexOf(" "));
+                foreach (Order o in OrderManagement.toFillOrderList)
                 {
-                    SelectedOrder = o;
-                    for (int i = 0; i < o.Tests.Count; i++)
+                    if (o.ID.ToString().Equals(selectedId))
                     {
-                        foreach (Test t in listTestsFromManagemant)
+                        SelectedOrder = o;
+                        for (int i = 0; i < o.Tests.Count; i++)
                         {
-                            if (t.ID.Equals(o.Tests[i].TestID))
+                            foreach (Test t in listTestsFromManagemant)
                             {
-                                listTests.Add(t);
-                                listBox4.Items.Add(t.Name);
+                                if (t.ID.Equals(o.Tests[i].TestID))
+                                {
+                                    listTests.Add(t);
+                                    listBox4.Items.Add(t.Name);
+                                }
+
                             }
-
                         }
+                        break;
                     }
-                    break;
                 }
-
+                label26.Text = SelectedOrder.ID.ToString();
             }
         }
 
@@ -208,7 +174,6 @@ namespace SE_project
                 if (selectedCategoryTestsIndex.Equals(-1))
                     selectedCategoryTestsIndex = listTests.Count - 1;
                 SelectedTest = listTests[selectedCategoryTestsIndex];
-                label26.Text = SelectedOrder.ID.ToString();
                 label27.Text = SelectedTest.ID.ToString();
                 label28.Text = SelectedTest.Name;
                 label29.Text = SelectedTest.Type;
@@ -240,8 +205,8 @@ namespace SE_project
                 {
                     OrderManagement.toFillOrderList.Remove(SelectedOrder);
                     OrderManagement.completedOrderList.Add(SelectedOrder);
-                    listBox3.Items.Remove(SelectedOrder.ID);
-                    listBox5.Items.Add(SelectedOrder.ID);
+                    listBox3.Items.Remove(SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
+                    sortlistbox(listBox5, SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
                 }
             }
         }
@@ -250,27 +215,31 @@ namespace SE_project
         {
             listBox6.Items.Clear();
             listTests.Clear();
-            var selectedCategory = listBox5.SelectedItem;
-            foreach (Order o in OrderManagement.completedOrderList)
+            if (listBox5.SelectedItem != null)
             {
-                if (o.ID.Equals(selectedCategory))
+                string selectedCategory = listBox5.SelectedItem.ToString();
+                string selectedId = selectedCategory.Substring(0, selectedCategory.IndexOf(" "));
+                foreach (Order o in OrderManagement.completedOrderList)
                 {
-                    SelectedOrder = o;
-                    for (int i = 0; i < o.Tests.Count; i++)
+                    if (o.ID.ToString().Equals(selectedId))
                     {
-                        foreach (Test t in TestManagement.testList)
+                        SelectedOrder = o;
+                        for (int i = 0; i < o.Tests.Count; i++)
                         {
-                            if (t.ID.Equals(o.Tests[i].TestID))
+                            foreach (Test t in TestManagement.testList)
                             {
-                                listTests.Add(t);
-                                listBox6.Items.Add(t.Name);
+                                if (t.ID.Equals(o.Tests[i].TestID))
+                                {
+                                    listTests.Add(t);
+                                    listBox6.Items.Add(t.Name);
+                                }
+
                             }
-
                         }
+                        break;
                     }
-                    break;
                 }
-
+                label36.Text = SelectedOrder.ID.ToString();
             }
         }
 
@@ -280,7 +249,6 @@ namespace SE_project
             if (selectedCategoryTestsIndex.Equals(-1))
                 selectedCategoryTestsIndex = SelectedOrder.Tests.Count - 1;
             SelectedTest = listTests[selectedCategoryTestsIndex];
-            label36.Text = SelectedOrder.ID.ToString();
             label37.Text = SelectedTest.ID.ToString();
             label38.Text = SelectedTest.Name;
             label39.Text = SelectedTest.Type;
@@ -307,6 +275,10 @@ namespace SE_project
             }
 
         }
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -317,6 +289,6 @@ namespace SE_project
         {
             this.Close();
         }
+
     }
 }
-
