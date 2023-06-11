@@ -18,12 +18,16 @@ namespace SE_project
             InitializeComponent();
             lbPendingId.Text = id.ToString();
             lbPendingDate.Text = date.ToString();
-            lbPendingStatus.Text = status.ToString();
+
+            if (status == 0)
+                lbPendingStatus.Text = "Oczekiwanie na zatwierdzenie";
+            else if (status == 1)
+                lbPendingStatus.Text = "Zgłoś się na badania!";
 
             List<String> testNames = new List<string>();
-            foreach(ClientTest ct in clientTest) 
-            { 
-                foreach(Test t in TestManagement.testList)
+            foreach (ClientTest ct in clientTest)
+            {
+                foreach (Test t in TestManagement.testList)
                 {
                     if (t.ID == ct.TestID)
                     {
@@ -36,7 +40,7 @@ namespace SE_project
             listbxPedningTests.DataSource = testNames;
         }
 
-        public PendingOrder(int id, DateTime date, int status, List<String> testNames)
+        public PendingOrder(int id, DateTime date, int status, List<String> clientTestNames)
         {
             InitializeComponent();
             lbPendingId.Text = id.ToString();
@@ -47,7 +51,7 @@ namespace SE_project
             else if (status == 1)
                 lbPendingStatus.Text = "Zgłoś się na badania!";
 
-            listbxPedningTests.DataSource = testNames;
+            listbxPedningTests.DataSource = clientTestNames;
         }
     }
 }

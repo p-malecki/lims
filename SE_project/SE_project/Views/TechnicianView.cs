@@ -112,7 +112,7 @@ namespace SE_project
         {
             if (OrderManagement.toAcceptOrderList.Count > 0)
             {
-                SelectedOrder.Status = 2;
+                SelectedOrder.Status = 1;
                 label21.Text = SelectedOrder.Status.ToString();
                 OrderManagement.toAcceptOrderList.Remove(SelectedOrder);
                 OrderManagement.toFillOrderList.Add(SelectedOrder);
@@ -126,7 +126,7 @@ namespace SE_project
         {
             if (OrderManagement.toAcceptOrderList.Count > 0)
             {
-                SelectedOrder.Status = 3;
+                SelectedOrder.Status = -1;
                 label21.Text = SelectedOrder.Status.ToString();
                 OrderManagement.toAcceptOrderList.Remove(SelectedOrder);
                 OrderManagement.deniedOrderList.Add(SelectedOrder);
@@ -179,7 +179,7 @@ namespace SE_project
                 label29.Text = SelectedTest.Type;
                 label30.Text = SelectedTest.Min.ToString();
                 label31.Text = SelectedTest.Max.ToString();
-                label33.Text = SelectedTest.Unit;
+                label33.Text = SelectedTest.GetUnitStringFull();
             }
         }
 
@@ -205,6 +205,7 @@ namespace SE_project
                 {
                     OrderManagement.toFillOrderList.Remove(SelectedOrder);
                     OrderManagement.completedOrderList.Add(SelectedOrder);
+                    SelectedOrder.Status = 2;
                     listBox3.Items.Remove(SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
                     sortlistbox(listBox5, SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
                 }
@@ -252,12 +253,12 @@ namespace SE_project
             label37.Text = SelectedTest.ID.ToString();
             label38.Text = SelectedTest.Name;
             label39.Text = SelectedTest.Type;
-            label41.Text = SelectedTest.Unit;
+            label41.Text = SelectedTest.GetUnitStringFull();
             foreach (ClientTest c in SelectedOrder.Tests)
             {
                 if (c.TestID.Equals(SelectedTest.ID))
                 {
-                    label40.Text = c.Result + "  " + SelectedTest.Unit;
+                    label40.Text = c.Result + "  " + SelectedTest.GetUnitStringFull();
                 }
                 break;
             }

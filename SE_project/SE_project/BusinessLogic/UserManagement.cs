@@ -1,16 +1,8 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Security.Principal;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+﻿using Microsoft.VisualBasic.Logging;
 using System.Globalization;
+using System.Net;
+using System.Text.RegularExpressions;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SE_project.controllers
 {
@@ -28,6 +20,7 @@ namespace SE_project.controllers
         {
             //_clientsAccounts.Add(new Client(0, "k", "", "client", "", new DateTime(1990, 5, 10), "@"));
             //_techniciansAccounts.Add(new User(0, 1, "t", "", "technician", ""));
+            //_adminAccount = new User(0, 0, "a", "", "admin", "");
 
             _clientsAccounts = DatabaseManagement.LoadClients();
             _techniciansAccounts = DatabaseManagement.LoadTechnicians();
@@ -53,16 +46,9 @@ namespace SE_project.controllers
                         Client newClient = new Client(id, login, password, name, surname, birthdate, email, pesel, residence, phoneNum);
                         _clientsAccounts.Add(newClient);
 
-                        if(DatabaseManagement.InsertNewClient(newClient))
-                        {
-
-                        }
-                        else
-                        {
-
-                        }
-
-                        return true;
+                        if (!DatabaseManagement.InsertNewClient(newClient))
+                            MessageBox.Show("Błąd w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else return true;
                     }
             return false;
         }
@@ -85,12 +71,15 @@ namespace SE_project.controllers
 
                         User newTechnician = new User(id, 1, login, password, name, surname, true, birthdate, pesel, residence, phoneNum);
                         _techniciansAccounts.Add(newTechnician);
-                        return true;
+
+                        if (!DatabaseManagement.InsertNewTechnician(newTechnician))
+                            MessageBox.Show("Błąd w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else return true;
                     }
             return false;
         }
 
-        public static void ChangeAccountStatus(int id, int type, bool status)
+        public static void ChangeAccountStatus(int id, int type)
         {
             User? account = null;
             if (type == 0)
@@ -99,7 +88,10 @@ namespace SE_project.controllers
                 account = _techniciansAccounts.Find(t => t.ID == id);
 
             if (account != null)
-                account.Status = status;
+            {
+                account.Status = !account.Status;
+                DatabaseManagement.ChangeAccountStatus(id, type, (account.Status) ? 1:0);
+            }
         }
 
 
@@ -215,7 +207,7 @@ namespace SE_project.controllers
                     tmpUser = _adminAccount;
             }
 
-            if (tmpUser != null && tmpUser.Password == password)
+            if (tmpUser != null && tmpUser.Password == password && tmpUser.Status)
             {
                 _activeUser = tmpUser;
                 return true;
@@ -229,5 +221,22 @@ namespace SE_project.controllers
             _activeUser = null;
         }
 
+        internal static void ChangeAccountPassword(int id, string newPassword)
+        {
+            var account = _clientsAccounts.Find(a => a.ID == id);
+            if (account == null) return;
+
+            account.Password = newPassword;
+            DatabaseManagement.ChangeUserPassword(id, newPassword);
+        }
+
+        internal static void ChangeAccountEmail(int id, string newEmail)
+        {
+            var account = _clientsAccounts.Find(a => a.ID == id);
+            if (account == null) return;
+
+            account.Email = newEmail;
+            DatabaseManagement.ChangeUserEmail(id, newEmail);
+        }
     }
 }

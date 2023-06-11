@@ -8,57 +8,53 @@ namespace SE_project.controllers
 {
     internal static class TestTypeManagement
     {
-        private static List<TestType> _list = new List<TestType>();
+        private static List<TestType> _testTypesList = new List<TestType>();
+        public static List<TestType> List { get => _testTypesList; }
 
-        public static List<TestType> List { get => _list; }
+        public static void Initialize()
+        {
+            _testTypesList = DatabaseManagement.LoadTestTypes();
+        }
 
         public static void CreateType(string name)
         {
             if (name.Equals("")) return;
 
 
-            if (_list.Any(t => t.Name == name) == false)
+            var elem = _testTypesList.Find(t => t.Name == name);
+            if (elem == null)
             {
                 var newType = new TestType(name);
-                _list.Add(newType);
+                _testTypesList.Add(newType);
+                DatabaseManagement.InsertNewTestType(newType);
             }
-            else
+            else if (!elem.Status)
             {
-                var elem = _list.Find(t => t.Name == name);
-                elem.Status = 1;
+                elem.Status = true;
+                DatabaseManagement.ChangeTestTypeStatus(elem.Name, 1);
             }
 
         }
 
         public static void RemoveType(string name)
         {
-            var elem = _list.Find(t => t.Name == name);
+            var elem = _testTypesList.Find(t => t.Name == name);
             if (elem != null)
             {
-                elem.Status = 0;
+                elem.Status = false;
+                DatabaseManagement.ChangeTestTypeStatus(elem.Name, 0);
             }
         }
 
         public static List<string> GetNameList()
         {
             List<string> strings = new List<string>();
-            foreach (TestType t in _list)
+            foreach (TestType t in _testTypesList)
             {
-                if (t.Status == 1)
+                if (t.Status)
                     strings.Add(t.Name);
             }
             return strings;
         }
-
-        public static void LoadTypes()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static void SaveTypes()
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

@@ -16,23 +16,10 @@ namespace SE_project
 {
     public partial class ClientView : Form
     {
-        //Client activeClient = UserManagement.ActiveUser as Client;
-        Client activeClient = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(2023, 6, 8, 10, 30, 0), "john@example.com");
+        Client activeClient;
 
         public List<String> names = new List<String>();
         public List<String> categories = new List<String>();
-
-        public List<String> hours = new List<string> { "8", "9", "10", "11", "12", "13", "15", "16" };
-        public List<String> minutes = new List<string> {
-                                                    "0", "1", "2", "3", "4", "5", "6", "7",
-                                                    "8", "9", "10", "11", "12", "13", "15", "16",
-                                                    "17", "18", "19", "20", "21", "22", "23", "24",
-                                                    "25", "26", "27", "28", "29", "30", "31", "32",
-                                                    "33", "34", "35", "36", "37", "38", "39", "40",
-                                                    "41", "42", "43", "44", "45", "46", "47", "48",
-                                                    "49", "50", "51", "52", "53", "54", "55", "56",
-                                                    "57", "58", "59"
-                                                };
         public List<String> checkedTests = new List<String>();
 
         public decimal sum = 0;
@@ -40,11 +27,9 @@ namespace SE_project
         public ClientView()
         {
             InitializeComponent();
+            activeClient = UserManagement.ActiveUser as Client;
 
             lbSum.Text = "0";
-
-            listbxHours.DataSource = hours;
-            listbxMinutes.DataSource = minutes;
 
             LoadAvailableTests();
             LoadClientData();
@@ -55,17 +40,11 @@ namespace SE_project
         {
             foreach (Test t in TestManagement.testList)
                 names.Add(t.Name);
-
-            chlbTestsList.DataSource = null;
-            chlbTestsList.Items.Clear();
             chlbTestsList.DataSource = names;
 
             categories.Add("<wszystkie kategorie>");
             foreach (TestType tt in TestTypeManagement.List)
                 categories.Add(tt.Name);
-
-            cbCategorySort.DataSource = null;
-            cbCategorySort.Items.Clear();
             cbCategorySort.DataSource = categories;
         }
 
@@ -76,6 +55,7 @@ namespace SE_project
             lbName.Text = activeClient.Name;
             lbSurname.Text = activeClient.Surname;
             lbPesel.Text = activeClient.Pesel;
+            //TODO - data bez godziny
             lbBirthdate.Text = activeClient.Birthdate.ToString();
             lbAddress.Text = activeClient.Residence;
             lbPhoneNum.Text = activeClient.PhoneNumber;
@@ -125,7 +105,7 @@ namespace SE_project
             List<string> searched = new List<string>();
 
             foreach (Test t in TestManagement.testList)
-                if (t.Name.StartsWith(txtbSearch.Text))
+                if (t.Name.StartsWith(txtbxSearch.Text))
                     searched.Add(t.Name);
 
             chlbTestsList.DataSource = null;
@@ -142,12 +122,13 @@ namespace SE_project
                 {
                     lbDescription.Text = t.Description;
                     lbCategory.Text = t.Type;
-                    lbUnits.Text = t.Unit;
+                    lbUnits.Text = t.GetUnitStringAbbrev();
                     lbPrice.Text = t.Price.ToString();
                     break;
                 }
         }
 
+<<<<<<< HEAD
         private void btnNewEmail_Click(object sender, EventArgs e)
         {
             if (txtbNewEmail.Text.Equals(txtbNewEmailConfirm.Text))
@@ -298,6 +279,8 @@ namespace SE_project
         }
 
 
+=======
+>>>>>>> 2323cd82713ea723fef2089071fd3d7243697e2e
         private void chlbTestsList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             String testName = names[e.Index].ToString();
@@ -331,19 +314,146 @@ namespace SE_project
             lbSum.Text = sum.ToString();
         }
 
+        private void txtbxHours_Leave(object sender, EventArgs e)
+        {
+            int value = int.Parse(txtbxHours.Text);
+
+            if (value >= 0 && value < 10)
+                txtbxHours.Text = "0" + value.ToString();
+            else if (value < 0)
+                txtbxHours.Text = "00";
+            else if (value > 23)
+                txtbxHours.Text = "23";
+        }
+
+        private void txtbxMinutes_Leave(object sender, EventArgs e)
+        {
+            int value = int.Parse(txtbxHours.Text);
+
+            if (value >= 0 && value < 10)
+                txtbxMinutes.Text = "0" + value.ToString();
+            else if (value < 0)
+                txtbxMinutes.Text = "00";
+            else if (value > 59)
+                txtbxMinutes.Text = "59";
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            if (checkedTests.Count == 0)
+            {
+                MessageBox.Show("Nie wybrałeś żadnego testu!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (txtbxHours.Text.Equals("") || txtbxMinutes.Text.Equals(""))
+            {
+                MessageBox.Show("Wpisz odpowiednią godzinę", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            DateTime selectedDate = new DateTime(monthCalendar.SelectionStart.Year, monthCalendar.SelectionStart.Month, monthCalendar.SelectionStart.Day, int.Parse(txtbxHours.Text), int.Parse(txtbxMinutes.Text), 0);
+
+            if (selectedDate > DateTime.Now)
+            {
+                if (monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Saturday && monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Sunday)
+                {
+                    if (true) // OrderManagement.isNotOrderedTwice(selectedDate)
+                    {
+                        List<Test> orderedTests = new List<Test>();
+
+                        foreach (String s in checkedTests)
+                            foreach (Test t in TestManagement.testList)
+                                if (t.Name.Equals(s))
+                                {
+                                    orderedTests.Add(t);
+                                    break;
+                                }
+
+                        List<ClientTest> clientOrderedTests = new List<ClientTest>();
+
+                        int clientTestId = OrderManagement.getFreeClientTestsID(); //pobranie z bazy pierwszego wolnego id dla ClientTest
+                        int orderId = OrderManagement.getFreeOrderID();    //pobranie z bazy pierwszego wolnego id dla Orders
+
+                        foreach (Test t in orderedTests)
+                        {
+                            ClientTest newClientTest = new ClientTest(clientTestId, orderId, "", t.ID);
+                            clientOrderedTests.Add(newClientTest);
+                            clientTestId = OrderManagement.getFreeClientTestsID();
+                        }
+
+                        int clientId = activeClient.ID;
+
+                        Order newOrder = new Order(orderId, 0, selectedDate, clientId, -1, clientOrderedTests);
+                        OrderManagement.toAcceptOrderList.Add(newOrder);
+                        activeClient.Orders.Add(newOrder);
+
+                        PendingOrder newPendingOrder = new PendingOrder(orderId, selectedDate, 0, checkedTests);
+                        flowLayoutPanel1.Controls.Add(newPendingOrder);
+
+                        MessageBox.Show("Udało ci się złożyć zamówienie!\nSzczegóły w zakłace \"Zamówienia\"", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        chlbTestsList.ClearSelected();
+                        checkedTests.Clear();
+                        sum = 0;
+                    }
+                    else
+                        MessageBox.Show("Złożyłeś już zamówienie w tym terminie!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                else
+                    MessageBox.Show("Placówka nie funkcjonuje w wybranym terminie!\nGodziny otwarcia: Pn - Pt: 8:00 - 16:00", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Nie możesz złożyć zamówienia w przeszłości!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnNewEmail_Click(object sender, EventArgs e)
+        {
+            if (txtbNewEmail.Text.Equals(txtbNewEmailConfirm.Text))
+                if (!txtbNewEmail.Text.Equals(activeClient.Email))
+                    if (UserManagement.IsValidEmail(txtbNewEmail.Text))
+                        if (!UserManagement.IsEmailAlreadyUsed(txtbNewEmail.Text))
+                        {
+                            UserManagement.ChangeAccountEmail(activeClient.ID, txtbNewEmail.Text);
+                            MessageBox.Show("Twój aders e-mail został zmieniony!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                            MessageBox.Show("Podany adres e-mail jest już w użyciu!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Niepoprawny adres e-mail!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Podany adres e-mail jest taki sam jak obecnie używany!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Podane adresy e-mail nie są takie same!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnNewPassword_Click(object sender, EventArgs e)
+        {
+            if (txtbNewPassword.Text.Equals(txtbNewPasswordConfirm.Text))
+                if (!txtbNewPassword.Text.Equals(activeClient.Password))
+                    if (UserManagement.IsValidPassword(txtbNewPassword.Text))
+                    {
+                        UserManagement.ChangeAccountPassword(activeClient.ID, txtbNewPassword.Text);
+                        MessageBox.Show("Twoje hasło zostało zmienione!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Podane hasło nie spełnia wymagań!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Podane hasło jest takie same jak obecnie używane!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Podane hasła nie są takie same!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         private void btnUserAccountDelete_Click(object sender, EventArgs e)
         {
-            Client currentUser = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "example@gmail.com", "1234567890", "New York");
-
             //TODO
             using (var popupForm = new AccountDeleteConfimation())
             {
                 var result = popupForm.ShowDialog(); // Wywołanie formularza modalnego
 
                 if (result == DialogResult.OK)
-                {
-                    //TODO
-                }
+                    UserManagement.ChangeAccountStatus(activeClient.ID, activeClient.Type);
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SE_project.controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +14,32 @@ namespace SE_project
 {
     public partial class CompletedOrder : UserControl
     {
-        public CompletedOrder(int id, DateTime date, List<ClientTest> tests)
+        public CompletedOrder(int id, DateTime date, List<ClientTest> clientTest)
         {
             InitializeComponent();
 
             lbCompletedId.Text = id.ToString();
             lbCompletedDate.Text = date.ToString();
 
-            listbxCompletedTests.DataSource = tests;
+            List<String> testNames = new List<string>();
+            foreach (ClientTest ct in clientTest)
+            {
+                foreach (Test t in TestManagement.testList)
+                {
+                    if (t.ID == ct.TestID)
+                    {
+                        testNames.Add(t.Name);
+                        break;
+                    }
+                }
+            }
+
+            listbxCompletedTests.DataSource = testNames;
+        }
+
+        private void listbxPedningTests_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
