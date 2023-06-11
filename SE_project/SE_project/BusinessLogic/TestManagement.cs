@@ -15,11 +15,8 @@ namespace SE_project.controllers
         private static List<Test> _testList = new List<Test>();
         private static FlowLayoutPanel _addTestFlp;
         private static FlowLayoutPanel _rmTestFlp;
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 2323cd82713ea723fef2089071fd3d7243697e2e
         public static List<Test> testList { get => _testList; }
 
 
