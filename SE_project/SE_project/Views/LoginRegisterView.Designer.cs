@@ -60,6 +60,7 @@
             label4 = new Label();
             label6 = new Label();
             txtbNewPassword = new TextBox();
+            label13 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -73,7 +74,7 @@
             cbLoginType.DropDownStyle = ComboBoxStyle.DropDownList;
             cbLoginType.FormattingEnabled = true;
             cbLoginType.Items.AddRange(new object[] { "Klient", "Technik laboratoryjny", "Administrator" });
-            cbLoginType.Location = new Point(268, 296);
+            cbLoginType.Location = new Point(274, 331);
             cbLoginType.Name = "cbLoginType";
             cbLoginType.Size = new Size(281, 38);
             cbLoginType.TabIndex = 2;
@@ -82,7 +83,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(137, 296);
+            label1.Location = new Point(143, 331);
             label1.Name = "label1";
             label1.Size = new Size(108, 30);
             label1.TabIndex = 1;
@@ -90,14 +91,14 @@
             // 
             // txtbLogin
             // 
-            txtbLogin.Location = new Point(245, 172);
+            txtbLogin.Location = new Point(251, 207);
             txtbLogin.Name = "txtbLogin";
             txtbLogin.Size = new Size(304, 35);
             txtbLogin.TabIndex = 0;
             // 
             // txtbPassword
             // 
-            txtbPassword.Location = new Point(245, 235);
+            txtbPassword.Location = new Point(251, 270);
             txtbPassword.Name = "txtbPassword";
             txtbPassword.PasswordChar = '*';
             txtbPassword.Size = new Size(304, 35);
@@ -107,7 +108,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(137, 172);
+            label2.Location = new Point(143, 207);
             label2.Name = "label2";
             label2.Size = new Size(64, 30);
             label2.TabIndex = 4;
@@ -117,7 +118,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(137, 235);
+            label3.Location = new Point(143, 270);
             label3.Name = "label3";
             label3.Size = new Size(66, 30);
             label3.TabIndex = 5;
@@ -125,7 +126,7 @@
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(245, 395);
+            btnLogin.Location = new Point(251, 430);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(239, 52);
             btnLogin.TabIndex = 3;
@@ -141,7 +142,7 @@
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(743, 696);
+            tabControl1.Size = new Size(743, 758);
             tabControl1.TabIndex = 11;
             tabControl1.SelectedIndexChanged += TabChange;
             // 
@@ -158,13 +159,14 @@
             tabPage1.Location = new Point(4, 39);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(735, 653);
+            tabPage1.Size = new Size(735, 715);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Logowanie";
             // 
             // tabPage2
             // 
             tabPage2.BackColor = Color.WhiteSmoke;
+            tabPage2.Controls.Add(label13);
             tabPage2.Controls.Add(txtbNewPhoneNum);
             tabPage2.Controls.Add(label12);
             tabPage2.Controls.Add(txtbNewEmail);
@@ -189,7 +191,7 @@
             tabPage2.Location = new Point(4, 39);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(735, 653);
+            tabPage2.Size = new Size(735, 715);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Rejestracja";
             // 
@@ -207,9 +209,9 @@
             label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label12.Location = new Point(117, 464);
             label12.Name = "label12";
-            label12.Size = new Size(166, 30);
+            label12.Size = new Size(176, 30);
             label12.TabIndex = 35;
-            label12.Text = "numer telefonu";
+            label12.Text = "numer telefonu*";
             // 
             // txtbNewEmail
             // 
@@ -241,9 +243,9 @@
             label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label10.Location = new Point(117, 407);
             label10.Name = "label10";
-            label10.Size = new Size(200, 30);
+            label10.Size = new Size(210, 30);
             label10.TabIndex = 31;
-            label10.Text = "adres zamieszkania";
+            label10.Text = "adres zamieszkania*";
             // 
             // numNewBirthdateYear
             // 
@@ -298,9 +300,9 @@
             label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label8.Location = new Point(117, 357);
             label8.Name = "label8";
-            label8.Size = new Size(71, 30);
+            label8.Size = new Size(89, 30);
             label8.TabIndex = 25;
-            label8.Text = "PESEL";
+            label8.Text = "PESEL**";
             // 
             // txtbNewPesel
             // 
@@ -380,11 +382,21 @@
             txtbNewPassword.Size = new Size(290, 35);
             txtbNewPassword.TabIndex = 2;
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
+            label13.Location = new Point(27, 652);
+            label13.Name = "label13";
+            label13.Size = new Size(434, 46);
+            label13.TabIndex = 37;
+            label13.Text = "* informacje nieobowiązkowe\r\n** w przypadku gdy nie posiadasz numeru pesel wpisz 0";
+            // 
             // LoginRegisterView
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(743, 696);
+            ClientSize = new Size(743, 758);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -436,5 +448,6 @@
         private Label label11;
         private TextBox txtbNewPhoneNum;
         private Label label12;
+        private Label label13;
     }
 }
