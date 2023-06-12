@@ -35,7 +35,8 @@ namespace SE_project
                     break;
             }
 
-            if (UserManagement.LogInUser(userType, txtbLogin.Text, txtbPassword.Text))
+            int loginResult = UserManagement.LogInUser(userType, txtbLogin.Text, txtbPassword.Text);
+            if (loginResult == 1)
             {
                 switch (userType)
                 {
@@ -58,23 +59,31 @@ namespace SE_project
                 this.Hide();
                 ResetForm();
             }
-            else
+            else if (loginResult == 0)
             {
                 txtbLogin.BackColor = Color.Red;
+                txtbPassword.BackColor = default(Color); ;
+            }
+            else if (loginResult == -1)
+            {
                 txtbPassword.BackColor = Color.Red;
+                txtbLogin.BackColor = default(Color); ;
             }
 
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
+            ResetSignupTxtbColors();
+
             int year = (int)numNewBirthdateYear.Value;
             int month = (int)numNewBirthdateMonth.Value;
             int day = (int)numNewBirthdateDay.Value;
             DateTime date = new DateTime(year, month, day);
 
-            if (UserManagement.RegisterClient(txtbNewLogin.Text, txtbNewPassword.Text, txtbNewName.Text, txtbNewSurname.Text,
-                date, txtbNewEmail.Text, txtbNewPesel.Text, txtbNewAddress.Text, txtbNewPhoneNum.Text))
+            string signupResult = UserManagement.RegisterClient(txtbNewLogin.Text, txtbNewPassword.Text, txtbNewName.Text, txtbNewSurname.Text,
+                date, txtbNewEmail.Text, txtbNewPesel.Text, txtbNewAddress.Text, txtbNewPhoneNum.Text);
+            if (signupResult.Equals("ok"))
             {
                 btnSignUp.BackColor = Color.Green;
                 txtbNewLogin.Enabled = false;
@@ -92,8 +101,46 @@ namespace SE_project
             }
             else
             {
-                btnSignUp.BackColor = Color.Red;
+                switch (signupResult)
+                {
+                    case "login":
+                        txtbNewLogin.BackColor = Color.Red;
+                        break;
+                    case "email":
+                        txtbNewEmail.BackColor = Color.Red;
+                        break;
+                    case "password":
+                        txtbNewPassword.BackColor = Color.Red;
+                        break;
+                    case "birthdate":
+                        numNewBirthdateDay.BackColor = Color.Red;
+                        numNewBirthdateMonth.BackColor = Color.Red;
+                        numNewBirthdateYear.BackColor = Color.Red;
+                        break;
+                    case "name":
+                        txtbNewName.BackColor = Color.Red;
+                        break;
+                    case "surname":
+                        txtbNewSurname.BackColor = Color.Red;
+                        break;
+                    case "pesel":
+                        txtbNewPesel.BackColor = Color.Red;
+                        break;
+                }
             }
+        }
+
+        private void ResetSignupTxtbColors()
+        {
+            txtbNewLogin.BackColor = default(Color);
+            txtbNewEmail.BackColor = default(Color);
+            txtbNewPassword.BackColor = default(Color);
+            numNewBirthdateDay.BackColor = default(Color);
+            numNewBirthdateMonth.BackColor = default(Color);
+            numNewBirthdateYear.BackColor = default(Color);
+            txtbNewName.BackColor = default(Color);
+            txtbNewSurname.BackColor = default(Color);
+            txtbNewPesel.BackColor = default(Color);
         }
 
         private void ResetForm()
@@ -102,6 +149,7 @@ namespace SE_project
             txtbPassword.Text = "";
             txtbLogin.BackColor = default(Color);
             txtbPassword.BackColor = default(Color);
+            ResetSignupTxtbColors();
             cbLoginType.SelectedIndex = 0;
 
             txtbNewLogin.Enabled = true;
@@ -124,7 +172,6 @@ namespace SE_project
             txtbNewPesel.Text = "";
             txtbNewAddress.Text = "";
             txtbNewPhoneNum.Text = "";
-            btnSignUp.BackColor = SystemColors.ButtonFace;
         }
 
         private void TabChange(object sender, EventArgs e)

@@ -27,34 +27,47 @@ namespace SE_project.controllers
             _adminAccount = DatabaseManagement.LoadAdmin();
         }
 
-        public static bool RegisterClient(string login, string password, string name, string surname,
+        public static string RegisterClient(string login, string password, string name, string surname,
             DateTime birthdate, string email, string pesel, string residence, string phoneNum)
         {
-            int id = _clientsAccounts.Count();
+            int id = _clientsAccounts.Count() + 1;
             login = login.ToLower();
             email = email.ToLower();
-            if (IsValidLogin(login) && !IsLoginAlreadyUsed(login, 0) && IsValidEmail(email) && !IsEmailAlreadyUsed(email))
-                if (IsValidPassword(password) && IsValidBirthdate(birthdate) && name.Length != 0 && surname.Length != 0)
-                    if (pesel.Length == 0 || pesel == "0" || IsValidPesel(pesel) && !IsPeselAlreadyUsed(pesel, 0))
-                    {
-                        if (pesel.Length <= 1) pesel = "0";
-                        if (residence.Length == 0) residence = "-";
-                        if (phoneNum.Length == 0) phoneNum = "-";
-                        name = myTI.ToTitleCase(name);
-                        surname = myTI.ToTitleCase(surname);
 
-                        Client newClient = new Client(id, login, password, name, surname, birthdate, email, pesel, residence, phoneNum);
-                        _clientsAccounts.Add(newClient);
+            if (!IsValidLogin(login) || IsLoginAlreadyUsed(login, 0))
+                return "login";
+            if (!IsValidEmail(email) || IsEmailAlreadyUsed(email))
+                return "email";
+            if (!IsValidPassword(password))
+                return "password";
+            if (!IsValidBirthdate(birthdate))
+                return "birthdate";
+            if (name.Length == 0)
+                return "name";
+            if (surname.Length == 0)
+                return "surname";
+            if (pesel.Length == 0 || pesel != "0" && (!IsValidPesel(pesel) || IsPeselAlreadyUsed(pesel, 0)))
+                return "pesel";
 
-                        if (!DatabaseManagement.InsertNewClient(newClient))
-                            MessageBox.Show("Błąd w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        else return true;
-                    }
-            return false;
+
+            if (pesel.Length <= 1) pesel = "0";
+            if (residence.Length == 0) residence = "-";
+            if (phoneNum.Length == 0) phoneNum = "-";
+            name = myTI.ToTitleCase(name);
+            surname = myTI.ToTitleCase(surname);
+
+            Client newClient = new Client(id, login, password, name, surname, birthdate, email, pesel, residence, phoneNum);
+            _clientsAccounts.Add(newClient);
+
+            if (!DatabaseManagement.InsertNewClient(newClient))
+            {
+                MessageBox.Show("Błąd w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "blad";
+            }
+            else return "ok";
         }
 
-
-        public static bool RegisterTechnician(string login, string password, string name, string surname,
+            public static bool RegisterTechnician(string login, string password, string name, string surname,
             DateTime birthdate, string pesel, string residence, string phoneNum)
         {
             int id = _techniciansAccounts.Count();
@@ -186,7 +199,7 @@ namespace SE_project.controllers
         }
 
 
-        public static bool LogInUser(int userType, string login, string password)
+        public static int LogInUser(int userType, string login, string password)
         {
             User? tmpUser = null;
             if (userType == 0)
@@ -207,13 +220,16 @@ namespace SE_project.controllers
                     tmpUser = _adminAccount;
             }
 
-            if (tmpUser != null && tmpUser.Password == password && tmpUser.Status)
+            if (tmpUser != null && tmpUser.Status)
             {
-                _activeUser = tmpUser;
-                return true;
+                if (tmpUser.Password == password)
+                {
+                    _activeUser = tmpUser;
+                    return 1;
+                }
+                return -1;
             }
-
-            return false;
+            return 0;
         }
 
         public static void LogOutUser()
