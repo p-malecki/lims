@@ -23,7 +23,7 @@ namespace SE_project
             minVal.Text = test.Min.ToString();
             maxVal.Text = test.Max.ToString();
             units.Text = test.GetUnitStringAbbrev();
-            testType.Text = test.Type;
+            testType.Text = test.Type.ToString();
             price.Text = test.Price.ToString();
         }
 

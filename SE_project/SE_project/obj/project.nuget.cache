@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "P2p98E8mTsrQV6S6QhgnkfZjFMwVYVY4mpnoqXGZLQvW4rbM+QUtHBr03k0KLMhpEYUEuUqslW3qN3fz/q4xzg==",
+  "dgSpecHash": "hiWmxhvqj2NtxjyVhPBh2Q9cTvg5YyQXMTaIKcIgINuBVUvQGcr8t5jL9Pvnl0vEZA3K6SB5gkBb8jMHafduUg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\projekt io\\lis\\SE_project\\SE_project\\SE_project.csproj",
+  "projectFilePath": "C:\\Users\\jmgra\\Documents\\Projekty\\p-malecki\\lis\\SE_project\\SE_project\\SE_project.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\user\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.117\\stub.system.data.sqlite.core.netstandard.1.0.117.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\system.data.sqlite.core\\1.0.117\\system.data.sqlite.core.1.0.117.nupkg.sha512"
+    "C:\\Users\\jmgra\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\jmgra\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.117\\stub.system.data.sqlite.core.netstandard.1.0.117.nupkg.sha512",
+    "C:\\Users\\jmgra\\.nuget\\packages\\system.data.sqlite.core\\1.0.117\\system.data.sqlite.core.1.0.117.nupkg.sha512"
   ],
   "logs": []
 }

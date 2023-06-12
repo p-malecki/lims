@@ -18,21 +18,23 @@ namespace SE_project.controllers
         public static List<Order> completedOrderList { get => _completedOrderList; }
         public static List<Order> deniedOrderList { get => _deniedOrderList; }
 
+        public static void Initialize()
+        {
+            _toAcceptOrderList = DatabaseManagement.getToAcceptOrderList();
+            _toFillOrderList = DatabaseManagement.getToFillOrderList();
+            _completedOrderList = DatabaseManagement.getCompletedOrderList();
+            _deniedOrderList = DatabaseManagement.getDeniedOrderList();
+        }
+
         public static int getFreeOrderID()
-        {
-            return 1;
-            //throw new NotImplementedException();
-        }
-
-        public static int getFreeClientTestsID()
-        {
-            return 22;
-            //throw new NotImplementedException();
-        }
-
-        public static bool isNotOrderedTwice(DateTime date)
-        {
-            throw new NotImplementedException();
+        {    
+            if (_toAcceptOrderList.Count() > 0)
+            {
+                int id = _toAcceptOrderList[_toAcceptOrderList.Count() - 1].ID + 1;
+                return id;
+            }
+            else
+                return 1;
         }
     }
 }

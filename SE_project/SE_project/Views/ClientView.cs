@@ -31,6 +31,9 @@ namespace SE_project
 
             lbSum.Text = "0";
 
+            TestManagement.Initialize();
+            OrderManagement.Initialize();
+
             LoadAvailableTests();
             LoadClientData();
             LoadClientOrders();
@@ -39,12 +42,18 @@ namespace SE_project
         private void LoadAvailableTests()
         {
             foreach (Test t in TestManagement.testList)
-                names.Add(t.Name);
+                if (t.Status == true)
+                    names.Add(t.Name);
+            chlbTestsList.DataSource = null;
+            chlbTestsList.Items.Clear();
             chlbTestsList.DataSource = names;
 
             categories.Add("<wszystkie kategorie>");
             foreach (TestType tt in TestTypeManagement.List)
-                categories.Add(tt.Name);
+                if (tt.Status == true)
+                    categories.Add(tt.Name);
+            cbCategorySort.DataSource = null;
+            cbCategorySort.Items.Clear();
             cbCategorySort.DataSource = categories;
         }
 
@@ -55,8 +64,8 @@ namespace SE_project
             lbName.Text = activeClient.Name;
             lbSurname.Text = activeClient.Surname;
             lbPesel.Text = activeClient.Pesel;
-            //TODO - data bez godziny
-            lbBirthdate.Text = activeClient.Birthdate.ToString();
+            DateTime date = Convert.ToDateTime(activeClient.Birthdate);
+            lbBirthdate.Text = date.ToString("dd-MM-yyyy");
             lbAddress.Text = activeClient.Residence;
             lbPhoneNum.Text = activeClient.PhoneNumber;
         }
@@ -65,6 +74,8 @@ namespace SE_project
         {
             foreach (Order o in activeClient.Orders)
             {
+                activeClient.Orders = DatabaseManagement.getClientOrders(activeClient.ID);
+
                 if (o.Status == 0 || o.Status == 1)
                 {
                     PendingOrder newPendingOrder = new PendingOrder(o.ID, o.Date, o.Status, o.Tests);
@@ -80,10 +91,12 @@ namespace SE_project
 
         private void cbCategorySort_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            List<String> selectedNames = new List<String>();
+            
 
             if (!cbCategorySort.SelectedText.Equals("<wszystkie kategorie>"))
             {
+                List<String> selectedNames = new List<String>();
+
                 foreach (Test t in TestManagement.testList)
                     if (t.Type.Equals(cbCategorySort.Text))
                         selectedNames.Add(t.Name);
@@ -163,6 +176,9 @@ namespace SE_project
 
         private void txtbxHours_Leave(object sender, EventArgs e)
         {
+            if (txtbxHours.Text.Length == 0)
+                return;
+
             int value = int.Parse(txtbxHours.Text);
 
             if (value >= 0 && value < 10)
@@ -175,6 +191,9 @@ namespace SE_project
 
         private void txtbxMinutes_Leave(object sender, EventArgs e)
         {
+            if (txtbxMinutes.Text.Length == 0)
+                return;
+
             int value = int.Parse(txtbxHours.Text);
 
             if (value >= 0 && value < 10)
@@ -205,7 +224,7 @@ namespace SE_project
             {
                 if (monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Saturday && monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Sunday)
                 {
-                    if (true) // OrderManagement.isNotOrderedTwice(selectedDate)
+                    if (DatabaseManagement.isNotOrderedTwice(selectedDate))
                     {
                         List<Test> orderedTests = new List<Test>();
 
@@ -219,24 +238,25 @@ namespace SE_project
 
                         List<ClientTest> clientOrderedTests = new List<ClientTest>();
 
-                        int clientTestId = OrderManagement.getFreeClientTestsID(); //pobranie z bazy pierwszego wolnego id dla ClientTest
-                        int orderId = OrderManagement.getFreeOrderID();    //pobranie z bazy pierwszego wolnego id dla Orders
+                        int clientTestId = DatabaseManagement.getFreeClientTestsID();
+                        int orderId = OrderManagement.getFreeOrderID();
 
                         foreach (Test t in orderedTests)
                         {
                             ClientTest newClientTest = new ClientTest(clientTestId, orderId, "", t.ID);
                             clientOrderedTests.Add(newClientTest);
-                            clientTestId = OrderManagement.getFreeClientTestsID();
+                            clientTestId++;
                         }
 
-                        int clientId = activeClient.ID;
-
-                        Order newOrder = new Order(orderId, 0, selectedDate, clientId, -1, clientOrderedTests);
+                        Order newOrder = new Order(orderId, 0, selectedDate, activeClient.ID, -1, clientOrderedTests);
                         OrderManagement.toAcceptOrderList.Add(newOrder);
                         activeClient.Orders.Add(newOrder);
 
                         PendingOrder newPendingOrder = new PendingOrder(orderId, selectedDate, 0, checkedTests);
                         flowLayoutPanel1.Controls.Add(newPendingOrder);
+
+                        DatabaseManagement.InsertNewOrder(newOrder);
+                        DatabaseManagement.InsertNewOrderClientTests(clientOrderedTests);
 
                         MessageBox.Show("Udało ci się złożyć zamówienie!\nSzczegóły w zakłace \"Zamówienia\"", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -245,7 +265,7 @@ namespace SE_project
                         sum = 0;
                     }
                     else
-                        MessageBox.Show("Złożyłeś już zamówienie w tym terminie!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Złożyłeś już zamówienie w tym dniu!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
                 else
@@ -262,6 +282,7 @@ namespace SE_project
                     if (UserManagement.IsValidEmail(txtbNewEmail.Text))
                         if (!UserManagement.IsEmailAlreadyUsed(txtbNewEmail.Text))
                         {
+                            DatabaseManagement.ChangeUserEmail(activeClient.ID, txtbNewEmail.Text);
                             UserManagement.ChangeAccountEmail(activeClient.ID, txtbNewEmail.Text);
                             MessageBox.Show("Twój aders e-mail został zmieniony!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -281,6 +302,7 @@ namespace SE_project
                 if (!txtbNewPassword.Text.Equals(activeClient.Password))
                     if (UserManagement.IsValidPassword(txtbNewPassword.Text))
                     {
+                        DatabaseManagement.ChangeUserPassword(activeClient.ID, txtbNewPassword.Text);
                         UserManagement.ChangeAccountPassword(activeClient.ID, txtbNewPassword.Text);
                         MessageBox.Show("Twoje hasło zostało zmienione!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

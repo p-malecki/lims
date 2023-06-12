@@ -29,6 +29,12 @@ namespace SE_project.controllers
                  
         }
 
+        public static void Initialize()
+        {
+            Test.ClassInit();
+            _testList = DatabaseManagement.LoadTests();
+        }
+
 
         public static bool CreateTest(string name, string type, string description,
                 decimal minVal, decimal maxVal, int unit, decimal price)

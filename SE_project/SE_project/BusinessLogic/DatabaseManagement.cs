@@ -14,64 +14,12 @@ using System.Security.Policy;
 using System.Windows.Forms;
 using System.Xml;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Xml.Linq;
 
 namespace SE_project.controllers
 {
     internal static class DatabaseManagement
-    {
-        public static void DatabaseCreate()
-        {
-            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
-            {
-                //if (!File.Exists("./lis.db"))
-                //{
-                //    SQLiteConnection.CreateFile("lis.db");
-                //}
-
-                //cnn.Open();
-                //using (SQLiteCommand cmd = new SQLiteCommand(cnn))
-                //{
-                //    cmd.CommandText = "CREATE TABLE IF NOT EXISTS LabEmployees (employeeID INTEGER PRIMARY KEY, status INTEGER NOT NULL, login VARCHAR(256) NOT NULL, password VARCHAR(256) NOT NULL, name VARCHAR(256) NOT NULL, surname VARCHAR(256) NOT NULL, birthdate DATE NOT NULL, pesel VARCHAR(11) UNIQUE NOT NULL, residence VARCHAR(256) NOT NULL, phoneNum VARCHAR(9) NOT NULL)";
-                //    cmd.ExecuteNonQuery();
-
-                //    cmd.CommandText = "CREATE TABLE IF NOT EXISTS Clients (clientID INTEGER PRIMARY KEY, status INTEGER NOT NULL, login VARCHAR(256) NOT NULL, email VARCHAR(256) NOT NULL, password VARCHAR(256) NOT NULL, name VARCHAR(256) NOT NULL, surname VARCHAR(256) NOT NULL, birthdate DATE NOT NULL, pesel VARCHAR(11) UNIQUE NOT NULL, residence VARCHAR(256) NOT NULL, phoneNum VARCHAR(9) NOT NULL)";
-                //    cmd.ExecuteNonQuery();
-
-                //    cmd.CommandText = "CREATE TABLE IF NOT EXISTS Orders (orderID INTEGER PRIMARY KEY, status INTEGER NOT NULL, date DATETIME NOT NULL, clientID INTEGER NOT NULL, technicianID INTEGER NOT NULL, FOREIGN KEY (clientID) REFERENCES Client(clientID), FOREIGN KEY (technicianID) REFERENCES Users(userID))";
-                //    cmd.ExecuteNonQuery();
-
-                //    cmd.CommandText = "CREATE TABLE IF NOT EXISTS TestsTypes (testTypeID INTEGER PRIMARY KEY, name VARCHAR(256) NOT NULL, status INTEGER NOT NULL)";
-                //    cmd.ExecuteNonQuery();
-
-                //    cmd.CommandText = "CREATE TABLE IF NOT EXISTS Tests (testID INTEGER PRIMARY KEY, name VARCHAR(256) NOT NULL, type INTEGER NOT NULL, descripiton VARCHAR(1000) NOT NULL, minimum DECIMAL NOT NULL, maximum DECIMAL NOT NULL, unit INTEGER NOT NULL, price NUMERIC NOT NULL, status INTEGER NOT NULL, FOREIGN KEY (type) REFERENCES TestsTypes(testTypeID))";
-                //    cmd.ExecuteNonQuery();
-
-                //    cmd.CommandText = "CREATE TABLE IF NOT EXISTS ClientTest (clientTestID INTEGER PRIMARY KEY, orderID INTEGER NOT NULL, testID INTEGER NOT NULL, result VARCHAR(256) NOT NULL, stauts INTEGER NOT NULL, FOREIGN KEY (orderID) REFERENCES Orders(orderID), FOREIGN KEY (testID) REFERENCES Tests(testID))";
-                //    cmd.ExecuteNonQuery();
-
-                //    cmd.CommandText = "CREATE TABLE IF NOT EXISTS ClientTest (clientTestID INTEGER PRIMARY KEY, orderID INTEGER NOT NULL, testID INTEGER NOT NULL, result VARCHAR(256) NOT NULL, stauts INTEGER NOT NULL, FOREIGN KEY (orderID) REFERENCES Orders(orderID), FOREIGN KEY (testID) REFERENCES Tests(testID))";
-                //    cmd.ExecuteNonQuery();
-
-
-                    //cmd.CommandText = "CREATE TABLE IF NOT EXISTS test (testID INTEGER);";
-                    //cmd.ExecuteNonQuery();
-
-                    //cmd.CommandText = "INSERT INTO test (testID) Values (3);";
-                    //cmd.ExecuteNonQuery();
-
-                    //string query = "SELECT * FROM test";
-                    //SQLiteCommand command = new SQLiteCommand(query, cnn);
-                    //SQLiteDataReader reader = command.ExecuteReader();
-                    //while (reader.Read())
-                    //{
-                    //    int id = Convert.ToInt32(reader["testID"]);
-                    //}
-                    //reader.Close();
-                //}
-                //cnn.Close();
-            }
-        }
-
+    {    
         public static List<Client> LoadClients()
         {
             var clientsList = new List<Client>();
@@ -225,7 +173,7 @@ namespace SE_project.controllers
                 var typeData = cnn.Query(querySql);
                 foreach (var c in typeData)
                 {
-                    int id = Convert.ToInt32(c.typeID);
+                    int id = Convert.ToInt32(c.testTypeID);
                     string name = Convert.ToString(c.name);
                     bool status = Convert.ToBoolean(c.status);
 
@@ -295,6 +243,197 @@ namespace SE_project.controllers
             }
         }
 
+        public static void InsertNewOrder(Order o)
+        {
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string insertSql = "INSERT INTO Orders (orderID, status, date, clientID, technicianID) Values (" + o.ID.ToString() + "," + o.Status.ToString() + ",'" + o.Date.ToString() + "'," + o.ClientID.ToString() + "," + o.TechnicianID.ToString() + ")";
+                var affectedRow = cnn.Execute(insertSql);
+            }
+        }
+
+        public static void InsertNewOrderClientTests(List<ClientTest> clientTests)
+        {
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                foreach (ClientTest ct in clientTests)
+                {
+                    string insertSql = "INSERT INTO ClientTest (clientTestID, status, orderID, testID, result) Values (" + ct.ID.ToString() + "," + ((ct.Status) ? 1 : 0).ToString() + "," + ct.OrderID.ToString() + "," + ct.TestID.ToString() + ",\"\")";
+                    var affectedRow = cnn.Execute(insertSql);
+                }
+            }
+        }
+
+        public static int getFreeClientTestsID()
+        {
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var querySql = "SELECT clientTestID FROM ClientTest ORDER BY clientTestID DESC LIMIT 1";
+                var typeData = cnn.Query(querySql);
+                int id = 0;
+                foreach (var c in typeData)
+                {
+                    id = Convert.ToInt32(c.clientTestID);
+
+                }
+                return id + 1;
+            }
+        }
+
+        public static List<ClientTest> GetClientTests(int orderID)
+        {
+            List<ClientTest> clientTests = new List<ClientTest>();
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var querySql = "SELECT * FROM ClientTest WHERE orderID = " + orderID.ToString();
+                var typeData = cnn.Query(querySql);
+
+                foreach (var c in typeData)
+                {
+                    int id = Convert.ToInt32(c.clientTestID);
+                    bool status = Convert.ToBoolean(c.status);
+                    int testid = Convert.ToInt32(c.testID);
+                    string result = Convert.ToString(c.result);
+
+                    clientTests.Add(new ClientTest(id, orderID, result, testid, status));
+
+                }
+
+                return clientTests;
+            }
+        }
+
+        public static List<Order> getToAcceptOrderList()
+        {
+            List<Order> orders = new List<Order>();
+
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var querySql = "SELECT * FROM Orders WHERE status = 0";
+                var typeData = cnn.Query(querySql);
+                foreach (var c in typeData)
+                {
+                    int id = Convert.ToInt32(c.orderID);
+                    int status = Convert.ToInt32(c.status);
+                    DateTime date = Convert.ToDateTime(c.date);
+                    int clientid = Convert.ToInt32(c.clientID);
+                    int technicianid = Convert.ToInt32(c.technicianID);
+
+                    orders.Add(new Order(id, status, date, clientid, technicianid, GetClientTests(id)));
+                }
+
+                return orders;
+            }
+        }
+
+        public static List<Order> getToFillOrderList()
+        {
+            List<Order> orders = new List<Order>();
+
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var querySql = "SELECT * FROM Orders WHERE status = 1";
+                var typeData = cnn.Query(querySql);
+                foreach (var c in typeData)
+                {
+                    int id = Convert.ToInt32(c.orderID);
+                    int status = Convert.ToInt32(c.status);
+                    DateTime date = Convert.ToDateTime(c.date);
+                    int clientid = Convert.ToInt32(c.clientID);
+                    int technicianid = Convert.ToInt32(c.technicianID);
+
+                    orders.Add(new Order(id, status, date, clientid, technicianid, GetClientTests(id)));
+                }
+
+                return orders;
+            }
+        }
+
+        public static List<Order> getCompletedOrderList()
+        {
+            List<Order> orders = new List<Order>();
+
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var querySql = "SELECT * FROM Orders WHERE status = 2";
+                var typeData = cnn.Query(querySql);
+                foreach (var c in typeData)
+                {
+                    int id = Convert.ToInt32(c.orderID);
+                    int status = Convert.ToInt32(c.status);
+                    DateTime date = Convert.ToDateTime(c.date);
+                    int clientid = Convert.ToInt32(c.clientID);
+                    int technicianid = Convert.ToInt32(c.technicianID);
+
+                    orders.Add(new Order(id, status, date, clientid, technicianid, GetClientTests(id)));
+                }
+
+                return orders;
+            }
+        }
+
+        public static List<Order> getDeniedOrderList()
+        {
+            List<Order> orders = new List<Order>();
+
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var querySql = "SELECT * FROM Orders WHERE status = -1";
+                var typeData = cnn.Query(querySql);
+                foreach (var c in typeData)
+                {
+                    int id = Convert.ToInt32(c.orderID);
+                    int status = Convert.ToInt32(c.status);
+                    DateTime date = Convert.ToDateTime(c.date);
+                    int clientid = Convert.ToInt32(c.clientID);
+                    int technicianid = Convert.ToInt32(c.technicianID);
+
+                    orders.Add(new Order(id, status, date, clientid, technicianid, GetClientTests(id)));
+                }
+
+                return orders;
+            }
+        }
+
+        public static bool isNotOrderedTwice(DateTime date)
+        {
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var querySql = "SELECT * FROM Orders WHERE date LIKE '" + date.Day.ToString() + ".";
+                if (date.Month < 10)
+                    querySql += '0';
+                querySql += date.Month.ToString() + "." + date.Year.ToString() + "%'";
+                var testsData = cnn.Query(querySql);
+                foreach (var t in testsData)
+                {
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
+        public static List<Order> getClientOrders(int clientID)
+        {
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                List<Order> orders = new List<Order>();
+                var querySql = "SELECT * FROM Orders WHERE clientID =" + clientID.ToString();
+                var testsData = cnn.Query(querySql);
+                foreach (var t in testsData)
+                {
+                    int orderid = Convert.ToInt32(t.orderID);
+                    int status = Convert.ToInt32(t.status);
+                    DateTime date = Convert.ToDateTime(t.date);
+                    int technicianid = Convert.ToInt32(t.technicianID);
+
+                    orders.Add(new Order(orderid, status, date, clientID, technicianid, GetClientTests(orderid)));
+                }
+
+                return orders;
+            }
+        }
+
         public static void ChangeTestStatus(int id, int status)
         {
             using (var cnn = new SQLiteConnection(LoadConnectionString()))
@@ -316,35 +455,12 @@ namespace SE_project.controllers
             }
         }
 
-
-
-        //public List<Order> GetToAcceptOrderList()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public List<Order> GetToFillOrderList()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public List<Order> GetCompletedOrderList()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public List<Order> GetDeniedOrderList()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-
-
-
         private static string LoadConnectionString(string id = "Default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
+
+
 
     }
 }
