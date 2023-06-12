@@ -111,9 +111,9 @@
             tabPage3.Controls.Add(groupBox2);
             tabPage3.Controls.Add(groupBox1);
             tabPage3.Location = new Point(4, 24);
-            tabPage3.Margin = new Padding(2, 2, 2, 2);
+            tabPage3.Margin = new Padding(2);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(2, 2, 2, 2);
+            tabPage3.Padding = new Padding(2);
             tabPage3.Size = new Size(890, 481);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Konto";
@@ -124,9 +124,9 @@
             groupBox2.Controls.Add(groupBox4);
             groupBox2.Controls.Add(groupBox5);
             groupBox2.Location = new Point(449, 91);
-            groupBox2.Margin = new Padding(2, 2, 2, 2);
+            groupBox2.Margin = new Padding(2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(2, 2, 2, 2);
+            groupBox2.Padding = new Padding(2);
             groupBox2.Size = new Size(441, 327);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
@@ -140,9 +140,9 @@
             groupBox4.Controls.Add(txtbNewEmailConfirm);
             groupBox4.Controls.Add(txtbNewEmail);
             groupBox4.Location = new Point(45, 30);
-            groupBox4.Margin = new Padding(2, 2, 2, 2);
+            groupBox4.Margin = new Padding(2);
             groupBox4.Name = "groupBox4";
-            groupBox4.Padding = new Padding(2, 2, 2, 2);
+            groupBox4.Padding = new Padding(2);
             groupBox4.Size = new Size(362, 132);
             groupBox4.TabIndex = 2;
             groupBox4.TabStop = false;
@@ -162,7 +162,7 @@
             // btnNewEmail
             // 
             btnNewEmail.Location = new Point(153, 98);
-            btnNewEmail.Margin = new Padding(2, 2, 2, 2);
+            btnNewEmail.Margin = new Padding(2);
             btnNewEmail.Name = "btnNewEmail";
             btnNewEmail.Size = new Size(82, 22);
             btnNewEmail.TabIndex = 2;
@@ -184,7 +184,7 @@
             // txtbNewEmailConfirm
             // 
             txtbNewEmailConfirm.Location = new Point(181, 63);
-            txtbNewEmailConfirm.Margin = new Padding(2, 2, 2, 2);
+            txtbNewEmailConfirm.Margin = new Padding(2);
             txtbNewEmailConfirm.Name = "txtbNewEmailConfirm";
             txtbNewEmailConfirm.Size = new Size(172, 23);
             txtbNewEmailConfirm.TabIndex = 0;
@@ -192,7 +192,7 @@
             // txtbNewEmail
             // 
             txtbNewEmail.Location = new Point(181, 28);
-            txtbNewEmail.Margin = new Padding(2, 2, 2, 2);
+            txtbNewEmail.Margin = new Padding(2);
             txtbNewEmail.Name = "txtbNewEmail";
             txtbNewEmail.Size = new Size(172, 23);
             txtbNewEmail.TabIndex = 0;
@@ -205,9 +205,9 @@
             groupBox5.Controls.Add(txtbNewPasswordConfirm);
             groupBox5.Controls.Add(txtbNewPassword);
             groupBox5.Location = new Point(45, 174);
-            groupBox5.Margin = new Padding(2, 2, 2, 2);
+            groupBox5.Margin = new Padding(2);
             groupBox5.Name = "groupBox5";
-            groupBox5.Padding = new Padding(2, 2, 2, 2);
+            groupBox5.Padding = new Padding(2);
             groupBox5.Size = new Size(362, 132);
             groupBox5.TabIndex = 0;
             groupBox5.TabStop = false;
@@ -216,7 +216,7 @@
             // btnNewPassword
             // 
             btnNewPassword.Location = new Point(143, 98);
-            btnNewPassword.Margin = new Padding(2, 2, 2, 2);
+            btnNewPassword.Margin = new Padding(2);
             btnNewPassword.Name = "btnNewPassword";
             btnNewPassword.Size = new Size(82, 22);
             btnNewPassword.TabIndex = 2;
@@ -249,7 +249,7 @@
             // txtbNewPasswordConfirm
             // 
             txtbNewPasswordConfirm.Location = new Point(181, 62);
-            txtbNewPasswordConfirm.Margin = new Padding(2, 2, 2, 2);
+            txtbNewPasswordConfirm.Margin = new Padding(2);
             txtbNewPasswordConfirm.Name = "txtbNewPasswordConfirm";
             txtbNewPasswordConfirm.Size = new Size(172, 23);
             txtbNewPasswordConfirm.TabIndex = 0;
@@ -257,7 +257,7 @@
             // txtbNewPassword
             // 
             txtbNewPassword.Location = new Point(181, 31);
-            txtbNewPassword.Margin = new Padding(2, 2, 2, 2);
+            txtbNewPassword.Margin = new Padding(2);
             txtbNewPassword.Name = "txtbNewPassword";
             txtbNewPassword.Size = new Size(172, 23);
             txtbNewPassword.TabIndex = 0;
@@ -283,9 +283,9 @@
             groupBox1.Controls.Add(lbConstName);
             groupBox1.Controls.Add(lbConstEmail);
             groupBox1.Location = new Point(5, 4);
-            groupBox1.Margin = new Padding(2, 2, 2, 2);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(2, 2, 2, 2);
+            groupBox1.Padding = new Padding(2);
             groupBox1.Size = new Size(435, 476);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
@@ -295,7 +295,7 @@
             // 
             lbPhoneNum.AutoSize = true;
             lbPhoneNum.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbPhoneNum.Location = new Point(187, 301);
+            lbPhoneNum.Location = new Point(154, 297);
             lbPhoneNum.Margin = new Padding(2, 0, 2, 0);
             lbPhoneNum.Name = "lbPhoneNum";
             lbPhoneNum.Size = new Size(60, 20);
@@ -317,7 +317,7 @@
             // 
             btnUserAccountDelete.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             btnUserAccountDelete.Location = new Point(229, 394);
-            btnUserAccountDelete.Margin = new Padding(2, 2, 2, 2);
+            btnUserAccountDelete.Margin = new Padding(2);
             btnUserAccountDelete.Name = "btnUserAccountDelete";
             btnUserAccountDelete.Size = new Size(154, 41);
             btnUserAccountDelete.TabIndex = 3;
@@ -329,7 +329,7 @@
             // 
             btnUserLogOut.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             btnUserLogOut.Location = new Point(29, 394);
-            btnUserLogOut.Margin = new Padding(2, 2, 2, 2);
+            btnUserLogOut.Margin = new Padding(2);
             btnUserLogOut.Name = "btnUserLogOut";
             btnUserLogOut.Size = new Size(154, 41);
             btnUserLogOut.TabIndex = 2;
@@ -341,7 +341,7 @@
             // 
             lbAddress.AutoSize = true;
             lbAddress.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbAddress.Location = new Point(229, 266);
+            lbAddress.Location = new Point(178, 262);
             lbAddress.Margin = new Padding(2, 0, 2, 0);
             lbAddress.Name = "lbAddress";
             lbAddress.Size = new Size(60, 20);
@@ -352,7 +352,7 @@
             // 
             lbBirthdate.AutoSize = true;
             lbBirthdate.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbBirthdate.Location = new Point(181, 230);
+            lbBirthdate.Location = new Point(148, 226);
             lbBirthdate.Margin = new Padding(2, 0, 2, 0);
             lbBirthdate.Name = "lbBirthdate";
             lbBirthdate.Size = new Size(70, 20);
@@ -363,7 +363,7 @@
             // 
             lbPesel.AutoSize = true;
             lbPesel.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbPesel.Location = new Point(101, 192);
+            lbPesel.Location = new Point(83, 190);
             lbPesel.Margin = new Padding(2, 0, 2, 0);
             lbPesel.Name = "lbPesel";
             lbPesel.Size = new Size(44, 20);
@@ -374,7 +374,7 @@
             // 
             lbSurname.AutoSize = true;
             lbSurname.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbSurname.Location = new Point(117, 149);
+            lbSurname.Location = new Point(109, 152);
             lbSurname.Margin = new Padding(2, 0, 2, 0);
             lbSurname.Name = "lbSurname";
             lbSurname.Size = new Size(65, 20);
@@ -385,7 +385,7 @@
             // 
             lbName.AutoSize = true;
             lbName.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbName.Location = new Point(102, 117);
+            lbName.Location = new Point(73, 117);
             lbName.Margin = new Padding(2, 0, 2, 0);
             lbName.Name = "lbName";
             lbName.Size = new Size(46, 20);
@@ -396,7 +396,7 @@
             // 
             lbEmail.AutoSize = true;
             lbEmail.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbEmail.Location = new Point(102, 87);
+            lbEmail.Location = new Point(86, 87);
             lbEmail.Margin = new Padding(2, 0, 2, 0);
             lbEmail.Name = "lbEmail";
             lbEmail.Size = new Size(46, 20);
@@ -407,7 +407,7 @@
             // 
             lbLogin.AutoSize = true;
             lbLogin.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbLogin.Location = new Point(101, 52);
+            lbLogin.Location = new Point(80, 52);
             lbLogin.Margin = new Padding(2, 0, 2, 0);
             lbLogin.Name = "lbLogin";
             lbLogin.Size = new Size(43, 20);
@@ -505,9 +505,9 @@
             tabPage2.Controls.Add(groupBox9);
             tabPage2.Controls.Add(groupBox8);
             tabPage2.Location = new Point(4, 24);
-            tabPage2.Margin = new Padding(2, 2, 2, 2);
+            tabPage2.Margin = new Padding(2);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(2, 2, 2, 2);
+            tabPage2.Padding = new Padding(2);
             tabPage2.Size = new Size(890, 481);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Zamawianie";
@@ -584,7 +584,7 @@
             // 
             btnOrder.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             btnOrder.Location = new Point(585, 441);
-            btnOrder.Margin = new Padding(2, 2, 2, 2);
+            btnOrder.Margin = new Padding(2);
             btnOrder.Name = "btnOrder";
             btnOrder.Size = new Size(183, 34);
             btnOrder.TabIndex = 3;
@@ -609,9 +609,9 @@
             groupBox9.Controls.Add(lbConstCategory);
             groupBox9.Controls.Add(lbDescription);
             groupBox9.Location = new Point(455, 4);
-            groupBox9.Margin = new Padding(2, 2, 2, 2);
+            groupBox9.Margin = new Padding(2);
             groupBox9.Name = "groupBox9";
-            groupBox9.Padding = new Padding(2, 2, 2, 2);
+            groupBox9.Padding = new Padding(2);
             groupBox9.Size = new Size(432, 217);
             groupBox9.TabIndex = 1;
             groupBox9.TabStop = false;
@@ -695,9 +695,9 @@
             groupBox8.Controls.Add(txtbxSearch);
             groupBox8.Controls.Add(chlbTestsList);
             groupBox8.Location = new Point(5, 4);
-            groupBox8.Margin = new Padding(2, 2, 2, 2);
+            groupBox8.Margin = new Padding(2);
             groupBox8.Name = "groupBox8";
-            groupBox8.Padding = new Padding(2, 2, 2, 2);
+            groupBox8.Padding = new Padding(2);
             groupBox8.Size = new Size(444, 476);
             groupBox8.TabIndex = 0;
             groupBox8.TabStop = false;
@@ -719,7 +719,7 @@
             cbCategorySort.Name = "cbCategorySort";
             cbCategorySort.Size = new Size(134, 23);
             cbCategorySort.TabIndex = 3;
-            cbCategorySort.SelectionChangeCommitted += cbCategorySort_SelectionChangeCommitted;
+            cbCategorySort.SelectedValueChanged += cbCategorySort_SelectedValueChanged;
             // 
             // lbConstCategories
             // 
@@ -743,7 +743,7 @@
             chlbTestsList.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             chlbTestsList.FormattingEnabled = true;
             chlbTestsList.Location = new Point(5, 20);
-            chlbTestsList.Margin = new Padding(2, 2, 2, 2);
+            chlbTestsList.Margin = new Padding(2);
             chlbTestsList.Name = "chlbTestsList";
             chlbTestsList.Size = new Size(434, 308);
             chlbTestsList.TabIndex = 0;
@@ -756,7 +756,7 @@
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Location = new Point(10, 9);
-            tabControl1.Margin = new Padding(2, 2, 2, 2);
+            tabControl1.Margin = new Padding(2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(898, 509);
@@ -767,9 +767,9 @@
             tabPage1.Controls.Add(groupBox7);
             tabPage1.Controls.Add(groupBox6);
             tabPage1.Location = new Point(4, 24);
-            tabPage1.Margin = new Padding(2, 2, 2, 2);
+            tabPage1.Margin = new Padding(2);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(2, 2, 2, 2);
+            tabPage1.Padding = new Padding(2);
             tabPage1.Size = new Size(890, 481);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Przegląd badań";
@@ -779,9 +779,9 @@
             // 
             groupBox7.Controls.Add(flowLayoutPanel2);
             groupBox7.Location = new Point(448, 4);
-            groupBox7.Margin = new Padding(2, 2, 2, 2);
+            groupBox7.Margin = new Padding(2);
             groupBox7.Name = "groupBox7";
-            groupBox7.Padding = new Padding(2, 2, 2, 2);
+            groupBox7.Padding = new Padding(2);
             groupBox7.Size = new Size(439, 476);
             groupBox7.TabIndex = 1;
             groupBox7.TabStop = false;
@@ -798,9 +798,9 @@
             // 
             groupBox6.Controls.Add(flowLayoutPanel1);
             groupBox6.Location = new Point(5, 4);
-            groupBox6.Margin = new Padding(2, 2, 2, 2);
+            groupBox6.Margin = new Padding(2);
             groupBox6.Name = "groupBox6";
-            groupBox6.Padding = new Padding(2, 2, 2, 2);
+            groupBox6.Padding = new Padding(2);
             groupBox6.Size = new Size(438, 476);
             groupBox6.TabIndex = 0;
             groupBox6.TabStop = false;
@@ -808,6 +808,7 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Location = new Point(5, 21);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(428, 450);
@@ -821,7 +822,7 @@
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             MaximizeBox = false;
             Name = "ClientView";
             Text = "LIS Klient";

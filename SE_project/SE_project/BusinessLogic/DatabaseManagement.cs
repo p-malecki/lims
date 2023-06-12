@@ -173,7 +173,7 @@ namespace SE_project.controllers
                 var typeData = cnn.Query(querySql);
                 foreach (var c in typeData)
                 {
-                    int id = Convert.ToInt32(c.testTypeID);
+                    int id = Convert.ToInt32(c.typeID);
                     string name = Convert.ToString(c.name);
                     bool status = Convert.ToBoolean(c.status);
 

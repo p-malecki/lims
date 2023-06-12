@@ -1,4 +1,5 @@
 ﻿using SE_project.controllers;
+using SE_project.Views.User_controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,15 +15,18 @@ namespace SE_project
 {
     public partial class CompletedOrder : UserControl
     {
-        public CompletedOrder(int id, DateTime date, List<ClientTest> clientTest)
+        Order completedOrder;
+        public CompletedOrder(int id, DateTime date, Order order)
         {
             InitializeComponent();
+
+            completedOrder = order;
 
             lbCompletedId.Text = id.ToString();
             lbCompletedDate.Text = date.ToString();
 
             List<String> testNames = new List<string>();
-            foreach (ClientTest ct in clientTest)
+            foreach (ClientTest ct in order.Tests)
             {
                 foreach (Test t in TestManagement.testList)
                 {
@@ -37,7 +41,24 @@ namespace SE_project
             listbxCompletedTests.DataSource = testNames;
         }
 
-        private void listbxPedningTests_SelectedIndexChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
+        {/*
+            using (var popupForm = new OrderDetails())
+            {
+                var result = popupForm.ShowDialog(); // Wywołanie formularza modalnego
+
+                if (result == DialogResult.OK)
+                {
+                    
+                }
+                    UserManagement.ChangeAccountStatus(activeClient.ID, activeClient.Type);
+
+                this.Close();
+                UserManagement.LogOutUser();
+            }*/
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

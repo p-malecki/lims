@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using SE_project.controllers;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace SE_project
 {
@@ -31,6 +32,7 @@ namespace SE_project
 
             lbSum.Text = "0";
 
+            TestTypeManagement.Initialize();
             TestManagement.Initialize();
             OrderManagement.Initialize();
 
@@ -44,6 +46,7 @@ namespace SE_project
             foreach (Test t in TestManagement.testList)
                 if (t.Status == true)
                     names.Add(t.Name);
+
             chlbTestsList.DataSource = null;
             chlbTestsList.Items.Clear();
             chlbTestsList.DataSource = names;
@@ -52,6 +55,7 @@ namespace SE_project
             foreach (TestType tt in TestTypeManagement.List)
                 if (tt.Status == true)
                     categories.Add(tt.Name);
+
             cbCategorySort.DataSource = null;
             cbCategorySort.Items.Clear();
             cbCategorySort.DataSource = categories;
@@ -63,19 +67,25 @@ namespace SE_project
             lbEmail.Text = activeClient.Email;
             lbName.Text = activeClient.Name;
             lbSurname.Text = activeClient.Surname;
-            lbPesel.Text = activeClient.Pesel;
+
+            if (!activeClient.Pesel.Equals("0"))
+                lbPesel.Text = activeClient.Pesel;
+            else
+                lbPesel.Text = "brak";
+
             DateTime date = Convert.ToDateTime(activeClient.Birthdate);
             lbBirthdate.Text = date.ToString("dd-MM-yyyy");
+
             lbAddress.Text = activeClient.Residence;
             lbPhoneNum.Text = activeClient.PhoneNumber;
         }
 
         private void LoadClientOrders()
         {
+            activeClient.Orders = DatabaseManagement.getClientOrders(activeClient.ID);
+
             foreach (Order o in activeClient.Orders)
             {
-                activeClient.Orders = DatabaseManagement.getClientOrders(activeClient.ID);
-
                 if (o.Status == 0 || o.Status == 1)
                 {
                     PendingOrder newPendingOrder = new PendingOrder(o.ID, o.Date, o.Status, o.Tests);
@@ -83,23 +93,44 @@ namespace SE_project
                 }
                 else if (o.Status == 2)
                 {
-                    CompletedOrder newCompletedOrder = new CompletedOrder(o.ID, o.Date, o.Tests);
+                    CompletedOrder newCompletedOrder = new CompletedOrder(o.ID, o.Date, o);
                     flowLayoutPanel2.Controls.Add(newCompletedOrder);
                 }
             }
         }
 
-        private void cbCategorySort_SelectionChangeCommitted(object sender, EventArgs e)
+        private void OrderViewDefaultLook()
         {
-            
+            foreach (int i in chlbTestsList.CheckedIndices)
+                chlbTestsList.SetItemCheckState(i, CheckState.Unchecked);
 
-            if (!cbCategorySort.SelectedText.Equals("<wszystkie kategorie>"))
+            checkedTests.Clear();
+            chlbTestsList.SelectedItem = null;
+
+            sum = 0;
+            lbSum.Text = "0";
+
+            txtbxHours.Text = "";
+            txtbxMinutes.Text = "";
+
+            cbCategorySort.SelectedItem = categories[0];
+
+            monthCalendar.SelectionStart = monthCalendar.TodayDate;
+            monthCalendar.SelectionEnd = monthCalendar.TodayDate;
+        }
+        private void cbCategorySort_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (!cbCategorySort.SelectedValue.Equals("<wszystkie kategorie>"))
             {
                 List<String> selectedNames = new List<String>();
 
                 foreach (Test t in TestManagement.testList)
-                    if (t.Type.Equals(cbCategorySort.Text))
+                {
+                    string cat = t.GetTestTypeString();
+                    if (cat.Equals(cbCategorySort.SelectedValue))
                         selectedNames.Add(t.Name);
+                }
+
 
                 chlbTestsList.DataSource = null;
                 chlbTestsList.Items.Clear();
@@ -112,7 +143,6 @@ namespace SE_project
                 chlbTestsList.DataSource = names;
             }
         }
-
         private void txtbSearch_TextChanged(object sender, EventArgs e)
         {
             List<string> searched = new List<string>();
@@ -260,9 +290,7 @@ namespace SE_project
 
                         MessageBox.Show("Udało ci się złożyć zamówienie!\nSzczegóły w zakłace \"Zamówienia\"", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        chlbTestsList.ClearSelected();
-                        checkedTests.Clear();
-                        sum = 0;
+                        OrderViewDefaultLook();
                     }
                     else
                         MessageBox.Show("Złożyłeś już zamówienie w tym dniu!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -323,6 +351,9 @@ namespace SE_project
 
                 if (result == DialogResult.OK)
                     UserManagement.ChangeAccountStatus(activeClient.ID, activeClient.Type);
+
+                this.Close();
+                UserManagement.LogOutUser();
             }
         }
 
