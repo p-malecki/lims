@@ -134,6 +134,7 @@
             price.Size = new Size(68, 30);
             price.TabIndex = 15;
             price.Text = "label2";
+            price.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label2
             // 

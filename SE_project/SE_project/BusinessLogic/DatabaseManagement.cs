@@ -225,10 +225,11 @@ namespace SE_project.controllers
                 var typeData = cnn.Query(querySql);
                 foreach (var c in typeData)
                 {
+                    int id = Convert.ToInt32(c.typeID);
                     string name = Convert.ToString(c.name);
                     bool status = Convert.ToBoolean(c.status);
 
-                    var newType = new TestType(name, status);
+                    var newType = new TestType(id, name, status);
                     testTypesList.Add(newType);
                 }
             }
@@ -239,8 +240,8 @@ namespace SE_project.controllers
         {
             using (var cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                string insertSql = "INSERT INTO TestsTypes (name, status) Values ('" + t.Name + "'," + ((t.Status) ? 1 : 0).ToString() + ");";
-                var affectedRow = cnn.Execute(insertSql);
+                string insertSql = "INSERT INTO TestsTypes (typeID, name, status) Values (" + t.ID + ", '" + t.Name + "'," + ((t.Status) ? 1 : 0).ToString() + ");";
+                cnn.Execute(insertSql);
             }
         }
 
@@ -249,7 +250,7 @@ namespace SE_project.controllers
             using (var cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 string query = string.Format("UPDATE TestsTypes SET status={0} WHERE name='{1}'", status, name);
-                var affectedRow = cnn.Execute(query);
+                cnn.Execute(query);
             }
         }
 
@@ -265,7 +266,7 @@ namespace SE_project.controllers
                 {
                     int id = Convert.ToInt32(t.testID);
                     string name = Convert.ToString(t.name);
-                    string type = Convert.ToString(t.type);
+                    int type = Convert.ToInt32(t.type);
                     string description = Convert.ToString(t.description);
                     decimal min = Convert.ToDecimal(t.minimumNorm);
                     decimal max = Convert.ToDecimal(t.maximumNorm);

@@ -272,7 +272,7 @@
             groupBox1.Size = new Size(561, 703);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
-            groupBox1.Text = "nowe badanie";
+            groupBox1.Text = "nowe badanie / edytuj badanie";
             // 
             // label38
             // 
@@ -384,6 +384,7 @@
             numAddTestMin.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
             numAddTestMin.Location = new Point(305, 165);
             numAddTestMin.Margin = new Padding(3, 4, 3, 4);
+            numAddTestMin.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numAddTestMin.Name = "numAddTestMin";
             numAddTestMin.Size = new Size(177, 35);
             numAddTestMin.TabIndex = 6;
@@ -394,6 +395,7 @@
             numAddTestMax.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
             numAddTestMax.Location = new Point(305, 217);
             numAddTestMax.Margin = new Padding(3, 4, 3, 4);
+            numAddTestMax.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numAddTestMax.Name = "numAddTestMax";
             numAddTestMax.Size = new Size(177, 35);
             numAddTestMax.TabIndex = 7;

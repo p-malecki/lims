@@ -18,13 +18,17 @@ namespace SE_project.controllers
 
         public static void CreateType(string name)
         {
-            if (name.Equals("")) return;
+            if (name.Equals(""))
+            {
+                MessageBox.Show("Wartość maksymalna musi być nie mniejsza od minimalnej", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
 
             var elem = _testTypesList.Find(t => t.Name == name);
             if (elem == null)
             {
-                var newType = new TestType(name);
+                var newType = new TestType(_testTypesList.Count()+1, name);
                 _testTypesList.Add(newType);
                 DatabaseManagement.InsertNewTestType(newType);
             }
@@ -55,6 +59,18 @@ namespace SE_project.controllers
                     strings.Add(t.Name);
             }
             return strings;
+        }
+
+        public static int GetTypeID(string name)
+        {
+            var elem = _testTypesList.Find(t => t.Name == name);
+            return (elem != null) ? elem.ID:0;
+        }
+
+        public static string GetTypeName(int id)
+        {
+            var elem = _testTypesList.Find(t => t.ID == id);
+            return (elem != null) ? elem.Name : "";
         }
     }
 }

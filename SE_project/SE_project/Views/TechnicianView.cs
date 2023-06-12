@@ -105,7 +105,7 @@ namespace SE_project
             SelectedTest = listTests[selectedCategoryTestsIndex];
             label22.Text = SelectedTest.ID.ToString();
             label23.Text = SelectedTest.Name;
-            label24.Text = SelectedTest.Type;
+            label24.Text = TestTypeManagement.GetTypeName(SelectedTest.Type);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -176,7 +176,7 @@ namespace SE_project
                 SelectedTest = listTests[selectedCategoryTestsIndex];
                 label27.Text = SelectedTest.ID.ToString();
                 label28.Text = SelectedTest.Name;
-                label29.Text = SelectedTest.Type;
+                label29.Text = TestTypeManagement.GetTypeName(SelectedTest.Type);
                 label30.Text = SelectedTest.Min.ToString();
                 label31.Text = SelectedTest.Max.ToString();
                 label33.Text = SelectedTest.GetUnitStringFull();
@@ -252,7 +252,7 @@ namespace SE_project
             SelectedTest = listTests[selectedCategoryTestsIndex];
             label37.Text = SelectedTest.ID.ToString();
             label38.Text = SelectedTest.Name;
-            label39.Text = SelectedTest.Type;
+            label39.Text = TestTypeManagement.GetTypeName(SelectedTest.Type);
             label41.Text = SelectedTest.GetUnitStringFull();
             foreach (ClientTest c in SelectedOrder.Tests)
             {

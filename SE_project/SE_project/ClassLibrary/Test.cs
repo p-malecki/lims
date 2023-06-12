@@ -1,3 +1,4 @@
+using SE_project.controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ public class Test {
     public Test() { }
     private int _ID;
     private string _name;
-    private string _type;
+    private int _type;
     private string _description;
     private decimal _min;
     private decimal _max;
@@ -18,7 +19,7 @@ public class Test {
 
     private static List<Tuple<string, string>> _units;
 
-    public Test(int id, string name, string type, string description, decimal min, decimal max, int unit, decimal price, bool status=true)
+    public Test(int id, string name, int type, string description, decimal min, decimal max, int unit, decimal price, bool status=true)
     {
         ID = id;
         Name = name;
@@ -73,7 +74,7 @@ public class Test {
 
     public int ID { get => _ID; set => _ID = value; }
     public string Name { get => _name; set => _name = value; }
-    public string Type { get => _type; set => _type = value; }
+    public int Type { get => _type; set => _type = value; }
     public string Description { get => _description; set => _description = value; }
     public decimal Min { get => _min; set => _min = value; }
     public decimal Max { get => _max; set => _max = value; }
@@ -109,7 +110,10 @@ public class Test {
     {
         return _units[Unit].Item2;
     }
-    
 
+    public string GetTestTypeString()
+    {
+        return TestTypeManagement.GetTypeName(Type);
+    }
 
 }

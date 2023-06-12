@@ -121,7 +121,7 @@ namespace SE_project
                 if (t.Name.Equals(selectedName))
                 {
                     lbDescription.Text = t.Description;
-                    lbCategory.Text = t.Type;
+                    lbCategory.Text = TestTypeManagement.GetTypeName(t.Type);
                     lbUnits.Text = t.GetUnitStringAbbrev();
                     lbPrice.Text = t.Price.ToString();
                     break;

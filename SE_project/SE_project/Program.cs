@@ -16,9 +16,7 @@ namespace SE_project
             //DatabaseManagement.DatabaseCreate();
             TestTypeManagement.Initialize();
             UserManagement.Initialize();
-          // Application.Run(new LoginRegisterView());
-            Application.Run(new TechnicianView());
-            //Application.Run(new AdminView());
+            Application.Run(new LoginRegisterView());
         }
     }
 }

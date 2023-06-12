@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SE_project.controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,7 @@ namespace SE_project
             minVal.Text = test.Min.ToString();
             maxVal.Text = test.Max.ToString();
             units.Text = test.GetUnitStringAbbrev();
-            testType.Text = test.Type;
+            testType.Text = TestTypeManagement.GetTypeName(test.Type);
             price.Text = test.Price.ToString();
         }
     }

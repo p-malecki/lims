@@ -33,14 +33,17 @@ namespace SE_project.controllers
         public static bool CreateTest(string name, string type, string description,
                 decimal minVal, decimal maxVal, int unit, decimal price)
         {
+            if (name == null) 
+                return false;
             if (minVal > maxVal)
                 return false;
+            int typeID = TestTypeManagement.GetTypeID(type);
 
             var elem = _testList.Find(t => t.Name == name);
             if (elem == null)
             {
                 int id = _testList.Count();
-                Test newTest = new Test(id, name, type, description, minVal, maxVal, unit, price);
+                Test newTest = new Test(id, name, typeID, description, minVal, maxVal, unit, price);
                 _testList.Add(newTest);
 
                 if (!DatabaseManagement.InsertNewTest(newTest))
@@ -49,7 +52,12 @@ namespace SE_project.controllers
             }
             else
             {
-                elem.Type = type;
+                elem.Type = typeID;
+                elem.Description = description;
+                elem.Min = minVal;
+                elem.Max = maxVal;
+                elem.Unit = unit;
+                elem.Price = price;
                 DatabaseManagement.ChangeTestStatus(elem.ID, 1);
                 DatabaseManagement.ChangeTestParams(elem.ID, type, description, minVal, maxVal, unit, price);
             }
@@ -86,7 +94,7 @@ namespace SE_project.controllers
 
         internal static int CountTestWithType(string typeName)
         {
-            return _testList.Count(t => (t.Type == typeName) && (t.Status == true));
+            return _testList.Count(t => (t.GetTestTypeString() == typeName) && (t.Status == true));
         }
     }
 }
