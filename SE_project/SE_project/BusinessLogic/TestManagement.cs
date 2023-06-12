@@ -30,9 +30,12 @@ namespace SE_project.controllers
         }
 
 
-        public static void CreateTest(string name, string type, string description,
+        public static bool CreateTest(string name, string type, string description,
                 decimal minVal, decimal maxVal, int unit, decimal price)
         {
+            if (minVal > maxVal)
+                return false;
+
             var elem = _testList.Find(t => t.Name == name);
             if (elem == null)
             {
@@ -44,6 +47,13 @@ namespace SE_project.controllers
                     MessageBox.Show("Błąd w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 
             }
+            else
+            {
+                elem.Type = type;
+                DatabaseManagement.ChangeTestStatus(elem.ID, 1);
+                DatabaseManagement.ChangeTestParams(elem.ID, type, description, minVal, maxVal, unit, price);
+            }
+            return true;
         }
 
         public static void RemoveTest(int id)
@@ -72,6 +82,11 @@ namespace SE_project.controllers
                     _rmTestFlp.Controls.Add(new testItemExtendedDelete(t));
             }
 
+        }
+
+        internal static int CountTestWithType(string typeName)
+        {
+            return _testList.Count(t => (t.Type == typeName) && (t.Status == true));
         }
     }
 }

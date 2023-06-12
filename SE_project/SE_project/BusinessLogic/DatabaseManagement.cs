@@ -13,6 +13,7 @@ using Microsoft.VisualBasic.Logging;
 using System.Security.Policy;
 using System.Windows.Forms;
 using System.Xml;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SE_project.controllers
 {
@@ -302,6 +303,18 @@ namespace SE_project.controllers
             }
         }
 
+        internal static bool ChangeTestParams(int id, string type, string description, decimal minVal, decimal maxVal, int unit, decimal price)
+        {
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string data = string.Format("type='{0}',description='{1}',minimumNorm={2},maximumNorm={3},unit={4},price={5}",
+                    type, description, minVal, maxVal, unit, price);
+                string insertSql = "UPDATE Tests SET {0} WHERE testID={1};";
+                var affectedRow = cnn.Execute(string.Format(insertSql, data, id));
+                return (affectedRow > 0) ? true : false;
+            }
+        }
+
 
 
         //public List<Order> GetToAcceptOrderList()
@@ -331,5 +344,6 @@ namespace SE_project.controllers
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
+
     }
 }

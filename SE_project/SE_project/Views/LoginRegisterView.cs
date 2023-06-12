@@ -16,6 +16,7 @@ namespace SE_project
         public LoginRegisterView()
         {
             InitializeComponent();
+            cbLoginType.SelectedIndex = 0;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

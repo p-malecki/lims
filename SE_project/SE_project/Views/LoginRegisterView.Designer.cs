@@ -77,7 +77,6 @@
             cbLoginType.Name = "cbLoginType";
             cbLoginType.Size = new Size(281, 38);
             cbLoginType.TabIndex = 2;
-            cbLoginType.SelectedIndex = 0;
             // 
             // label1
             // 
@@ -391,6 +390,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "LoginRegisterView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LIS";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);

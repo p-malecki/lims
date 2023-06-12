@@ -23,8 +23,8 @@ namespace SE_project
 
             TestManagement.LoadTestLists();
             List<string> typeNameList = TestTypeManagement.GetNameList();
-            RefreshRmTypeList(typeNameList);
             RefreshTypeList(typeNameList);
+            RefreshRmTypeList(typeNameList);
             cbAddTestUnits.DataSource = Test.UnitsList;
         }
 
@@ -111,14 +111,10 @@ namespace SE_project
             int day = (int)numNewBirthdateDay.Value;
             DateTime date = new DateTime(year, month, day);
 
-            if (UserManagement.RegisterTechnician(txtbNewLogin.Text, txtbNewPassword.Text, txtbNewName.Text,
+            if (!UserManagement.RegisterTechnician(txtbNewLogin.Text, txtbNewPassword.Text, txtbNewName.Text,
                 txtbNewSurname.Text, date, txtbNewPesel.Text, txtbNewResidence.Text, txtbNewPhoneNum.Text))
             {
-
-            }
-            else
-            {
-
+                MessageBox.Show("Błąd w bazie danych. Nie udało się utworzyć konta", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             RefreshTechnicianAccountList();
@@ -163,12 +159,20 @@ namespace SE_project
 
         private void btnDelType_Click(object sender, EventArgs e)
         {
-            // TODO CHECK WHETHER TYPE IS NOT USED IN ANY ACTIVE TESTS
-
-            TestTypeManagement.RemoveType(cbDelSelectType.Text);
-            List<string> typeNameList = TestTypeManagement.GetNameList();
-            RefreshTypeList(typeNameList);
-            RefreshRmTypeList(typeNameList);
+            var numOfUsage = TestManagement.CountTestWithType(cbDelSelectType.Text);
+            if (numOfUsage > 0)
+            {
+                string msg = "Nie można usunąc typu testu, ponieważ istnieje co najmniej jeden test tego typu.\nIlość testów: " + numOfUsage;
+                MessageBox.Show(msg, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                TestTypeManagement.RemoveType(cbDelSelectType.Text);
+                List<string> typeNameList = TestTypeManagement.GetNameList();
+                RefreshTypeList(typeNameList);
+                RefreshRmTypeList(typeNameList);
+                MessageBox.Show("Usunięto z powodzeniem", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void txtbNewPhoneNum_KeyPress(object sender, KeyPressEventArgs e)

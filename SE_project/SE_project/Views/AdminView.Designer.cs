@@ -479,7 +479,7 @@
             // 
             groupBox3.Controls.Add(btnDelType);
             groupBox3.Controls.Add(cbDelSelectType);
-            groupBox3.Location = new Point(46, 440);
+            groupBox3.Location = new Point(66, 393);
             groupBox3.Margin = new Padding(3, 4, 3, 4);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(3, 4, 3, 4);
@@ -1033,6 +1033,7 @@
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "AdminView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LIS Admin";
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
@@ -1105,9 +1106,6 @@
         private GroupBox groupBox3;
         private Button btnDelType;
         private ComboBox cbDelSelectType;
-        private testItemExtended testItem1;
-        private testItemExtended testItem2;
-        private testItemExtendedDelete testItem3;
         private Button btnLogout;
         private Label label11;
         private NumericUpDown numAddTestPrice;
