@@ -26,7 +26,7 @@ namespace SE_project
 
         private void btnTestDelete_Click(object sender, EventArgs e)
         {
-            TestManagement.RemoveTest(Int32.Parse(testID.Text));
+            TestManagement.RemoveTest(Int32.Parse(testID.Text.Substring(4)));
             TestManagement.LoadTestLists();
         }
     }

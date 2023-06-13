@@ -132,7 +132,7 @@ namespace SE_project.controllers
 
         public static bool IsValidPassword(string password)
         {
-            string pattern = @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{8,16}$";
+            string pattern = @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{8,25}$";
             return Regex.IsMatch(password, pattern);
         }
 

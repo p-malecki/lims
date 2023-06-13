@@ -48,7 +48,7 @@ namespace SE_project.controllers
             var elem = _testList.Find(t => t.Name == name);
             if (elem == null)
             {
-                int id = _testList.Count();
+                int id = _testList.Count() + 1;
                 Test newTest = new Test(id, name, typeID, description, minVal, maxVal, unit, price);
                 _testList.Add(newTest);
 

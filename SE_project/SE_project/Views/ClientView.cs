@@ -31,6 +31,8 @@ namespace SE_project
             activeClient = UserManagement.ActiveUser as Client;
 
             lbSum.Text = "0 zł";
+            cbHour.SelectedIndex = 0;
+            cbMinute.SelectedIndex = 0;
 
             TestTypeManagement.Initialize();
             TestManagement.Initialize();
@@ -107,8 +109,8 @@ namespace SE_project
         {
 
 
-            txtbxHours.Text = "";
-            txtbxMinutes.Text = "";
+            cbHour.SelectedIndex = 0;
+            cbMinute.SelectedIndex = 0;
 
             cbCategorySort.SelectedItem = categories[0];
 
@@ -201,36 +203,6 @@ namespace SE_project
             lbSum.Text = sum.ToString() + " zł";
         }
 
-        private void txtbxHours_Leave(object sender, EventArgs e)
-        {
-            if (txtbxHours.Text.Length == 0)
-                return;
-
-            int value = int.Parse(txtbxHours.Text);
-
-            if (value >= 0 && value < 10)
-                txtbxHours.Text = "0" + value.ToString();
-            else if (value < 0)
-                txtbxHours.Text = "00";
-            else if (value > 23)
-                txtbxHours.Text = "23";
-        }
-
-        private void txtbxMinutes_Leave(object sender, EventArgs e)
-        {
-            if (txtbxMinutes.Text.Length == 0)
-                return;
-
-            int value = int.Parse(txtbxHours.Text);
-
-            if (value >= 0 && value < 10)
-                txtbxMinutes.Text = "0" + value.ToString();
-            else if (value < 0)
-                txtbxMinutes.Text = "00";
-            else if (value > 59)
-                txtbxMinutes.Text = "59";
-        }
-
         private void btnOrder_Click(object sender, EventArgs e)
         {
             if (checkedTests.Count == 0)
@@ -238,14 +210,8 @@ namespace SE_project
                 MessageBox.Show("Nie wybrałeś żadnego testu!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            if (txtbxHours.Text.Equals("") || txtbxMinutes.Text.Equals(""))
-            {
-                MessageBox.Show("Wpisz odpowiednią godzinę", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            DateTime selectedDate = new DateTime(monthCalendar.SelectionStart.Year, monthCalendar.SelectionStart.Month, monthCalendar.SelectionStart.Day, int.Parse(txtbxHours.Text), int.Parse(txtbxMinutes.Text), 0);
+            DateTime selectedDate = new DateTime(monthCalendar.SelectionStart.Year, monthCalendar.SelectionStart.Month, 
+                monthCalendar.SelectionStart.Day, int.Parse(cbHour.SelectedItem.ToString()), int.Parse(cbMinute.SelectedItem.ToString()), 0);
 
             if (selectedDate > DateTime.Now)
             {

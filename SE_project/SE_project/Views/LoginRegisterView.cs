@@ -172,6 +172,7 @@ namespace SE_project
             txtbNewPesel.Text = "";
             txtbNewAddress.Text = "";
             txtbNewPhoneNum.Text = "";
+            txtbNewSex.SelectedIndex = 0;
         }
 
         private void TabChange(object sender, EventArgs e)
