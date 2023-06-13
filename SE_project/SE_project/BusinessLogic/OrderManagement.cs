@@ -36,5 +36,22 @@ namespace SE_project.controllers
             else
                 return 1;
         }
+
+        internal static (int, int) GetClientStats(int id)
+        {
+            int toAccept = _toAcceptOrderList.Count(o => o.ClientID == id);
+            int completed = _completedOrderList.Count(o => o.ClientID == id);
+
+            return (toAccept, completed);
+        }
+        
+        internal static (int, int, int) GetTechnicianStats(int id)
+        {
+            int filled = _toFillOrderList.Count(o => o.TechnicianID == id);
+            int completed = _completedOrderList.Count(o => o.TechnicianID == id);
+            int denied = _deniedOrderList.Count(o => o.TechnicianID == id);
+
+            return (filled, completed, denied);
+        }
     }
 }

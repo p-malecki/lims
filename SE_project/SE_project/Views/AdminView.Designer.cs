@@ -59,6 +59,7 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             panel2 = new Panel();
             label9 = new Label();
+            button1 = new Button();
             groupBox3 = new GroupBox();
             btnDelType = new Button();
             cbDelSelectType = new ComboBox();
@@ -67,9 +68,13 @@
             tabPage2 = new TabPage();
             tabPage3 = new TabPage();
             splitContainer3 = new SplitContainer();
+            button2 = new Button();
             groupBox5 = new GroupBox();
             btnChangeAccountStatus = new Button();
             groupBox7 = new GroupBox();
+            lbStat3AccountData = new Label();
+            lbStat2AccountData = new Label();
+            lbStat1AccountData = new Label();
             groupBox6 = new GroupBox();
             lbPhoneNumAccountData = new Label();
             label19 = new Label();
@@ -133,6 +138,7 @@
             splitContainer3.Panel2.SuspendLayout();
             splitContainer3.SuspendLayout();
             groupBox5.SuspendLayout();
+            groupBox7.SuspendLayout();
             groupBox6.SuspendLayout();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numNewBirthdateYear).BeginInit();
@@ -285,6 +291,7 @@
             // 
             // rtxtbAddTestDescription
             // 
+            rtxtbAddTestDescription.DetectUrls = false;
             rtxtbAddTestDescription.Location = new Point(75, 431);
             rtxtbAddTestDescription.Margin = new Padding(3, 4, 3, 4);
             rtxtbAddTestDescription.Name = "rtxtbAddTestDescription";
@@ -441,6 +448,7 @@
             // 
             // splitContainer2.Panel2
             // 
+            splitContainer2.Panel2.Controls.Add(button1);
             splitContainer2.Panel2.Controls.Add(groupBox3);
             splitContainer2.Size = new Size(1591, 1067);
             splitContainer2.SplitterDistance = 900;
@@ -476,6 +484,16 @@
             label9.Size = new Size(125, 30);
             label9.TabIndex = 0;
             label9.Text = "Lista badań";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(516, 40);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(130, 40);
+            button1.TabIndex = 14;
+            button1.Text = "Wyloguj";
+            button1.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -570,14 +588,25 @@
             // 
             // splitContainer3.Panel1
             // 
+            splitContainer3.Panel1.Controls.Add(button2);
             splitContainer3.Panel1.Controls.Add(groupBox5);
             // 
             // splitContainer3.Panel2
             // 
             splitContainer3.Panel2.Controls.Add(groupBox4);
             splitContainer3.Size = new Size(1591, 1067);
-            splitContainer3.SplitterDistance = 552;
+            splitContainer3.SplitterDistance = 662;
             splitContainer3.TabIndex = 0;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(1419, 40);
+            button2.Margin = new Padding(3, 4, 3, 4);
+            button2.Name = "button2";
+            button2.Size = new Size(130, 40);
+            button2.TabIndex = 15;
+            button2.Text = "Wyloguj";
+            button2.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
@@ -585,18 +614,18 @@
             groupBox5.Controls.Add(groupBox7);
             groupBox5.Controls.Add(groupBox6);
             groupBox5.Controls.Add(lboxTechnicianAccountsList);
-            groupBox5.Location = new Point(38, 44);
+            groupBox5.Location = new Point(38, 99);
             groupBox5.Margin = new Padding(3, 4, 3, 4);
             groupBox5.Name = "groupBox5";
             groupBox5.Padding = new Padding(3, 4, 3, 4);
-            groupBox5.Size = new Size(1479, 468);
+            groupBox5.Size = new Size(1479, 530);
             groupBox5.TabIndex = 1;
             groupBox5.TabStop = false;
             groupBox5.Text = "Konta techników";
             // 
             // btnChangeAccountStatus
             // 
-            btnChangeAccountStatus.Location = new Point(1141, 342);
+            btnChangeAccountStatus.Location = new Point(1086, 382);
             btnChangeAccountStatus.Margin = new Padding(3, 4, 3, 4);
             btnChangeAccountStatus.Name = "btnChangeAccountStatus";
             btnChangeAccountStatus.Size = new Size(254, 80);
@@ -607,14 +636,44 @@
             // 
             // groupBox7
             // 
+            groupBox7.Controls.Add(lbStat3AccountData);
+            groupBox7.Controls.Add(lbStat2AccountData);
+            groupBox7.Controls.Add(lbStat1AccountData);
             groupBox7.Location = new Point(494, 322);
             groupBox7.Margin = new Padding(3, 4, 3, 4);
             groupBox7.Name = "groupBox7";
             groupBox7.Padding = new Padding(3, 4, 3, 4);
-            groupBox7.Size = new Size(609, 110);
+            groupBox7.Size = new Size(463, 177);
             groupBox7.TabIndex = 2;
             groupBox7.TabStop = false;
             groupBox7.Text = "statystyki";
+            // 
+            // lbStat3AccountData
+            // 
+            lbStat3AccountData.AutoSize = true;
+            lbStat3AccountData.Location = new Point(70, 127);
+            lbStat3AccountData.Name = "lbStat3AccountData";
+            lbStat3AccountData.Size = new Size(67, 30);
+            lbStat3AccountData.TabIndex = 2;
+            lbStat3AccountData.Text = "stats3";
+            // 
+            // lbStat2AccountData
+            // 
+            lbStat2AccountData.AutoSize = true;
+            lbStat2AccountData.Location = new Point(70, 85);
+            lbStat2AccountData.Name = "lbStat2AccountData";
+            lbStat2AccountData.Size = new Size(67, 30);
+            lbStat2AccountData.TabIndex = 1;
+            lbStat2AccountData.Text = "stats2";
+            // 
+            // lbStat1AccountData
+            // 
+            lbStat1AccountData.AutoSize = true;
+            lbStat1AccountData.Location = new Point(70, 46);
+            lbStat1AccountData.Name = "lbStat1AccountData";
+            lbStat1AccountData.Size = new Size(73, 30);
+            lbStat1AccountData.TabIndex = 0;
+            lbStat1AccountData.Text = "stats1 ";
             // 
             // groupBox6
             // 
@@ -810,7 +869,8 @@
             lboxTechnicianAccountsList.Location = new Point(27, 52);
             lboxTechnicianAccountsList.Margin = new Padding(3, 4, 3, 4);
             lboxTechnicianAccountsList.Name = "lboxTechnicianAccountsList";
-            lboxTechnicianAccountsList.Size = new Size(386, 394);
+            lboxTechnicianAccountsList.ScrollAlwaysVisible = true;
+            lboxTechnicianAccountsList.Size = new Size(410, 394);
             lboxTechnicianAccountsList.TabIndex = 0;
             lboxTechnicianAccountsList.SelectedIndexChanged += LoadTechnicianData;
             // 
@@ -835,11 +895,11 @@
             groupBox4.Controls.Add(txtbNewSurname);
             groupBox4.Controls.Add(txtbNewPesel);
             groupBox4.Controls.Add(label15);
-            groupBox4.Location = new Point(65, 132);
+            groupBox4.Location = new Point(65, 37);
             groupBox4.Margin = new Padding(3, 4, 3, 4);
             groupBox4.Name = "groupBox4";
             groupBox4.Padding = new Padding(3, 4, 3, 4);
-            groupBox4.Size = new Size(1467, 328);
+            groupBox4.Size = new Size(1467, 310);
             groupBox4.TabIndex = 54;
             groupBox4.TabStop = false;
             groupBox4.Text = "Dodawanie nowych kont techników";
@@ -1066,6 +1126,8 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
             splitContainer3.ResumeLayout(false);
             groupBox5.ResumeLayout(false);
+            groupBox7.ResumeLayout(false);
+            groupBox7.PerformLayout();
             groupBox6.ResumeLayout(false);
             groupBox6.PerformLayout();
             groupBox4.ResumeLayout(false);
@@ -1157,5 +1219,10 @@
         private Label label2;
         private Label lbPhoneNumAccountData;
         private Label label19;
+        private Button button1;
+        private Button button2;
+        private Label lbStat1AccountData;
+        private Label lbStat2AccountData;
+        private Label lbStat3AccountData;
     }
 }

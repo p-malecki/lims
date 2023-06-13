@@ -31,20 +31,17 @@
             testID = new Label();
             testName = new Label();
             testType = new Label();
-            minVal = new Label();
-            maxVal = new Label();
-            label1 = new Label();
-            units = new Label();
             price = new Label();
-            label3 = new Label();
-            label4 = new Label();
+            units = new Label();
+            maxVal = new Label();
+            minVal = new Label();
             SuspendLayout();
             // 
             // testID
             // 
             testID.AutoSize = true;
             testID.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            testID.Location = new Point(57, 46);
+            testID.Location = new Point(740, 16);
             testID.Name = "testID";
             testID.Size = new Size(95, 30);
             testID.TabIndex = 0;
@@ -63,93 +60,66 @@
             // testType
             // 
             testType.AutoSize = true;
-            testType.Location = new Point(501, 16);
+            testType.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
+            testType.Location = new Point(17, 46);
             testType.Name = "testType";
             testType.Size = new Size(140, 30);
             testType.TabIndex = 2;
             testType.Text = "testType 0000";
             testType.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // minVal
+            // price
             // 
-            minVal.AutoSize = true;
-            minVal.Location = new Point(220, 46);
-            minVal.Name = "minVal";
-            minVal.Size = new Size(75, 30);
-            minVal.TabIndex = 3;
-            minVal.Text = "minVal";
-            // 
-            // maxVal
-            // 
-            maxVal.AutoSize = true;
-            maxVal.Location = new Point(301, 46);
-            maxVal.Name = "maxVal";
-            maxVal.Size = new Size(79, 30);
-            maxVal.TabIndex = 4;
-            maxVal.Text = "maxVal";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(220, 16);
-            label1.Name = "label1";
-            label1.Size = new Size(261, 30);
-            label1.TabIndex = 5;
-            label1.Text = "wart. min | max | jednostka";
+            price.AutoSize = true;
+            price.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            price.Location = new Point(740, 46);
+            price.Name = "price";
+            price.Size = new Size(61, 30);
+            price.TabIndex = 7;
+            price.Text = "price";
+            price.TextAlign = ContentAlignment.MiddleRight;
             // 
             // units
             // 
             units.AutoSize = true;
-            units.Location = new Point(386, 46);
+            units.Location = new Point(567, 46);
             units.Name = "units";
             units.Size = new Size(58, 30);
-            units.TabIndex = 6;
+            units.TabIndex = 22;
             units.Text = "units";
             // 
-            // price
+            // maxVal
             // 
-            price.AutoSize = true;
-            price.Location = new Point(538, 46);
-            price.Name = "price";
-            price.Size = new Size(68, 30);
-            price.TabIndex = 7;
-            price.Text = "label2";
-            price.TextAlign = ContentAlignment.MiddleRight;
+            maxVal.AutoSize = true;
+            maxVal.Location = new Point(413, 46);
+            maxVal.Name = "maxVal";
+            maxVal.Size = new Size(79, 30);
+            maxVal.TabIndex = 21;
+            maxVal.Text = "maxVal";
             // 
-            // label3
+            // minVal
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(612, 46);
-            label3.Name = "label3";
-            label3.Size = new Size(29, 30);
-            label3.TabIndex = 8;
-            label3.Text = "zł";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(17, 46);
-            label4.Name = "label4";
-            label4.Size = new Size(34, 30);
-            label4.TabIndex = 19;
-            label4.Text = "ID";
+            minVal.AutoSize = true;
+            minVal.Location = new Point(293, 46);
+            minVal.Name = "minVal";
+            minVal.Size = new Size(75, 30);
+            minVal.TabIndex = 20;
+            minVal.Text = "minVal";
             // 
             // testItemExtended
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(price);
             Controls.Add(units);
-            Controls.Add(label1);
             Controls.Add(maxVal);
             Controls.Add(minVal);
+            Controls.Add(price);
             Controls.Add(testType);
             Controls.Add(testName);
             Controls.Add(testID);
             Name = "testItemExtended";
-            Size = new Size(666, 98);
+            Size = new Size(847, 98);
+            Load += testItemExtended_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -159,12 +129,9 @@
         private Label testID;
         private Label testName;
         private Label testType;
-        private Label minVal;
         private Label maxVal;
-        private Label label1;
         private Label units;
         private Label price;
-        private Label label3;
-        private Label label4;
+        private Label minVal;
     }
 }

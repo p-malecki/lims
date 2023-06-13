@@ -47,6 +47,21 @@ namespace SE_project
         {
             InitializeComponent();
             LoadUnacteptedTests();
+            label22.Text = "";
+            label23.Text = "";
+            label24.Text = "";
+            label26.Text = "";
+            label27.Text = "";
+            label28.Text = "";
+            label29.Text = "";
+            label30.Text = "";
+            label31.Text = "";
+            label33.Text = "";
+            label37.Text = "";
+            label38.Text = "";
+            label39.Text = "";
+            label40.Text = "";
+            label41.Text = "";
         }
         private void LoadUnacteptedTests()
         {

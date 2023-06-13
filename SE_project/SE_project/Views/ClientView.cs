@@ -30,7 +30,7 @@ namespace SE_project
             InitializeComponent();
             activeClient = UserManagement.ActiveUser as Client;
 
-            lbSum.Text = "0";
+            lbSum.Text = "0 zł";
 
             TestTypeManagement.Initialize();
             TestManagement.Initialize();
@@ -78,6 +78,10 @@ namespace SE_project
 
             lbAddress.Text = activeClient.Residence;
             lbPhoneNum.Text = activeClient.PhoneNumber;
+
+            var (toAccept, completed) = OrderManagement.GetClientStats(activeClient.ID);
+            lbStats1.Text = string.Format("zamówienia oczekujące na zatwierdzenie: {0}", toAccept.ToString());
+            lbStats2.Text = string.Format("zamówienia zakończone: {0}", completed.ToString());
         }
 
         private void LoadClientOrders()
@@ -101,14 +105,7 @@ namespace SE_project
 
         private void OrderViewDefaultLook()
         {
-            foreach (int i in chlbTestsList.CheckedIndices)
-                chlbTestsList.SetItemCheckState(i, CheckState.Unchecked);
 
-            checkedTests.Clear();
-            chlbTestsList.SelectedItem = null;
-
-            sum = 0;
-            lbSum.Text = "0";
 
             txtbxHours.Text = "";
             txtbxMinutes.Text = "";
@@ -201,7 +198,7 @@ namespace SE_project
                 }
             }
 
-            lbSum.Text = sum.ToString();
+            lbSum.Text = sum.ToString() + " zł";
         }
 
         private void txtbxHours_Leave(object sender, EventArgs e)
@@ -362,5 +359,6 @@ namespace SE_project
             this.Close();
             UserManagement.LogOutUser();
         }
+
     }
 }

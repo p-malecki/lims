@@ -98,6 +98,12 @@ namespace SE_project
             lbStatusAccountData.Text = selectedTechnician.Status.ToString();
 
             btnChangeAccountStatus.Text = (!selectedTechnician.Status) ? "aktywuj konto" : "dezaktywuj konto";
+
+            var (filled, completed, denied) = OrderManagement.GetTechnicianStats(selectedTechnician.ID);
+            lbStat1AccountData.Text = string.Format("wypełnionych badań: {0}", filled.ToString());
+            lbStat2AccountData.Text = string.Format("zakończonych zamówień: {0}", completed.ToString());
+            lbStat3AccountData.Text = string.Format("odrzuconych zamówień: {0}", denied.ToString());
+
         }
         private void LoadTechnicianData(object sender, EventArgs e)
         {
@@ -180,5 +186,6 @@ namespace SE_project
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
                 e.Handled = true;
         }
+
     }
 }

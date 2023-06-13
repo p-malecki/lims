@@ -35,6 +35,7 @@ public class Test {
     public static void ClassInit()
     {
         _units = new List<Tuple<string, string>> ();
+        _units.Add(Tuple.Create("Niezdefiniowana", "-")     );
         _units.Add(Tuple.Create("Femtoliter", "fL"));
         _units.Add(Tuple.Create("Femtoliter ", "fL"));
         _units.Add(Tuple.Create("Grams", "g"));

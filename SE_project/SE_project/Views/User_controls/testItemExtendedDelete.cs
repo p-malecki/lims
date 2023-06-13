@@ -18,13 +18,10 @@ namespace SE_project
         public testItemExtendedDelete(Test test)
         {
             InitializeComponent();
-            testID.Text = test.ID.ToString();
+            testID.Text = "ID  " + test.ID.ToString().PadLeft(5, '0');
             testName.Text = test.Name;
-            minVal.Text = test.Min.ToString();
-            maxVal.Text = test.Max.ToString();
-            units.Text = test.GetUnitStringAbbrev();
-            testType.Text = test.Type.ToString();
-            price.Text = test.Price.ToString();
+            testType.Text = TestTypeManagement.GetTypeName(test.Type);
+            price.Text = test.Price.ToString() + " zł";
         }
 
         private void btnTestDelete_Click(object sender, EventArgs e)
