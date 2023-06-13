@@ -91,9 +91,9 @@
             // 
             listbxPedningTests.FormattingEnabled = true;
             listbxPedningTests.ItemHeight = 15;
-            listbxPedningTests.Location = new Point(267, 6);
+            listbxPedningTests.Location = new Point(299, 7);
             listbxPedningTests.Name = "listbxPedningTests";
-            listbxPedningTests.Size = new Size(128, 64);
+            listbxPedningTests.Size = new Size(132, 64);
             listbxPedningTests.TabIndex = 6;
             // 
             // lbPendingId
@@ -110,6 +110,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(listbxPedningTests);
             Controls.Add(lbPendingStatus);
             Controls.Add(lbPendingDate);
@@ -118,7 +119,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "PendingOrder";
-            Size = new Size(405, 77);
+            Size = new Size(436, 75);
             ResumeLayout(false);
             PerformLayout();
         }

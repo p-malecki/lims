@@ -280,6 +280,20 @@ namespace SE_project.controllers
             }
         }
 
+        public static int getFreeOrderID()
+        {
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var querySql = "SELECT orderID FROM Orders ORDER BY orderID DESC LIMIT 1";
+                var typeData = cnn.Query(querySql);
+                int id = 0;
+                foreach (var c in typeData)
+                    id = Convert.ToInt32(c.orderID);
+
+                return id + 1;
+            }
+        }
+
         public static List<ClientTest> GetClientTests(int orderID)
         {
             List<ClientTest> clientTests = new List<ClientTest>();

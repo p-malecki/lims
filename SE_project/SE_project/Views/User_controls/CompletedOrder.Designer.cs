@@ -33,17 +33,17 @@
             lbCompletedId = new Label();
             label2 = new Label();
             label1 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            btnDetails = new Button();
+            btnPDFGenerate = new Button();
             SuspendLayout();
             // 
             // listbxCompletedTests
             // 
             listbxCompletedTests.FormattingEnabled = true;
             listbxCompletedTests.ItemHeight = 15;
-            listbxCompletedTests.Location = new Point(267, 5);
+            listbxCompletedTests.Location = new Point(298, 6);
             listbxCompletedTests.Name = "listbxCompletedTests";
-            listbxCompletedTests.Size = new Size(128, 64);
+            listbxCompletedTests.Size = new Size(132, 64);
             listbxCompletedTests.TabIndex = 14;
             // 
             // lbCompletedDate
@@ -86,40 +86,40 @@
             label1.TabIndex = 8;
             label1.Text = "ID";
             // 
-            // button1
+            // btnDetails
             // 
-            button1.Location = new Point(154, 7);
-            button1.Name = "button1";
-            button1.Size = new Size(91, 29);
-            button1.TabIndex = 16;
-            button1.Text = "Szczegóły";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnDetails.Location = new Point(203, 7);
+            btnDetails.Name = "btnDetails";
+            btnDetails.Size = new Size(91, 29);
+            btnDetails.TabIndex = 16;
+            btnDetails.Text = "Szczegóły";
+            btnDetails.UseVisualStyleBackColor = true;
+            btnDetails.Click += btnDetails_Click;
             // 
-            // button2
+            // btnPDFGenerate
             // 
-            button2.Location = new Point(154, 40);
-            button2.Name = "button2";
-            button2.Size = new Size(91, 29);
-            button2.TabIndex = 17;
-            button2.Text = "Raport PDF";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnPDFGenerate.Location = new Point(203, 40);
+            btnPDFGenerate.Name = "btnPDFGenerate";
+            btnPDFGenerate.Size = new Size(91, 29);
+            btnPDFGenerate.TabIndex = 17;
+            btnPDFGenerate.Text = "Raport PDF";
+            btnPDFGenerate.UseVisualStyleBackColor = true;
             // 
             // CompletedOrder
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            Controls.Add(button2);
-            Controls.Add(button1);
+            BorderStyle = BorderStyle.FixedSingle;
+            Controls.Add(btnPDFGenerate);
+            Controls.Add(btnDetails);
             Controls.Add(listbxCompletedTests);
             Controls.Add(lbCompletedDate);
             Controls.Add(lbCompletedId);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "CompletedOrder";
-            Size = new Size(405, 75);
+            Size = new Size(435, 73);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -130,7 +130,7 @@
         private Label lbCompletedId;
         private Label label2;
         private Label label1;
-        private Button button1;
-        private Button button2;
+        private Button btnDetails;
+        private Button btnPDFGenerate;
     }
 }

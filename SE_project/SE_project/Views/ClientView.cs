@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SE_project.controllers;
+using SE_project.Views.User_controls;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
@@ -30,10 +31,6 @@ namespace SE_project
             InitializeComponent();
             activeClient = UserManagement.ActiveUser as Client;
 
-            lbSum.Text = "0 zł";
-            cbHour.SelectedIndex = 0;
-            cbMinute.SelectedIndex = 0;
-
             TestTypeManagement.Initialize();
             TestManagement.Initialize();
             OrderManagement.Initialize();
@@ -41,6 +38,7 @@ namespace SE_project
             LoadAvailableTests();
             LoadClientData();
             LoadClientOrders();
+            OrderViewDefaultLook();
         }
 
         private void LoadAvailableTests()
@@ -102,17 +100,33 @@ namespace SE_project
                     CompletedOrder newCompletedOrder = new CompletedOrder(o.ID, o.Date, o);
                     flowLayoutPanel2.Controls.Add(newCompletedOrder);
                 }
+                else if (o.Status == -1)
+                {
+                    DeniedOrder newDeniedOrder = new DeniedOrder(o.ID, o.Date, o.Tests);
+                    flowLayoutPanel2.Controls.Add(newDeniedOrder);
+                }
             }
         }
 
         private void OrderViewDefaultLook()
         {
-
+            lbSum.Text = "0 zł";
+            lbCategory.Text = "";
+            lbPrice.Text = "";
 
             cbHour.SelectedIndex = 0;
             cbMinute.SelectedIndex = 0;
 
             cbCategorySort.SelectedItem = categories[0];
+
+            chlbTestsList.SelectedItem = null;
+
+            foreach (int i in chlbTestsList.CheckedIndices)
+            {
+                chlbTestsList.SetItemCheckState(i, CheckState.Unchecked);
+            }
+
+            chlbTestsList.SelectedItem = null;
 
             monthCalendar.SelectionStart = monthCalendar.TodayDate;
             monthCalendar.SelectionEnd = monthCalendar.TodayDate;
@@ -162,10 +176,9 @@ namespace SE_project
             foreach (Test t in TestManagement.testList)
                 if (t.Name.Equals(selectedName))
                 {
-                    lbDescription.Text = t.Description;
+                    txtbxDescription.Text = t.Description;
                     lbCategory.Text = TestTypeManagement.GetTypeName(t.Type);
-                    lbUnits.Text = t.GetUnitStringAbbrev();
-                    lbPrice.Text = t.Price.ToString();
+                    lbPrice.Text = t.Price.ToString() + " zł";
                     break;
                 }
         }
@@ -210,7 +223,7 @@ namespace SE_project
                 MessageBox.Show("Nie wybrałeś żadnego testu!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            DateTime selectedDate = new DateTime(monthCalendar.SelectionStart.Year, monthCalendar.SelectionStart.Month, 
+            DateTime selectedDate = new DateTime(monthCalendar.SelectionStart.Year, monthCalendar.SelectionStart.Month,
                 monthCalendar.SelectionStart.Day, int.Parse(cbHour.SelectedItem.ToString()), int.Parse(cbMinute.SelectedItem.ToString()), 0);
 
             if (selectedDate > DateTime.Now)
@@ -232,7 +245,7 @@ namespace SE_project
                         List<ClientTest> clientOrderedTests = new List<ClientTest>();
 
                         int clientTestId = DatabaseManagement.getFreeClientTestsID();
-                        int orderId = OrderManagement.getFreeOrderID();
+                        int orderId = DatabaseManagement.getFreeOrderID();
 
                         foreach (Test t in orderedTests)
                         {

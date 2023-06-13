@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SE_project.Views.User_controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +19,8 @@ namespace SE_project
 
             foreach (ClientTest ct in order.Tests)
             {
-
+                ResultControl control = new ResultControl(ct);
+                flowLayoutPanel1.Controls.Add(control);
             }
         }
     }

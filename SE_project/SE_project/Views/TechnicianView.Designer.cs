@@ -45,9 +45,9 @@
             label20 = new Label();
             label18 = new Label();
             listBox2 = new ListBox();
-            btnLogout = new Button();
-            button4 = new Button();
-            button3 = new Button();
+            btnLogout1 = new Button();
+            btnDeny = new Button();
+            btnAccept = new Button();
             groupBox3 = new GroupBox();
             label24 = new Label();
             label23 = new Label();
@@ -64,7 +64,7 @@
             label33 = new Label();
             label8 = new Label();
             textBox5 = new TextBox();
-            button2 = new Button();
+            btnConfirmResult = new Button();
             groupBox5 = new GroupBox();
             label46 = new Label();
             label32 = new Label();
@@ -72,7 +72,7 @@
             label26 = new Label();
             panel5 = new Panel();
             label43 = new Label();
-            button5 = new Button();
+            btnLogout2 = new Button();
             listBox4 = new ListBox();
             groupBox2 = new GroupBox();
             label31 = new Label();
@@ -94,13 +94,13 @@
             label41 = new Label();
             textBox1 = new TextBox();
             label6 = new Label();
-            button1 = new Button();
+            btnConfirmResultEdit = new Button();
             groupBox7 = new GroupBox();
             label34 = new Label();
             label36 = new Label();
             panel6 = new Panel();
             label44 = new Label();
-            button6 = new Button();
+            btnLogout3 = new Button();
             listBox6 = new ListBox();
             groupBox1 = new GroupBox();
             label40 = new Label();
@@ -205,9 +205,9 @@
             splitContainer3.Panel2.Controls.Add(panel4);
             splitContainer3.Panel2.Controls.Add(groupBox4);
             splitContainer3.Panel2.Controls.Add(listBox2);
-            splitContainer3.Panel2.Controls.Add(btnLogout);
-            splitContainer3.Panel2.Controls.Add(button4);
-            splitContainer3.Panel2.Controls.Add(button3);
+            splitContainer3.Panel2.Controls.Add(btnLogout1);
+            splitContainer3.Panel2.Controls.Add(btnDeny);
+            splitContainer3.Panel2.Controls.Add(btnAccept);
             splitContainer3.Panel2.Controls.Add(groupBox3);
             splitContainer3.Size = new Size(754, 495);
             splitContainer3.SplitterDistance = 192;
@@ -331,38 +331,35 @@
             listBox2.TabIndex = 13;
             listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged;
             // 
-            // btnLogout
+            // btnLogout1
             // 
-            btnLogout.Location = new Point(464, 15);
-            btnLogout.Margin = new Padding(2);
-            btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(76, 26);
-            btnLogout.TabIndex = 12;
-            btnLogout.Text = "Wyloguj";
-            btnLogout.UseVisualStyleBackColor = true;
-            btnLogout.Click += btnLogout_Click;
+            btnLogout1.Location = new Point(464, 15);
+            btnLogout1.Margin = new Padding(2);
+            btnLogout1.Name = "btnLogout1";
+            btnLogout1.Size = new Size(76, 26);
+            btnLogout1.TabIndex = 12;
+            btnLogout1.Text = "Wyloguj";
+            btnLogout1.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnDeny
             // 
-            button4.Location = new Point(425, 407);
-            button4.Margin = new Padding(2);
-            button4.Name = "button4";
-            button4.Size = new Size(115, 50);
-            button4.TabIndex = 4;
-            button4.Text = "odrzuć";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            btnDeny.Location = new Point(425, 407);
+            btnDeny.Margin = new Padding(2);
+            btnDeny.Name = "btnDeny";
+            btnDeny.Size = new Size(115, 50);
+            btnDeny.TabIndex = 4;
+            btnDeny.Text = "odrzuć";
+            btnDeny.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnAccept
             // 
-            button3.Location = new Point(241, 407);
-            button3.Margin = new Padding(2);
-            button3.Name = "button3";
-            button3.Size = new Size(106, 50);
-            button3.TabIndex = 3;
-            button3.Text = "akceptuj";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            btnAccept.Location = new Point(241, 407);
+            btnAccept.Margin = new Padding(2);
+            btnAccept.Name = "btnAccept";
+            btnAccept.Size = new Size(106, 50);
+            btnAccept.TabIndex = 3;
+            btnAccept.Text = "akceptuj";
+            btnAccept.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -490,7 +487,7 @@
             splitContainer2.Panel2.Controls.Add(groupBox6);
             splitContainer2.Panel2.Controls.Add(groupBox5);
             splitContainer2.Panel2.Controls.Add(panel5);
-            splitContainer2.Panel2.Controls.Add(button5);
+            splitContainer2.Panel2.Controls.Add(btnLogout2);
             splitContainer2.Panel2.Controls.Add(listBox4);
             splitContainer2.Panel2.Controls.Add(groupBox2);
             splitContainer2.Size = new Size(754, 495);
@@ -513,7 +510,7 @@
             groupBox6.Controls.Add(label33);
             groupBox6.Controls.Add(label8);
             groupBox6.Controls.Add(textBox5);
-            groupBox6.Controls.Add(button2);
+            groupBox6.Controls.Add(btnConfirmResult);
             groupBox6.Location = new Point(224, 376);
             groupBox6.Margin = new Padding(2);
             groupBox6.Name = "groupBox6";
@@ -551,16 +548,15 @@
             textBox5.Size = new Size(96, 23);
             textBox5.TabIndex = 23;
             // 
-            // button2
+            // btnConfirmResult
             // 
-            button2.Location = new Point(75, 65);
-            button2.Margin = new Padding(2);
-            button2.Name = "button2";
-            button2.Size = new Size(125, 29);
-            button2.TabIndex = 2;
-            button2.Text = "zatwierdz";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnConfirmResult.Location = new Point(75, 65);
+            btnConfirmResult.Margin = new Padding(2);
+            btnConfirmResult.Name = "btnConfirmResult";
+            btnConfirmResult.Size = new Size(125, 29);
+            btnConfirmResult.TabIndex = 2;
+            btnConfirmResult.Text = "zatwierdz";
+            btnConfirmResult.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
@@ -636,16 +632,15 @@
             label43.TabIndex = 0;
             label43.Text = "lista badań danego zamówienia";
             // 
-            // button5
+            // btnLogout2
             // 
-            button5.Location = new Point(468, 15);
-            button5.Margin = new Padding(2);
-            button5.Name = "button5";
-            button5.Size = new Size(76, 25);
-            button5.TabIndex = 15;
-            button5.Text = "Wyloguj";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            btnLogout2.Location = new Point(468, 15);
+            btnLogout2.Margin = new Padding(2);
+            btnLogout2.Name = "btnLogout2";
+            btnLogout2.Size = new Size(76, 25);
+            btnLogout2.TabIndex = 15;
+            btnLogout2.Text = "Wyloguj";
+            btnLogout2.UseVisualStyleBackColor = true;
             // 
             // listBox4
             // 
@@ -809,7 +804,7 @@
             splitContainer1.Panel2.Controls.Add(groupBox8);
             splitContainer1.Panel2.Controls.Add(groupBox7);
             splitContainer1.Panel2.Controls.Add(panel6);
-            splitContainer1.Panel2.Controls.Add(button6);
+            splitContainer1.Panel2.Controls.Add(btnLogout3);
             splitContainer1.Panel2.Controls.Add(listBox6);
             splitContainer1.Panel2.Controls.Add(groupBox1);
             splitContainer1.Size = new Size(754, 495);
@@ -851,7 +846,7 @@
             groupBox8.Controls.Add(label41);
             groupBox8.Controls.Add(textBox1);
             groupBox8.Controls.Add(label6);
-            groupBox8.Controls.Add(button1);
+            groupBox8.Controls.Add(btnConfirmResultEdit);
             groupBox8.Location = new Point(222, 371);
             groupBox8.Margin = new Padding(2);
             groupBox8.Name = "groupBox8";
@@ -889,16 +884,15 @@
             label6.TabIndex = 8;
             label6.Text = "zaaktualizowana wartość";
             // 
-            // button1
+            // btnConfirmResultEdit
             // 
-            button1.Location = new Point(114, 65);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(96, 27);
-            button1.TabIndex = 1;
-            button1.Text = "zatwierdz";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnConfirmResultEdit.Location = new Point(114, 65);
+            btnConfirmResultEdit.Margin = new Padding(2);
+            btnConfirmResultEdit.Name = "btnConfirmResultEdit";
+            btnConfirmResultEdit.Size = new Size(96, 27);
+            btnConfirmResultEdit.TabIndex = 1;
+            btnConfirmResultEdit.Text = "zatwierdz";
+            btnConfirmResultEdit.UseVisualStyleBackColor = true;
             // 
             // groupBox7
             // 
@@ -952,16 +946,15 @@
             label44.TabIndex = 0;
             label44.Text = "lista badań danego zamówienia";
             // 
-            // button6
+            // btnLogout3
             // 
-            button6.Location = new Point(483, 15);
-            button6.Margin = new Padding(2);
-            button6.Name = "button6";
-            button6.Size = new Size(76, 24);
-            button6.TabIndex = 13;
-            button6.Text = "Wyloguj";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            btnLogout3.Location = new Point(483, 15);
+            btnLogout3.Margin = new Padding(2);
+            btnLogout3.Name = "btnLogout3";
+            btnLogout3.Size = new Size(76, 24);
+            btnLogout3.TabIndex = 13;
+            btnLogout3.Text = "Wyloguj";
+            btnLogout3.UseVisualStyleBackColor = true;
             // 
             // listBox6
             // 
@@ -1144,7 +1137,7 @@
         private Label label5;
         private Label label4;
         private Label label6;
-        private Button button1;
+        private Button btnConfirmResultEdit;
         private SplitContainer splitContainer2;
         private Panel panel3;
         private Label label7;
@@ -1157,13 +1150,13 @@
         private Panel panel1;
         private Label label1;
         private SplitContainer splitContainer3;
-        private Button button2;
+        private Button btnConfirmResult;
         private GroupBox groupBox3;
         private Label label15;
         private Label label16;
-        private Button button4;
-        private Button button3;
-        private Button btnLogout;
+        private Button btnDeny;
+        private Button btnAccept;
+        private Button btnLogout1;
         private ListBox listBox1;
         private ListBox listBox2;
         private Label label13;
@@ -1178,7 +1171,7 @@
         private Label label19;
         private ListBox listBox3;
         private ListBox listBox4;
-        private Button button5;
+        private Button btnLogout2;
         private Label label25;
         private Label label26;
         private Label label31;
@@ -1201,7 +1194,7 @@
         private Label label38;
         private Label label37;
         private Label label36;
-        private Button button6;
+        private Button btnLogout3;
         private GroupBox groupBox4;
         private Panel panel4;
         private Label label42;

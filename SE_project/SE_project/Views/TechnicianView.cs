@@ -18,8 +18,31 @@ namespace SE_project
     {
         public List<Test> listTests = new List<Test>();
         public List<Test> listTestsFromManagemant = new List<Test>();
+
         Order SelectedOrder = new Order();
         Test SelectedTest = new Test();
+
+        public TechnicianView()
+        {
+            InitializeComponent();
+            LoadUnacteptedTests();
+            label22.Text = "";
+            label23.Text = "";
+            label24.Text = "";
+            label26.Text = "";
+            label27.Text = "";
+            label28.Text = "";
+            label29.Text = "";
+            label30.Text = "";
+            label31.Text = "";
+            label33.Text = "";
+            label37.Text = "";
+            label38.Text = "";
+            label39.Text = "";
+            label40.Text = "";
+            label41.Text = "";
+        }
+
         private void sortlistbox(ListBox listBox, string toAdd)
         {
             ListBox sortedList = new ListBox();
@@ -43,31 +66,15 @@ namespace SE_project
             foreach (string s in sortedList.Items)
                 listBox.Items.Add(s);
         }
-        public TechnicianView()
-        {
-            InitializeComponent();
-            LoadUnacteptedTests();
-            label22.Text = "";
-            label23.Text = "";
-            label24.Text = "";
-            label26.Text = "";
-            label27.Text = "";
-            label28.Text = "";
-            label29.Text = "";
-            label30.Text = "";
-            label31.Text = "";
-            label33.Text = "";
-            label37.Text = "";
-            label38.Text = "";
-            label39.Text = "";
-            label40.Text = "";
-            label41.Text = "";
-        }
+        
         private void LoadUnacteptedTests()
         {
             listBox1.Items.Clear();
+
             List<int> listOrder = new List<int>();
+
             listTestsFromManagemant.AddRange(TestManagement.testList);
+
             foreach (Order o in OrderManagement.toAcceptOrderList)
                 sortlistbox(listBox1, o.ID.ToString() + " " + o.Date.ToString());
             foreach (Order o in OrderManagement.toFillOrderList)
@@ -80,6 +87,7 @@ namespace SE_project
         {
             listBox2.Items.Clear();
             listTests.Clear();
+
             if (listBox1.SelectedItem != null)
             {
                 string selectedCategory = listBox1.SelectedItem.ToString();
@@ -123,7 +131,7 @@ namespace SE_project
             label24.Text = TestTypeManagement.GetTypeName(SelectedTest.Type);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnAccept_Click(object sender, EventArgs e)
         {
             if (OrderManagement.toAcceptOrderList.Count > 0)
             {
@@ -137,7 +145,7 @@ namespace SE_project
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnDeny_Click(object sender, EventArgs e)
         {
             if (OrderManagement.toAcceptOrderList.Count > 0)
             {
@@ -198,7 +206,7 @@ namespace SE_project
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnConfirmResult_Click(object sender, EventArgs e)
         {
             foreach (ClientTest c in SelectedOrder.Tests)
             {
@@ -279,7 +287,7 @@ namespace SE_project
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnConfirmResultEdit_Click(object sender, EventArgs e)
         {
             foreach (ClientTest c in SelectedOrder.Tests)
             {
@@ -291,17 +299,17 @@ namespace SE_project
             }
 
         }
-        private void btnLogout_Click(object sender, EventArgs e)
+        private void btnLogout1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnLogout2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnLogout3_Click(object sender, EventArgs e)
         {
             this.Close();
         }

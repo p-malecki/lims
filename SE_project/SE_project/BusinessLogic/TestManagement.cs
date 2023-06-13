@@ -102,5 +102,41 @@ namespace SE_project.controllers
         {
             return _testList.Count(t => (t.GetTestTypeString() == typeName) && (t.Status == true));
         }
+
+        public static string getClientTestName(ClientTest test)
+        {
+            foreach (Test t in _testList)
+                if (test.TestID == t.ID)
+                    return t.Name;
+
+            return "";
+        }
+
+        public static string getClientTestUnitStringAbbrev(ClientTest test)
+        {
+            foreach (Test t in _testList)
+                if (test.TestID == t.ID)
+                    return t.GetUnitStringAbbrev();
+
+            return "";
+        }
+
+        public static decimal getClientTestMin(ClientTest test)
+        {
+            foreach (Test t in _testList)
+                if (test.TestID == t.ID)
+                    return t.Min;
+
+            return 0;
+        }
+
+        public static decimal getClientTestMax(ClientTest test)
+        {
+            foreach (Test t in _testList)
+                if (test.TestID == t.ID)
+                    return t.Max;
+
+            return 0;
+        }
     }
 }

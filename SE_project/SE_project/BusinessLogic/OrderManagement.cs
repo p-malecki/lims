@@ -25,18 +25,6 @@ namespace SE_project.controllers
             _completedOrderList = DatabaseManagement.getCompletedOrderList();
             _deniedOrderList = DatabaseManagement.getDeniedOrderList();
         }
-
-        public static int getFreeOrderID()
-        {    
-            if (_toAcceptOrderList.Count() > 0)
-            {
-                int id = _toAcceptOrderList[_toAcceptOrderList.Count() - 1].ID + 1;
-                return id;
-            }
-            else
-                return 1;
-        }
-
         internal static (int, int) GetClientStats(int id)
         {
             int toAccept = _toAcceptOrderList.Count(o => o.ClientID == id);

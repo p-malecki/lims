@@ -67,6 +67,7 @@
             btnUserLogOut = new Button();
             tabPage2 = new TabPage();
             groupBox10 = new GroupBox();
+            cbMinute = new ComboBox();
             cbHour = new ComboBox();
             label5 = new Label();
             lbSum = new Label();
@@ -75,15 +76,12 @@
             label2 = new Label();
             btnOrder = new Button();
             monthCalendar = new MonthCalendar();
-            txtbxMinutes = new TextBox();
-            txtbxHours = new TextBox();
             groupBox9 = new GroupBox();
+            txtbxDescription = new TextBox();
             lbPrice = new Label();
-            lbUnits = new Label();
             lbCategory = new Label();
             lbConstPrice = new Label();
             lbConstCategory = new Label();
-            lbDescription = new Label();
             groupBox8 = new GroupBox();
             lbConstSearch = new Label();
             cbCategorySort = new ComboBox();
@@ -98,7 +96,6 @@
             groupBox12 = new GroupBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
             groupBox11 = new GroupBox();
-            cbMinute = new ComboBox();
             tabPage3.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -134,11 +131,11 @@
             // 
             groupBox3.Controls.Add(lbStats2);
             groupBox3.Controls.Add(lbStats1);
-            groupBox3.Location = new Point(66, 335);
+            groupBox3.Location = new Point(27, 299);
             groupBox3.Margin = new Padding(2);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(2);
-            groupBox3.Size = new Size(296, 99);
+            groupBox3.Size = new Size(459, 117);
             groupBox3.TabIndex = 3;
             groupBox3.TabStop = false;
             groupBox3.Text = "Statystyki";
@@ -296,6 +293,7 @@
             txtbNewPasswordConfirm.Location = new Point(180, 57);
             txtbNewPasswordConfirm.Margin = new Padding(1);
             txtbNewPasswordConfirm.Name = "txtbNewPasswordConfirm";
+            txtbNewPasswordConfirm.PasswordChar = '*';
             txtbNewPasswordConfirm.Size = new Size(149, 23);
             txtbNewPasswordConfirm.TabIndex = 0;
             // 
@@ -304,16 +302,17 @@
             txtbNewPassword.Location = new Point(180, 30);
             txtbNewPassword.Margin = new Padding(1);
             txtbNewPassword.Name = "txtbNewPassword";
+            txtbNewPassword.PasswordChar = '*';
             txtbNewPassword.Size = new Size(149, 23);
             txtbNewPassword.TabIndex = 0;
             // 
             // btnUserAccountDelete
             // 
             btnUserAccountDelete.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnUserAccountDelete.Location = new Point(142, 317);
+            btnUserAccountDelete.Location = new Point(123, 295);
             btnUserAccountDelete.Margin = new Padding(2);
             btnUserAccountDelete.Name = "btnUserAccountDelete";
-            btnUserAccountDelete.Size = new Size(110, 21);
+            btnUserAccountDelete.Size = new Size(144, 47);
             btnUserAccountDelete.TabIndex = 3;
             btnUserAccountDelete.Text = "Usuń konto";
             btnUserAccountDelete.UseVisualStyleBackColor = true;
@@ -341,7 +340,7 @@
             groupBox1.Margin = new Padding(1);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(1);
-            groupBox1.Size = new Size(401, 250);
+            groupBox1.Size = new Size(460, 250);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Twoje dane";
@@ -350,7 +349,7 @@
             // 
             lbPhoneNum.AutoSize = true;
             lbPhoneNum.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbPhoneNum.Location = new Point(302, 154);
+            lbPhoneNum.Location = new Point(139, 211);
             lbPhoneNum.Margin = new Padding(1, 0, 1, 0);
             lbPhoneNum.Name = "lbPhoneNum";
             lbPhoneNum.Size = new Size(60, 20);
@@ -361,7 +360,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(182, 152);
+            label3.Location = new Point(15, 211);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(121, 20);
@@ -372,7 +371,7 @@
             // 
             lbConstLogin.AutoSize = true;
             lbConstLogin.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            lbConstLogin.Location = new Point(28, 35);
+            lbConstLogin.Location = new Point(15, 22);
             lbConstLogin.Margin = new Padding(2, 0, 2, 0);
             lbConstLogin.Name = "lbConstLogin";
             lbConstLogin.Size = new Size(48, 20);
@@ -383,7 +382,7 @@
             // 
             lbConstAddress.AutoSize = true;
             lbConstAddress.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            lbConstAddress.Location = new Point(28, 180);
+            lbConstAddress.Location = new Point(15, 184);
             lbConstAddress.Margin = new Padding(2, 0, 2, 0);
             lbConstAddress.Name = "lbConstAddress";
             lbConstAddress.Size = new Size(146, 20);
@@ -394,7 +393,7 @@
             // 
             lbAddress.AutoSize = true;
             lbAddress.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbAddress.Location = new Point(28, 203);
+            lbAddress.Location = new Point(164, 184);
             lbAddress.Margin = new Padding(1, 0, 1, 0);
             lbAddress.Name = "lbAddress";
             lbAddress.Size = new Size(60, 20);
@@ -405,7 +404,7 @@
             // 
             lbConstBirthdate.AutoSize = true;
             lbConstBirthdate.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            lbConstBirthdate.Location = new Point(28, 124);
+            lbConstBirthdate.Location = new Point(15, 130);
             lbConstBirthdate.Margin = new Padding(2, 0, 2, 0);
             lbConstBirthdate.Name = "lbConstBirthdate";
             lbConstBirthdate.Size = new Size(115, 20);
@@ -416,7 +415,7 @@
             // 
             lbConstPesel.AutoSize = true;
             lbConstPesel.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            lbConstPesel.Location = new Point(28, 152);
+            lbConstPesel.Location = new Point(15, 157);
             lbConstPesel.Margin = new Padding(2, 0, 2, 0);
             lbConstPesel.Name = "lbConstPesel";
             lbConstPesel.Size = new Size(50, 20);
@@ -427,7 +426,7 @@
             // 
             lbBirthdate.AutoSize = true;
             lbBirthdate.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbBirthdate.Location = new Point(170, 124);
+            lbBirthdate.Location = new Point(133, 130);
             lbBirthdate.Margin = new Padding(1, 0, 1, 0);
             lbBirthdate.Name = "lbBirthdate";
             lbBirthdate.Size = new Size(70, 20);
@@ -438,7 +437,7 @@
             // 
             lbConstName.AutoSize = true;
             lbConstName.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            lbConstName.Location = new Point(28, 93);
+            lbConstName.Location = new Point(15, 76);
             lbConstName.Margin = new Padding(2, 0, 2, 0);
             lbConstName.Name = "lbConstName";
             lbConstName.Size = new Size(40, 20);
@@ -449,7 +448,7 @@
             // 
             lbPesel.AutoSize = true;
             lbPesel.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbPesel.Location = new Point(80, 152);
+            lbPesel.Location = new Point(68, 157);
             lbPesel.Margin = new Padding(1, 0, 1, 0);
             lbPesel.Name = "lbPesel";
             lbPesel.Size = new Size(44, 20);
@@ -460,7 +459,7 @@
             // 
             lbConstEmail.AutoSize = true;
             lbConstEmail.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            lbConstEmail.Location = new Point(28, 62);
+            lbConstEmail.Location = new Point(15, 49);
             lbConstEmail.Margin = new Padding(2, 0, 2, 0);
             lbConstEmail.Name = "lbConstEmail";
             lbConstEmail.Size = new Size(53, 20);
@@ -471,7 +470,7 @@
             // 
             lbSurname.AutoSize = true;
             lbSurname.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbSurname.Location = new Point(255, 93);
+            lbSurname.Location = new Point(94, 103);
             lbSurname.Margin = new Padding(1, 0, 1, 0);
             lbSurname.Name = "lbSurname";
             lbSurname.Size = new Size(65, 20);
@@ -482,7 +481,7 @@
             // 
             lbConstSurname.AutoSize = true;
             lbConstSurname.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            lbConstSurname.Location = new Point(182, 93);
+            lbConstSurname.Location = new Point(15, 103);
             lbConstSurname.Margin = new Padding(2, 0, 2, 0);
             lbConstSurname.Name = "lbConstSurname";
             lbConstSurname.Size = new Size(76, 20);
@@ -493,7 +492,7 @@
             // 
             lbName.AutoSize = true;
             lbName.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbName.Location = new Point(80, 93);
+            lbName.Location = new Point(58, 76);
             lbName.Margin = new Padding(1, 0, 1, 0);
             lbName.Name = "lbName";
             lbName.Size = new Size(46, 20);
@@ -504,7 +503,7 @@
             // 
             lbLogin.AutoSize = true;
             lbLogin.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbLogin.Location = new Point(82, 35);
+            lbLogin.Location = new Point(66, 22);
             lbLogin.Margin = new Padding(1, 0, 1, 0);
             lbLogin.Name = "lbLogin";
             lbLogin.Size = new Size(43, 20);
@@ -515,7 +514,7 @@
             // 
             lbEmail.AutoSize = true;
             lbEmail.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbEmail.Location = new Point(82, 62);
+            lbEmail.Location = new Point(71, 49);
             lbEmail.Margin = new Padding(1, 0, 1, 0);
             lbEmail.Name = "lbEmail";
             lbEmail.Size = new Size(46, 20);
@@ -559,23 +558,31 @@
             groupBox10.Controls.Add(label2);
             groupBox10.Controls.Add(btnOrder);
             groupBox10.Controls.Add(monthCalendar);
-            groupBox10.Controls.Add(txtbxMinutes);
-            groupBox10.Controls.Add(txtbxHours);
-            groupBox10.Location = new Point(455, 224);
+            groupBox10.Location = new Point(455, 260);
             groupBox10.Margin = new Padding(2);
             groupBox10.Name = "groupBox10";
             groupBox10.Padding = new Padding(2);
-            groupBox10.Size = new Size(432, 278);
+            groupBox10.Size = new Size(432, 242);
             groupBox10.TabIndex = 15;
             groupBox10.TabStop = false;
             groupBox10.Text = "Zamówienie";
+            // 
+            // cbMinute
+            // 
+            cbMinute.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbMinute.FormattingEnabled = true;
+            cbMinute.Items.AddRange(new object[] { "00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55" });
+            cbMinute.Location = new Point(367, 97);
+            cbMinute.Name = "cbMinute";
+            cbMinute.Size = new Size(42, 23);
+            cbMinute.TabIndex = 15;
             // 
             // cbHour
             // 
             cbHour.DropDownStyle = ComboBoxStyle.DropDownList;
             cbHour.FormattingEnabled = true;
             cbHour.Items.AddRange(new object[] { "8", "9", "10", "11", "12", "13", "14", "15", "16" });
-            cbHour.Location = new Point(298, 164);
+            cbHour.Location = new Point(299, 98);
             cbHour.Name = "cbHour";
             cbHour.Size = new Size(42, 23);
             cbHour.TabIndex = 15;
@@ -584,7 +591,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(18, 42);
+            label5.Location = new Point(10, 18);
             label5.Name = "label5";
             label5.Size = new Size(145, 19);
             label5.TabIndex = 7;
@@ -594,7 +601,7 @@
             // 
             lbSum.AutoSize = true;
             lbSum.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            lbSum.Location = new Point(76, 230);
+            lbSum.Location = new Point(76, 206);
             lbSum.MaximumSize = new Size(100, 30);
             lbSum.Name = "lbSum";
             lbSum.Size = new Size(51, 28);
@@ -605,27 +612,27 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(319, 99);
+            label4.Location = new Point(322, 75);
             label4.Name = "label4";
-            label4.Size = new Size(62, 19);
+            label4.Size = new Size(64, 19);
             label4.TabIndex = 7;
-            label4.Text = "godzina:";
+            label4.Text = "Godzina:";
             // 
             // lbConstSum
             // 
             lbConstSum.AutoSize = true;
             lbConstSum.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            lbConstSum.Location = new Point(12, 233);
+            lbConstSum.Location = new Point(10, 209);
             lbConstSum.Name = "lbConstSum";
-            lbConstSum.Size = new Size(60, 25);
+            lbConstSum.Size = new Size(62, 25);
             lbConstSum.TabIndex = 7;
-            lbConstSum.Text = "suma:";
+            lbConstSum.Text = "Suma:";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(344, 120);
+            label2.Location = new Point(347, 98);
             label2.Name = "label2";
             label2.Size = new Size(14, 21);
             label2.TabIndex = 14;
@@ -634,10 +641,10 @@
             // btnOrder
             // 
             btnOrder.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnOrder.Location = new Point(298, 230);
+            btnOrder.Location = new Point(299, 205);
             btnOrder.Margin = new Padding(1);
             btnOrder.Name = "btnOrder";
-            btnOrder.Size = new Size(116, 28);
+            btnOrder.Size = new Size(110, 28);
             btnOrder.TabIndex = 3;
             btnOrder.Text = "Zamów badanie";
             btnOrder.UseVisualStyleBackColor = true;
@@ -646,78 +653,66 @@
             // monthCalendar
             // 
             monthCalendar.FirstDayOfWeek = Day.Monday;
-            monthCalendar.Location = new Point(18, 66);
+            monthCalendar.Location = new Point(10, 42);
             monthCalendar.Margin = new Padding(8, 7, 8, 7);
             monthCalendar.MaxSelectionCount = 1;
             monthCalendar.Name = "monthCalendar";
             monthCalendar.TabIndex = 2;
             // 
-            // txtbxMinutes
-            // 
-            txtbxMinutes.Location = new Point(359, 122);
-            txtbxMinutes.Name = "txtbxMinutes";
-            txtbxMinutes.Size = new Size(43, 23);
-            txtbxMinutes.TabIndex = 13;
-            // 
-            // txtbxHours
-            // 
-            txtbxHours.Location = new Point(298, 122);
-            txtbxHours.Name = "txtbxHours";
-            txtbxHours.Size = new Size(43, 23);
-            txtbxHours.TabIndex = 12;
-            // 
             // groupBox9
             // 
+            groupBox9.Controls.Add(txtbxDescription);
             groupBox9.Controls.Add(lbPrice);
-            groupBox9.Controls.Add(lbUnits);
             groupBox9.Controls.Add(lbCategory);
             groupBox9.Controls.Add(lbConstPrice);
             groupBox9.Controls.Add(lbConstCategory);
-            groupBox9.Controls.Add(lbDescription);
             groupBox9.Location = new Point(455, 8);
             groupBox9.Margin = new Padding(1);
             groupBox9.Name = "groupBox9";
             groupBox9.Padding = new Padding(1);
-            groupBox9.Size = new Size(432, 214);
+            groupBox9.Size = new Size(432, 249);
             groupBox9.TabIndex = 1;
             groupBox9.TabStop = false;
             groupBox9.Text = "Opis badania";
+            // 
+            // txtbxDescription
+            // 
+            txtbxDescription.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtbxDescription.Location = new Point(4, 20);
+            txtbxDescription.Multiline = true;
+            txtbxDescription.Name = "txtbxDescription";
+            txtbxDescription.ReadOnly = true;
+            txtbxDescription.ScrollBars = ScrollBars.Vertical;
+            txtbxDescription.Size = new Size(424, 159);
+            txtbxDescription.TabIndex = 7;
             // 
             // lbPrice
             // 
             lbPrice.AutoSize = true;
             lbPrice.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            lbPrice.Location = new Point(375, 182);
+            lbPrice.Location = new Point(57, 218);
             lbPrice.MaximumSize = new Size(55, 0);
             lbPrice.Name = "lbPrice";
-            lbPrice.Size = new Size(0, 19);
+            lbPrice.Size = new Size(38, 19);
             lbPrice.TabIndex = 6;
-            // 
-            // lbUnits
-            // 
-            lbUnits.AutoSize = true;
-            lbUnits.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            lbUnits.Location = new Point(258, 182);
-            lbUnits.MaximumSize = new Size(80, 0);
-            lbUnits.Name = "lbUnits";
-            lbUnits.Size = new Size(0, 19);
-            lbUnits.TabIndex = 5;
+            lbPrice.Text = "price";
             // 
             // lbCategory
             // 
             lbCategory.AutoSize = true;
             lbCategory.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            lbCategory.Location = new Point(81, 182);
+            lbCategory.Location = new Point(89, 191);
             lbCategory.MaximumSize = new Size(110, 0);
             lbCategory.Name = "lbCategory";
-            lbCategory.Size = new Size(0, 19);
+            lbCategory.Size = new Size(62, 19);
             lbCategory.TabIndex = 4;
+            lbCategory.Text = "category";
             // 
             // lbConstPrice
             // 
             lbConstPrice.AutoSize = true;
             lbConstPrice.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            lbConstPrice.Location = new Point(333, 181);
+            lbConstPrice.Location = new Point(4, 217);
             lbConstPrice.Name = "lbConstPrice";
             lbConstPrice.Size = new Size(47, 20);
             lbConstPrice.TabIndex = 3;
@@ -727,21 +722,11 @@
             // 
             lbConstCategory.AutoSize = true;
             lbConstCategory.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            lbConstCategory.Location = new Point(10, 182);
+            lbConstCategory.Location = new Point(4, 190);
             lbConstCategory.Name = "lbConstCategory";
             lbConstCategory.Size = new Size(79, 20);
             lbConstCategory.TabIndex = 1;
             lbConstCategory.Text = "Kategoria:";
-            // 
-            // lbDescription
-            // 
-            lbDescription.AutoSize = true;
-            lbDescription.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            lbDescription.Location = new Point(5, 20);
-            lbDescription.MaximumSize = new Size(425, 170);
-            lbDescription.Name = "lbDescription";
-            lbDescription.Size = new Size(0, 19);
-            lbDescription.TabIndex = 0;
             // 
             // groupBox8
             // 
@@ -780,7 +765,7 @@
             // lbConstCategories
             // 
             lbConstCategories.AutoSize = true;
-            lbConstCategories.Location = new Point(66, 24);
+            lbConstCategories.Location = new Point(66, 23);
             lbConstCategories.Name = "lbConstCategories";
             lbConstCategories.Size = new Size(106, 15);
             lbConstCategories.TabIndex = 2;
@@ -816,6 +801,7 @@
             // 
             // flowLayoutPanel2
             // 
+            flowLayoutPanel2.AutoScroll = true;
             flowLayoutPanel2.Location = new Point(5, 22);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(438, 472);
@@ -869,6 +855,7 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Location = new Point(9, 22);
             flowLayoutPanel1.Margin = new Padding(2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -886,16 +873,6 @@
             groupBox11.TabIndex = 1;
             groupBox11.TabStop = false;
             groupBox11.Text = "Zrealizowane";
-            // 
-            // cbMinute
-            // 
-            cbMinute.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbMinute.FormattingEnabled = true;
-            cbMinute.Items.AddRange(new object[] { "00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55" });
-            cbMinute.Location = new Point(359, 164);
-            cbMinute.Name = "cbMinute";
-            cbMinute.Size = new Size(42, 23);
-            cbMinute.TabIndex = 15;
             // 
             // ClientView
             // 
@@ -980,10 +957,8 @@
         private ComboBox cbCategorySort;
         private Label lbConstCategories;
         private TextBox txtbxSearch;
-        private Label lbDescription;
         private Label lbConstCategory;
         private Label lbPrice;
-        private Label lbUnits;
         private Label lbCategory;
         private Label lbConstPrice;
         private Label lbConstSum;
@@ -994,8 +969,6 @@
         private Label label3;
         private Label label4;
         private Label label2;
-        private TextBox txtbxMinutes;
-        private TextBox txtbxHours;
         private GroupBox groupBox4;
         private GroupBox groupBox3;
         private Label lbStats1;
@@ -1006,5 +979,6 @@
         private GroupBox groupBox11;
         private ComboBox cbHour;
         private ComboBox cbMinute;
+        private TextBox txtbxDescription;
     }
 }

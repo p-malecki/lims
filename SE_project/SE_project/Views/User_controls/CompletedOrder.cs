@@ -41,24 +41,15 @@ namespace SE_project
             listbxCompletedTests.DataSource = testNames;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {/*
-            using (var popupForm = new OrderDetails())
+        private void btnDetails_Click(object sender, EventArgs e)
+        {
+            using (var popupForm = new OrderDetails(completedOrder))
             {
-                var result = popupForm.ShowDialog(); // Wywołanie formularza modalnego
-
-                if (result == DialogResult.OK)
-                {
-                    
-                }
-                    UserManagement.ChangeAccountStatus(activeClient.ID, activeClient.Type);
-
-                this.Close();
-                UserManagement.LogOutUser();
-            }*/
+                var result = popupForm.ShowDialog();
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnPDFGenerate_Click(object sender, EventArgs e)
         {
 
         }
