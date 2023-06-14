@@ -70,7 +70,7 @@ namespace SE_project.controllers
             public static bool RegisterTechnician(string login, string password, string name, string surname,
             DateTime birthdate, string pesel, string residence, string phoneNum)
         {
-            int id = _techniciansAccounts.Count();
+            int id = _techniciansAccounts.Count() + 1;
             login = login.ToLower();
             if (IsValidLogin(login) && !IsLoginAlreadyUsed(login, 1))
                 if (IsValidPassword(password) && IsValidBirthdate(birthdate) && name.Length != 0 && surname.Length != 0)

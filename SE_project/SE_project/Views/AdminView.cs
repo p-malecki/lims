@@ -95,7 +95,7 @@ namespace SE_project
             lbBirthdateAccountData.Text = selectedTechnician.GetBirthdateAsString();
             lbPeselAccountData.Text = selectedTechnician.Pesel;
             lbResidenceAccountData.Text = selectedTechnician.Residence;
-            lbStatusAccountData.Text = selectedTechnician.Status.ToString();
+            lbStatusAccountData.Text = selectedTechnician.Status ? "aktywne" : "nieaktywne";
 
             btnChangeAccountStatus.Text = (!selectedTechnician.Status) ? "aktywuj konto" : "dezaktywuj konto";
 
@@ -151,7 +151,7 @@ namespace SE_project
 
         private void btnAddTest_Click(object sender, EventArgs e)
         {
-            TestManagement.CreateTest(
+            if (TestManagement.CreateTest(
                     txtbAddTestName.Text,
                     cbAddTestType.Text,
                     rtxtbAddTestDescription.Text.ToString(),
@@ -159,8 +159,10 @@ namespace SE_project
                     numAddTestMax.Value,
                     Test.GetUnitID(cbAddTestUnits.GetItemText(cbAddTestUnits.SelectedValue)),
                     numAddTestPrice.Value
-                );
-            TestManagement.LoadTestLists();
+                ) == true)
+            {
+                TestManagement.LoadTestLists();
+            }
         }
 
         private void btnDelType_Click(object sender, EventArgs e)

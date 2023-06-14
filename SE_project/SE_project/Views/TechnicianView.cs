@@ -406,6 +406,7 @@ namespace SE_project
             lbCompletedResult.Text = "";
             lbCompletedUnits.Text = "";
             lbToFillClientID.Text = "";
+            lbCompletedClientID.Text = "";
         }
     }
 }

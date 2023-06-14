@@ -28,6 +28,7 @@ namespace SE_project
         {
             TestManagement.RemoveTest(Int32.Parse(testID.Text.Substring(4)));
             TestManagement.LoadTestLists();
+            MessageBox.Show("Usunięto badanie.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

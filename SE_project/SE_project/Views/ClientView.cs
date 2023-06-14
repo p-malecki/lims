@@ -330,7 +330,7 @@ namespace SE_project
                     this.Close();
                     UserManagement.LogOutUser();
                 }
-                
+
             }
         }
 
