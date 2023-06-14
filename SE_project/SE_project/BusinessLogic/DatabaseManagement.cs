@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using System.Xml;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace SE_project.controllers
 {
@@ -466,6 +467,42 @@ namespace SE_project.controllers
                 string insertSql = "UPDATE Tests SET {0} WHERE testID={1};";
                 var affectedRow = cnn.Execute(string.Format(insertSql, data, id));
                 return (affectedRow > 0) ? true : false;
+            }
+        }
+
+       public static void UpdateOrderStatus(int orderId, int newStatus)
+        {
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string insertSql = "UPDATE Orders SET status = " + newStatus.ToString() + " WHERE orderID = " + orderId.ToString();
+                var affectedRow = cnn.Execute(insertSql);
+            }
+        }
+
+        public static void UpdateOrderTechnician(int orderId, int id)
+        {
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string insertSql = "UPDATE Orders SET technicianID = " + id.ToString() + " WHERE orderID = " + orderId.ToString();
+                var affectedRow = cnn.Execute(insertSql);
+            }
+        }
+
+        public static void ChangeClientTestResult(int clientTestId, string result)
+        {
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string insertSql = "UPDATE ClientTest SET result = " + result + " WHERE clientTestID = " + clientTestId.ToString();
+                var affectedRow = cnn.Execute(insertSql);
+            }
+        }
+
+        public static void ChangeClientTestStatusToFilled(int clientTestId)
+        {
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string insertSql = "UPDATE ClientTest SET status = 1 WHERE clientTestID = " + clientTestId.ToString();
+                var affectedRow = cnn.Execute(insertSql);
             }
         }
 

@@ -41,5 +41,60 @@ namespace SE_project.controllers
 
             return (filled, completed, denied);
         }
+
+        public static void changeFromAcceptedToFill(int orderId)
+        {
+            foreach (Order order in _toAcceptOrderList)
+            {
+                if (order.ID == orderId)
+                {
+                    order.Status = 1;
+                    _toFillOrderList.Add(order);
+                    _toAcceptOrderList.Remove(order);
+                    return;
+                }
+            }
+        }
+        public static void changeFromAcceptedToDenied(int orderId)
+        {
+            foreach (Order order in _toAcceptOrderList)
+            {
+                if (order.ID == orderId)
+                {
+                    order.Status = -1;
+                    _deniedOrderList.Add(order);
+                    _toAcceptOrderList.Remove(order);
+                    return;
+                }
+            }
+        }
+
+        public static void changeFromToFillToAccepted(int orderId)
+        {
+            foreach (Order order in _toFillOrderList)
+            {
+                if (order.ID == orderId)
+                {
+                    order.Status = 2;
+                    _completedOrderList.Add(order);
+                    _toFillOrderList.Remove(order);
+                    return;
+                }
+            }
+        }
+
+        public static void changeOrderTechnician(int orderId, int technicianId)
+        {
+            foreach (Order order in _toAcceptOrderList)
+            {
+                if (order.ID == orderId)
+                {
+                    order.TechnicianID = technicianId;
+                    return;
+                }
+            }
+        }
+
+
     }
 }
