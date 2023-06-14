@@ -131,6 +131,7 @@ namespace SE_project
             monthCalendar.SelectionStart = monthCalendar.TodayDate;
             monthCalendar.SelectionEnd = monthCalendar.TodayDate;
         }
+
         private void cbCategorySort_SelectedValueChanged(object sender, EventArgs e)
         {
             if (!cbCategorySort.SelectedValue.Equals("<wszystkie kategorie>"))
@@ -191,8 +192,20 @@ namespace SE_project
             {
                 foreach (Test t in TestManagement.testList)
                 {
+                    bool stopLoop = false;
+
                     if ((t.Name.Equals(testName)))
                     {
+                        foreach (String name in checkedTests)
+                            if (t.Name == name)
+                            {
+                                stopLoop = true;
+                                break;
+                            }
+
+                        if (stopLoop)
+                            break;
+
                         checkedTests.Add(testName);
                         sum += t.Price;
                         break;

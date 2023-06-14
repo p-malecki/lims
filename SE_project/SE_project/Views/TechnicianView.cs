@@ -365,7 +365,7 @@ namespace SE_project
 
                     MessageBox.Show("Edytowano wynik!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     listbxToFillTests.SelectedItem = null;
-
+                    lbCompletedResult.Text = textBox1.Text;
                     textBox5.Text = "";
                 }
                 else
