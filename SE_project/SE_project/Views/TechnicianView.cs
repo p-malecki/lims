@@ -305,7 +305,7 @@ namespace SE_project
 
                         reloadOrders();
 
-                        MessageBox.Show("Order completed", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Zamówienie zrealizowane!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
@@ -326,22 +326,22 @@ namespace SE_project
 
             listbxCompletedTests.DataSource = null;
             listbxCompletedTests.Items.Clear();
-            listbxCompletedTests.DataSource = tFOTestNames[listbxCompletedOrders.SelectedIndex];
+            listbxCompletedTests.DataSource = cOTestNames[listbxCompletedOrders.SelectedIndex];
             listbxCompletedTests.SelectedItem = null;
 
-            lbCompletedOrderID.Text = toFillOrders[listbxCompletedOrders.SelectedIndex].ID.ToString();
-            lbCompletedClientID.Text = toFillOrders[listbxCompletedOrders.SelectedIndex].ClientID.ToString();
+            lbCompletedOrderID.Text = completedOrders[listbxCompletedOrders.SelectedIndex].ID.ToString();
+            lbCompletedClientID.Text = completedOrders[listbxCompletedOrders.SelectedIndex].ClientID.ToString();
         }
 
         private void listBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listbxCompletedTests.SelectedIndex >= 0)
             {
-                lbCompletedClientTestID.Text = toFillOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex].ID.ToString();
-                lbCompletedTestName.Text = TestManagement.getClientTestName(toFillOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex]);
-                lbCompletedTestType.Text = TestTypeManagement.GetTypeName(toFillOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex].TestID);
-                lbCompletedResult.Text = toFillOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex].Result;
-                lbCompletedUnits.Text = TestManagement.getClientTestUnitStringAbbrev(toFillOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex]);
+                lbCompletedClientTestID.Text = completedOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex].ID.ToString();
+                lbCompletedTestName.Text = TestManagement.getClientTestName(completedOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex]);
+                lbCompletedTestType.Text = TestTypeManagement.GetTypeName(completedOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex].TestID);
+                lbCompletedResult.Text = completedOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex].Result;
+                lbCompletedUnits.Text = TestManagement.getClientTestUnitStringAbbrev(completedOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex]);
             }
             else
             {

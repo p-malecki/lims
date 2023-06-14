@@ -34,7 +34,6 @@
             label2 = new Label();
             label1 = new Label();
             btnDetails = new Button();
-            btnPDFGenerate = new Button();
             SuspendLayout();
             // 
             // listbxCompletedTests
@@ -88,7 +87,7 @@
             // 
             // btnDetails
             // 
-            btnDetails.Location = new Point(203, 7);
+            btnDetails.Location = new Point(201, 22);
             btnDetails.Name = "btnDetails";
             btnDetails.Size = new Size(91, 29);
             btnDetails.TabIndex = 16;
@@ -96,22 +95,12 @@
             btnDetails.UseVisualStyleBackColor = true;
             btnDetails.Click += btnDetails_Click;
             // 
-            // btnPDFGenerate
-            // 
-            btnPDFGenerate.Location = new Point(203, 40);
-            btnPDFGenerate.Name = "btnPDFGenerate";
-            btnPDFGenerate.Size = new Size(91, 29);
-            btnPDFGenerate.TabIndex = 17;
-            btnPDFGenerate.Text = "Raport PDF";
-            btnPDFGenerate.UseVisualStyleBackColor = true;
-            // 
             // CompletedOrder
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BorderStyle = BorderStyle.FixedSingle;
-            Controls.Add(btnPDFGenerate);
             Controls.Add(btnDetails);
             Controls.Add(listbxCompletedTests);
             Controls.Add(lbCompletedDate);
@@ -131,6 +120,5 @@
         private Label label2;
         private Label label1;
         private Button btnDetails;
-        private Button btnPDFGenerate;
     }
 }
