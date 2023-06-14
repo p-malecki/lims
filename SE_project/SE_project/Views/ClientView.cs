@@ -320,16 +320,17 @@ namespace SE_project
 
         private void btnUserAccountDelete_Click(object sender, EventArgs e)
         {
-            //TODO
             using (var popupForm = new AccountDeleteConfimation())
             {
-                var result = popupForm.ShowDialog(); // Wywołanie formularza modalnego
+                var result = popupForm.ShowDialog();
 
                 if (result == DialogResult.OK)
+                {
                     UserManagement.ChangeAccountStatus(activeClient.ID, activeClient.Type);
-
-                this.Close();
-                UserManagement.LogOutUser();
+                    this.Close();
+                    UserManagement.LogOutUser();
+                }
+                
             }
         }
 

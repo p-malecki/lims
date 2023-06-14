@@ -26,21 +26,7 @@ namespace SE_project
         {
             InitializeComponent();
             LoadUnacteptedTests();
-            label22.Text = "";
-            label23.Text = "";
-            label24.Text = "";
-            label26.Text = "";
-            label27.Text = "";
-            label28.Text = "";
-            label29.Text = "";
-            label30.Text = "";
-            label31.Text = "";
-            label33.Text = "";
-            label37.Text = "";
-            label38.Text = "";
-            label39.Text = "";
-            label40.Text = "";
-            label41.Text = "";
+            resetLabels();
         }
 
         private void sortlistbox(ListBox listBox, string toAdd)
@@ -66,7 +52,7 @@ namespace SE_project
             foreach (string s in sortedList.Items)
                 listBox.Items.Add(s);
         }
-        
+
         private void LoadUnacteptedTests()
         {
             listBox1.Items.Clear();
@@ -186,6 +172,7 @@ namespace SE_project
                     }
                 }
                 label26.Text = SelectedOrder.ID.ToString();
+                label45.Text = SelectedOrder.ClientID.ToString();
             }
         }
 
@@ -264,6 +251,7 @@ namespace SE_project
                     }
                 }
                 label36.Text = SelectedOrder.ID.ToString();
+                label48.Text = SelectedOrder.ClientID.ToString();
             }
         }
 
@@ -276,12 +264,12 @@ namespace SE_project
             label37.Text = SelectedTest.ID.ToString();
             label38.Text = SelectedTest.Name;
             label39.Text = TestTypeManagement.GetTypeName(SelectedTest.Type);
-            label41.Text = SelectedTest.GetUnitStringFull();
+            label41.Text = SelectedTest.GetUnitStringAbbrev();
             foreach (ClientTest c in SelectedOrder.Tests)
             {
                 if (c.TestID.Equals(SelectedTest.ID))
                 {
-                    label40.Text = c.Result + "  " + SelectedTest.GetUnitStringFull();
+                    label40.Text = c.Result + "  " + SelectedTest.GetUnitStringAbbrev();
                 }
                 break;
             }
@@ -299,19 +287,34 @@ namespace SE_project
             }
 
         }
-        private void btnLogout1_Click(object sender, EventArgs e)
+        private void btnTechnicianLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
+            UserManagement.LogOutUser();
         }
 
-        private void btnLogout2_Click(object sender, EventArgs e)
+        private void resetLabels()
         {
-            this.Close();
-        }
-
-        private void btnLogout3_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            label19.Text = "";
+            label20.Text = "";
+            label21.Text = "";
+            label22.Text = "";
+            label23.Text = "";
+            label24.Text = "";
+            label26.Text = "";
+            label27.Text = "";
+            label28.Text = "";
+            label29.Text = "";
+            label30.Text = "";
+            label31.Text = "";
+            label33.Text = "";
+            label36.Text = "";
+            label37.Text = "";
+            label38.Text = "";
+            label39.Text = "";
+            label40.Text = "";
+            label41.Text = "";
+            label45.Text = "";
         }
 
     }
