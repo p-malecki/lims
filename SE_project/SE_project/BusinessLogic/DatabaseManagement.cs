@@ -410,14 +410,14 @@ namespace SE_project.controllers
             }
         }
 
-        public static bool isNotOrderedTwice(DateTime date)
+        public static bool isNotOrderedTwice(int clientId,DateTime date)
         {
             using (var cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 var querySql = "SELECT * FROM Orders WHERE date LIKE '" + date.Day.ToString() + ".";
                 if (date.Month < 10)
                     querySql += '0';
-                querySql += date.Month.ToString() + "." + date.Year.ToString() + "%'";
+                querySql += date.Month.ToString() + "." + date.Year.ToString() + "%' AND status != 2 AND status != -1 AND clientID = " + clientId.ToString();
                 var testsData = cnn.Query(querySql);
                 foreach (var t in testsData)
                 {

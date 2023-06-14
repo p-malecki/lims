@@ -243,7 +243,7 @@ namespace SE_project
             {
                 if (monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Saturday && monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Sunday)
                 {
-                    if (DatabaseManagement.isNotOrderedTwice(selectedDate))
+                    if (DatabaseManagement.isNotOrderedTwice(activeClient.ID ,selectedDate))
                     {
                         List<Test> orderedTests = new List<Test>();
 
