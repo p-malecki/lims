@@ -33,7 +33,7 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
             label1 = new Label();
-            btnLogout = new Button();
+            btnLogout1 = new Button();
             groupBox2 = new GroupBox();
             btnAddType = new Button();
             txtbAddTypeName = new TextBox();
@@ -59,7 +59,7 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             panel2 = new Panel();
             label9 = new Label();
-            button1 = new Button();
+            btnLogout2 = new Button();
             groupBox3 = new GroupBox();
             btnDelType = new Button();
             cbDelSelectType = new ComboBox();
@@ -68,7 +68,7 @@
             tabPage2 = new TabPage();
             tabPage3 = new TabPage();
             splitContainer3 = new SplitContainer();
-            button2 = new Button();
+            btnLogout3 = new Button();
             groupBox5 = new GroupBox();
             btnChangeAccountStatus = new Button();
             groupBox7 = new GroupBox();
@@ -161,7 +161,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(btnLogout);
+            splitContainer1.Panel2.Controls.Add(btnLogout1);
             splitContainer1.Panel2.Controls.Add(groupBox2);
             splitContainer1.Panel2.Controls.Add(groupBox1);
             splitContainer1.Size = new Size(1326, 888);
@@ -200,16 +200,16 @@
             label1.TabIndex = 0;
             label1.Text = "Lista badań";
             // 
-            // btnLogout
+            // btnLogout1
             // 
-            btnLogout.Location = new Point(430, 33);
-            btnLogout.Margin = new Padding(2, 3, 2, 3);
-            btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(108, 33);
-            btnLogout.TabIndex = 13;
-            btnLogout.Text = "Wyloguj";
-            btnLogout.UseVisualStyleBackColor = true;
-            btnLogout.Click += btnLogout_Click;
+            btnLogout1.Location = new Point(430, 33);
+            btnLogout1.Margin = new Padding(2, 3, 2, 3);
+            btnLogout1.Name = "btnLogout1";
+            btnLogout1.Size = new Size(108, 33);
+            btnLogout1.TabIndex = 13;
+            btnLogout1.Text = "Wyloguj";
+            btnLogout1.UseVisualStyleBackColor = true;
+            btnLogout1.Click += btnLogout_Click;
             // 
             // groupBox2
             // 
@@ -458,7 +458,7 @@
             // 
             // splitContainer2.Panel2
             // 
-            splitContainer2.Panel2.Controls.Add(button1);
+            splitContainer2.Panel2.Controls.Add(btnLogout2);
             splitContainer2.Panel2.Controls.Add(groupBox3);
             splitContainer2.Size = new Size(1326, 888);
             splitContainer2.SplitterDistance = 750;
@@ -496,15 +496,16 @@
             label9.TabIndex = 0;
             label9.Text = "Lista badań";
             // 
-            // button1
+            // btnLogout2
             // 
-            button1.Location = new Point(430, 33);
-            button1.Margin = new Padding(2, 3, 2, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(108, 33);
-            button1.TabIndex = 14;
-            button1.Text = "Wyloguj";
-            button1.UseVisualStyleBackColor = true;
+            btnLogout2.Location = new Point(430, 33);
+            btnLogout2.Margin = new Padding(2, 3, 2, 3);
+            btnLogout2.Name = "btnLogout2";
+            btnLogout2.Size = new Size(108, 33);
+            btnLogout2.TabIndex = 14;
+            btnLogout2.Text = "Wyloguj";
+            btnLogout2.UseVisualStyleBackColor = true;
+            btnLogout2.Click += btnLogout_Click;
             // 
             // groupBox3
             // 
@@ -599,7 +600,7 @@
             // 
             // splitContainer3.Panel1
             // 
-            splitContainer3.Panel1.Controls.Add(button2);
+            splitContainer3.Panel1.Controls.Add(btnLogout3);
             splitContainer3.Panel1.Controls.Add(groupBox5);
             // 
             // splitContainer3.Panel2
@@ -610,15 +611,16 @@
             splitContainer3.SplitterWidth = 3;
             splitContainer3.TabIndex = 0;
             // 
-            // button2
+            // btnLogout3
             // 
-            button2.Location = new Point(1182, 33);
-            button2.Margin = new Padding(2, 3, 2, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(108, 33);
-            button2.TabIndex = 15;
-            button2.Text = "Wyloguj";
-            button2.UseVisualStyleBackColor = true;
+            btnLogout3.Location = new Point(1182, 33);
+            btnLogout3.Margin = new Padding(2, 3, 2, 3);
+            btnLogout3.Name = "btnLogout3";
+            btnLogout3.Size = new Size(108, 33);
+            btnLogout3.TabIndex = 15;
+            btnLogout3.Text = "Wyloguj";
+            btnLogout3.UseVisualStyleBackColor = true;
+            btnLogout3.Click += btnLogout_Click;
             // 
             // groupBox5
             // 
@@ -938,7 +940,7 @@
             // txtbNewPhoneNum
             // 
             txtbNewPhoneNum.Location = new Point(667, 191);
-            txtbNewPhoneNum.Margin = new Padding(2, 2, 2, 2);
+            txtbNewPhoneNum.Margin = new Padding(2);
             txtbNewPhoneNum.Name = "txtbNewPhoneNum";
             txtbNewPhoneNum.Size = new Size(242, 31);
             txtbNewPhoneNum.TabIndex = 55;
@@ -1210,7 +1212,7 @@
         private GroupBox groupBox3;
         private Button btnDelType;
         private ComboBox cbDelSelectType;
-        private Button btnLogout;
+        private Button btnLogout1;
         private Label label11;
         private NumericUpDown numAddTestPrice;
         private Label label10;
@@ -1259,8 +1261,8 @@
         private Label label2;
         private Label lbPhoneNumAccountData;
         private Label label19;
-        private Button button1;
-        private Button button2;
+        private Button btnLogout2;
+        private Button btnLogout3;
         private Label lbStat1AccountData;
         private Label lbStat2AccountData;
         private Label lbStat3AccountData;

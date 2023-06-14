@@ -16,11 +16,14 @@ namespace SE_project.Views.User_controls
         public ResultControl(ClientTest test)
         {
             InitializeComponent();
-            lbName.Text = TestManagement.getClientTestName(test);
-            lbResult.Text = test.Result + " " + TestManagement.getClientTestUnitStringAbbrev(test);
-
             decimal min = TestManagement.getClientTestMin(test);
             decimal max = TestManagement.getClientTestMax(test);
+
+            lbName.Text = TestManagement.getClientTestName(test);
+            lbResult.Text = test.Result + " " + TestManagement.getClientTestUnitStringAbbrev(test);
+            if (decimal.Parse(test.Result) < min || decimal.Parse(test.Result) > max)
+                lbResult.ForeColor = Color.Red;
+
 
             if (min != 0 && max != 0)
             {
