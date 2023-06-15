@@ -19,169 +19,102 @@ namespace SE_project
     {
         User activeUser;
 
-        public List<Order> toAcceptOrders = OrderManagement.toAcceptOrderList;
-        public List<Order> toFillOrders = OrderManagement.toFillOrderList;
-        public List<Order> completedOrders = OrderManagement.completedOrderList;
-
-        public List<List<ClientTest>> tAOTest = new List<List<ClientTest>>();
-        public List<List<ClientTest>> tFOTest = new List<List<ClientTest>>();
-        public List<List<ClientTest>> cOTest = new List<List<ClientTest>>();
-
-        List<List<String>> tAOTestNames = new List<List<String>>();
-        List<List<String>> tFOTestNames = new List<List<String>>();
-        List<List<String>> cOTestNames = new List<List<String>>();
-
+        public List<Test> listTests = new List<Test>();
+        public List<Test> listTestsFromManagemant = new List<Test>();
+        Order SelectedOrder = new Order();
+        Test SelectedTest = new Test();
+        private void sortlistbox(ListBox listBox, string toAdd)
+        {
+            ListBox sortedList = new ListBox();
+            string date1 = toAdd.Substring(toAdd.IndexOf(" "), toAdd.Length - 2);
+            bool add = true;
+            foreach (string s in listBox.Items)
+            {
+                string date2 = s.Substring(s.IndexOf(" "), s.Length - 2);
+                DateTime dt1 = DateTime.Parse(date1);
+                DateTime dt2 = DateTime.Parse(date2);
+                if (dt1 < dt2 && add == true)
+                {
+                    sortedList.Items.Add(toAdd);
+                    add = false;
+                }
+                sortedList.Items.Add(s);
+            }
+            if (add)
+                sortedList.Items.Add(toAdd);
+            listBox.Items.Clear();
+            foreach (string s in sortedList.Items)
+                listBox.Items.Add(s);
+        }
         public TechnicianView()
         {
-            InitializeComponent();
-
-            activeUser = UserManagement.ActiveUser;
-
             TestManagement.Initialize();
             TestTypeManagement.Initialize();
             OrderManagement.Initialize();
-
-            LoadOrders();
+            activeUser = UserManagement.ActiveUser;
+            InitializeComponent();
             LoadTestsForOrders();
-            resetLabels();
-
-            listbxToAcceptOrders.SelectedItem = null;
-            listbxToFillOrders.SelectedItem = null;
-            listbxCompletedOrders.SelectedItem = null;
         }
-
-        private void sortOrders()
-        {
-            toAcceptOrders.Sort((x, y) => x.Date.CompareTo(y.Date));
-            toFillOrders.Sort((x, y) => x.Date.CompareTo(y.Date));
-            completedOrders.Sort((x, y) => x.Date.CompareTo(y.Date));
-        }
-
-        private void LoadOrders()
-        {
-            toAcceptOrders = OrderManagement.toAcceptOrderList;
-            toFillOrders = OrderManagement.toFillOrderList;
-            completedOrders = OrderManagement.completedOrderList;
-
-            sortOrders();
-
-            List<String> tOANames = new List<String>();
-            List<String> tFONames = new List<String>();
-            List<String> cONames = new List<String>();
-
-            foreach (Order tOA in toAcceptOrders)
-                tOANames.Add(tOA.Date.ToString());
-            foreach (Order tFO in toFillOrders)
-                tFONames.Add(tFO.Date.ToString());
-            foreach (Order cON in completedOrders)
-                cONames.Add(cON.Date.ToString());
-
-            listbxToAcceptOrders.DataSource = tOANames;
-            listbxToFillOrders.DataSource = tFONames;
-            listbxCompletedOrders.DataSource = cONames;
-        }
-
         private void LoadTestsForOrders()
         {
-            tAOTest.Clear();
-            tFOTest.Clear();
-            cOTest.Clear();
-
-            tAOTestNames.Clear();
-            tFOTestNames.Clear();
-            cOTestNames.Clear();
-
-            foreach (Order tOA in toAcceptOrders)
-            {
-                tAOTest.Add(DatabaseManagement.GetClientTests(tOA.ID));
-
-                int lastElementIndex = tAOTest.Count - 1;
-
-                List<String> tempList = new List<String>();
-
-                foreach (ClientTest ct in tAOTest[lastElementIndex])
-                {
-                    tempList.Add(TestManagement.getClientTestName(ct));
-                }
-
-                tAOTestNames.Add(tempList);
-            }
-
-            foreach (Order tFO in toFillOrders)
-            {
-                tFOTest.Add(DatabaseManagement.GetClientTests(tFO.ID));
-
-                int lastElementIndex = tFOTest.Count - 1;
-
-                List<String> tempList = new List<String>();
-
-                foreach (ClientTest ct in tFOTest[lastElementIndex])
-                {
-                    tempList.Add(TestManagement.getClientTestName(ct));
-                }
-
-                tFOTestNames.Add(tempList);
-            }
-
-            foreach (Order cO in completedOrders)
-            {
-                cOTest.Add(DatabaseManagement.GetClientTests(cO.ID));
-
-                int lastElementIndex = cOTest.Count - 1;
-
-                List<String> tempList = new List<String>();
-
-                foreach (ClientTest ct in cOTest[lastElementIndex])
-                {
-                    tempList.Add(TestManagement.getClientTestName(ct));
-                }
-
-                cOTestNames.Add(tempList);
-            }
-        }
-
-        private void reloadOrders()
-        {
-            listbxToAcceptOrders.DataSource = null;
+            resetLabels();
             listbxToAcceptOrders.Items.Clear();
-            listbxToAcceptTests.DataSource = null;
-            listbxToAcceptTests.Items.Clear();
-
-            listbxToFillOrders.DataSource = null;
-            listbxToFillOrders.Items.Clear();
-            listbxToFillTests.DataSource = null;
-            listbxToFillTests.Items.Clear();
-
-            listbxCompletedOrders.DataSource = null;
-            listbxCompletedOrders.Items.Clear();
-            listbxCompletedTests.DataSource = null;
-            listbxCompletedTests.Items.Clear();
-
-            LoadOrders();
-            LoadTestsForOrders();
+            List<int> listOrder = new List<int>();
+            listTestsFromManagemant.AddRange(TestManagement.testList);
+            foreach (Order o in OrderManagement.toAcceptOrderList)
+                sortlistbox(listbxToAcceptOrders, o.ID.ToString() + " " + o.Date.ToString());
+            foreach (Order o in OrderManagement.toFillOrderList)
+                sortlistbox(listbxToFillOrders, o.ID.ToString() + " " + o.Date.ToString());
+            foreach (Order o in OrderManagement.completedOrderList)
+                sortlistbox(listbxCompletedOrders, o.ID.ToString() + " " + o.Date.ToString());
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listbxToAcceptOrders.SelectedIndex < 0 || listbxToAcceptOrders.SelectedIndex >= tAOTestNames.Count)
-                return;
-
-            listbxToAcceptTests.DataSource = null;
             listbxToAcceptTests.Items.Clear();
-            listbxToAcceptTests.DataSource = tAOTestNames[listbxToAcceptOrders.SelectedIndex];
-            listbxToAcceptTests.SelectedItem = null;
+            listTests.Clear();
+            if (listbxToAcceptOrders.SelectedItem != null)
+            {
+                string selectedCategory = listbxToAcceptOrders.SelectedItem.ToString();
+                string selectedId = selectedCategory.Substring(0, selectedCategory.IndexOf(" "));
+                foreach (Order o in OrderManagement.toAcceptOrderList)
+                {
+                    if (o.ID.ToString().Equals(selectedId))
+                    {
+                        SelectedOrder = o;
+                        for (int i = 0; i < o.Tests.Count; i++)
+                        {
+                            foreach (Test t in TestManagement.testList)
+                            {
+                                if (t.ID.Equals(o.Tests[i].TestID))
+                                {
+                                    listTests.Add(t);
+                                    listbxToAcceptTests.Items.Add(t.Name);
+                                }
 
-            lbToAcceptOrderID.Text = toAcceptOrders[listbxToAcceptOrders.SelectedIndex].ID.ToString();
-            lbToAcceptDate.Text = toAcceptOrders[listbxToAcceptOrders.SelectedIndex].Date.ToString();
+                            }
+                        }
+                        break;
+                    }
+
+                }
+                lbToAcceptOrderID.Text = SelectedOrder.ID.ToString();
+                lbToAcceptDate.Text = SelectedOrder.Date.ToString();
+            }
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listbxToAcceptTests.SelectedIndex >= 0)
             {
-                lbToAcceptTestID.Text = toAcceptOrders[listbxToAcceptOrders.SelectedIndex].Tests[listbxToAcceptTests.SelectedIndex].ID.ToString();
-                lbToAcceptTestName.Text = TestManagement.getClientTestName(toAcceptOrders[listbxToAcceptOrders.SelectedIndex].Tests[listbxToAcceptTests.SelectedIndex]);
-                lbToAcceptTestType.Text = TestTypeManagement.GetTypeName(toAcceptOrders[listbxToAcceptOrders.SelectedIndex].Tests[listbxToAcceptTests.SelectedIndex].TestID);
+                var selectedCategoryTestsIndex = listbxToAcceptTests.SelectedIndex;
+                if (selectedCategoryTestsIndex.Equals(-1))
+                    selectedCategoryTestsIndex = SelectedOrder.Tests.Count - 1;
+                var SelectedTest = listTests[selectedCategoryTestsIndex];
+                SelectedTest = listTests[selectedCategoryTestsIndex];
+                lbToAcceptTestID.Text = SelectedTest.ID.ToString();
+                lbToAcceptTestName.Text = SelectedTest.Name;
+                lbToAcceptTestType.Text = SelectedTest.Type.ToString();
             }
             else
             {
@@ -195,14 +128,16 @@ namespace SE_project
         {
             if (listbxToAcceptOrders.SelectedIndex >= 0)
             {
-                int orderID = toAcceptOrders[listbxToAcceptOrders.SelectedIndex].ID;
-                DatabaseManagement.UpdateOrderStatus(orderID, 1);
-                DatabaseManagement.UpdateOrderTechnician(orderID, activeUser.ID);
-
-                OrderManagement.changeFromAcceptedToFill(orderID);
-                OrderManagement.changeOrderTechnician(orderID, activeUser.ID);
-
-                reloadOrders();
+                if (OrderManagement.toAcceptOrderList.Count > 0)
+                {
+                    DatabaseManagement.UpdateOrderStatus(SelectedOrder.ID, 1);
+                    DatabaseManagement.UpdateOrderTechnician(SelectedOrder.ID, activeUser.ID);
+                    SelectedOrder.Status = 1;
+                    OrderManagement.toAcceptOrderList.Remove(SelectedOrder);
+                    OrderManagement.toFillOrderList.Add(SelectedOrder);
+                    listbxToAcceptOrders.Items.Remove(SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
+                    sortlistbox(listbxToFillOrders, SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
+                }
 
                 MessageBox.Show("Zaakceptowano zamówienie!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -215,13 +150,14 @@ namespace SE_project
         {
             if (listbxToAcceptOrders.SelectedIndex >= 0)
             {
-                int orderID = toAcceptOrders[listbxToAcceptOrders.SelectedIndex].ID;
-                DatabaseManagement.UpdateOrderStatus(orderID, -1);
-
-                OrderManagement.changeFromAcceptedToDenied(orderID);
-
-                reloadOrders();
-
+                if (OrderManagement.toAcceptOrderList.Count > 0)
+                {
+                    SelectedOrder.Status = -1;
+                    OrderManagement.toAcceptOrderList.Remove(SelectedOrder);
+                    OrderManagement.deniedOrderList.Add(SelectedOrder);
+                    DatabaseManagement.UpdateOrderStatus(SelectedOrder.ID, -1);
+                    listbxToAcceptOrders.Items.Remove(SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
+                }
                 MessageBox.Show("Odrzucono zamówienie!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -232,28 +168,54 @@ namespace SE_project
 
         private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listbxToFillOrders.SelectedIndex < 0 || listbxToFillOrders.SelectedIndex >= tFOTestNames.Count)
-                return;
-
-            listbxToFillTests.DataSource = null;
             listbxToFillTests.Items.Clear();
-            listbxToFillTests.DataSource = tFOTestNames[listbxToFillOrders.SelectedIndex];
-            listbxToFillTests.SelectedItem = null;
+            listTests.Clear();
+            if (listbxToFillOrders.SelectedItem != null)
+            {
+                string selectedCategory = listbxToFillOrders.SelectedItem.ToString();
+                string selectedId = selectedCategory.Substring(0, selectedCategory.IndexOf(" "));
+                foreach (Order o in OrderManagement.toFillOrderList)
+                {
+                    if (o.ID.ToString().Equals(selectedId))
+                    {
+                        SelectedOrder = o;
+                        for (int i = 0; i < o.Tests.Count; i++)
+                        {
+                            foreach (Test t in listTestsFromManagemant)
+                            {
+                                if (t.ID.Equals(o.Tests[i].TestID))
+                                {
+                                    listTests.Add(t);
+                                    listbxToFillTests.Items.Add(t.Name);
+                                }
 
-            lbToFillOrderID.Text = toFillOrders[listbxToFillOrders.SelectedIndex].ID.ToString();
-            lbToFillClientID.Text = toFillOrders[listbxToFillOrders.SelectedIndex].ClientID.ToString();
+                            }
+                        }
+                        break;
+                    }
+                }
+                lbToFillOrderID.Text = SelectedOrder.ID.ToString();
+                lbToFillClientID.Text = SelectedOrder.ClientID.ToString();
+            }
         }
 
         private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listbxToFillTests.SelectedIndex >= 0)
             {
-                lbToFillTestID.Text = toFillOrders[listbxToFillOrders.SelectedIndex].Tests[listbxToFillTests.SelectedIndex].ID.ToString();
-                lbToFillTestName.Text = TestManagement.getClientTestName(toFillOrders[listbxToFillOrders.SelectedIndex].Tests[listbxToFillTests.SelectedIndex]);
-                lbToFillTestType.Text = TestTypeManagement.GetTypeName(toFillOrders[listbxToFillOrders.SelectedIndex].Tests[listbxToFillTests.SelectedIndex].TestID);
-                lbToFillTestMin.Text = TestManagement.getClientTestMin(toFillOrders[listbxToFillOrders.SelectedIndex].Tests[listbxToFillTests.SelectedIndex]).ToString();
-                lbToFillTestMax.Text = TestManagement.getClientTestMax(toFillOrders[listbxToFillOrders.SelectedIndex].Tests[listbxToFillTests.SelectedIndex]).ToString();
-                lbToFillUnits.Text = TestManagement.getClientTestUnitStringAbbrev(toFillOrders[listbxToFillOrders.SelectedIndex].Tests[listbxToFillTests.SelectedIndex]);
+                var selectedCategoryTestsIndex = listbxToFillTests.SelectedIndex;
+                if (listbxToFillTests.Items.Count > 0)
+                {
+                    if (selectedCategoryTestsIndex.Equals(-1))
+                        selectedCategoryTestsIndex = listTests.Count - 1;
+                    SelectedTest = listTests[selectedCategoryTestsIndex];
+                    lbToFillTestID.Text = SelectedTest.ID.ToString();
+                    lbToFillTestName.Text = SelectedTest.Name;
+                    lbToFillTestType.Text = SelectedTest.Type.ToString();
+                    lbToFillTestMin.Text = SelectedTest.Min.ToString();
+                    lbToFillTestMax.Text = SelectedTest.Max.ToString();
+                    lbToFillUnits.Text = SelectedTest.Unit.ToString();
+                }
             }
             else
             {
@@ -274,36 +236,42 @@ namespace SE_project
                 {
                     if (listbxToFillTests.Items.Count > 1)
                     {
-                        int clientTestId = toFillOrders[listbxToFillOrders.SelectedIndex].Tests[listbxToFillTests.SelectedIndex].ID;
-
-                        DatabaseManagement.ChangeClientTestResult(clientTestId, textBox5.Text);
-                        DatabaseManagement.ChangeClientTestStatusToFilled(clientTestId);
-
-                        toFillOrders[listbxToFillOrders.SelectedIndex].Tests.RemoveAt(listbxToFillTests.SelectedIndex);
-                        tFOTestNames[listbxToFillOrders.SelectedIndex].RemoveAt(listbxToFillTests.SelectedIndex);
-                        tFOTest[listbxToFillOrders.SelectedIndex].RemoveAt(listbxToFillTests.SelectedIndex);
+                        foreach (ClientTest c in SelectedOrder.Tests)
+                        {
+                            if (c.TestID.Equals(SelectedTest.ID))
+                            {
+                                c.Result = textBox5.Text;
+                                DatabaseManagement.ChangeClientTestResult(c.TestID, textBox5.Text);
+                                DatabaseManagement.ChangeClientTestStatusToFilled(c.TestID);
+                            }
+                            break;
+                        }
+                        if (OrderManagement.toFillOrderList.Count > 0)
+                        {
+                            var selectedCategoryTestsIndex = listbxToFillTests.SelectedIndex;
+                            if (selectedCategoryTestsIndex.Equals(-1))
+                                selectedCategoryTestsIndex = listTests.Count - 1;
+                            listbxToFillTests.Items.RemoveAt(selectedCategoryTestsIndex);
+                            listTests.RemoveAt(selectedCategoryTestsIndex);
+                            listTestsFromManagemant.Remove(SelectedTest);
+                        }
 
                         MessageBox.Show("Zatwierdzono wynik!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        listbxToFillTests.DataSource = null;
-                        listbxToFillTests.Items.Clear();
-                        listbxToFillTests.DataSource = tFOTestNames[listbxToFillOrders.SelectedIndex];
-                        listbxToFillTests.SelectedItem = null;
-
                         textBox5.Text = "";
 
                     }
                     else
                     {
-                        int clientTestId = toFillOrders[listbxToFillOrders.SelectedIndex].Tests[listbxToFillTests.SelectedIndex].ID;
+                        
+                            OrderManagement.toFillOrderList.Remove(SelectedOrder);
+                            OrderManagement.completedOrderList.Add(SelectedOrder);
+                            listbxToFillOrders.Items.Remove(SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
+                        sortlistbox(listbxCompletedOrders, SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
 
-                        DatabaseManagement.ChangeClientTestResult(clientTestId, textBox5.Text);
-                        DatabaseManagement.ChangeClientTestStatusToFilled(clientTestId);
-                        DatabaseManagement.UpdateOrderStatus(toFillOrders[listbxToFillOrders.SelectedIndex].ID, 2);
+                        DatabaseManagement.ChangeClientTestResult(SelectedTest.ID, textBox5.Text);
+                        DatabaseManagement.ChangeClientTestStatusToFilled(SelectedTest.ID);
+                        DatabaseManagement.UpdateOrderStatus(SelectedOrder.ID, 2);
 
-                        OrderManagement.changeFromToFillToAccepted(toFillOrders[listbxToFillOrders.SelectedIndex].ID);
-
-                        reloadOrders();
 
                         MessageBox.Show("Zamówienie zrealizowane!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -320,28 +288,55 @@ namespace SE_project
         }
 
         private void listBox5_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listbxCompletedOrders.SelectedIndex < 0 || listbxCompletedOrders.SelectedIndex >= cOTestNames.Count)
-                return;
+        { 
 
-            listbxCompletedTests.DataSource = null;
             listbxCompletedTests.Items.Clear();
-            listbxCompletedTests.DataSource = cOTestNames[listbxCompletedOrders.SelectedIndex];
-            listbxCompletedTests.SelectedItem = null;
+            listTests.Clear();
+            if (listbxCompletedOrders.SelectedItem != null)
+            {
+                string selectedCategory = listbxCompletedOrders.SelectedItem.ToString();
+                string selectedId = selectedCategory.Substring(0, selectedCategory.IndexOf(" "));
+                foreach (Order o in OrderManagement.completedOrderList)
+                {
+                    if (o.ID.ToString().Equals(selectedId))
+                    {
+                        SelectedOrder = o;
+                        for (int i = 0; i < o.Tests.Count; i++)
+                        {
+                            foreach (Test t in TestManagement.testList)
+                            {
+                                if (t.ID.Equals(o.Tests[i].TestID))
+                                {
+                                    listTests.Add(t);
+                                    listbxCompletedTests.Items.Add(t.Name);
+                                }
 
-            lbCompletedOrderID.Text = completedOrders[listbxCompletedOrders.SelectedIndex].ID.ToString();
-            lbCompletedClientID.Text = completedOrders[listbxCompletedOrders.SelectedIndex].ClientID.ToString();
+                            }
+                        }
+                        break;
+                    }
+                }
+                lbCompletedOrderID.Text = SelectedOrder.ID.ToString();
+                lbCompletedClientID.Text = SelectedOrder.ClientID.ToString();
+            }
         }
 
         private void listBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listbxCompletedTests.SelectedIndex >= 0)
             {
-                lbCompletedClientTestID.Text = completedOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex].ID.ToString();
-                lbCompletedTestName.Text = TestManagement.getClientTestName(completedOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex]);
-                lbCompletedTestType.Text = TestTypeManagement.GetTypeName(completedOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex].TestID);
-                lbCompletedResult.Text = completedOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex].Result;
-                lbCompletedUnits.Text = TestManagement.getClientTestUnitStringAbbrev(completedOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex]);
+                lbCompletedClientTestID.Text = SelectedTest.ID.ToString();
+                lbCompletedTestName.Text = SelectedTest.Name;
+                lbCompletedTestType.Text = SelectedTest.Type.ToString();
+                lbCompletedUnits.Text = SelectedTest.Unit.ToString();
+                foreach (ClientTest c in SelectedOrder.Tests)
+                {
+                    if (c.TestID.Equals(SelectedTest.ID))
+                    {
+                        lbCompletedResult.Text = c.Result;
+                    }
+                    break;
+                }
             }
             else
             {
@@ -358,12 +353,19 @@ namespace SE_project
             if (listbxCompletedOrders.SelectedIndex >= 0)
             {
                 if (textBox1.Text.Length > 0)
-                {
-                    int clientTestId = completedOrders[listbxCompletedOrders.SelectedIndex].Tests[listbxCompletedTests.SelectedIndex].ID;
+                { 
 
-                    DatabaseManagement.ChangeClientTestResult(clientTestId, textBox1.Text);
+                    DatabaseManagement.ChangeClientTestResult(SelectedTest.ID, textBox1.Text);
 
                     MessageBox.Show("Edytowano wynik!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    foreach (ClientTest c in SelectedOrder.Tests)
+                    {
+                        if (c.TestID.Equals(SelectedTest.ID))
+                        {
+                            c.Result = textBox1.Text;
+                        }
+                        break;
+                    }
                     listbxToFillTests.SelectedItem = null;
                     lbCompletedResult.Text = textBox1.Text;
                     textBox5.Text = "";

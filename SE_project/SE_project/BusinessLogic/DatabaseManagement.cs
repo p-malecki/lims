@@ -16,6 +16,7 @@ using System.Xml;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Xml.Linq;
 using System.Diagnostics;
+using System.Collections;
 
 namespace SE_project.controllers
 {
@@ -163,6 +164,37 @@ namespace SE_project.controllers
                 var affectedRow = cnn.Execute(query);
             }
         }
+        public static int GetNumberOftoFillOrder(int id)
+        {
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string stm = "SELECT COUNT(*) FROM Orders WHERE status = 1 AND technicianID = " + id.ToString();
+                Int64 count = (Int64)cnn.ExecuteScalar(stm);
+                int result=Convert.ToInt32(count);
+                return result;
+            }
+        }
+        public static int GetNumberOfCompletedOrder(int id)
+        {
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string stm = "SELECT COUNT(*) FROM Orders WHERE status = 2 AND technicianID = " + id.ToString();
+                Int64 count = (Int64)cnn.ExecuteScalar(stm);
+                int result = Convert.ToInt32(count);
+                return result;
+            }
+        }
+        public static int GetNumberOfDeniedOrder(int id)
+        {
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string stm = "SELECT COUNT(*) FROM Orders WHERE status = 3 AND technicianID = " + id.ToString();
+                Int64 count = (Int64)cnn.ExecuteScalar(stm);
+                int result = Convert.ToInt32(count);
+                return result;
+            }
+        }
+
 
 
         public static List<TestType> LoadTestTypes()
