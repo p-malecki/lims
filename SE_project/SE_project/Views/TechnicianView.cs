@@ -243,8 +243,8 @@ namespace SE_project
                                 c.Result = textBox5.Text;
                                 DatabaseManagement.ChangeClientTestResult(c.TestID, textBox5.Text);
                                 DatabaseManagement.ChangeClientTestStatusToFilled(c.TestID);
+                                break;
                             }
-                            break;
                         }
                         if (OrderManagement.toFillOrderList.Count > 0)
                         {
@@ -262,10 +262,10 @@ namespace SE_project
                     }
                     else
                     {
-                        
-                            OrderManagement.toFillOrderList.Remove(SelectedOrder);
-                            OrderManagement.completedOrderList.Add(SelectedOrder);
-                            listbxToFillOrders.Items.Remove(SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
+
+                        OrderManagement.toFillOrderList.Remove(SelectedOrder);
+                        OrderManagement.completedOrderList.Add(SelectedOrder);
+                        listbxToFillOrders.Items.Remove(SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
                         sortlistbox(listbxCompletedOrders, SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
 
                         DatabaseManagement.ChangeClientTestResult(SelectedTest.ID, textBox5.Text);
@@ -288,7 +288,7 @@ namespace SE_project
         }
 
         private void listBox5_SelectedIndexChanged(object sender, EventArgs e)
-        { 
+        {
 
             listbxCompletedTests.Items.Clear();
             listTests.Clear();
@@ -334,8 +334,8 @@ namespace SE_project
                     if (c.TestID.Equals(SelectedTest.ID))
                     {
                         lbCompletedResult.Text = c.Result;
+                        break;
                     }
-                    break;
                 }
             }
             else
@@ -353,7 +353,7 @@ namespace SE_project
             if (listbxCompletedOrders.SelectedIndex >= 0)
             {
                 if (textBox1.Text.Length > 0)
-                { 
+                {
 
                     DatabaseManagement.ChangeClientTestResult(SelectedTest.ID, textBox1.Text);
 
@@ -363,8 +363,8 @@ namespace SE_project
                         if (c.TestID.Equals(SelectedTest.ID))
                         {
                             c.Result = textBox1.Text;
+                            break;
                         }
-                        break;
                     }
                     listbxToFillTests.SelectedItem = null;
                     lbCompletedResult.Text = textBox1.Text;
@@ -380,7 +380,6 @@ namespace SE_project
                 MessageBox.Show("Nie wybrałeś żadnego testu, dla którego można edytować wynik!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void btnTechnicianLogOut_Click(object sender, EventArgs e)
         {
             this.Close();

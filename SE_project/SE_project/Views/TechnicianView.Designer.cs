@@ -138,20 +138,20 @@
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
-            tabControl1.Margin = new Padding(2);
+            tabControl1.Margin = new Padding(2, 3, 2, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(766, 527);
+            tabControl1.Size = new Size(875, 703);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             tabPage1.Controls.Add(splitContainer3);
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Margin = new Padding(2);
+            tabPage1.Location = new Point(4, 29);
+            tabPage1.Margin = new Padding(2, 3, 2, 3);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(2);
-            tabPage1.Size = new Size(758, 499);
+            tabPage1.Padding = new Padding(2, 3, 2, 3);
+            tabPage1.Size = new Size(867, 670);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "badania do akceptacji";
             tabPage1.UseVisualStyleBackColor = true;
@@ -160,8 +160,8 @@
             // 
             splitContainer3.Dock = DockStyle.Fill;
             splitContainer3.IsSplitterFixed = true;
-            splitContainer3.Location = new Point(2, 2);
-            splitContainer3.Margin = new Padding(2);
+            splitContainer3.Location = new Point(2, 3);
+            splitContainer3.Margin = new Padding(2, 3, 2, 3);
             splitContainer3.Name = "splitContainer3";
             // 
             // splitContainer3.Panel1
@@ -178,38 +178,39 @@
             splitContainer3.Panel2.Controls.Add(btnDeny);
             splitContainer3.Panel2.Controls.Add(btnAccept);
             splitContainer3.Panel2.Controls.Add(groupBox3);
-            splitContainer3.Size = new Size(754, 495);
-            splitContainer3.SplitterDistance = 190;
+            splitContainer3.Size = new Size(863, 664);
+            splitContainer3.SplitterDistance = 217;
+            splitContainer3.SplitterWidth = 5;
             splitContainer3.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(41, 11);
+            label1.Location = new Point(47, 15);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(77, 30);
+            label1.Size = new Size(98, 40);
             label1.TabIndex = 0;
             label1.Text = "zamówienia\r\ndo akceptacji";
             // 
             // listbxToAcceptOrders
             // 
             listbxToAcceptOrders.FormattingEnabled = true;
-            listbxToAcceptOrders.ItemHeight = 15;
-            listbxToAcceptOrders.Location = new Point(0, 49);
-            listbxToAcceptOrders.Margin = new Padding(2);
+            listbxToAcceptOrders.ItemHeight = 20;
+            listbxToAcceptOrders.Location = new Point(0, 65);
+            listbxToAcceptOrders.Margin = new Padding(2, 3, 2, 3);
             listbxToAcceptOrders.Name = "listbxToAcceptOrders";
-            listbxToAcceptOrders.Size = new Size(186, 454);
+            listbxToAcceptOrders.Size = new Size(212, 604);
             listbxToAcceptOrders.TabIndex = 0;
             listbxToAcceptOrders.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // label42
             // 
             label42.AutoSize = true;
-            label42.Location = new Point(73, 19);
+            label42.Location = new Point(83, 25);
             label42.Margin = new Padding(2, 0, 2, 0);
             label42.Name = "label42";
-            label42.Size = new Size(49, 15);
+            label42.Size = new Size(63, 20);
             label42.TabIndex = 0;
             label42.Text = "badania";
             // 
@@ -219,11 +220,11 @@
             groupBox4.Controls.Add(lbToAcceptOrderID);
             groupBox4.Controls.Add(label17);
             groupBox4.Controls.Add(lbToAcceptDate);
-            groupBox4.Location = new Point(240, 99);
-            groupBox4.Margin = new Padding(2);
+            groupBox4.Location = new Point(274, 132);
+            groupBox4.Margin = new Padding(2, 3, 2, 3);
             groupBox4.Name = "groupBox4";
-            groupBox4.Padding = new Padding(2);
-            groupBox4.Size = new Size(300, 125);
+            groupBox4.Padding = new Padding(2, 3, 2, 3);
+            groupBox4.Size = new Size(343, 167);
             groupBox4.TabIndex = 14;
             groupBox4.TabStop = false;
             groupBox4.Text = "szczegóły zamówienia";
@@ -231,60 +232,60 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(12, 27);
+            label16.Location = new Point(14, 36);
             label16.Margin = new Padding(2, 0, 2, 0);
             label16.Name = "label16";
-            label16.Size = new Size(84, 15);
+            label16.Size = new Size(108, 20);
             label16.TabIndex = 6;
             label16.Text = "ID zamówienia";
             // 
             // lbToAcceptOrderID
             // 
             lbToAcceptOrderID.AutoSize = true;
-            lbToAcceptOrderID.Location = new Point(142, 27);
+            lbToAcceptOrderID.Location = new Point(162, 36);
             lbToAcceptOrderID.Margin = new Padding(2, 0, 2, 0);
             lbToAcceptOrderID.Name = "lbToAcceptOrderID";
-            lbToAcceptOrderID.Size = new Size(44, 15);
+            lbToAcceptOrderID.Size = new Size(58, 20);
             lbToAcceptOrderID.TabIndex = 12;
             lbToAcceptOrderID.Text = "label19";
             // 
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(12, 56);
+            label17.Location = new Point(14, 75);
             label17.Margin = new Padding(2, 0, 2, 0);
             label17.Name = "label17";
-            label17.Size = new Size(96, 15);
+            label17.Size = new Size(123, 20);
             label17.TabIndex = 10;
             label17.Text = "data zamówienia";
             // 
             // lbToAcceptDate
             // 
             lbToAcceptDate.AutoSize = true;
-            lbToAcceptDate.Location = new Point(142, 56);
+            lbToAcceptDate.Location = new Point(162, 75);
             lbToAcceptDate.Margin = new Padding(2, 0, 2, 0);
             lbToAcceptDate.Name = "lbToAcceptDate";
-            lbToAcceptDate.Size = new Size(44, 15);
+            lbToAcceptDate.Size = new Size(58, 20);
             lbToAcceptDate.TabIndex = 13;
             lbToAcceptDate.Text = "label20";
             // 
             // listbxToAcceptTests
             // 
             listbxToAcceptTests.FormattingEnabled = true;
-            listbxToAcceptTests.ItemHeight = 15;
-            listbxToAcceptTests.Location = new Point(5, 49);
-            listbxToAcceptTests.Margin = new Padding(2);
+            listbxToAcceptTests.ItemHeight = 20;
+            listbxToAcceptTests.Location = new Point(6, 65);
+            listbxToAcceptTests.Margin = new Padding(2, 3, 2, 3);
             listbxToAcceptTests.Name = "listbxToAcceptTests";
-            listbxToAcceptTests.Size = new Size(208, 454);
+            listbxToAcceptTests.Size = new Size(237, 604);
             listbxToAcceptTests.TabIndex = 13;
             listbxToAcceptTests.SelectedIndexChanged += listBox2_SelectedIndexChanged;
             // 
             // btnLogout1
             // 
-            btnLogout1.Location = new Point(464, 15);
-            btnLogout1.Margin = new Padding(2);
+            btnLogout1.Location = new Point(530, 20);
+            btnLogout1.Margin = new Padding(2, 3, 2, 3);
             btnLogout1.Name = "btnLogout1";
-            btnLogout1.Size = new Size(76, 26);
+            btnLogout1.Size = new Size(87, 35);
             btnLogout1.TabIndex = 12;
             btnLogout1.Text = "Wyloguj";
             btnLogout1.UseVisualStyleBackColor = true;
@@ -292,10 +293,10 @@
             // 
             // btnDeny
             // 
-            btnDeny.Location = new Point(413, 385);
-            btnDeny.Margin = new Padding(2);
+            btnDeny.Location = new Point(472, 513);
+            btnDeny.Margin = new Padding(2, 3, 2, 3);
             btnDeny.Name = "btnDeny";
-            btnDeny.Size = new Size(115, 26);
+            btnDeny.Size = new Size(131, 35);
             btnDeny.TabIndex = 4;
             btnDeny.Text = "odrzuć";
             btnDeny.UseVisualStyleBackColor = true;
@@ -303,10 +304,10 @@
             // 
             // btnAccept
             // 
-            btnAccept.Location = new Point(256, 385);
-            btnAccept.Margin = new Padding(2);
+            btnAccept.Location = new Point(293, 513);
+            btnAccept.Margin = new Padding(2, 3, 2, 3);
             btnAccept.Name = "btnAccept";
-            btnAccept.Size = new Size(106, 26);
+            btnAccept.Size = new Size(121, 35);
             btnAccept.TabIndex = 3;
             btnAccept.Text = "akceptuj";
             btnAccept.UseVisualStyleBackColor = true;
@@ -320,11 +321,11 @@
             groupBox3.Controls.Add(label14);
             groupBox3.Controls.Add(label13);
             groupBox3.Controls.Add(label15);
-            groupBox3.Location = new Point(240, 243);
-            groupBox3.Margin = new Padding(2);
+            groupBox3.Location = new Point(274, 324);
+            groupBox3.Margin = new Padding(2, 3, 2, 3);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(2);
-            groupBox3.Size = new Size(300, 132);
+            groupBox3.Padding = new Padding(2, 3, 2, 3);
+            groupBox3.Size = new Size(343, 176);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "szczegóły badania";
@@ -332,71 +333,71 @@
             // lbToAcceptTestType
             // 
             lbToAcceptTestType.AutoSize = true;
-            lbToAcceptTestType.Location = new Point(142, 98);
+            lbToAcceptTestType.Location = new Point(162, 131);
             lbToAcceptTestType.Margin = new Padding(2, 0, 2, 0);
             lbToAcceptTestType.Name = "lbToAcceptTestType";
-            lbToAcceptTestType.Size = new Size(44, 15);
+            lbToAcceptTestType.Size = new Size(58, 20);
             lbToAcceptTestType.TabIndex = 17;
             lbToAcceptTestType.Text = "label24";
             // 
             // lbToAcceptTestName
             // 
             lbToAcceptTestName.AutoSize = true;
-            lbToAcceptTestName.Location = new Point(142, 68);
+            lbToAcceptTestName.Location = new Point(162, 91);
             lbToAcceptTestName.Margin = new Padding(2, 0, 2, 0);
             lbToAcceptTestName.Name = "lbToAcceptTestName";
-            lbToAcceptTestName.Size = new Size(44, 15);
+            lbToAcceptTestName.Size = new Size(58, 20);
             lbToAcceptTestName.TabIndex = 16;
             lbToAcceptTestName.Text = "label23";
             // 
             // lbToAcceptTestID
             // 
             lbToAcceptTestID.AutoSize = true;
-            lbToAcceptTestID.Location = new Point(142, 40);
+            lbToAcceptTestID.Location = new Point(162, 53);
             lbToAcceptTestID.Margin = new Padding(2, 0, 2, 0);
             lbToAcceptTestID.Name = "lbToAcceptTestID";
-            lbToAcceptTestID.Size = new Size(44, 15);
+            lbToAcceptTestID.Size = new Size(58, 20);
             lbToAcceptTestID.TabIndex = 15;
             lbToAcceptTestID.Text = "label22";
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(29, 98);
+            label14.Location = new Point(33, 131);
             label14.Margin = new Padding(2, 0, 2, 0);
             label14.Name = "label14";
-            label14.Size = new Size(53, 15);
+            label14.Size = new Size(66, 20);
             label14.TabIndex = 9;
             label14.Text = "typ testu";
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(29, 40);
+            label13.Location = new Point(33, 53);
             label13.Margin = new Padding(2, 0, 2, 0);
             label13.Name = "label13";
-            label13.Size = new Size(47, 15);
+            label13.Size = new Size(60, 20);
             label13.TabIndex = 8;
             label13.Text = "ID testu";
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(29, 68);
+            label15.Location = new Point(33, 91);
             label15.Margin = new Padding(2, 0, 2, 0);
             label15.Name = "label15";
-            label15.Size = new Size(69, 15);
+            label15.Size = new Size(87, 20);
             label15.TabIndex = 7;
             label15.Text = "nazwa testu";
             // 
             // tabPage2
             // 
             tabPage2.Controls.Add(splitContainer2);
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Margin = new Padding(2);
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Margin = new Padding(2, 3, 2, 3);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(2);
-            tabPage2.Size = new Size(758, 499);
+            tabPage2.Padding = new Padding(2, 3, 2, 3);
+            tabPage2.Size = new Size(867, 670);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "badania zaakceptowane";
             tabPage2.UseVisualStyleBackColor = true;
@@ -405,8 +406,8 @@
             // 
             splitContainer2.Dock = DockStyle.Fill;
             splitContainer2.IsSplitterFixed = true;
-            splitContainer2.Location = new Point(2, 2);
-            splitContainer2.Margin = new Padding(2);
+            splitContainer2.Location = new Point(2, 3);
+            splitContainer2.Margin = new Padding(2, 3, 2, 3);
             splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
@@ -422,38 +423,39 @@
             splitContainer2.Panel2.Controls.Add(btnLogout2);
             splitContainer2.Panel2.Controls.Add(listbxToFillTests);
             splitContainer2.Panel2.Controls.Add(groupBox2);
-            splitContainer2.Size = new Size(754, 495);
-            splitContainer2.SplitterDistance = 190;
+            splitContainer2.Size = new Size(863, 664);
+            splitContainer2.SplitterDistance = 217;
+            splitContainer2.SplitterWidth = 5;
             splitContainer2.TabIndex = 0;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(37, 10);
+            label7.Location = new Point(42, 13);
             label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new Size(88, 30);
+            label7.Size = new Size(112, 40);
             label7.TabIndex = 0;
             label7.Text = "zamówienia\r\nzaakceptowane";
             // 
             // listbxToFillOrders
             // 
             listbxToFillOrders.FormattingEnabled = true;
-            listbxToFillOrders.ItemHeight = 15;
-            listbxToFillOrders.Location = new Point(2, 49);
-            listbxToFillOrders.Margin = new Padding(2);
+            listbxToFillOrders.ItemHeight = 20;
+            listbxToFillOrders.Location = new Point(2, 65);
+            listbxToFillOrders.Margin = new Padding(2, 3, 2, 3);
             listbxToFillOrders.Name = "listbxToFillOrders";
-            listbxToFillOrders.Size = new Size(188, 454);
+            listbxToFillOrders.Size = new Size(214, 604);
             listbxToFillOrders.TabIndex = 3;
             listbxToFillOrders.SelectedIndexChanged += listBox3_SelectedIndexChanged;
             // 
             // label43
             // 
             label43.AutoSize = true;
-            label43.Location = new Point(85, 20);
+            label43.Location = new Point(97, 27);
             label43.Margin = new Padding(2, 0, 2, 0);
             label43.Name = "label43";
-            label43.Size = new Size(49, 15);
+            label43.Size = new Size(63, 20);
             label43.TabIndex = 0;
             label43.Text = "badania";
             // 
@@ -463,11 +465,11 @@
             groupBox6.Controls.Add(label8);
             groupBox6.Controls.Add(textBox5);
             groupBox6.Controls.Add(btnConfirmResult);
-            groupBox6.Location = new Point(224, 376);
-            groupBox6.Margin = new Padding(2);
+            groupBox6.Location = new Point(256, 501);
+            groupBox6.Margin = new Padding(2, 3, 2, 3);
             groupBox6.Name = "groupBox6";
-            groupBox6.Padding = new Padding(2);
-            groupBox6.Size = new Size(324, 106);
+            groupBox6.Padding = new Padding(2, 3, 2, 3);
+            groupBox6.Size = new Size(370, 141);
             groupBox6.TabIndex = 17;
             groupBox6.TabStop = false;
             groupBox6.Text = "wprowadzanie wartosci badania";
@@ -475,37 +477,37 @@
             // lbToFillUnits
             // 
             lbToFillUnits.AutoSize = true;
-            lbToFillUnits.Location = new Point(205, 30);
+            lbToFillUnits.Location = new Point(219, 40);
             lbToFillUnits.Margin = new Padding(2, 0, 2, 0);
             lbToFillUnits.Name = "lbToFillUnits";
-            lbToFillUnits.Size = new Size(44, 15);
+            lbToFillUnits.Size = new Size(58, 20);
             lbToFillUnits.TabIndex = 24;
             lbToFillUnits.Text = "label33";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(12, 28);
+            label8.Location = new Point(14, 37);
             label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
-            label8.Size = new Size(48, 15);
+            label8.Size = new Size(60, 20);
             label8.TabIndex = 8;
             label8.Text = "wartość";
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(93, 28);
-            textBox5.Margin = new Padding(2);
+            textBox5.Location = new Point(106, 37);
+            textBox5.Margin = new Padding(2, 3, 2, 3);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(96, 23);
+            textBox5.Size = new Size(109, 27);
             textBox5.TabIndex = 23;
             // 
             // btnConfirmResult
             // 
-            btnConfirmResult.Location = new Point(75, 65);
-            btnConfirmResult.Margin = new Padding(2);
+            btnConfirmResult.Location = new Point(86, 87);
+            btnConfirmResult.Margin = new Padding(2, 3, 2, 3);
             btnConfirmResult.Name = "btnConfirmResult";
-            btnConfirmResult.Size = new Size(125, 29);
+            btnConfirmResult.Size = new Size(143, 39);
             btnConfirmResult.TabIndex = 2;
             btnConfirmResult.Text = "zatwierdz";
             btnConfirmResult.UseVisualStyleBackColor = true;
@@ -517,11 +519,11 @@
             groupBox5.Controls.Add(label32);
             groupBox5.Controls.Add(lbToFillClientID);
             groupBox5.Controls.Add(lbToFillOrderID);
-            groupBox5.Location = new Point(224, 58);
-            groupBox5.Margin = new Padding(2);
+            groupBox5.Location = new Point(256, 77);
+            groupBox5.Margin = new Padding(2, 3, 2, 3);
             groupBox5.Name = "groupBox5";
-            groupBox5.Padding = new Padding(2);
-            groupBox5.Size = new Size(324, 74);
+            groupBox5.Padding = new Padding(2, 3, 2, 3);
+            groupBox5.Size = new Size(370, 99);
             groupBox5.TabIndex = 16;
             groupBox5.TabStop = false;
             groupBox5.Text = "szczegóły zamówienia";
@@ -529,49 +531,49 @@
             // label46
             // 
             label46.AutoSize = true;
-            label46.Location = new Point(10, 47);
+            label46.Location = new Point(11, 63);
             label46.Margin = new Padding(2, 0, 2, 0);
             label46.Name = "label46";
-            label46.Size = new Size(56, 15);
+            label46.Size = new Size(72, 20);
             label46.TabIndex = 22;
             label46.Text = "ID klienta";
             // 
             // label32
             // 
             label32.AutoSize = true;
-            label32.Location = new Point(10, 26);
+            label32.Location = new Point(11, 35);
             label32.Margin = new Padding(2, 0, 2, 0);
             label32.Name = "label32";
-            label32.Size = new Size(84, 15);
+            label32.Size = new Size(108, 20);
             label32.TabIndex = 22;
             label32.Text = "ID zamówienia";
             // 
             // lbToFillClientID
             // 
             lbToFillClientID.AutoSize = true;
-            lbToFillClientID.Location = new Point(131, 47);
+            lbToFillClientID.Location = new Point(150, 63);
             lbToFillClientID.Margin = new Padding(2, 0, 2, 0);
             lbToFillClientID.Name = "lbToFillClientID";
-            lbToFillClientID.Size = new Size(44, 15);
+            lbToFillClientID.Size = new Size(58, 20);
             lbToFillClientID.TabIndex = 16;
             lbToFillClientID.Text = "label45";
             // 
             // lbToFillOrderID
             // 
             lbToFillOrderID.AutoSize = true;
-            lbToFillOrderID.Location = new Point(131, 26);
+            lbToFillOrderID.Location = new Point(150, 35);
             lbToFillOrderID.Margin = new Padding(2, 0, 2, 0);
             lbToFillOrderID.Name = "lbToFillOrderID";
-            lbToFillOrderID.Size = new Size(44, 15);
+            lbToFillOrderID.Size = new Size(58, 20);
             lbToFillOrderID.TabIndex = 16;
             lbToFillOrderID.Text = "label26";
             // 
             // btnLogout2
             // 
-            btnLogout2.Location = new Point(468, 15);
-            btnLogout2.Margin = new Padding(2);
+            btnLogout2.Location = new Point(535, 20);
+            btnLogout2.Margin = new Padding(2, 3, 2, 3);
             btnLogout2.Name = "btnLogout2";
-            btnLogout2.Size = new Size(76, 25);
+            btnLogout2.Size = new Size(87, 33);
             btnLogout2.TabIndex = 15;
             btnLogout2.Text = "Wyloguj";
             btnLogout2.UseVisualStyleBackColor = true;
@@ -580,11 +582,11 @@
             // listbxToFillTests
             // 
             listbxToFillTests.FormattingEnabled = true;
-            listbxToFillTests.ItemHeight = 15;
-            listbxToFillTests.Location = new Point(2, 49);
-            listbxToFillTests.Margin = new Padding(2);
+            listbxToFillTests.ItemHeight = 20;
+            listbxToFillTests.Location = new Point(2, 65);
+            listbxToFillTests.Margin = new Padding(2, 3, 2, 3);
             listbxToFillTests.Name = "listbxToFillTests";
-            listbxToFillTests.Size = new Size(214, 454);
+            listbxToFillTests.Size = new Size(244, 604);
             listbxToFillTests.TabIndex = 14;
             listbxToFillTests.SelectedIndexChanged += listBox4_SelectedIndexChanged;
             // 
@@ -600,11 +602,11 @@
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(label10);
             groupBox2.Controls.Add(label11);
-            groupBox2.Location = new Point(224, 143);
-            groupBox2.Margin = new Padding(2);
+            groupBox2.Location = new Point(256, 191);
+            groupBox2.Margin = new Padding(2, 3, 2, 3);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(2);
-            groupBox2.Size = new Size(320, 202);
+            groupBox2.Padding = new Padding(2, 3, 2, 3);
+            groupBox2.Size = new Size(366, 269);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "szczegóły badania";
@@ -612,111 +614,111 @@
             // lbToFillTestMax
             // 
             lbToFillTestMax.AutoSize = true;
-            lbToFillTestMax.Location = new Point(154, 167);
+            lbToFillTestMax.Location = new Point(176, 223);
             lbToFillTestMax.Margin = new Padding(2, 0, 2, 0);
             lbToFillTestMax.Name = "lbToFillTestMax";
-            lbToFillTestMax.Size = new Size(44, 15);
+            lbToFillTestMax.Size = new Size(58, 20);
             lbToFillTestMax.TabIndex = 21;
             lbToFillTestMax.Text = "label31";
             // 
             // lbToFillTestMin
             // 
             lbToFillTestMin.AutoSize = true;
-            lbToFillTestMin.Location = new Point(154, 135);
+            lbToFillTestMin.Location = new Point(176, 180);
             lbToFillTestMin.Margin = new Padding(2, 0, 2, 0);
             lbToFillTestMin.Name = "lbToFillTestMin";
-            lbToFillTestMin.Size = new Size(44, 15);
+            lbToFillTestMin.Size = new Size(58, 20);
             lbToFillTestMin.TabIndex = 20;
             lbToFillTestMin.Text = "label30";
             // 
             // lbToFillTestType
             // 
             lbToFillTestType.AutoSize = true;
-            lbToFillTestType.Location = new Point(154, 104);
+            lbToFillTestType.Location = new Point(176, 139);
             lbToFillTestType.Margin = new Padding(2, 0, 2, 0);
             lbToFillTestType.Name = "lbToFillTestType";
-            lbToFillTestType.Size = new Size(44, 15);
+            lbToFillTestType.Size = new Size(58, 20);
             lbToFillTestType.TabIndex = 19;
             lbToFillTestType.Text = "label29";
             // 
             // lbToFillTestName
             // 
             lbToFillTestName.AutoSize = true;
-            lbToFillTestName.Location = new Point(154, 70);
+            lbToFillTestName.Location = new Point(176, 93);
             lbToFillTestName.Margin = new Padding(2, 0, 2, 0);
             lbToFillTestName.Name = "lbToFillTestName";
-            lbToFillTestName.Size = new Size(44, 15);
+            lbToFillTestName.Size = new Size(58, 20);
             lbToFillTestName.TabIndex = 18;
             lbToFillTestName.Text = "label28";
             // 
             // lbToFillTestID
             // 
             lbToFillTestID.AutoSize = true;
-            lbToFillTestID.Location = new Point(154, 40);
+            lbToFillTestID.Location = new Point(176, 53);
             lbToFillTestID.Margin = new Padding(2, 0, 2, 0);
             lbToFillTestID.Name = "lbToFillTestID";
-            lbToFillTestID.Size = new Size(44, 15);
+            lbToFillTestID.Size = new Size(58, 20);
             lbToFillTestID.TabIndex = 17;
             lbToFillTestID.Text = "label27";
             // 
             // label25
             // 
             label25.AutoSize = true;
-            label25.Location = new Point(12, 104);
+            label25.Location = new Point(14, 139);
             label25.Margin = new Padding(2, 0, 2, 0);
             label25.Name = "label25";
-            label25.Size = new Size(24, 15);
+            label25.Size = new Size(30, 20);
             label25.TabIndex = 15;
             label25.Text = "typ";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(12, 167);
+            label12.Location = new Point(14, 223);
             label12.Margin = new Padding(2, 0, 2, 0);
             label12.Name = "label12";
-            label12.Size = new Size(83, 15);
+            label12.Size = new Size(105, 20);
             label12.TabIndex = 13;
             label12.Text = "górna granica ";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(12, 70);
+            label9.Location = new Point(14, 93);
             label9.Margin = new Padding(2, 0, 2, 0);
             label9.Name = "label9";
-            label9.Size = new Size(40, 15);
+            label9.Size = new Size(51, 20);
             label9.TabIndex = 7;
             label9.Text = "nazwa";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(12, 40);
+            label10.Location = new Point(14, 53);
             label10.Margin = new Padding(2, 0, 2, 0);
             label10.Name = "label10";
-            label10.Size = new Size(63, 15);
+            label10.Size = new Size(82, 20);
             label10.TabIndex = 6;
             label10.Text = "ID badania";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(12, 135);
+            label11.Location = new Point(14, 180);
             label11.Margin = new Padding(2, 0, 2, 0);
             label11.Name = "label11";
-            label11.Size = new Size(79, 15);
+            label11.Size = new Size(100, 20);
             label11.TabIndex = 5;
             label11.Text = "dolna granica";
             // 
             // tabPage3
             // 
             tabPage3.Controls.Add(splitContainer1);
-            tabPage3.Location = new Point(4, 24);
-            tabPage3.Margin = new Padding(2);
+            tabPage3.Location = new Point(4, 29);
+            tabPage3.Margin = new Padding(2, 3, 2, 3);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(2);
-            tabPage3.Size = new Size(758, 499);
+            tabPage3.Padding = new Padding(2, 3, 2, 3);
+            tabPage3.Size = new Size(867, 670);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "historia badań";
             tabPage3.UseVisualStyleBackColor = true;
@@ -725,8 +727,8 @@
             // 
             splitContainer1.Dock = DockStyle.Fill;
             splitContainer1.IsSplitterFixed = true;
-            splitContainer1.Location = new Point(2, 2);
-            splitContainer1.Margin = new Padding(2);
+            splitContainer1.Location = new Point(2, 3);
+            splitContainer1.Margin = new Padding(2, 3, 2, 3);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -742,38 +744,39 @@
             splitContainer1.Panel2.Controls.Add(btnLogout3);
             splitContainer1.Panel2.Controls.Add(listbxCompletedTests);
             splitContainer1.Panel2.Controls.Add(groupBox1);
-            splitContainer1.Size = new Size(754, 495);
-            splitContainer1.SplitterDistance = 176;
+            splitContainer1.Size = new Size(863, 664);
+            splitContainer1.SplitterDistance = 201;
+            splitContainer1.SplitterWidth = 5;
             splitContainer1.TabIndex = 0;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(46, 13);
+            label2.Location = new Point(53, 17);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(70, 15);
+            label2.Size = new Size(89, 20);
             label2.TabIndex = 0;
             label2.Text = "zamówienia";
             // 
             // listbxCompletedOrders
             // 
             listbxCompletedOrders.FormattingEnabled = true;
-            listbxCompletedOrders.ItemHeight = 15;
-            listbxCompletedOrders.Location = new Point(0, 37);
-            listbxCompletedOrders.Margin = new Padding(2);
+            listbxCompletedOrders.ItemHeight = 20;
+            listbxCompletedOrders.Location = new Point(0, 49);
+            listbxCompletedOrders.Margin = new Padding(2, 3, 2, 3);
             listbxCompletedOrders.Name = "listbxCompletedOrders";
-            listbxCompletedOrders.Size = new Size(176, 469);
+            listbxCompletedOrders.Size = new Size(201, 624);
             listbxCompletedOrders.TabIndex = 3;
             listbxCompletedOrders.SelectedIndexChanged += listBox5_SelectedIndexChanged;
             // 
             // label44
             // 
             label44.AutoSize = true;
-            label44.Location = new Point(70, 15);
+            label44.Location = new Point(80, 20);
             label44.Margin = new Padding(2, 0, 2, 0);
             label44.Name = "label44";
-            label44.Size = new Size(49, 15);
+            label44.Size = new Size(63, 20);
             label44.TabIndex = 0;
             label44.Text = "badania";
             // 
@@ -783,11 +786,11 @@
             groupBox8.Controls.Add(textBox1);
             groupBox8.Controls.Add(label6);
             groupBox8.Controls.Add(btnConfirmResultEdit);
-            groupBox8.Location = new Point(222, 371);
-            groupBox8.Margin = new Padding(2);
+            groupBox8.Location = new Point(254, 495);
+            groupBox8.Margin = new Padding(2, 3, 2, 3);
             groupBox8.Name = "groupBox8";
-            groupBox8.Padding = new Padding(2);
-            groupBox8.Size = new Size(337, 107);
+            groupBox8.Padding = new Padding(2, 3, 2, 3);
+            groupBox8.Size = new Size(385, 143);
             groupBox8.TabIndex = 15;
             groupBox8.TabStop = false;
             groupBox8.Text = "edycja badania";
@@ -795,37 +798,37 @@
             // lbCompletedUnits
             // 
             lbCompletedUnits.AutoSize = true;
-            lbCompletedUnits.Location = new Point(261, 34);
+            lbCompletedUnits.Location = new Point(298, 45);
             lbCompletedUnits.Margin = new Padding(2, 0, 2, 0);
             lbCompletedUnits.Name = "lbCompletedUnits";
-            lbCompletedUnits.Size = new Size(44, 15);
+            lbCompletedUnits.Size = new Size(58, 20);
             lbCompletedUnits.TabIndex = 31;
             lbCompletedUnits.Text = "label41";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(166, 32);
-            textBox1.Margin = new Padding(2);
+            textBox1.Location = new Point(190, 43);
+            textBox1.Margin = new Padding(2, 3, 2, 3);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(91, 23);
+            textBox1.Size = new Size(103, 27);
             textBox1.TabIndex = 32;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(11, 34);
+            label6.Location = new Point(13, 45);
             label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(137, 15);
+            label6.Size = new Size(174, 20);
             label6.TabIndex = 8;
             label6.Text = "zaaktualizowana wartość";
             // 
             // btnConfirmResultEdit
             // 
-            btnConfirmResultEdit.Location = new Point(114, 65);
-            btnConfirmResultEdit.Margin = new Padding(2);
+            btnConfirmResultEdit.Location = new Point(130, 87);
+            btnConfirmResultEdit.Margin = new Padding(2, 3, 2, 3);
             btnConfirmResultEdit.Name = "btnConfirmResultEdit";
-            btnConfirmResultEdit.Size = new Size(96, 27);
+            btnConfirmResultEdit.Size = new Size(110, 36);
             btnConfirmResultEdit.TabIndex = 1;
             btnConfirmResultEdit.Text = "zatwierdz";
             btnConfirmResultEdit.UseVisualStyleBackColor = true;
@@ -837,11 +840,11 @@
             groupBox7.Controls.Add(lbCompletedClientID);
             groupBox7.Controls.Add(label34);
             groupBox7.Controls.Add(lbCompletedOrderID);
-            groupBox7.Location = new Point(222, 75);
-            groupBox7.Margin = new Padding(2);
+            groupBox7.Location = new Point(254, 100);
+            groupBox7.Margin = new Padding(2, 3, 2, 3);
             groupBox7.Name = "groupBox7";
-            groupBox7.Padding = new Padding(2);
-            groupBox7.Size = new Size(337, 71);
+            groupBox7.Padding = new Padding(2, 3, 2, 3);
+            groupBox7.Size = new Size(385, 95);
             groupBox7.TabIndex = 14;
             groupBox7.TabStop = false;
             groupBox7.Text = "zamówienie";
@@ -849,49 +852,49 @@
             // label47
             // 
             label47.AutoSize = true;
-            label47.Location = new Point(23, 43);
+            label47.Location = new Point(26, 57);
             label47.Margin = new Padding(2, 0, 2, 0);
             label47.Name = "label47";
-            label47.Size = new Size(56, 15);
+            label47.Size = new Size(72, 20);
             label47.TabIndex = 28;
             label47.Text = "ID klienta";
             // 
             // lbCompletedClientID
             // 
             lbCompletedClientID.AutoSize = true;
-            lbCompletedClientID.Location = new Point(166, 43);
+            lbCompletedClientID.Location = new Point(190, 57);
             lbCompletedClientID.Margin = new Padding(2, 0, 2, 0);
             lbCompletedClientID.Name = "lbCompletedClientID";
-            lbCompletedClientID.Size = new Size(44, 15);
+            lbCompletedClientID.Size = new Size(58, 20);
             lbCompletedClientID.TabIndex = 27;
             lbCompletedClientID.Text = "label48";
             // 
             // label34
             // 
             label34.AutoSize = true;
-            label34.Location = new Point(23, 23);
+            label34.Location = new Point(26, 31);
             label34.Margin = new Padding(2, 0, 2, 0);
             label34.Name = "label34";
-            label34.Size = new Size(84, 15);
+            label34.Size = new Size(108, 20);
             label34.TabIndex = 23;
             label34.Text = "ID zamówienia";
             // 
             // lbCompletedOrderID
             // 
             lbCompletedOrderID.AutoSize = true;
-            lbCompletedOrderID.Location = new Point(166, 23);
+            lbCompletedOrderID.Location = new Point(190, 31);
             lbCompletedOrderID.Margin = new Padding(2, 0, 2, 0);
             lbCompletedOrderID.Name = "lbCompletedOrderID";
-            lbCompletedOrderID.Size = new Size(44, 15);
+            lbCompletedOrderID.Size = new Size(58, 20);
             lbCompletedOrderID.TabIndex = 26;
             lbCompletedOrderID.Text = "label36";
             // 
             // btnLogout3
             // 
-            btnLogout3.Location = new Point(483, 15);
-            btnLogout3.Margin = new Padding(2);
+            btnLogout3.Location = new Point(552, 20);
+            btnLogout3.Margin = new Padding(2, 3, 2, 3);
             btnLogout3.Name = "btnLogout3";
-            btnLogout3.Size = new Size(76, 24);
+            btnLogout3.Size = new Size(87, 32);
             btnLogout3.TabIndex = 13;
             btnLogout3.Text = "Wyloguj";
             btnLogout3.UseVisualStyleBackColor = true;
@@ -900,11 +903,11 @@
             // listbxCompletedTests
             // 
             listbxCompletedTests.FormattingEnabled = true;
-            listbxCompletedTests.ItemHeight = 15;
-            listbxCompletedTests.Location = new Point(2, 37);
-            listbxCompletedTests.Margin = new Padding(2);
+            listbxCompletedTests.ItemHeight = 20;
+            listbxCompletedTests.Location = new Point(2, 49);
+            listbxCompletedTests.Margin = new Padding(2, 3, 2, 3);
             listbxCompletedTests.Name = "listbxCompletedTests";
-            listbxCompletedTests.Size = new Size(196, 469);
+            listbxCompletedTests.Size = new Size(223, 624);
             listbxCompletedTests.TabIndex = 4;
             listbxCompletedTests.SelectedIndexChanged += listBox6_SelectedIndexChanged;
             // 
@@ -918,11 +921,11 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label5);
-            groupBox1.Location = new Point(222, 163);
-            groupBox1.Margin = new Padding(2);
+            groupBox1.Location = new Point(254, 217);
+            groupBox1.Margin = new Padding(2, 3, 2, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(2);
-            groupBox1.Size = new Size(337, 183);
+            groupBox1.Padding = new Padding(2, 3, 2, 3);
+            groupBox1.Size = new Size(385, 244);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "badanie";
@@ -930,91 +933,91 @@
             // lbCompletedResult
             // 
             lbCompletedResult.AutoSize = true;
-            lbCompletedResult.Location = new Point(166, 140);
+            lbCompletedResult.Location = new Point(190, 187);
             lbCompletedResult.Margin = new Padding(2, 0, 2, 0);
             lbCompletedResult.Name = "lbCompletedResult";
-            lbCompletedResult.Size = new Size(44, 15);
+            lbCompletedResult.Size = new Size(58, 20);
             lbCompletedResult.TabIndex = 30;
             lbCompletedResult.Text = "label40";
             // 
             // lbCompletedTestType
             // 
             lbCompletedTestType.AutoSize = true;
-            lbCompletedTestType.Location = new Point(166, 104);
+            lbCompletedTestType.Location = new Point(190, 139);
             lbCompletedTestType.Margin = new Padding(2, 0, 2, 0);
             lbCompletedTestType.Name = "lbCompletedTestType";
-            lbCompletedTestType.Size = new Size(44, 15);
+            lbCompletedTestType.Size = new Size(58, 20);
             lbCompletedTestType.TabIndex = 29;
             lbCompletedTestType.Text = "label39";
             // 
             // lbCompletedTestName
             // 
             lbCompletedTestName.AutoSize = true;
-            lbCompletedTestName.Location = new Point(166, 71);
+            lbCompletedTestName.Location = new Point(190, 95);
             lbCompletedTestName.Margin = new Padding(2, 0, 2, 0);
             lbCompletedTestName.Name = "lbCompletedTestName";
-            lbCompletedTestName.Size = new Size(44, 15);
+            lbCompletedTestName.Size = new Size(58, 20);
             lbCompletedTestName.TabIndex = 28;
             lbCompletedTestName.Text = "label38";
             // 
             // lbCompletedClientTestID
             // 
             lbCompletedClientTestID.AutoSize = true;
-            lbCompletedClientTestID.Location = new Point(166, 38);
+            lbCompletedClientTestID.Location = new Point(190, 51);
             lbCompletedClientTestID.Margin = new Padding(2, 0, 2, 0);
             lbCompletedClientTestID.Name = "lbCompletedClientTestID";
-            lbCompletedClientTestID.Size = new Size(44, 15);
+            lbCompletedClientTestID.Size = new Size(58, 20);
             lbCompletedClientTestID.TabIndex = 27;
             lbCompletedClientTestID.Text = "label37";
             // 
             // label35
             // 
             label35.AutoSize = true;
-            label35.Location = new Point(23, 104);
+            label35.Location = new Point(26, 139);
             label35.Margin = new Padding(2, 0, 2, 0);
             label35.Name = "label35";
-            label35.Size = new Size(24, 15);
+            label35.Size = new Size(30, 20);
             label35.TabIndex = 25;
             label35.Text = "typ";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(23, 38);
+            label3.Location = new Point(26, 51);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(63, 15);
+            label3.Size = new Size(82, 20);
             label3.TabIndex = 24;
             label3.Text = "ID badania";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(23, 71);
+            label4.Location = new Point(26, 95);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(40, 15);
+            label4.Size = new Size(51, 20);
             label4.TabIndex = 7;
             label4.Text = "nazwa";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(23, 140);
+            label5.Location = new Point(26, 187);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(90, 15);
+            label5.Size = new Size(113, 20);
             label5.TabIndex = 5;
             label5.Text = "obecna wartość";
             // 
             // TechnicianView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(766, 527);
+            ClientSize = new Size(875, 703);
             Controls.Add(tabControl1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(2);
+            Margin = new Padding(2, 3, 2, 3);
             Name = "TechnicianView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LIS Technik";
