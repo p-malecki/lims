@@ -72,7 +72,6 @@
             groupBox5 = new GroupBox();
             btnChangeAccountStatus = new Button();
             groupBox7 = new GroupBox();
-            lbStat3AccountData = new Label();
             lbStat2AccountData = new Label();
             lbStat1AccountData = new Label();
             groupBox6 = new GroupBox();
@@ -113,6 +112,7 @@
             txtbNewSurname = new TextBox();
             txtbNewPesel = new TextBox();
             label15 = new Label();
+            lbStat3AccountData = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -639,7 +639,7 @@
             // 
             // btnChangeAccountStatus
             // 
-            btnChangeAccountStatus.Location = new Point(905, 318);
+            btnChangeAccountStatus.Location = new Point(905, 305);
             btnChangeAccountStatus.Margin = new Padding(2, 3, 2, 3);
             btnChangeAccountStatus.Name = "btnChangeAccountStatus";
             btnChangeAccountStatus.Size = new Size(212, 67);
@@ -657,20 +657,10 @@
             groupBox7.Margin = new Padding(2, 3, 2, 3);
             groupBox7.Name = "groupBox7";
             groupBox7.Padding = new Padding(2, 3, 2, 3);
-            groupBox7.Size = new Size(386, 148);
+            groupBox7.Size = new Size(386, 156);
             groupBox7.TabIndex = 2;
             groupBox7.TabStop = false;
             groupBox7.Text = "statystyki";
-            // 
-            // lbStat3AccountData
-            // 
-            lbStat3AccountData.AutoSize = true;
-            lbStat3AccountData.Location = new Point(58, 106);
-            lbStat3AccountData.Margin = new Padding(2, 0, 2, 0);
-            lbStat3AccountData.Name = "lbStat3AccountData";
-            lbStat3AccountData.Size = new Size(59, 25);
-            lbStat3AccountData.TabIndex = 2;
-            lbStat3AccountData.Text = "stats3";
             // 
             // lbStat2AccountData
             // 
@@ -1125,6 +1115,16 @@
             label15.Size = new Size(62, 25);
             label15.TabIndex = 50;
             label15.Text = "PESEL";
+            // 
+            // lbStat3AccountData
+            // 
+            lbStat3AccountData.AutoSize = true;
+            lbStat3AccountData.Location = new Point(58, 108);
+            lbStat3AccountData.Margin = new Padding(2, 0, 2, 0);
+            lbStat3AccountData.Name = "lbStat3AccountData";
+            lbStat3AccountData.Size = new Size(59, 25);
+            lbStat3AccountData.TabIndex = 1;
+            lbStat3AccountData.Text = "stats3";
             // 
             // AdminView
             // 
