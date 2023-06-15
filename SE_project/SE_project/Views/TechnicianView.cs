@@ -325,6 +325,10 @@ namespace SE_project
         {
             if (listbxCompletedTests.SelectedIndex >= 0)
             {
+                var selectedCategoryTestsIndex = listbxCompletedTests.SelectedIndex;
+                if (selectedCategoryTestsIndex.Equals(-1))
+                    selectedCategoryTestsIndex = SelectedOrder.Tests.Count - 1;
+                SelectedTest = listTests[selectedCategoryTestsIndex];
                 lbCompletedClientTestID.Text = SelectedTest.ID.ToString();
                 lbCompletedTestName.Text = SelectedTest.Name;
                 lbCompletedTestType.Text = SelectedTest.Type.ToString();
@@ -366,7 +370,6 @@ namespace SE_project
                             break;
                         }
                     }
-                    listbxToFillTests.SelectedItem = null;
                     lbCompletedResult.Text = textBox1.Text;
                     textBox5.Text = "";
                 }
