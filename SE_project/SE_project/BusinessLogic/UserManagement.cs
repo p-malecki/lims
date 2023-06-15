@@ -201,6 +201,7 @@ namespace SE_project.controllers
 
         public static int LogInUser(int userType, string login, string password)
         {
+            login = login.ToLower();
             User? tmpUser = null;
             if (userType == 0)
             {

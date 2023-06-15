@@ -20,7 +20,7 @@ namespace SE_project
             InitializeComponent();
             List<FlowLayoutPanel> flpList = new List<FlowLayoutPanel>() { flowLayoutPanel1, flowLayoutPanel2 };
             TestManagement.Initialize(flpList);
-
+            OrderManagement.Initialize();
             TestManagement.LoadTestLists();
             List<string> typeNameList = TestTypeManagement.GetNameList();
             RefreshTypeList(typeNameList);
