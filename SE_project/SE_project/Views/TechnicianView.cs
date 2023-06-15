@@ -214,7 +214,7 @@ namespace SE_project
                     lbToFillTestType.Text = SelectedTest.Type.ToString();
                     lbToFillTestMin.Text = SelectedTest.Min.ToString();
                     lbToFillTestMax.Text = SelectedTest.Max.ToString();
-                    lbToFillUnits.Text = SelectedTest.Unit.ToString();
+                    lbToFillUnits.Text = SelectedTest.GetUnitStringAbbrev();
                 }
             }
             else
@@ -340,13 +340,13 @@ namespace SE_project
                 SelectedTest = listTests[selectedCategoryTestsIndex];
                 lbCompletedClientTestID.Text = SelectedTest.ID.ToString();
                 lbCompletedTestName.Text = SelectedTest.Name;
-                lbCompletedTestType.Text = SelectedTest.Type.ToString();
-                lbCompletedUnits.Text = SelectedTest.Unit.ToString();
+                lbCompletedTestType.Text = SelectedTest.GetTestTypeString();
+                lbCompletedUnits.Text = SelectedTest.GetUnitStringAbbrev();
                 foreach (ClientTest c in SelectedOrder.Tests)
                 {
                     if (c.TestID.Equals(SelectedTest.ID))
                     {
-                        lbCompletedResult.Text = c.Result;
+                        lbCompletedResult.Text = c.Result + " " + SelectedTest.GetUnitStringAbbrev();
                         break;
                     }
                 }
