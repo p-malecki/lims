@@ -234,18 +234,18 @@ namespace SE_project
             {
                 if (textBox5.Text.Length > 0)
                 {
+                    foreach (ClientTest c in SelectedOrder.Tests)
+                    {
+                        if (c.TestID.Equals(SelectedTest.ID))
+                        {
+                            c.Result = textBox5.Text;
+                            DatabaseManagement.ChangeClientTestResult(c.TestID, textBox5.Text);
+                            DatabaseManagement.ChangeClientTestStatusToFilled(c.TestID);
+                            break;
+                        }
+                    }
                     if (listbxToFillTests.Items.Count > 1)
                     {
-                        foreach (ClientTest c in SelectedOrder.Tests)
-                        {
-                            if (c.TestID.Equals(SelectedTest.ID))
-                            {
-                                c.Result = textBox5.Text;
-                                DatabaseManagement.ChangeClientTestResult(c.TestID, textBox5.Text);
-                                DatabaseManagement.ChangeClientTestStatusToFilled(c.TestID);
-                                break;
-                            }
-                        }
                         if (OrderManagement.toFillOrderList.Count > 0)
                         {
                             var selectedCategoryTestsIndex = listbxToFillTests.SelectedIndex;
@@ -262,7 +262,16 @@ namespace SE_project
                     }
                     else
                     {
-
+                        foreach (ClientTest c in SelectedOrder.Tests)
+                        {
+                            if (c.TestID.Equals(SelectedTest.ID))
+                            {
+                                c.Result = textBox5.Text;
+                                DatabaseManagement.ChangeClientTestResult(c.TestID, textBox5.Text);
+                                DatabaseManagement.ChangeClientTestStatusToFilled(c.TestID);
+                                break;
+                            }
+                        }
                         OrderManagement.toFillOrderList.Remove(SelectedOrder);
                         OrderManagement.completedOrderList.Add(SelectedOrder);
                         listbxToFillOrders.Items.Remove(SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
