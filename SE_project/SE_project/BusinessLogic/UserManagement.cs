@@ -202,7 +202,6 @@ namespace SE_project.controllers
         public static int LogInUser(int userType, string login, string password)
         {
             User? tmpUser = null;
-            login = login.ToLower();
             if (userType == 0)
             {
                 var account = _clientsAccounts.Find(a => a.Login == login);

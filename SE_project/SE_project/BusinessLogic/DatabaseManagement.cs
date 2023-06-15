@@ -502,20 +502,20 @@ namespace SE_project.controllers
             }
         }
 
-       public static void UpdateOrderStatus(int orderId, int newStatus, int technicianID = -1)
+       public static void UpdateOrderStatus(int orderId, int newStatus)
         {
             using (var cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                string insertSql = "";
-                if (technicianID != -1)
-                {
-                    insertSql = string.Format("UPDATE Orders SET status={0}, technicianID={1}", newStatus.ToString(), technicianID.ToString()) + " WHERE orderID = " + orderId.ToString();
-                }
-                else
-                {
-                    insertSql = "UPDATE Orders SET status = " + newStatus.ToString() + " WHERE orderID = " + orderId.ToString();
+                string insertSql = "UPDATE Orders SET status = " + newStatus.ToString() + " WHERE orderID = " + orderId.ToString();
+                var affectedRow = cnn.Execute(insertSql);
+            }
+        }
 
-                }
+        public static void UpdateOrderTechnician(int orderId, int id)
+        {
+            using (var cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string insertSql = "UPDATE Orders SET technicianID = " + id.ToString() + " WHERE orderID = " + orderId.ToString();
                 var affectedRow = cnn.Execute(insertSql);
             }
         }
@@ -524,7 +524,7 @@ namespace SE_project.controllers
         {
             using (var cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                string insertSql = string.Format("UPDATE ClientTest SET result='{0}'", result) + " WHERE clientTestID = " + clientTestId.ToString();
+                string insertSql = "UPDATE ClientTest SET result = " + result + " WHERE clientTestID = " + clientTestId.ToString();
                 var affectedRow = cnn.Execute(insertSql);
             }
         }
@@ -543,36 +543,7 @@ namespace SE_project.controllers
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
 
-        public static int GetNumberOftoFillOrder(int id)
-        {
-            using (var cnn = new SQLiteConnection(LoadConnectionString()))
-            {
-                string stm = "SELECT COUNT(*) FROM Orders WHERE status = 1 AND technicianID = " + id.ToString();
-                Int64 count = (Int64)cnn.ExecuteScalar(stm);
-                int result = Convert.ToInt32(count);
-                return result;
-            }
-        }
-        public static int GetNumberOfCompletedOrder(int id)
-        {
-            using (var cnn = new SQLiteConnection(LoadConnectionString()))
-            {
-                string stm = "SELECT COUNT(*) FROM Orders WHERE status = 2 AND technicianID = " + id.ToString();
-                Int64 count = (Int64)cnn.ExecuteScalar(stm);
-                int result = Convert.ToInt32(count);
-                return result;
-            }
-        }
-        public static int GetNumberOfDeniedOrder(int id)
-        {
-            using (var cnn = new SQLiteConnection(LoadConnectionString()))
-            {
-                string stm = "SELECT COUNT(*) FROM Orders WHERE status = -1 AND technicianID = " + id.ToString();
-                Int64 count = (Int64)cnn.ExecuteScalar(stm);
-                int result = Convert.ToInt32(count);
-                return result;
-            }
-        }
+
 
     }
 }

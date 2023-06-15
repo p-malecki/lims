@@ -33,12 +33,13 @@ namespace SE_project.controllers
             return (toAccept, completed);
         }
         
-        internal static (int, int) GetTechnicianStats(int id)
+        internal static (int, int, int) GetTechnicianStats(int id)
         {
+            int filled = _toFillOrderList.Count(o => o.TechnicianID == id);
             int completed = _completedOrderList.Count(o => o.TechnicianID == id);
             int denied = _deniedOrderList.Count(o => o.TechnicianID == id);
 
-            return (completed, denied);
+            return (filled, completed, denied);
         }
 
         public static void changeFromAcceptedToFill(int orderId)
@@ -54,13 +55,12 @@ namespace SE_project.controllers
                 }
             }
         }
-        public static void changeFromAcceptedToDenied(int orderId, int technicianID)
+        public static void changeFromAcceptedToDenied(int orderId)
         {
             foreach (Order order in _toAcceptOrderList)
             {
                 if (order.ID == orderId)
                 {
-                    order.TechnicianID = technicianID;
                     order.Status = -1;
                     _deniedOrderList.Add(order);
                     _toAcceptOrderList.Remove(order);

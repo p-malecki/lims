@@ -21,12 +21,8 @@ namespace SE_project.Views.User_controls
 
             lbName.Text = TestManagement.getClientTestName(test);
             lbResult.Text = test.Result + " " + TestManagement.getClientTestUnitStringAbbrev(test);
-            try
-            {
-                if (decimal.Parse(test.Result) < min || decimal.Parse(test.Result) > max)
-                    lbResult.ForeColor = Color.Red;
-            }
-            catch { }
+            if (decimal.Parse(test.Result) < min || decimal.Parse(test.Result) > max)
+                lbResult.ForeColor = Color.Red;
 
 
             if (min != 0 && max != 0)

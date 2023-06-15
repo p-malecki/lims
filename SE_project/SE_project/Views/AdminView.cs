@@ -19,7 +19,6 @@ namespace SE_project
         {
             InitializeComponent();
             List<FlowLayoutPanel> flpList = new List<FlowLayoutPanel>() { flowLayoutPanel1, flowLayoutPanel2 };
-            OrderManagement.Initialize();
             TestManagement.Initialize(flpList);
 
             TestManagement.LoadTestLists();
