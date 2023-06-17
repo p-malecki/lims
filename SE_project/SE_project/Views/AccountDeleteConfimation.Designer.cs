@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountDeleteConfimation));
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
+            txtbEmail = new TextBox();
+            txtbLogin = new TextBox();
+            txtbPassword = new TextBox();
+            btnConfirm = new Button();
+            btnCancel = new Button();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -41,52 +41,52 @@
             label5 = new Label();
             SuspendLayout();
             // 
-            // textBox1
+            // txtbEmail
             // 
-            textBox1.Location = new Point(307, 156);
-            textBox1.Margin = new Padding(4, 5, 4, 5);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(224, 31);
-            textBox1.TabIndex = 0;
+            txtbEmail.Location = new Point(307, 156);
+            txtbEmail.Margin = new Padding(4, 5, 4, 5);
+            txtbEmail.Name = "txtbEmail";
+            txtbEmail.Size = new Size(224, 31);
+            txtbEmail.TabIndex = 0;
             // 
-            // textBox2
+            // txtbLogin
             // 
-            textBox2.Location = new Point(307, 204);
-            textBox2.Margin = new Padding(4, 5, 4, 5);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(224, 31);
-            textBox2.TabIndex = 1;
+            txtbLogin.Location = new Point(307, 204);
+            txtbLogin.Margin = new Padding(4, 5, 4, 5);
+            txtbLogin.Name = "txtbLogin";
+            txtbLogin.Size = new Size(224, 31);
+            txtbLogin.TabIndex = 1;
             // 
-            // textBox3
+            // txtbPassword
             // 
-            textBox3.Location = new Point(307, 252);
-            textBox3.Margin = new Padding(4, 5, 4, 5);
-            textBox3.Name = "textBox3";
-            textBox3.PasswordChar = '*';
-            textBox3.Size = new Size(224, 31);
-            textBox3.TabIndex = 2;
+            txtbPassword.Location = new Point(307, 252);
+            txtbPassword.Margin = new Padding(4, 5, 4, 5);
+            txtbPassword.Name = "txtbPassword";
+            txtbPassword.PasswordChar = '*';
+            txtbPassword.Size = new Size(224, 31);
+            txtbPassword.TabIndex = 2;
             // 
-            // button1
+            // btnConfirm
             // 
-            button1.Location = new Point(134, 319);
-            button1.Margin = new Padding(4, 5, 4, 5);
-            button1.Name = "button1";
-            button1.Size = new Size(169, 48);
-            button1.TabIndex = 3;
-            button1.Text = "Potwierdź";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnConfirm.Location = new Point(134, 319);
+            btnConfirm.Margin = new Padding(4, 5, 4, 5);
+            btnConfirm.Name = "btnConfirm";
+            btnConfirm.Size = new Size(169, 48);
+            btnConfirm.TabIndex = 3;
+            btnConfirm.Text = "Potwierdź";
+            btnConfirm.UseVisualStyleBackColor = true;
+            btnConfirm.Click += btnConfirm_Click;
             // 
-            // button2
+            // btnCancel
             // 
-            button2.Location = new Point(339, 319);
-            button2.Margin = new Padding(4, 5, 4, 5);
-            button2.Name = "button2";
-            button2.Size = new Size(169, 48);
-            button2.TabIndex = 4;
-            button2.Text = "Anuluj";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnCancel.Location = new Point(339, 319);
+            btnCancel.Margin = new Padding(4, 5, 4, 5);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(169, 48);
+            btnCancel.TabIndex = 4;
+            btnCancel.Text = "Anuluj";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // label1
             // 
@@ -154,11 +154,11 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(btnCancel);
+            Controls.Add(btnConfirm);
+            Controls.Add(txtbPassword);
+            Controls.Add(txtbLogin);
+            Controls.Add(txtbEmail);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 5, 4, 5);
             Name = "AccountDeleteConfimation";
@@ -170,11 +170,11 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private Button button1;
-        private Button button2;
+        private TextBox txtbEmail;
+        private TextBox txtbLogin;
+        private TextBox txtbPassword;
+        private Button btnConfirm;
+        private Button btnCancel;
         private Label label1;
         private Label label2;
         private Label label3;

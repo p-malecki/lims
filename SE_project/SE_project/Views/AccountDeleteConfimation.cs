@@ -12,41 +12,39 @@ namespace SE_project
 {
     public partial class AccountDeleteConfimation : Form
     {
-        public AccountDeleteConfimation()
+
+        private Client _currentUser;
+
+        public Client CurrentUser { get => _currentUser; set => _currentUser = value; }
+
+        public AccountDeleteConfimation(Client currentUser)
         {
             InitializeComponent();
+            CurrentUser = currentUser;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
-            Client currentUser = new Client(1, "john123", "pass123", "John", "Doe", new DateTime(1990, 5, 10), "example@gmail.com", "1234567890", "New York");
+            
 
-            if (textBox1.Text.Equals(currentUser.Email))
-            {
-                if (textBox2.Text.Equals(currentUser.Login))
-                {
-                    if (textBox3.Text.Equals(currentUser.Password))
+            if (txtbEmail.Text.Equals(CurrentUser.Email))
+                if (txtbLogin.Text.Equals(CurrentUser.Login))
+                    if (txtbPassword.Text.Equals(CurrentUser.Password))
                     {
-
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
                     }
                     else
-                    {
                         MessageBox.Show("Niepoprawne hasło", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
                 else
-                {
                     MessageBox.Show("Niepoprawny login", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
             else
-            {
                 MessageBox.Show("Niepoprawny adres e-mail", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }

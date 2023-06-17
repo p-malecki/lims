@@ -63,7 +63,7 @@ namespace SE_project
 
         private void LoadClientData()
         {
-            lbLogin.Text = activeClient.Name;
+            lbLogin.Text = activeClient.Login;
             lbEmail.Text = activeClient.Email;
             lbName.Text = activeClient.Name;
             lbSurname.Text = activeClient.Surname;
@@ -339,17 +339,15 @@ namespace SE_project
 
         private void btnUserAccountDelete_Click(object sender, EventArgs e)
         {
-            using (var popupForm = new AccountDeleteConfimation())
+            using (var popupForm = new AccountDeleteConfimation(activeClient))
             {
                 var result = popupForm.ShowDialog();
-
                 if (result == DialogResult.OK)
                 {
                     UserManagement.ChangeAccountStatus(activeClient.ID, activeClient.Type);
-                    this.Close();
                     UserManagement.LogOutUser();
+                    this.Close();
                 }
-
             }
         }
 
