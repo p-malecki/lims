@@ -188,7 +188,7 @@ namespace SE_project.controllers
         {
             using (var cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                string stm = "SELECT COUNT(*) FROM Orders WHERE status = 3 AND technicianID = " + id.ToString();
+                string stm = "SELECT COUNT(*) FROM Orders WHERE status = -1 AND technicianID = " + id.ToString();
                 Int64 count = (Int64)cnn.ExecuteScalar(stm);
                 int result = Convert.ToInt32(count);
                 return result;
@@ -268,7 +268,9 @@ namespace SE_project.controllers
             {
                 string fields = "testID, name, status, type, description, minimumNorm, maximumNorm, unit, price";
                 string data = string.Format("{0},'{1}',{2},'{3}','{4}',{5},{6},{7},{8}", 
-                    t.ID, t.Name, t.Status ? 1:0, t.Type, t.Description, t.Min, t.Max, t.Unit, t.Price);
+                    t.ID, t.Name, t.Status ? 1:0, t.Type, t.Description, t.Min.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture), 
+                    t.Max.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture), t.Unit,
+                    t.Price.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture));
                 
                 string insertSql = "INSERT INTO Tests ({0}) Values ({1});";
                 var affectedRow = cnn.Execute(string.Format(insertSql, fields, data));
@@ -280,7 +282,8 @@ namespace SE_project.controllers
         {
             using (var cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                string insertSql = "INSERT INTO Orders (orderID, status, date, clientID, technicianID) Values (" + o.ID.ToString() + "," + o.Status.ToString() + ",'" + o.Date.ToString() + "'," + o.ClientID.ToString() + "," + o.TechnicianID.ToString() + ")";
+                string insertSql = "INSERT INTO Orders (orderID, status, date, clientID, technicianID) Values (" + o.ID.ToString() 
+                    + "," + o.Status.ToString() + ",'" + o.Date.ToString() + "'," + o.ClientID.ToString() + "," + o.TechnicianID.ToString() + ")";
                 var affectedRow = cnn.Execute(insertSql);
             }
         }
@@ -291,7 +294,8 @@ namespace SE_project.controllers
             {
                 foreach (ClientTest ct in clientTests)
                 {
-                    string insertSql = "INSERT INTO ClientTest (clientTestID, status, orderID, testID, result) Values (" + ct.ID.ToString() + "," + ((ct.Status) ? 1 : 0).ToString() + "," + ct.OrderID.ToString() + "," + ct.TestID.ToString() + ",\"\")";
+                    string insertSql = "INSERT INTO ClientTest (clientTestID, status, orderID, testID, result) Values (" 
+                        + ct.ID.ToString() + "," + ((ct.Status) ? 1 : 0).ToString() + "," + ct.OrderID.ToString() + "," + ct.TestID.ToString() + ",\"\")";
                     var affectedRow = cnn.Execute(insertSql);
                 }
             }
@@ -307,7 +311,6 @@ namespace SE_project.controllers
                 foreach (var c in typeData)
                 {
                     id = Convert.ToInt32(c.clientTestID);
-
                 }
                 return id + 1;
             }
@@ -506,7 +509,7 @@ namespace SE_project.controllers
         {
             using (var cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                string insertSql = "UPDATE Orders SET status = " + newStatus.ToString() + " WHERE orderID = " + orderId.ToString();
+                string insertSql = string.Format("UPDATE Orders SET status = {0}  WHERE orderID = {1}", newStatus, orderId);
                 var affectedRow = cnn.Execute(insertSql);
             }
         }
@@ -515,7 +518,7 @@ namespace SE_project.controllers
         {
             using (var cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                string insertSql = "UPDATE Orders SET technicianID = " + id.ToString() + " WHERE orderID = " + orderId.ToString();
+                string insertSql = string.Format("UPDATE Orders SET technicianID = {0}  WHERE orderID = {1}", id, orderId);
                 var affectedRow = cnn.Execute(insertSql);
             }
         }
@@ -524,7 +527,8 @@ namespace SE_project.controllers
         {
             using (var cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                string insertSql = "UPDATE ClientTest SET result = " + result + " WHERE clientTestID = " + clientTestId.ToString();
+                
+                string insertSql = string.Format("UPDATE ClientTest SET result = '{0}'  WHERE clientTestID = {1}", result, clientTestId);
                 var affectedRow = cnn.Execute(insertSql);
             }
         }
@@ -533,7 +537,7 @@ namespace SE_project.controllers
         {
             using (var cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                string insertSql = "UPDATE ClientTest SET status = 1 WHERE clientTestID = " + clientTestId.ToString();
+                string insertSql = string.Format("UPDATE ClientTest SET status = 1  WHERE clientTestID = {0}", clientTestId);
                 var affectedRow = cnn.Execute(insertSql);
             }
         }
@@ -542,8 +546,6 @@ namespace SE_project.controllers
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
-
-
 
     }
 }

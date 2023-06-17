@@ -114,7 +114,7 @@ namespace SE_project
                 SelectedTest = listTests[selectedCategoryTestsIndex];
                 lbToAcceptTestID.Text = SelectedTest.ID.ToString();
                 lbToAcceptTestName.Text = SelectedTest.Name;
-                lbToAcceptTestType.Text = SelectedTest.Type.ToString();
+                lbToAcceptTestType.Text = SelectedTest.GetUnitStringAbbrev();
             }
             else
             {
@@ -130,15 +130,15 @@ namespace SE_project
             {
                 if (OrderManagement.toAcceptOrderList.Count > 0)
                 {
-                    DatabaseManagement.UpdateOrderStatus(SelectedOrder.ID, 1);
-                    DatabaseManagement.UpdateOrderTechnician(SelectedOrder.ID, activeUser.ID);
                     SelectedOrder.Status = 1;
+                    SelectedOrder.TechnicianID = activeUser.ID;
                     OrderManagement.toAcceptOrderList.Remove(SelectedOrder);
                     OrderManagement.toFillOrderList.Add(SelectedOrder);
+                    DatabaseManagement.UpdateOrderStatus(SelectedOrder.ID, 1);
+                    DatabaseManagement.UpdateOrderTechnician(SelectedOrder.ID, activeUser.ID);
                     listbxToAcceptOrders.Items.Remove(SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
                     sortlistbox(listbxToFillOrders, SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
                 }
-
                 MessageBox.Show("Zaakceptowano zamówienie!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -153,9 +153,11 @@ namespace SE_project
                 if (OrderManagement.toAcceptOrderList.Count > 0)
                 {
                     SelectedOrder.Status = -1;
+                    SelectedOrder.TechnicianID = activeUser.ID;
                     OrderManagement.toAcceptOrderList.Remove(SelectedOrder);
                     OrderManagement.deniedOrderList.Add(SelectedOrder);
                     DatabaseManagement.UpdateOrderStatus(SelectedOrder.ID, -1);
+                    DatabaseManagement.UpdateOrderTechnician(SelectedOrder.ID, activeUser.ID);
                     listbxToAcceptOrders.Items.Remove(SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
                 }
                 MessageBox.Show("Odrzucono zamówienie!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -211,7 +213,7 @@ namespace SE_project
                     SelectedTest = listTests[selectedCategoryTestsIndex];
                     lbToFillTestID.Text = SelectedTest.ID.ToString();
                     lbToFillTestName.Text = SelectedTest.Name;
-                    lbToFillTestType.Text = SelectedTest.Type.ToString();
+                    lbToFillTestType.Text = SelectedTest.GetUnitStringAbbrev();
                     lbToFillTestMin.Text = SelectedTest.Min.ToString();
                     lbToFillTestMax.Text = SelectedTest.Max.ToString();
                     lbToFillUnits.Text = SelectedTest.GetUnitStringAbbrev();
@@ -232,15 +234,17 @@ namespace SE_project
         {
             if (listbxToFillTests.SelectedIndex >= 0)
             {
-                if (textBox5.Text.Length > 0)
+                if (txtbTestResult.Text.Length > 0)
                 {
                     foreach (ClientTest c in SelectedOrder.Tests)
                     {
                         if (c.TestID.Equals(SelectedTest.ID))
                         {
-                            c.Result = textBox5.Text;
-                            DatabaseManagement.ChangeClientTestResult(c.TestID, textBox5.Text);
-                            DatabaseManagement.ChangeClientTestStatusToFilled(c.TestID);
+                            c.Result = txtbTestResult.Text;
+                            c.Status = true;
+                            DatabaseManagement.ChangeClientTestResult(c.ID, txtbTestResult.Text);
+                            DatabaseManagement.ChangeClientTestStatusToFilled(c.ID);
+                            txtbTestResult.Text = "";
                             break;
                         }
                     }
@@ -257,7 +261,7 @@ namespace SE_project
                         }
 
                         MessageBox.Show("Zatwierdzono wynik!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        textBox5.Text = "";
+                        txtbTestResult.Text = "";
 
                     }
                     else
@@ -266,8 +270,8 @@ namespace SE_project
                         {
                             if (c.TestID.Equals(SelectedTest.ID))
                             {
-                                c.Result = textBox5.Text;
-                                DatabaseManagement.ChangeClientTestResult(c.TestID, textBox5.Text);
+                                c.Result = txtbTestResult.Text;
+                                DatabaseManagement.ChangeClientTestResult(c.TestID, txtbTestResult.Text);
                                 DatabaseManagement.ChangeClientTestStatusToFilled(c.TestID);
                                 break;
                             }
@@ -277,7 +281,7 @@ namespace SE_project
                         listbxToFillOrders.Items.Remove(SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
                         sortlistbox(listbxCompletedOrders, SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
 
-                        DatabaseManagement.ChangeClientTestResult(SelectedTest.ID, textBox5.Text);
+                        DatabaseManagement.ChangeClientTestResult(SelectedTest.ID, txtbTestResult.Text);
                         DatabaseManagement.ChangeClientTestStatusToFilled(SelectedTest.ID);
                         DatabaseManagement.UpdateOrderStatus(SelectedOrder.ID, 2);
 
@@ -296,7 +300,7 @@ namespace SE_project
             }
         }
 
-        private void listBox5_SelectedIndexChanged(object sender, EventArgs e)
+        private void CompletedOrders_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             listbxCompletedTests.Items.Clear();
@@ -330,7 +334,7 @@ namespace SE_project
             }
         }
 
-        private void listBox6_SelectedIndexChanged(object sender, EventArgs e)
+        private void LoadSelectedTestFromList()
         {
             if (listbxCompletedTests.SelectedIndex >= 0)
             {
@@ -361,26 +365,29 @@ namespace SE_project
             }
         }
 
+        private void CompletedTests_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadSelectedTestFromList();
+        }
+
         private void btnConfirmResultEdit_Click(object sender, EventArgs e)
         {
             if (listbxCompletedOrders.SelectedIndex >= 0)
             {
-                if (textBox1.Text.Length > 0)
+                if (txtbTestUpdatedResult.Text.Length > 0)
                 {
-
-                    DatabaseManagement.ChangeClientTestResult(SelectedTest.ID, textBox1.Text);
-
-                    MessageBox.Show("Edytowano wynik!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     foreach (ClientTest c in SelectedOrder.Tests)
                     {
                         if (c.TestID.Equals(SelectedTest.ID))
                         {
-                            c.Result = textBox1.Text;
+                            c.Result = txtbTestUpdatedResult.Text;
+                            DatabaseManagement.ChangeClientTestResult(c.ID, txtbTestUpdatedResult.Text);
+                            LoadSelectedTestFromList();
                             break;
                         }
                     }
-                    lbCompletedResult.Text = textBox1.Text;
-                    textBox5.Text = "";
+                    txtbTestUpdatedResult.Text = "";
+                    MessageBox.Show("Edytowano wynik!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {

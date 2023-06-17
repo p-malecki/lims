@@ -109,7 +109,8 @@ public class Test {
     }
     public string GetUnitStringAbbrev()
     {
-        return _units[Unit].Item2;
+        var u = _units[Unit].Item2;
+        return (u == "-") ? "" : u;
     }
 
     public string GetTestTypeString()
