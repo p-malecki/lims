@@ -70,14 +70,18 @@ namespace SE_project.controllers
             return true;
         }
 
-        public static void RemoveTest(int id)
+        public static bool RemoveTest(int id)
         {
+            if (OrderManagement.isTestInUncompletedOrder(id) == true) return false;
+
             var elem = _testList.Find(t => t.ID == id);
             if (elem != null)
             {
                 elem.Status = false;
                 DatabaseManagement.ChangeTestStatus(elem.ID, 0);
             }
+
+            return true;
         }
         
         public static void LoadTestLists()

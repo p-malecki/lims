@@ -122,7 +122,7 @@
             tabPage3.Margin = new Padding(1, 2, 1, 2);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(1, 2, 1, 2);
-            tabPage3.Size = new Size(1305, 840);
+            tabPage3.Size = new Size(1378, 840);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Konto";
             tabPage3.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@
             // 
             groupBox3.Controls.Add(lbStats2);
             groupBox3.Controls.Add(lbStats1);
-            groupBox3.Location = new Point(39, 498);
+            groupBox3.Location = new Point(71, 524);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(656, 195);
             groupBox3.TabIndex = 3;
@@ -161,11 +161,11 @@
             groupBox2.Controls.Add(groupBox4);
             groupBox2.Controls.Add(groupBox5);
             groupBox2.Controls.Add(btnUserAccountDelete);
-            groupBox2.Location = new Point(699, 77);
+            groupBox2.Location = new Point(775, 77);
             groupBox2.Margin = new Padding(1, 2, 1, 2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(1, 2, 1, 2);
-            groupBox2.Size = new Size(541, 617);
+            groupBox2.Size = new Size(541, 668);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Zmień dane";
@@ -177,7 +177,7 @@
             groupBox4.Controls.Add(label15);
             groupBox4.Controls.Add(txtbNewEmailConfirm);
             groupBox4.Controls.Add(txtbNewEmail);
-            groupBox4.Location = new Point(30, 25);
+            groupBox4.Location = new Point(33, 58);
             groupBox4.Margin = new Padding(1, 2, 1, 2);
             groupBox4.Name = "groupBox4";
             groupBox4.Padding = new Padding(1, 2, 1, 2);
@@ -240,7 +240,7 @@
             groupBox5.Controls.Add(label20);
             groupBox5.Controls.Add(txtbNewPasswordConfirm);
             groupBox5.Controls.Add(txtbNewPassword);
-            groupBox5.Location = new Point(30, 253);
+            groupBox5.Location = new Point(33, 311);
             groupBox5.Margin = new Padding(1, 2, 1, 2);
             groupBox5.Name = "groupBox5";
             groupBox5.Padding = new Padding(1, 2, 1, 2);
@@ -301,9 +301,9 @@
             // btnUserAccountDelete
             // 
             btnUserAccountDelete.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnUserAccountDelete.Location = new Point(176, 492);
+            btnUserAccountDelete.Location = new Point(180, 579);
             btnUserAccountDelete.Name = "btnUserAccountDelete";
-            btnUserAccountDelete.Size = new Size(206, 78);
+            btnUserAccountDelete.Size = new Size(206, 47);
             btnUserAccountDelete.TabIndex = 3;
             btnUserAccountDelete.Text = "Usuń konto";
             btnUserAccountDelete.UseVisualStyleBackColor = true;
@@ -327,7 +327,7 @@
             groupBox1.Controls.Add(lbName);
             groupBox1.Controls.Add(lbLogin);
             groupBox1.Controls.Add(lbEmail);
-            groupBox1.Location = new Point(39, 77);
+            groupBox1.Location = new Point(70, 78);
             groupBox1.Margin = new Padding(1, 2, 1, 2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(1, 2, 1, 2);
@@ -507,7 +507,7 @@
             // btnUserLogOut
             // 
             btnUserLogOut.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            btnUserLogOut.Location = new Point(1147, 20);
+            btnUserLogOut.Location = new Point(1222, 19);
             btnUserLogOut.Name = "btnUserLogOut";
             btnUserLogOut.Size = new Size(124, 42);
             btnUserLogOut.TabIndex = 2;
@@ -524,7 +524,7 @@
             tabPage2.Margin = new Padding(1, 2, 1, 2);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(1, 2, 1, 2);
-            tabPage2.Size = new Size(1305, 840);
+            tabPage2.Size = new Size(1378, 840);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Zamawianie";
             tabPage2.UseVisualStyleBackColor = true;
@@ -540,7 +540,7 @@
             groupBox10.Controls.Add(label2);
             groupBox10.Controls.Add(btnOrder);
             groupBox10.Controls.Add(monthCalendar);
-            groupBox10.Location = new Point(650, 433);
+            groupBox10.Location = new Point(722, 432);
             groupBox10.Name = "groupBox10";
             groupBox10.Size = new Size(617, 403);
             groupBox10.TabIndex = 15;
@@ -653,7 +653,7 @@
             groupBox9.Controls.Add(lbCategory);
             groupBox9.Controls.Add(lbConstPrice);
             groupBox9.Controls.Add(lbConstCategory);
-            groupBox9.Location = new Point(650, 13);
+            groupBox9.Location = new Point(722, 12);
             groupBox9.Margin = new Padding(1, 2, 1, 2);
             groupBox9.Name = "groupBox9";
             groupBox9.Padding = new Padding(1, 2, 1, 2);
@@ -727,7 +727,7 @@
             groupBox8.Controls.Add(lbConstCategories);
             groupBox8.Controls.Add(txtbxSearch);
             groupBox8.Controls.Add(chlbTestsList);
-            groupBox8.Location = new Point(4, 13);
+            groupBox8.Location = new Point(35, 13);
             groupBox8.Margin = new Padding(1, 2, 1, 2);
             groupBox8.Name = "groupBox8";
             groupBox8.Padding = new Padding(1, 2, 1, 2);
@@ -798,10 +798,10 @@
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.AutoScroll = true;
-            flowLayoutPanel2.Location = new Point(7, 37);
+            flowLayoutPanel2.Location = new Point(10, 37);
             flowLayoutPanel2.Margin = new Padding(4, 5, 4, 5);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(626, 787);
+            flowLayoutPanel2.Size = new Size(655, 775);
             flowLayoutPanel2.TabIndex = 0;
             // 
             // groupBox6
@@ -822,7 +822,7 @@
             tabControl1.Margin = new Padding(1, 2, 1, 2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1313, 878);
+            tabControl1.Size = new Size(1386, 878);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -833,7 +833,7 @@
             tabPage1.Margin = new Padding(1, 2, 1, 2);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(1, 2, 1, 2);
-            tabPage1.Size = new Size(1305, 840);
+            tabPage1.Size = new Size(1378, 840);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Przegląd badań";
             tabPage1.UseVisualStyleBackColor = true;
@@ -843,7 +843,7 @@
             groupBox12.Controls.Add(flowLayoutPanel1);
             groupBox12.Location = new Point(7, 3);
             groupBox12.Name = "groupBox12";
-            groupBox12.Size = new Size(649, 832);
+            groupBox12.Size = new Size(684, 832);
             groupBox12.TabIndex = 2;
             groupBox12.TabStop = false;
             groupBox12.Text = "Oczekujące";
@@ -853,15 +853,15 @@
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Location = new Point(13, 37);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(630, 790);
+            flowLayoutPanel1.Size = new Size(665, 775);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // groupBox11
             // 
             groupBox11.Controls.Add(flowLayoutPanel2);
-            groupBox11.Location = new Point(660, 3);
+            groupBox11.Location = new Point(697, 3);
             groupBox11.Name = "groupBox11";
-            groupBox11.Size = new Size(639, 832);
+            groupBox11.Size = new Size(677, 832);
             groupBox11.TabIndex = 1;
             groupBox11.TabStop = false;
             groupBox11.Text = "Zrealizowane";
@@ -870,7 +870,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1313, 878);
+            ClientSize = new Size(1386, 878);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");

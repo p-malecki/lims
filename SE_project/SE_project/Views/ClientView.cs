@@ -79,6 +79,11 @@ namespace SE_project
             lbAddress.Text = activeClient.Residence;
             lbPhoneNum.Text = activeClient.PhoneNumber;
 
+            LoadClientsStats();
+        }
+
+        private void LoadClientsStats()
+        {
             var (toAccept, completed) = OrderManagement.GetClientStats(activeClient.ID);
             lbStats1.Text = string.Format("zamówienia oczekujące na zatwierdzenie: {0}", toAccept.ToString());
             lbStats2.Text = string.Format("zamówienia zakończone: {0}", completed.ToString());
@@ -243,7 +248,7 @@ namespace SE_project
             {
                 if (monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Saturday && monthCalendar.SelectionStart.DayOfWeek != DayOfWeek.Sunday)
                 {
-                    if (DatabaseManagement.isNotOrderedTwice(activeClient.ID ,selectedDate))
+                    if (DatabaseManagement.isNotOrderedTwice(activeClient.ID, selectedDate))
                     {
                         List<Test> orderedTests = new List<Test>();
 
@@ -278,7 +283,7 @@ namespace SE_project
                         DatabaseManagement.InsertNewOrderClientTests(clientOrderedTests);
 
                         MessageBox.Show("Udało ci się złożyć zamówienie!\nSzczegóły w zakłace \"Zamówienia\"", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        LoadClientsStats();
                         OrderViewDefaultLook();
                     }
                     else
@@ -301,6 +306,7 @@ namespace SE_project
                         {
                             DatabaseManagement.ChangeUserEmail(activeClient.ID, txtbNewEmail.Text);
                             UserManagement.ChangeAccountEmail(activeClient.ID, txtbNewEmail.Text);
+                            LoadClientData();
                             MessageBox.Show("Twój aders e-mail został zmieniony!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else

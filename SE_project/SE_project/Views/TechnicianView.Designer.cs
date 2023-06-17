@@ -1016,8 +1016,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1094, 879);
             Controls.Add(tabControl1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2, 4, 2, 4);
+            MaximizeBox = false;
             Name = "TechnicianView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LIS Technik";

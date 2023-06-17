@@ -266,26 +266,11 @@ namespace SE_project
                     }
                     else
                     {
-                        foreach (ClientTest c in SelectedOrder.Tests)
-                        {
-                            if (c.TestID.Equals(SelectedTest.ID))
-                            {
-                                c.Result = txtbTestResult.Text;
-                                DatabaseManagement.ChangeClientTestResult(c.TestID, txtbTestResult.Text);
-                                DatabaseManagement.ChangeClientTestStatusToFilled(c.TestID);
-                                break;
-                            }
-                        }
                         OrderManagement.toFillOrderList.Remove(SelectedOrder);
                         OrderManagement.completedOrderList.Add(SelectedOrder);
                         listbxToFillOrders.Items.Remove(SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
                         sortlistbox(listbxCompletedOrders, SelectedOrder.ID.ToString() + " " + SelectedOrder.Date.ToString());
-
-                        DatabaseManagement.ChangeClientTestResult(SelectedTest.ID, txtbTestResult.Text);
-                        DatabaseManagement.ChangeClientTestStatusToFilled(SelectedTest.ID);
                         DatabaseManagement.UpdateOrderStatus(SelectedOrder.ID, 2);
-
-
                         MessageBox.Show("Zamówienie zrealizowane!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }

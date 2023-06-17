@@ -26,9 +26,17 @@ namespace SE_project
 
         private void btnTestDelete_Click(object sender, EventArgs e)
         {
-            TestManagement.RemoveTest(Int32.Parse(testID.Text.Substring(4)));
-            TestManagement.LoadTestLists();
-            MessageBox.Show("Usunięto badanie.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (TestManagement.RemoveTest(Int32.Parse(testID.Text.Substring(4))) == true)
+            {
+                TestManagement.LoadTestLists();
+                MessageBox.Show("Usunięto badanie.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Nie można usunąc badania, ponieważ nie wszyskie zamówienia zawierające to badanie zostały zrealizowane",
+                    "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
     }
 }

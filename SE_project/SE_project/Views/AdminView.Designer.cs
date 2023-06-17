@@ -653,11 +653,11 @@
             groupBox7.Controls.Add(lbStat3AccountData);
             groupBox7.Controls.Add(lbStat2AccountData);
             groupBox7.Controls.Add(lbStat1AccountData);
-            groupBox7.Location = new Point(412, 268);
+            groupBox7.Location = new Point(412, 275);
             groupBox7.Margin = new Padding(2, 3, 2, 3);
             groupBox7.Name = "groupBox7";
             groupBox7.Padding = new Padding(2, 3, 2, 3);
-            groupBox7.Size = new Size(386, 148);
+            groupBox7.Size = new Size(386, 149);
             groupBox7.TabIndex = 2;
             groupBox7.TabStop = false;
             groupBox7.Text = "statystyki";
@@ -665,7 +665,7 @@
             // lbStat3AccountData
             // 
             lbStat3AccountData.AutoSize = true;
-            lbStat3AccountData.Location = new Point(58, 106);
+            lbStat3AccountData.Location = new Point(58, 114);
             lbStat3AccountData.Margin = new Padding(2, 0, 2, 0);
             lbStat3AccountData.Name = "lbStat3AccountData";
             lbStat3AccountData.Size = new Size(59, 25);
@@ -675,7 +675,7 @@
             // lbStat2AccountData
             // 
             lbStat2AccountData.AutoSize = true;
-            lbStat2AccountData.Location = new Point(58, 71);
+            lbStat2AccountData.Location = new Point(59, 88);
             lbStat2AccountData.Margin = new Padding(2, 0, 2, 0);
             lbStat2AccountData.Name = "lbStat2AccountData";
             lbStat2AccountData.Size = new Size(59, 25);
@@ -685,7 +685,7 @@
             // lbStat1AccountData
             // 
             lbStat1AccountData.AutoSize = true;
-            lbStat1AccountData.Location = new Point(58, 38);
+            lbStat1AccountData.Location = new Point(58, 27);
             lbStat1AccountData.Margin = new Padding(2, 0, 2, 0);
             lbStat1AccountData.Name = "lbStat1AccountData";
             lbStat1AccountData.Size = new Size(64, 25);

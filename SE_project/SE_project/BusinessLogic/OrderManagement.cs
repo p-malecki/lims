@@ -95,6 +95,19 @@ namespace SE_project.controllers
             }
         }
 
-
+        public static bool isTestInUncompletedOrder(int testId)
+        {
+            foreach (Order order in _toAcceptOrderList)
+            {
+                if (order.Tests.Find(t => t.TestID == testId) != null)
+                    return true;
+            }
+            foreach (Order order in _toFillOrderList)
+            {
+                if (order.Tests.Find(t => t.TestID == testId) != null)
+                    return true;
+            }
+            return false;
+        }
     }
 }

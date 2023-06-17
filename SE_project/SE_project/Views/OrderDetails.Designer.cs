@@ -50,6 +50,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 5, 4, 5);
             Name = "OrderDetails";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Szczegóły zamówienia";
             ResumeLayout(false);
         }
