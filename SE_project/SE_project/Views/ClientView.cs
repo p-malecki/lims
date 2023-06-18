@@ -24,6 +24,10 @@ namespace SE_project
         public List<String> categories = new List<String>();
         public List<String> checkedTests = new List<String>();
 
+        public List<String> selectedNames = new List<String>();
+        private bool isSorted = false;
+        private bool checkLock = false;
+
         public decimal sum = 0;
 
         public ClientView()
@@ -137,11 +141,32 @@ namespace SE_project
             monthCalendar.SelectionEnd = monthCalendar.TodayDate;
         }
 
+        private void checkCheckedTests(List<string> dataSourceList)
+        {
+            checkLock = true;
+
+            for (int i = 0; i < dataSourceList.Count(); i++)
+            {
+                foreach (string checkedTest in checkedTests)
+                {
+                    if (dataSourceList[i].Equals(checkedTest))
+                    {
+                        chlbTestsList.SetItemCheckState(i, CheckState.Checked);
+                        break;
+                    }
+                }
+            }
+
+            checkLock = false;
+        }
+
         private void cbCategorySort_SelectedValueChanged(object sender, EventArgs e)
         {
             if (!cbCategorySort.SelectedValue.Equals("<wszystkie kategorie>"))
             {
-                List<String> selectedNames = new List<String>();
+                isSorted = true;
+
+                selectedNames = new List<String>();
 
                 foreach (Test t in TestManagement.testList)
                 {
@@ -154,12 +179,18 @@ namespace SE_project
                 chlbTestsList.DataSource = null;
                 chlbTestsList.Items.Clear();
                 chlbTestsList.DataSource = selectedNames;
+
+                checkCheckedTests(selectedNames);
             }
             else
             {
+                isSorted = false;
+
                 chlbTestsList.DataSource = null;
                 chlbTestsList.Items.Clear();
                 chlbTestsList.DataSource = names;
+
+                checkCheckedTests(names);
             }
         }
         private void txtbSearch_TextChanged(object sender, EventArgs e)
@@ -191,7 +222,15 @@ namespace SE_project
 
         private void chlbTestsList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            String testName = names[e.Index].ToString();
+            if (checkLock)
+                return;
+
+            String testName;
+
+            if (isSorted)
+                testName = selectedNames[e.Index].ToString();
+            else
+                testName = names[e.Index].ToString();
 
             if (e.NewValue == CheckState.Checked)
             {
